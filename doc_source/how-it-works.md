@@ -19,11 +19,11 @@ Amazon Transcribe has three operations:
 
 Input to an Amazon Transcribe transcription job comes from an object stored in an Amazon S3 bucket\. The input file must be: 
 
-+ In FLAC, MP3, MP4 or WAV file format
++ In FLAC, MP3, MP4, or WAV file format
 
 + Less than 2 hours in length
 
-You must specify the language, format, and sampling rate of the input file\. 
+You must specify the language and format of the input file\. 
 
 For best results, 
 
@@ -40,14 +40,13 @@ When Amazon Transcribe completes a transcription job, it creates a JSON file con
 The following is the JSON file for a short audio file:
 
 ```
-   {
+    {
       "jobName":"job ID",
       "accountId":"account ID",
       "results": {
          "transcripts":[
             {
-               "transcript":" that's no answer",
-               "confidence":1.0
+               "transcript":" that's no answer"  
             }
          ],
          "items":[
@@ -57,9 +56,10 @@ The following is the JSON file for a short audio file:
                "alternatives":[
                   {
                      "confidence":0.84,
-                     "word":"that's"
+                     "content":"that's"
                   }
-               ]
+               ],
+               "type": "pronunciation"
             },
             {
                "start_time":"0.470",
@@ -67,9 +67,10 @@ The following is the JSON file for a short audio file:
                "alternatives":[
                   {
                      "confidence":0.99,
-                     "word":"no"
+                     "content":"no"
                   }
-               ]
+               ],
+               "type": "pronunciation"
             },
             {
                "start_time":"0.710",
@@ -77,9 +78,10 @@ The following is the JSON file for a short audio file:
                "alternatives":[
                   {
                      "confidence":0.874,
-                     "word":"answer"
+                     "content":"answer"
                   }
-               ]
+               ],
+               "type": "pronunciation"
             }
          ]
       },

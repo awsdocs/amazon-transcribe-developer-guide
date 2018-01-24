@@ -1,6 +1,6 @@
 # Step 2: Set up the AWS Command Line Interface \(AWS CLI\)<a name="setup-asc-awscli"></a>
 
-You don't need the AWS CLI to perform the steps in the Getting Started exercises\. However, some of the other exercises in this guide do require it\. If you prefer, you can skip this step and go to [Step 3: Getting Started \(Console\)](getting-started-asc-console.md), and set up the AWS CLI later\. 
+You don't need the AWS CLI to perform the steps in the Getting Started exercises\. However, some of the other exercises in this guide do require it\. If you prefer, you can skip this step and set up the AWS CLI later\. 
 
 **To set up the AWS CLI**
 
@@ -29,4 +29,4 @@ You don't need the AWS CLI to perform the steps in the Getting Started exercises
 
 ## Next Step<a name="setting-up-asc-next-step-3"></a>
 
-[Step 3: Getting Started \(Console\)](getting-started-asc-console.md)
+[Step 3: Getting Started Using the Console](getting-started-asc-console.md)

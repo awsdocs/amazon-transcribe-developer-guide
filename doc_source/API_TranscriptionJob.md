@@ -51,11 +51,11 @@ Required: No
 A name to identify the transcription job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
-Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
+Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
  **TranscriptionJobStatus**   
-The identifier assigned to the job when it was created\.  
+The status of the transcription job\.  
 Type: String  
 Valid Values:` IN_PROGRESS | FAILED | COMPLETED`   
 Required: No

@@ -29,7 +29,7 @@ Required: No
 The name assigned to the transcription job when it was created\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
-Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
+Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
  **TranscriptionJobStatus**   

@@ -1,6 +1,6 @@
 # GetTranscriptionJob<a name="API_GetTranscriptionJob"></a>
 
-Returns information about a transcription job\. To see the status of the job, check the `Status` field\. If the status is `COMPLETE`, the job is finished and you can find the results at the location specified in the `TranscriptionFileUri` field\.
+Returns information about a transcription job\. To see the status of the job, check the `TranscriptionJobStatus` field\. If the status is `COMPLETED`, the job is finished and you can find the results at the location specified in the `TranscriptionFileUri` field\.
 
 ## Request Syntax<a name="API_GetTranscriptionJob_RequestSyntax"></a>
 
@@ -20,7 +20,7 @@ The request accepts the following data in JSON format\.
 The name of the job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
-Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
+Pattern: `^[0-9a-zA-Z._-]+`   
 Required: Yes
 
 ## Response Syntax<a name="API_GetTranscriptionJob_ResponseSyntax"></a>
@@ -66,7 +66,7 @@ HTTP Status Code: 400
 
  **InternalFailureException**   
 There was an internal error\. Check the error message and try your request again\.  
-HTTP Status Code: 400
+HTTP Status Code: 500
 
  **LimitExceededException**   
 Either you have sent too many requests or your input file is longer than 2 hours\. Wait before you resend your request, or use a smaller file and resend the request\.  

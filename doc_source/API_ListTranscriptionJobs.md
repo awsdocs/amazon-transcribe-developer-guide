@@ -85,7 +85,7 @@ HTTP Status Code: 400
 
  **InternalFailureException**   
 There was an internal error\. Check the error message and try your request again\.  
-HTTP Status Code: 400
+HTTP Status Code: 500
 
  **LimitExceededException**   
 Either you have sent too many requests or your input file is longer than 2 hours\. Wait before you resend your request, or use a smaller file and resend the request\.  

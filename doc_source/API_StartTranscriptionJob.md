@@ -43,13 +43,13 @@ Required: Yes
 The sample rate, in Hertz, of the audio track in the input media file\.   
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
-Required: Yes
+Required: No
 
  ** TranscriptionJobName **   
 The name of the job\. The name must be unique within an AWS account\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
-Pattern: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`   
+Pattern: `^[0-9a-zA-Z._-]+`   
 Required: Yes
 
 ## Response Syntax<a name="API_StartTranscriptionJob_ResponseSyntax"></a>
@@ -99,7 +99,7 @@ HTTP Status Code: 400
 
  **InternalFailureException**   
 There was an internal error\. Check the error message and try your request again\.  
-HTTP Status Code: 400
+HTTP Status Code: 500
 
  **LimitExceededException**   
 Either you have sent too many requests or your input file is longer than 2 hours\. Wait before you resend your request, or use a smaller file and resend the request\.  

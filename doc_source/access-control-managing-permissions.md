@@ -51,9 +51,9 @@ The policy enables the user to call all of the Amazon Transcribe operations\.
 
 ## Permissions Required for Audio Transcription<a name="auth-role-permissions"></a>
 
-To use the Amazon Transcribe `StartTranscriptionJob` operation, you must grant Amazon Transcribe access to the Amazon S3 bucket that contains your input speech\. You do this by creating permissions for the Amazon Transcribe service principal in the bucket\.
+To use the Amazon Transcribe `StartTranscriptionJob` operation, you must configure your S3 bucket to allow Amazon Transcribe to access objects\. Do this by adding a statement to the bucket policy of the S3 bucket\.
 
-The following is the permission policy:
+The following is an example S3 bucket policy statement:
 
 ```
 {
@@ -69,4 +69,26 @@ The following is the permission policy:
         }
     ]
 }
+```
+
+## Permissions Required for Amazon S3 Encryption Keys<a name="auth-role-cmk"></a>
+
+If you are using an AWS Key Management Service key to encrypt an Amazon S3 bucket, you need to include the following in the AWS KMS key policy to allow Amazon Transcribe access to the contents of the bucket\. For more information about allowing access to customer master keys, see [ Allowing External AWS Accounts to Access a CMK](http://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS Developer Guide*\.
+
+```
+{
+      "Sid": "Allow-Transcribe",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "transcribe.amazonaws.com”
+      },
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*",
+        "kms:DescribeKey"
+      ],
+      "Resource": "*"
+    }
 ```

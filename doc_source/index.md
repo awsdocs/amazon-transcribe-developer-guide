@@ -1,7 +1,7 @@
 # Amazon Transcribe Developer Guide
 
 -----
-*****Copyright &copy; 2017 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -19,8 +19,10 @@ Amazon's trademarks and trade dress may not be used in
 + [Getting Started with Amazon Transcribe](getting-started.md)
    + [Step 1: Set up an AWS Account and Create an Administrator User](setting-up-asc.md)
    + [Step 2: Set up the AWS Command Line Interface (AWS CLI)](setup-asc-awscli.md)
-   + [Step 3: Getting Started (Console)](getting-started-asc-console.md)
-   + [Step 4: Getting Started (AWS Command Line Interface)](getting-started-asc-api.md)
+   + [Step 3: Getting Started Using the Console](getting-started-asc-console.md)
+   + [Step 4: Getting Started Using the API](getting-started-asc-api.md)
+      + [Getting Started (AWS Command Line Interface)](getting-started-cli.md)
+      + [Getting Started (AWS SDK for Python (Boto))](getting-started-python.md)
 + [Authentication and Access Control for Amazon Transcribe](auth-and-access-control.md)
    + [Overview of Managing Access Permissions to Amazon Transcribe Resources](access-control-overview.md)
    + [Using Identity-based Polices (IAM Policies) for Amazon Transcribe](access-control-managing-permissions.md)

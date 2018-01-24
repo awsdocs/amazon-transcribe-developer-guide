@@ -10,5 +10,5 @@ To get started using Amazon Transcribe, set up an AWS account and create an AWS 
 
 + [Step 1: Set up an AWS Account and Create an Administrator User](setting-up-asc.md)
 + [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)
-+ [Step 3: Getting Started \(Console\)](getting-started-asc-console.md)
-+ [Step 4: Getting Started \(AWS Command Line Interface\)](getting-started-asc-api.md)
++ [Step 3: Getting Started Using the Console](getting-started-asc-console.md)
++ [Step 4: Getting Started Using the API](getting-started-asc-api.md)
