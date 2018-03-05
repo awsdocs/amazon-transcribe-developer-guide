@@ -85,10 +85,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
 1. When the job has the status `COMPLETED`, get the results of the job\. Type the following command:
 
    ```
-   aws transcribe get-transcription-job-results \
-      --endpoint-url endpoint \
-      --region endpoint \
-      --request-id "DocTest-01"
+   aws transcribe get-transcription-job --transcription-job-name "request ID" 
    ```
 
    Amazon Transcribe responds with the following:
