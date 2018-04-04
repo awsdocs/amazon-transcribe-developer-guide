@@ -6,46 +6,56 @@ Starts an asynchronous job to transcribe speech to text\.
 
 ```
 {
-   "LanguageCode": "string",
-   "Media": { 
-      "MediaFileUri": "string"
+   "[LanguageCode](#transcribe-StartTranscriptionJob-request-LanguageCode)": "string",
+   "[Media](#transcribe-StartTranscriptionJob-request-Media)": { 
+      "[MediaFileUri](API_Media.md#transcribe-Type-Media-MediaFileUri)": "string"
    },
-   "MediaFormat": "string",
-   "MediaSampleRateHertz": number,
-   "TranscriptionJobName": "string"
+   "[MediaFormat](#transcribe-StartTranscriptionJob-request-MediaFormat)": "string",
+   "[MediaSampleRateHertz](#transcribe-StartTranscriptionJob-request-MediaSampleRateHertz)": number,
+   "[Settings](#transcribe-StartTranscriptionJob-request-Settings)": { 
+      "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
+      "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
+      "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
+   },
+   "[TranscriptionJobName](#transcribe-StartTranscriptionJob-request-TranscriptionJobName)": "string"
 }
 ```
 
 ## Request Parameters<a name="API_StartTranscriptionJob_RequestParameters"></a>
 
-For information about the parameters that are common to all actions, see Common Parameters\.
+For information about the parameters that are common to all actions, see [Common Parameters](CommonParameters.md)\.
 
 The request accepts the following data in JSON format\.
 
- ** LanguageCode **   
+ ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
 Type: String  
 Valid Values:` en-US | es-US`   
 Required: Yes
 
- ** Media **   
+ ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>
 An object that describes the input media for a transcription job\.  
 Type: [Media](API_Media.md) object  
 Required: Yes
 
- ** MediaFormat **   
+ ** [MediaFormat](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-MediaFormat"></a>
 The format of the input media file\.  
 Type: String  
 Valid Values:` mp3 | mp4 | wav | flac`   
 Required: Yes
 
- ** MediaSampleRateHertz **   
+ ** [MediaSampleRateHertz](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the audio track in the input media file\.   
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No
 
- ** TranscriptionJobName **   
+ ** [Settings](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Settings"></a>
+A `Settings` object that provides optional settings for a transcription job\.  
+Type: [Settings](API_Settings.md) object  
+Required: No
+
+ ** [TranscriptionJobName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-TranscriptionJobName"></a>
 The name of the job\. The name must be unique within an AWS account\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -56,21 +66,26 @@ Required: Yes
 
 ```
 {
-   "TranscriptionJob": { 
-      "CompletionTime": number,
-      "CreationTime": number,
-      "FailureReason": "string",
-      "LanguageCode": "string",
-      "Media": { 
-         "MediaFileUri": "string"
+   "[TranscriptionJob](#transcribe-StartTranscriptionJob-response-TranscriptionJob)": { 
+      "[CompletionTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CompletionTime)": number,
+      "[CreationTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CreationTime)": number,
+      "[FailureReason](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-FailureReason)": "string",
+      "[LanguageCode](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-LanguageCode)": "string",
+      "[Media](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Media)": { 
+         "[MediaFileUri](API_Media.md#transcribe-Type-Media-MediaFileUri)": "string"
       },
-      "MediaFormat": "string",
-      "MediaSampleRateHertz": number,
-      "Transcript": { 
-         "TranscriptFileUri": "string"
+      "[MediaFormat](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaFormat)": "string",
+      "[MediaSampleRateHertz](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaSampleRateHertz)": number,
+      "[Settings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Settings)": { 
+         "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
+         "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
+         "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
       },
-      "TranscriptionJobName": "string",
-      "TranscriptionJobStatus": "string"
+      "[Transcript](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Transcript)": { 
+         "[TranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-TranscriptFileUri)": "string"
+      },
+      "[TranscriptionJobName](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobName)": "string",
+      "[TranscriptionJobStatus](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobStatus)": "string"
    }
 }
 ```
@@ -81,7 +96,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** TranscriptionJob **   
+ ** [TranscriptionJob](#API_StartTranscriptionJob_ResponseSyntax) **   <a name="transcribe-StartTranscriptionJob-response-TranscriptionJob"></a>
 An object containing details of the asynchronous transcription job\.  
 Type: [TranscriptionJob](API_TranscriptionJob.md) object
 
@@ -90,7 +105,7 @@ Type: [TranscriptionJob](API_TranscriptionJob.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-There is a problem with one of the input fields\. Check the S3 bucket name, make sure that the job name is not a duplicate, and confirm that you are using the correct file format\. Then resend your request\.  
+Your request didn't pass one or more validation tests\. For example, a name already exists when createing a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   
@@ -102,7 +117,7 @@ There was an internal error\. Check the error message and try your request again
 HTTP Status Code: 500
 
  **LimitExceededException**   
-Either you have sent too many requests or your input file is longer than 2 hours\. Wait before you resend your request, or use a smaller file and resend the request\.  
+Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_StartTranscriptionJob_SeeAlso"></a>

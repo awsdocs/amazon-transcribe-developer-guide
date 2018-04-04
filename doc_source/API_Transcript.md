@@ -4,7 +4,7 @@ Describes the output of a transcription job\.
 
 ## Contents<a name="API_Transcript_Contents"></a>
 
- **TranscriptFileUri**   
+ **TranscriptFileUri**   <a name="transcribe-Type-Transcript-TranscriptFileUri"></a>
 The S3 location where the transcription result is stored\. Use this URI to access the results of the transcription job\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  

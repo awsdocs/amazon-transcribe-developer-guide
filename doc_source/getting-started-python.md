@@ -4,7 +4,7 @@ In this exercise you create script that uses the SDK for Python to transcribe sp
 
 + Install the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
 
-+ Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. The location must be in the same region as the endpoint that you are calling\. For more information about required permissions, see [Permissions Required for Audio Transcription](access-control-managing-permissions.md#auth-role-permissions)\. This example assumes that the file is in an Amazon S3 bucket named `test-transcribe` and that the file name is `answer2.wav`\.
++ Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. The location must be in the same region as the endpoint that you are calling\. This example assumes that the file is in an Amazon S3 bucket named `test-transcribe` and that the file name is `answer2.wav`\.
 
 ```
 from __future__ import print_function

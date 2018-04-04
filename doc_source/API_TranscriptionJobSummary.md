@@ -4,35 +4,35 @@ Provides a summary of information about a transcription job\.
 
 ## Contents<a name="API_TranscriptionJobSummary_Contents"></a>
 
- **CompletionTime**   
+ **CompletionTime**   <a name="transcribe-Type-TranscriptionJobSummary-CompletionTime"></a>
 Timestamp of the date and time that the job completed\.  
 Type: Timestamp  
 Required: No
 
- **CreationTime**   
+ **CreationTime**   <a name="transcribe-Type-TranscriptionJobSummary-CreationTime"></a>
 Timestamp of the date and time that the job was created\.  
 Type: Timestamp  
 Required: No
 
- **FailureReason**   
+ **FailureReason**   <a name="transcribe-Type-TranscriptionJobSummary-FailureReason"></a>
 If the `TranscriptionJobStatus` field is `FAILED`, this field contains a description of the error\.  
 Type: String  
 Required: No
 
- **LanguageCode**   
+ **LanguageCode**   <a name="transcribe-Type-TranscriptionJobSummary-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
 Valid Values:` en-US | es-US`   
 Required: No
 
- **TranscriptionJobName**   
+ **TranscriptionJobName**   <a name="transcribe-Type-TranscriptionJobSummary-TranscriptionJobName"></a>
 The name assigned to the transcription job when it was created\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
- **TranscriptionJobStatus**   
+ **TranscriptionJobStatus**   <a name="transcribe-Type-TranscriptionJobSummary-TranscriptionJobStatus"></a>
 The status of the transcription job\. When the status is `COMPLETED`, use the `GetTranscriptionJob` operation to get the results of the transcription\.  
 Type: String  
 Valid Values:` IN_PROGRESS | FAILED | COMPLETED`   

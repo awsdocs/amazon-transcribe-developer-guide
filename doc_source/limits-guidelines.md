@@ -1,26 +1,28 @@
-# Beta Guidelines and Limits<a name="limits-guidelines"></a>
+# Guidelines and Limits<a name="limits-guidelines"></a>
 
+## Supported Regions<a name="transcribe-regions"></a>
 
-|  | 
-| --- |
-| This is prerelease documentation for a service in preview release\. It is subject to change\. | 
+For a list of AWS Regions where Amazon Transcribe is available, see [AWS Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *Amazon Web Services General Reference*\.
+
+## Throttling<a name="limits-throttling"></a>
+
+For information about throttling for Amazon Transcribe and to request a limit increase, see [Amazon Transcribe Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_amazon_transcribe) in the *Amazon Web Services General Reference*\.
 
 ## Guidelines<a name="guidelines"></a>
 
-Amazon Transcribe is available in the following region:
-
-
-****  
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html)
-
 For best results:
 
-+ Use a lossless format, such as FLAC or WAV with PCM 16\-bit encoding\.
++ Use a lossless format, such as FLAC or WAV, with PCM 16\-bit encoding\.
 
-+ The sample rate should be 8000 Hz for low\-fidelity audio and 16000 Hz for high\-fidelity audio\.
++ Use a sample rate of 8000 Hz for low\-fidelity audio and 16000 Hz for high\-fidelity audio\.
 
 ## Limits<a name="limits"></a>
 
-The beta release of Amazon Transcribe has the following limitations:
+Amazon Transcribe has the following limitations:
 
-+ The maximum audio file length is 2 hours\.
+
+| Description | Limit | 
+| --- | --- | 
+| Maximum audio file length | 2 hours | 
+| Maximum size of a custom vocabulary | 50 KB | 
+| Maximum of a custom vocabulary phrase | 256 characters | 

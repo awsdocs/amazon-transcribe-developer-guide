@@ -14,7 +14,7 @@ Use the Amazon Transcribe console to create a transcription job for your audio f
 
    + **Transcription job name**—A name for the job\. The name must be unique within your AWS account\.
 
-   + **Amazon S3 input URL**—The Amazon S3 location of your input audio file\. The location must be in the same region as the endpoint that you are calling\. You must grant Amazon Transcribe permission to access the bucket\. For more information, see [Permissions Required for Audio Transcription](access-control-managing-permissions.md#auth-role-permissions)\.
+   + **Amazon S3 input URL**—The Amazon S3 location of your input audio file\. The location must be in the same region as the endpoint that you are calling\. 
 
    + **Language**—Choose the language of your input file\. Amazon Transcribe can transcribe English and Spanish audio files\.
 
@@ -23,8 +23,7 @@ Use the Amazon Transcribe console to create a transcription job for your audio f
    + **Media sampling rate \(Hz\)**—Optional\. The bit sampling rate of the audio file\. Amazon Transcribe accepts sample rates between 8000 Hz and 48000 Hz\. For best results, you should use 8000 Hz for low\-fidelity audio and 16000 for high\-fidelity audio\.
 
    The following shows the **Create Transcription Job** filled out for a sample job\.  
-![\[The Create Transcription Job form filled out for a sample
-                            job\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-10.png)
+![\[The Create Transcription Job form filled out for a sample job\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-10.png)
 
 1. Choose **Create** to submit the job for processing\.
 

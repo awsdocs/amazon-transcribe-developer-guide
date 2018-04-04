@@ -6,7 +6,7 @@ In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to
 
 + Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
 
-+ Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about required permissions, see [Permissions Required for Audio Transcription](access-control-managing-permissions.md#auth-role-permissions)\.
++ Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. 
 
 To transcribe text, you have to provide the input parameters in a JSON file\. 
 
@@ -31,7 +31,6 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
 
    ```
    aws transcribe start-transcription-job \
-        --endpoint-url endpoint \
         --region region \
         --cli-input-json file://test-start-command.json
    ```
@@ -59,7 +58,6 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
 
   ```
   aws transcribe list-transcription-jobs \
-       --endpoint-url endpoint \
        --region region \
        --status IN_PROGRESS
   ```
@@ -85,7 +83,9 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
 1. When the job has the status `COMPLETED`, get the results of the job\. Type the following command:
 
    ```
-   aws transcribe get-transcription-job --transcription-job-name "request ID" 
+   aws transcribe get-transcription-job \
+      --region endpoint \
+      --transcription-job-name "request ID"
    ```
 
    Amazon Transcribe responds with the following:
