@@ -1,4 +1,4 @@
-# Using Identity\-based Polices \(IAM Policies\) for Amazon Transcribe<a name="access-control-managing-permissions"></a>
+# Using Identity\-based Policies \(IAM Policies\) for Amazon Transcribe<a name="access-control-managing-permissions"></a>
 
 The following identity\-based policies demonstrate how an account administrator can attach permissions policies to IAM identities \(users, groups, and roles\) to grant permissions to perform Amazon Transcribe actions\. 
 
@@ -49,14 +49,12 @@ To use the Amazon Transcribe console, you need to grant permissions for the acti
 
 The policy enables the user to call all of the Amazon Transcribe operations\.
 
-## AWS Managed \(Predefined\) Polices for Amazon Transcribe<a name="auth-managed-policies"></a>
+## AWS Managed \(Predefined\) Policies for Amazon Transcribe<a name="auth-managed-policies"></a>
 
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. Managed policies grant necessary permissions for common use cases so you can avoid having to investigate which permissions are needed\. For more information, see [AWS Managed Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
-The following AWS managed polices, which you can attach to users in your account, are specific to Amazon Transcribe:
-
+The following AWS managed policies, which you can attach to users in your account, are specific to Amazon Transcribe:
 + **ReadOnly** — Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.
-
 + **FullAccess** — Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to S3 buckets with "transcribe" in the bucket name\.
 
 **Note**  
