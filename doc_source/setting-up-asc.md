@@ -10,7 +10,7 @@ Before you use Amazon Transcribe for the first time, complete the following task
 
 When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all AWS services, including Amazon Transcribe\. You are charged only for the services that you use\.
 
-With Amazon Transcribe, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com//free/)\.
+With Amazon Transcribe, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
 
 If you already have an AWS account, skip to the next section\. 
 
@@ -41,11 +41,8 @@ The Getting Started exercises in this guide assume that you have a user with adm
 1. Sign in to the AWS Management Console using a special URL\. For more information, see [How Users Sign In to Your Account](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_how-users-sign-in.html) in the *IAM User Guide*\.
 
 For more information about IAM, see the following:
-
 + [AWS Identity and Access Management \(IAM\)](https://aws.amazon.com/iam/)
-
 + [Getting Started](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
-
 + [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/)
 
 ## Next Step<a name="setting-up-asc-next-step-2"></a>

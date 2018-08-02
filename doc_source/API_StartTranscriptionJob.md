@@ -12,7 +12,9 @@ Starts an asynchronous job to transcribe speech to text\.
    },
    "[MediaFormat](#transcribe-StartTranscriptionJob-request-MediaFormat)": "string",
    "[MediaSampleRateHertz](#transcribe-StartTranscriptionJob-request-MediaSampleRateHertz)": number,
+   "[OutputBucketName](#transcribe-StartTranscriptionJob-request-OutputBucketName)": "string",
    "[Settings](#transcribe-StartTranscriptionJob-request-Settings)": { 
+      "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
       "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
       "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
       "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
@@ -50,13 +52,21 @@ Type: Integer
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No
 
+ ** [OutputBucketName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-OutputBucketName"></a>
+The location where the transcription is stored\.  
+If you set the `OutputBucketName`, Amazon Transcribe puts the transcription in the specified S3 bucket\. When you call the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation, the operation returns this location in the `TranscriptFileUri` field\. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket\. For more information, see [Permissions Required for IAM User Roles](https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user)\.  
+If you don't set the `OutputBucketName`, Amazon Transcribe generates a pre\-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the `TranscriptFileUri` field\. Use this URL to download the transcription\.  
+Type: String  
+Pattern: `[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]`   
+Required: No
+
  ** [Settings](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Settings"></a>
 A `Settings` object that provides optional settings for a transcription job\.  
 Type: [Settings](API_Settings.md) object  
 Required: No
 
  ** [TranscriptionJobName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-TranscriptionJobName"></a>
-The name of the job\. The name must be unique within an AWS account\.  
+The name of the job\. You can't use the strings "\." or "\.\." in the job name\. The name must be unique within an AWS account\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -77,6 +87,7 @@ Required: Yes
       "[MediaFormat](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaFormat)": "string",
       "[MediaSampleRateHertz](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaSampleRateHertz)": number,
       "[Settings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Settings)": { 
+         "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
          "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
          "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
          "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
@@ -105,11 +116,12 @@ Type: [TranscriptionJob](API_TranscriptionJob.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, a name already exists when createing a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   
-The `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
+When you are using the `StartTranscriptionJob` operation, the `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
+When you are using the `UpdateVocabulary` operation, there are two jobs running at the same time\. Resend the second request later\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   
@@ -123,21 +135,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_StartTranscriptionJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-
-+  [AWS Command Line Interface](http://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for \.NET](http://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for C\+\+](http://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for Go](http://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for Java](http://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for JavaScript](http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for PHP V3](http://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for Python](http://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob) 
-
-+  [AWS SDK for Ruby V2](http://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-2017-10-26/StartTranscriptionJob) 

@@ -2,7 +2,7 @@
 
 The easiest way to get started with Amazon Transcribe is to submit a job using the console to transcribe an audio file\. If you haven't reviewed the concepts and terminology in [How Amazon Transcribe Works](how-it-works.md), we recommend that you do that before proceeding\.
 
-
+**Topics**
 + [Create a Transcription Job](#console-create-job)
 + [View a Transcription Job](#console-view-job)
 
@@ -11,15 +11,10 @@ The easiest way to get started with Amazon Transcribe is to submit a job using t
 Use the Amazon Transcribe console to create a transcription job for your audio files\.
 
 1. Provide the following information:
-
    + **Transcription job name**—A name for the job\. The name must be unique within your AWS account\.
-
    + **Amazon S3 input URL**—The Amazon S3 location of your input audio file\. The location must be in the same region as the endpoint that you are calling\. 
-
    + **Language**—Choose the language of your input file\. Amazon Transcribe can transcribe English and Spanish audio files\.
-
    + **Format**—The format of the audio file\. For best results you should use a lossless format such as FLAC or WAV with PCM 16\-bit encoding\.
-
    + **Media sampling rate \(Hz\)**—Optional\. The bit sampling rate of the audio file\. Amazon Transcribe accepts sample rates between 8000 Hz and 48000 Hz\. For best results, you should use 8000 Hz for low\-fidelity audio and 16000 for high\-fidelity audio\.
 
    The following shows the **Create Transcription Job** filled out for a sample job\.  

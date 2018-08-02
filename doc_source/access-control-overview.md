@@ -7,7 +7,7 @@ An *account administrator* \(or administrator user\) is a user with administrato
 
 When granting permissions, you decide who is getting the permissions and the actions they get permissions for\.
 
-
+**Topics**
 + [Managing Access to Actions](#access-control-manage-access-intro)
 + [Specifying Policy Elements: Resources, Actions, Effects, and Principals](#access-control-specify-asc-actions)
 + [Specifying Conditions in a Policy](#specifying-conditions)
@@ -19,14 +19,12 @@ A *permissions policy* describes who has access to what\. You have several optio
 **Note**  
 This topic discusses using IAM in the context of Amazon Transcribe\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
-Policies attached to an IAM identity are referred to as *identity\-based* policies \(IAM polices\)\. Policies attached to a resource are referred to as *resource\-based* policies\. Amazon Transcribe supports only identity\-based policies\. 
+Policies attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies attached to a resource are referred to as *resource\-based* policies\. Amazon Transcribe supports only identity\-based policies\. 
 
 ### Identity\-Based Policies \(IAM Policies\)<a name="access-control-manage-access-intro-iam-policies"></a>
 
 You can attach policies to IAM identities\. For example, you can do the following:
-
 + **Attach a permissions policy to a user or a group in your account**—To grant a user or a group of users permissions to call an Amazon Transcribe action, you can attach a permissions policy to a user or group that the user belongs to\.
-
 + **Attach a permissions policy to a role \(grant cross\-account permissions\)**—To grant cross\-account permissions, you can attach an identity\-based permissions policy to an IAM role\. For example, the administrator in Account A can create a role to grant cross\-account permissions to another AWS account \(for example, Account B\) or an AWS service as follows:
 
   1. Account A administrator creates an IAM role and attaches a permissions policy to the role that grants permissions on resources in Account A\.
@@ -37,7 +35,7 @@ You can attach policies to IAM identities\. For example, you can do the followin
 
   For more information about using IAM to delegate permissions, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
-For more information about using identity\-based policies with Amazon Transcribe, see [Using Identity\-based Polices \(IAM Policies\) for Amazon Transcribe](access-control-managing-permissions.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\. 
+For more information about using identity\-based policies with Amazon Transcribe, see [Using Identity\-based Policies \(IAM Policies\) for Amazon Transcribe](access-control-managing-permissions.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\. 
 
 ### Resource\-Based Policies<a name="access-control-manage-access-intro-resource-policies"></a>
 
@@ -48,13 +46,9 @@ Other services, such as AWS Lambda, support resource\-based permissions policies
 Amazon Transcribe defines a set of API operations \(see [Actions](API_Operations.md)\)\. To grant permissions for these API operations, Amazon Transcribe defines a set of actions that you can specify in a policy\. 
 
 The following are the most basic policy elements:
-
 + **Resource**—In a policy, you use an Amazon Resource Name \(ARN\) to identify the resource to which the policy applies\. For Amazon Transcribe, the resource is always `*`\.
-
 + **Action**—You use action keywords to identify operations that you want to allow or deny\. For example, depending on the specified `Effect`, `transcribe:StartTranscriptionJob` either allows or denies the user permissions to perform the Amazon Transcribe `StartTranscriptionJob` operation\.
-
 + **Effect**—You specify the effect of the action that occurs when the user requests the specific action–this can be either allow or deny\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource\. You might do this to make sure that a user cannot access the resource, even if a different policy grants access\.
-
 + **Principal**—In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. 
 
 To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.

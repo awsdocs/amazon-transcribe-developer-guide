@@ -1,9 +1,7 @@
 # Getting Started \(AWS SDK for Python \(Boto\)\)<a name="getting-started-python"></a>
 
 In this exercise you create script that uses the SDK for Python to transcribe speech into text\. To complete this exercise, you need to: 
-
 + Install the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
-
 + Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. The location must be in the same region as the endpoint that you are calling\. This example assumes that the file is in an Amazon S3 bucket named `test-transcribe` and that the file name is `answer2.wav`\.
 
 ```

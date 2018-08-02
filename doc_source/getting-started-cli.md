@@ -1,11 +1,8 @@
 # Getting Started \(AWS Command Line Interface\)<a name="getting-started-cli"></a>
 
 In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to transcribe speech into text\. To complete this exercise, you need to: 
-
 + Have a text editor\.
-
 + Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
-
 + Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. 
 
 To transcribe text, you have to provide the input parameters in a JSON file\. 
@@ -53,7 +50,6 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
 
 **To list transcription jobs**
-
 + Run the following command:
 
   ```
