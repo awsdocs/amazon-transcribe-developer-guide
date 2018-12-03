@@ -54,7 +54,7 @@ Type: String
  ** [LanguageCode](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB` 
 
  ** [LastModifiedTime](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was last modified\.  

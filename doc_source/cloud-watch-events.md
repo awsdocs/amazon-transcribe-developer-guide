@@ -7,7 +7,7 @@ Before using CloudWatch Events, you should understand the following concepts:
 + **Target**—A target is another AWS service that processes an event, for example, AWS Lambda or Amazon Simple Notification Service\. A target receives events in JSON format\. 
 + **Rule**—A rule matches incoming events that you want CloudWatch Events to watch for and routes to a target or targets for processing\. A rule can route an event to multiple targets, all of which process the event in parallel\. A rule can customize the JSON sent to the target\.
 
-For more information about creating and managing CloudWatch Events, see [What is Amazon CloudWatch Events](http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) in the *Amazon CloudWatch User Guide*\.
+For more information about creating and managing CloudWatch Events, see [What is Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) in the *Amazon CloudWatch User Guide*\.
 
 ## Defining CloudWatch Events Rules<a name="defining-rules"></a>
 

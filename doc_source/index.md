@@ -35,6 +35,7 @@ Amazon's trademarks and trade dress may not be used in
 + [API Reference](API_Reference.md)
    + [Actions](API_Operations.md)
       + [CreateVocabulary](API_CreateVocabulary.md)
+      + [DeleteTranscriptionJob](API_DeleteTranscriptionJob.md)
       + [DeleteVocabulary](API_DeleteVocabulary.md)
       + [GetTranscriptionJob](API_GetTranscriptionJob.md)
       + [GetVocabulary](API_GetVocabulary.md)

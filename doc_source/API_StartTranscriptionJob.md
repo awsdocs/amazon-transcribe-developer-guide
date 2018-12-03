@@ -32,7 +32,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
 Type: String  
-Valid Values:` en-US | es-US`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
 Required: Yes
 
  ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>

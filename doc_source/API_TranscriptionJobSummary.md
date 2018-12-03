@@ -22,7 +22,7 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-TranscriptionJobSummary-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
-Valid Values:` en-US | es-US`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
 Required: No
 
  **OutputLocationType**   <a name="transcribe-Type-TranscriptionJobSummary-OutputLocationType"></a>

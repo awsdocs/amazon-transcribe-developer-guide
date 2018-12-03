@@ -203,7 +203,7 @@ The following is the abbreviated output for a conversation on two channels:
 
 You can give Amazon Transcribe more information about how to process speech in your input file by creating a custom vocabulary\. A *custom vocabulary* is a list of specific words that you want Amazon Transcribe to recognize in your audio input\. These are generally domain\-specific words and phrases, words that Amazon Transcribe isn't recognizing, or non\-English names\.
 
-You specify the custom vocabulary as a list\. Each entry can be a single word or a phrase\. You separate the words of a phrase with a hyphen \(\-\)\. For example, you type **IP address** as **IP\-address**\. For more information about creating a custom vocabulary list, see [Create a Custom Vocabulary](#create-vocabulary)\.
+You specify the custom vocabulary as a list\. Each entry can be a single word or a phrase\. You separate the words of a phrase with a hyphen \(\-\) or with a dot \(\.\)\. For example, you can type **IP address** as **IP\-address** or use acronyms such A\.B\.C\., A\.B\.C, A\.B\.Cs, or ABC\. For more information about creating a custom vocabulary list, see [Create a Custom Vocabulary](#create-vocabulary)\.
 
 To create a custom vocabulary, use the [CreateVocabulary](API_CreateVocabulary.md) operation or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. After you submit the `CreateVocabulary` request, Amazon Transcribe processes the vocabulary\. To see the processing status of the vocabulary, use the [GetVocabulary](API_GetVocabulary.md) operation\.
 
@@ -219,7 +219,7 @@ For valid character sets, see [English Character Set](#char-english) and [Spanis
 
 The size limit for a custom vocabulary is 50 KB\.
 
-When typing a multi\-word term or phrase into the custom vocabulary, separate the words with a hyphen \(\-\) instead of a space\. For example, type the term **IP address** as **IP\-address**\. 
+When typing a multi\-word term or phrase into the custom vocabulary, separate the words with a hyphen \(\-\) or a dot \(\.\) instead of a space\. Examples of hyphen\-separated words include typing the term **IP address** as **IP\-address** and examples of dot\-separated words include A\.B\.C\., A\.B\.C, A\.B\.Cs, or ABC\. 
 
 Create a custom vocabulary by using the [CreateVocabulary](API_CreateVocabulary.md) operation or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe)\. If you use the Amazon Transcribe console to create a custom vocabulary, you can provide the entries in either a text file or a comma\-separated values file \(CSV\)\. 
 
@@ -237,6 +237,10 @@ good-morning
 hi
 IPhone
 Etienne
+A.B.C.
+A.B.C
+A.B.Cs
+ABC
 ```
 
 #### Creating a Custom Vocabulary with a Comma\-separated Values File \(Console\)<a name="creating-csv"></a>
@@ -248,7 +252,8 @@ The following is an example input file in CSV format:
 ```
 apple,bear,coffee-dog,
 five,earring,good-morning,
-hi,IPhone,Etienne
+hi,IPhone,Etienne,A.B.C,A.B.C.,
+A.B.Cs,ABC
 ```
 
 ### English Character Set<a name="char-english"></a>
@@ -257,6 +262,7 @@ For English custom vocabularies, you can use the following characters:
 + a \- z
 + A \- Z
 + \- \(hyphen\)
++ \. \(dot\)
 
 ### Spanish Character Set<a name="char-spanish"></a>
 

@@ -51,7 +51,7 @@ The policy enables the user to call all of the Amazon Transcribe operations\.
 
 ## AWS Managed \(Predefined\) Policies for Amazon Transcribe<a name="auth-managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. Managed policies grant necessary permissions for common use cases so you can avoid having to investigate which permissions are needed\. For more information, see [AWS Managed Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. Managed policies grant necessary permissions for common use cases so you can avoid having to investigate which permissions are needed\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to Amazon Transcribe:
 + **ReadOnly** — Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.
@@ -102,7 +102,7 @@ The user's IAM policy must have Amazon S3 permissions to access the S3 bucket wh
 
 ## Permissions Required for Amazon S3 Encryption Keys<a name="auth-role-cmk"></a>
 
-If you are using an AWS Key Management Service key to encrypt an Amazon S3 bucket, include the following in the AWS KMS key policy\. This allows Amazon Transcribe access to the contents of the bucket\. For more information about allowing access to customer master keys, see [ Allowing External AWS Accounts to Access a CMK](http://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS Developer Guide*\.
+If you are using an AWS Key Management Service key to encrypt an Amazon S3 bucket, include the following in the AWS KMS key policy\. This allows Amazon Transcribe access to the contents of the bucket\. For more information about allowing access to customer master keys, see [ Allowing External AWS Accounts to Access a CMK](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS Developer Guide*\.
 
 ```
 {

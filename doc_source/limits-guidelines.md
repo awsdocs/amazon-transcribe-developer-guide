@@ -2,11 +2,11 @@
 
 ## Supported Regions<a name="transcribe-regions"></a>
 
-For a list of AWS Regions where Amazon Transcribe is available, see [AWS Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *Amazon Web Services General Reference*\.
+For a list of AWS Regions where Amazon Transcribe is available, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *Amazon Web Services General Reference*\.
 
 ## Throttling<a name="limits-throttling"></a>
 
-For information about throttling for Amazon Transcribe and to request a limit increase, see [Amazon Transcribe Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe) in the *Amazon Web Services General Reference*\.
+For information about throttling for Amazon Transcribe and to request a limit increase, see [Amazon Transcribe Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe) in the *Amazon Web Services General Reference*\.
 
 ## Guidelines<a name="guidelines"></a>
 

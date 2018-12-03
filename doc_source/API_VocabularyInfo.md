@@ -7,7 +7,7 @@ Provides information about a custom vocabulary\.
  **LanguageCode**   <a name="transcribe-Type-VocabularyInfo-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
 Required: No
 
  **LastModifiedTime**   <a name="transcribe-Type-VocabularyInfo-LastModifiedTime"></a>

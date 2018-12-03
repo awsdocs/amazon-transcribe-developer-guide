@@ -2,6 +2,7 @@
 
 The following actions are supported:
 +  [CreateVocabulary](API_CreateVocabulary.md) 
++  [DeleteTranscriptionJob](API_DeleteTranscriptionJob.md) 
 +  [DeleteVocabulary](API_DeleteVocabulary.md) 
 +  [GetTranscriptionJob](API_GetTranscriptionJob.md) 
 +  [GetVocabulary](API_GetVocabulary.md) 
