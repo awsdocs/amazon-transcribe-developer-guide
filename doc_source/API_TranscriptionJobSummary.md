@@ -1,6 +1,6 @@
 # TranscriptionJobSummary<a name="API_TranscriptionJobSummary"></a>
 
-Provides a summary of information about a transcription job\.
+Provides a summary of information about a transcription job\. \.
 
 ## Contents<a name="API_TranscriptionJobSummary_Contents"></a>
 
@@ -22,7 +22,7 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-TranscriptionJobSummary-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT`   
 Required: No
 
  **OutputLocationType**   <a name="transcribe-Type-TranscriptionJobSummary-OutputLocationType"></a>

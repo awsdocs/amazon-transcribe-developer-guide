@@ -31,7 +31,7 @@ You can also aggregate Amazon Transcribe log files from multiple AWS Regions and
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order\. 
 
-The following log entry shows the result of calls to the `ListTranscriptionJobs` and `GetTranscriptionJob` operations:
+The following log entry shows the result of calls to the `StartTranscriptionJob` and `GetTranscriptionJob` operations:
 
 ```
 {

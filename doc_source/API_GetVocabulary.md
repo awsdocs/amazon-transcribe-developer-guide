@@ -1,6 +1,6 @@
 # GetVocabulary<a name="API_GetVocabulary"></a>
 
-Gets information about a vocabulary\.
+Gets information about a vocabulary\. 
 
 ## Request Syntax<a name="API_GetVocabulary_RequestSyntax"></a>
 
@@ -54,7 +54,7 @@ Type: String
  ** [LanguageCode](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT` 
 
  ** [LastModifiedTime](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was last modified\.  
@@ -76,7 +76,7 @@ Valid Values:` PENDING | READY | FAILED`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

@@ -39,7 +39,7 @@ Length Constraints: Maximum length of 8192\.
 Required: No
 
  ** [Status](#API_ListTranscriptionJobs_RequestSyntax) **   <a name="transcribe-ListTranscriptionJobs-request-Status"></a>
-When specified, returns only transcription jobs with the specified status\.  
+When specified, returns only transcription jobs with the specified status\. Jobs are ordered by creation date, with the newest jobs returned first\. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date\.   
 Type: String  
 Valid Values:` IN_PROGRESS | FAILED | COMPLETED`   
 Required: No
@@ -89,7 +89,7 @@ Type: Array of [TranscriptionJobSummary](API_TranscriptionJobSummary.md) objects
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

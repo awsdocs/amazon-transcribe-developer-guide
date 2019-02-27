@@ -1,6 +1,6 @@
 # UpdateVocabulary<a name="API_UpdateVocabulary"></a>
 
-Updates an existing vocabulary with new values\. The `UpdateVocabulary` operation overwrites all of the existing information with the values that you provide in the request\.
+Updates an existing vocabulary with new values\. The `UpdateVocabulary` operation overwrites all of the existing information with the values that you provide in the request\. 
 
 ## Request Syntax<a name="API_UpdateVocabulary_RequestSyntax"></a>
 
@@ -21,7 +21,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT`   
 Required: Yes
 
  ** [Phrases](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-Phrases"></a>
@@ -57,7 +57,7 @@ The following data is returned in JSON format by the service\.
  ** [LanguageCode](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT` 
 
  ** [LastModifiedTime](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was updated\.  
@@ -79,7 +79,7 @@ Valid Values:` PENDING | READY | FAILED`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   

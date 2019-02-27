@@ -1,4 +1,4 @@
-# Actions<a name="API_Operations"></a>
+# Amazon Transcribe Service<a name="API_Operations_Amazon_Transcribe_Service"></a>
 
 The following actions are supported by Amazon Transcribe Service:
 +  [CreateVocabulary](API_CreateVocabulary.md) 
@@ -10,6 +10,3 @@ The following actions are supported by Amazon Transcribe Service:
 +  [ListVocabularies](API_ListVocabularies.md) 
 +  [StartTranscriptionJob](API_StartTranscriptionJob.md) 
 +  [UpdateVocabulary](API_UpdateVocabulary.md) 
-
-The following actions are supported by Amazon Transcribe Streaming Service:
-+  [StartStreamTranscription](API_streaming_StartStreamTranscription.md) 

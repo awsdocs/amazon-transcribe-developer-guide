@@ -1,6 +1,6 @@
 # StartTranscriptionJob<a name="API_StartTranscriptionJob"></a>
 
-Starts an asynchronous job to transcribe speech to text\.
+Starts an asynchronous job to transcribe speech to text\. 
 
 ## Request Syntax<a name="API_StartTranscriptionJob_RequestSyntax"></a>
 
@@ -32,7 +32,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT`   
 Required: Yes
 
  ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>
@@ -55,6 +55,7 @@ Required: No
  ** [OutputBucketName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-OutputBucketName"></a>
 The location where the transcription is stored\.  
 If you set the `OutputBucketName`, Amazon Transcribe puts the transcription in the specified S3 bucket\. When you call the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation, the operation returns this location in the `TranscriptFileUri` field\. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket\. For more information, see [Permissions Required for IAM User Roles](https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user)\.  
+Amazon Transcribe uses the default Amazon S3 key for server\-side encryption of transcripts that are placed in your S3 bucket\. You can't specify your own encryption key\.  
 If you don't set the `OutputBucketName`, Amazon Transcribe generates a pre\-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the `TranscriptFileUri` field\. Use this URL to download the transcription\.  
 Type: String  
 Pattern: `[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]`   
@@ -66,7 +67,7 @@ Type: [Settings](API_Settings.md) object
 Required: No
 
  ** [TranscriptionJobName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-TranscriptionJobName"></a>
-The name of the job\. You can't use the strings "\." or "\.\." in the job name\. The name must be unique within an AWS account\.  
+The name of the job\. Note that you can't use the strings "\." or "\.\." by themselves as the job name\. The name must also be unique within an AWS account\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -116,7 +117,7 @@ Type: [TranscriptionJob](API_TranscriptionJob.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   

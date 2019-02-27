@@ -1,13 +1,13 @@
 # VocabularyInfo<a name="API_VocabularyInfo"></a>
 
-Provides information about a custom vocabulary\.
+Provides information about a custom vocabulary\. 
 
 ## Contents<a name="API_VocabularyInfo_Contents"></a>
 
  **LanguageCode**   <a name="transcribe-Type-VocabularyInfo-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT`   
 Required: No
 
  **LastModifiedTime**   <a name="transcribe-Type-VocabularyInfo-LastModifiedTime"></a>

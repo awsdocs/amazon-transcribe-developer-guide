@@ -1,5 +1,7 @@
 # DeleteTranscriptionJob<a name="API_DeleteTranscriptionJob"></a>
 
+Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on\.
+
 ## Request Syntax<a name="API_DeleteTranscriptionJob_RequestSyntax"></a>
 
 ```
@@ -15,6 +17,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [TranscriptionJobName](#API_DeleteTranscriptionJob_RequestSyntax) **   <a name="transcribe-DeleteTranscriptionJob-request-TranscriptionJobName"></a>
+The name of the transcription job to be deleted\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -29,7 +32,7 @@ If the action is successful, the service sends back an HTTP 200 response with an
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

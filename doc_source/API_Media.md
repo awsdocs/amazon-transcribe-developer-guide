@@ -6,7 +6,7 @@ Describes the input media file in a transcription request\.
 
  **MediaFileUri**   <a name="transcribe-Type-Media-MediaFileUri"></a>
 The S3 location of the input media file\. The URI must be in the same region as the API endpoint that you are calling\. The general form is:  
- ` https://<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
+ ` https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
 For example:  
  `https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4`   
  `https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4`   
