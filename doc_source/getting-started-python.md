@@ -13,7 +13,7 @@ job_name = "job_name"
 job_uri = "https://S3 endpoint/test-transcribe/answer2.wav"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
-    Media={'MediaFileUri': job uri},
+    Media={'MediaFileUri': job_uri},
     MediaFormat='wav',
     LanguageCode='en-US'
 )

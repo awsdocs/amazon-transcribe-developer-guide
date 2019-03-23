@@ -5,7 +5,7 @@ In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to
 + Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
 + Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Using Identity\-based Policies \(IAM Policies\) for Amazon Transcribe](access-control-managing-permissions.md)\.
 
-To transcribe text, you have to provide the input parameters in a JSON file\.
+To transcribe text, you have to provide the input parameters in a JSON file\. 
 
 **To transcribe text**
 
@@ -16,8 +16,8 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
    {
        "TranscriptionJobName": "request_ID",
-       "LanguageCode": "en-US",
-       "MediaFormat": "wav",
+       "LanguageCode": "en-US", 
+       "MediaFormat": "wav", 
        "Media": {
            "MediaFileUri": "https://S3 endpoint/test-transcribe/answer2.wav"
        }
