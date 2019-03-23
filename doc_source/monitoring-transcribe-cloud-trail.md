@@ -65,14 +65,14 @@ The following log entry shows the result of calls to the `StartTranscriptionJob`
                     "transcriptionJobStatus": "IN_PROGRESS",
                     "mediaFormat": "flac | mp3 | mp4 | wav",
                     "creationTime": "timestamp",
-                    "transcriptionJobName": "unique job name",
+                    "transcriptionJobName": "unique_job_name",
                     "languageCode": "en-US | es-US",
                     "media": {
                         "mediaFileUri": ""
                     }
                 }
             },
-            "requestID": "request_ID",
+            "requestID": "request ID",
             "eventID": "event ID",
             "eventType": "AwsApiCall",
             "recipientAccountId": "account id"
@@ -114,7 +114,7 @@ The following log entry shows the result of calls to the `StartTranscriptionJob`
                     }
                 }
             },
-            "requestID": "request_ID",
+            "requestID": "request ID",
             "eventID": "event ID",
             "eventType": "AwsApiCall",
             "recipientAccountId": "account id"

@@ -109,7 +109,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
        {
          "jobName":"job_ID",
-         "accountId":"account_ID",
+         "accountId":"account ID",
          "results": {
             "transcripts":[
                {
