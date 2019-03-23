@@ -1,6 +1,6 @@
 # Getting Started \(AWS SDK for Python \(Boto\)\)<a name="getting-started-python"></a>
 
-In this exercise you create script that uses the SDK for Python to transcribe speech into text\. To complete this exercise, you need to: 
+In this exercise you create script that uses the SDK for Python to transcribe speech into text\. To complete this exercise, you need to:
 + Install the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\. This installs the AWS SDK for Python \(Boto\)\.
 + Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Using Identity\-based Policies \(IAM Policies\) for Amazon Transcribe](access-control-managing-permissions.md)\. The location must be in the same region as the endpoint that you are calling\. This example assumes that the file is in an Amazon S3 bucket named `test-transcribe` and that the file name is `answer2.wav`\.
 
@@ -9,7 +9,7 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "job name"
+job_name = "job_name"
 job_uri = "https://S3 endpoint/test-transcribe/answer2.wav"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
@@ -30,8 +30,8 @@ When the transcription job is complete, the result links to an Amazon S3 presign
 
 ```
    {
-      "jobName":"job ID",
-      "accountId":"account ID",
+      "jobName":"job_ID",
+      "accountId":"account_ID",
       "results": {
          "transcripts":[
             {
