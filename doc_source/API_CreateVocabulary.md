@@ -8,6 +8,7 @@ Creates a new custom vocabulary that you can use to change the way Amazon Transc
 {
    "[LanguageCode](#transcribe-CreateVocabulary-request-LanguageCode)": "string",
    "[Phrases](#transcribe-CreateVocabulary-request-Phrases)": [ "string" ],
+   "[VocabularyFileUri](#transcribe-CreateVocabulary-request-VocabularyFileUri)": "string",
    "[VocabularyName](#transcribe-CreateVocabulary-request-VocabularyName)": "string"
 }
 ```
@@ -21,14 +22,25 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN`   
 Required: Yes
 
  ** [Phrases](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-Phrases"></a>
 An array of strings that contains the vocabulary entries\.   
 Type: Array of strings  
 Length Constraints: Minimum length of 0\. Maximum length of 256\.  
-Required: Yes
+Required: No
+
+ ** [VocabularyFileUri](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyFileUri"></a>
+The S3 location of the text file that contains the definition of the custom vocabulary\. The URI must be in the same region as the API endpoint that you are calling\. The general form is   
+ ` https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
+For example:  
+ `https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt`   
+For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
+For more information about custom vocabularies, see [Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Required: No
 
  ** [VocabularyName](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyName"></a>
 The name of the vocabulary\. The name must be unique within an AWS account\. The name is case\-sensitive\.  
@@ -62,7 +74,7 @@ Type: String
  ** [LanguageCode](#API_CreateVocabulary_ResponseSyntax) **   <a name="transcribe-CreateVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN` 
 
  ** [LastModifiedTime](#API_CreateVocabulary_ResponseSyntax) **   <a name="transcribe-CreateVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was created\.  
@@ -107,6 +119,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateVocabulary) 
++  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateVocabulary) 

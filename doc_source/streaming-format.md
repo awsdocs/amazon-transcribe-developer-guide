@@ -4,7 +4,7 @@
 
 Amazon Transcribe uses the [HTTP/2 protocol](https://http2.github.io/http2-spec/) for streaming transcriptions\. The key components for a streaming request are:
 + A header frame\. This contains the HTTP headers for the request, and a signature in the `authorization` header that Amazon Transcribe uses as a seed signature to sign the following data frames\.
-+ One or message frames in event stream encoding\. The frame contains metadata and the raw audio bytes\.
++ One or more message frames in event stream encoding\. The frame contains metadata and the raw audio bytes\.
 + An end frame\. This is a signed message in event stream encoding with an empty body\.
 
 ## Event Stream Encoding<a name="event-stream"></a>
@@ -61,7 +61,7 @@ The header frame of a request to Amazon Transcribe requires the following HTTP/2
 
 ```
 POST /stream-transcription HTTP/2.0
-host: transcribe-streaming.region.amazonaws.com
+host: transcribestreaming.region.amazonaws.com
 authorization: Generated value
 content-type: application/vnd.amazon.eventstream
 x-amz-target: com.amazonaws.transcribe.Transcribe.StartStreamTranscription
@@ -199,7 +199,7 @@ To start the session, send an HTTP/2 request to Amazon Transcribe:
 
 ```
 POST /stream-transcription HTTP/2.0
-host: transcribe-streaming.region.amazonaws.com
+host: transcribestreaming.region.amazonaws.com
 authorization: Generated value
 content-type: application/vnd.amazon.eventstream
 x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS

@@ -8,12 +8,18 @@ You can use Amazon Transcribe to transcribe the following languages to text:
 + US English \(en\-US\)
 + French \(fr\-FR\)
 + Canadian French \(fr\-CA\)
++ German \(de\-DE\)
 + Italian \(it\-IT\)
++ Korean \(ko\-KR\)
 + Brazilian Portuguese \(pt\-BR\)
++ Spanish \(es\-ES\)
 + US Spanish \(es\-US\)
 
 You can transcribe streaming audio in the following languages:
++ British English \(en\-GB\)
 + US English \(en\-US\)
++ French \(fr\-FR\)
++ Canadian French \(fr\-CA\)
 + US Spanish \(es\-US\)
 
 You can use Amazon Transcribe with other AWS services to create applications\. For example, you can: 

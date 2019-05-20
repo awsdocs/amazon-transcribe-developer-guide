@@ -8,6 +8,8 @@ The following are encoded as HTTP2 headers:
 + x\-amzn\-transcribe\-sample\-rate
 + x\-amzn\-transcribe\-session\-id
 
+For more information about using the `StartStreamTranscription` operation, see [Streaming Transcription](streaming.md)\.
+
 ## Request Syntax<a name="API_streaming_StartStreamTranscription_RequestSyntax"></a>
 
 ```
@@ -34,7 +36,7 @@ The request requires the following URI parameters\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
 Indicates the language used in the input audio stream\.  
-Valid Values:` en-US es-US` 
+Valid Values:` en-GB en-US fr-CA fr-FR es-US` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.   
@@ -172,4 +174,5 @@ HTTP Status Code: 429
 ## See Also<a name="API_streaming_StartStreamTranscription_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [AWS SDK for Java](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/transcribestreaming/package-summary.html) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeStreamingService/Client.html) 

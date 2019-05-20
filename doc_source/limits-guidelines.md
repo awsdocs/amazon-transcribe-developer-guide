@@ -23,7 +23,7 @@ Amazon Transcribe has the following limitations:
 
 | Description | Limit | 
 | --- | --- | 
-| Maximum audio file length | 2 hours | 
-| Maximum audio file size | 1 GB | 
+| Maximum audio file length | 4 hours | 
+| Maximum audio file size | 2 GB | 
 | Maximum size of a custom vocabulary | 50 KB | 
 | Maximum length of a custom vocabulary phrase | 256 characters | 

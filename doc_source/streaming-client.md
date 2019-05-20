@@ -274,11 +274,9 @@ The following is an example implementation of the `StreamTranscriptionBehavior` 
 
 ```
 /**
- * Implementation of StreamTranscriptionBehavior to define how a stream response is handled.
- *
  * COPYRIGHT:
  *
- * Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -290,41 +288,38 @@ The following is an example implementation of the `StreamTranscriptionBehavior` 
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
+ *
  */
-package com.amazonaws.wolverine.streaming.retryclient.example;
+package com.amazonaws.transcribestreaming.retryclient;
 
-public class StreamTranscriptionBehaviorImpl implements StreamTranscriptionBehavior {
+/**
+ * Defines how a stream response should be handled.
+ * You should build a class implementing this interface to define the behavior.
+ */
+public interface StreamTranscriptionBehavior {
+    /**
+     * Defines how to respond when encountering an error on the stream transcription.
+     * @param e The exception
+     */
+    void onError(Throwable e);
+
+    /**
+     * Defines how to respond to the Transcript result stream.
+     * @param e The TranscriptResultStream event
+     */
+    void onStream(TranscriptResultStream e);
+
+    /**
+     * Defines what to do on initiating a stream connection with the service.
+     * @param r StartStreamTranscriptionResponse
+     */
+    void onResponse(StartStreamTranscriptionResponse r);
 
 
-    @Override
-    public void onError(Throwable e) {
-        System.out.println("=== Failure encountered ===");
-        e.printStackTrace();
-    }
-
-    @Override
-    public void onStream(TranscriptResultStream e) {
-        // EventResultStream has other fields related to the timestamp of the transcripts in it.
-        // Please refer to the javadoc of TranscriptResultStream for more details
-        List<Result> results = ((TranscriptEvent) e).transcript().results();
-        if (results.size() > 0) {
-            if (results.get(0).alternatives().size() > 0)
-                if (!results.get(0).alternatives().get(0).transcript().isEmpty()) {
-                    System.out.println(results.get(0).alternatives().get(0).transcript());
-                }
-        }
-    }
-
-    @Override
-    public void onResponse(StartStreamTranscriptionResponse r) {
-
-        System.out.println(String.format("=== Received initial response. Request Id: %s ===", r.requestId()));
-    }
-
-    @Override
-    public void onComplete() {
-        System.out.println("=== All records streamed successfully ===");
-    }
+    /**
+     * Defines what to do on stream completion
+     */
+    void onComplete();
 }
 ```
 
