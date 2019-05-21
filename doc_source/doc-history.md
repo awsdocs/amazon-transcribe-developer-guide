@@ -1,10 +1,11 @@
 # Document History for Amazon Transcribe<a name="doc-history"></a>
-+ **Latest documentation update: **April 18, 2019
++ **Latest documentation update: **May 15, 2019
 
 The following table describes important changes in each release of Amazon Transcribe For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) | Amazon Transcribe adds support for Hindi and Indian English\. | May 15, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) | Amazon Transcribe adds support for Spanish\. | April 19, 2019 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the EU \(Frankfurt\) \(eu\-central\-1\) and Asia Pacific \(Seoul\) \(ap\-northeast\-2\) regions\. | April 18, 2019 | 
 | [New feature](https://docs.aws.amazon.com/sdkforruby/api/Aws/TranscribeService.html) | The AWS SDK for Ruby V3 now supports Amazon Transcribe | March 25, 2019 | 

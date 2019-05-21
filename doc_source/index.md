@@ -16,6 +16,11 @@ Amazon's trademarks and trade dress may not be used in
 ## Contents
 + [What Is Amazon Transcribe?](what-is-transcribe.md)
 + [How Amazon Transcribe Works](how-it-works.md)
+   + [Speech Input](input.md)
+   + [Identifying Speakers](how-diarization.md)
+   + [Transcribing Streaming Audio](how-streaming-transcription.md)
+   + [Channel Identification](how-channel-id.md)
+   + [Custom Vocabularies](how-vocabulary.md)
 + [Getting Started with Amazon Transcribe](getting-started.md)
    + [Step 1: Set up an AWS Account and Create an Administrator User](setting-up-asc.md)
    + [Step 2: Set up the AWS Command Line Interface (AWS CLI)](setup-asc-awscli.md)

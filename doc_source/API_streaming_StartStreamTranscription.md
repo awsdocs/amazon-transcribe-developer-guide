@@ -123,7 +123,7 @@ The response returns the following HTTP headers\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageCode"></a>
 The language code for the input audio stream\.  
-Valid Values:` en-US es-US` 
+Valid Values:` en-GB en-US fr-CA fr-FR es-US` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  

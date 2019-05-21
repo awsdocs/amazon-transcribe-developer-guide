@@ -5,10 +5,12 @@ Amazon Transcribe uses advanced machine learning technologies to recognize speec
 You can use Amazon Transcribe to transcribe the following languages to text:
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
++ Indian English \(en\-IN\)
 + US English \(en\-US\)
 + French \(fr\-FR\)
 + Canadian French \(fr\-CA\)
 + German \(de\-DE\)
++ Indian Hindi \(hi\-IN\)
 + Italian \(it\-IT\)
 + Korean \(ko\-KR\)
 + Brazilian Portuguese \(pt\-BR\)
@@ -46,7 +48,7 @@ Use channel identification when your audio is on multiple channels\. For example
 + When your recording has a customer service representative on one channel and a customer on another
 + When you transcribe a podcast where the host is recorded on one channel and the guest on another
 
-For more information about channel identification, see [Channel Identification](how-it-works.md#how-channel-id)\.
+For more information about channel identification, see [Channel Identification](how-channel-id.md)\.
 
 ## Transcribing Streaming Audio<a name="what-streaming-transcription"></a>
 
@@ -62,7 +64,7 @@ Use a custom vocabulary to help Amazon Transcribe recognize:
 + words that are not being recognized
 + unfamiliar words that are specific to your domain
 
-For more information about creating a custom vocabulary, see [Custom Vocabularies](how-it-works.md#how-vocabulary)\.
+For more information about creating a custom vocabulary, see [Custom Vocabularies](how-vocabulary.md)\.
 
 ## Are You a First\-time User of Amazon Transcribe ?<a name="first-time-user"></a>
 
