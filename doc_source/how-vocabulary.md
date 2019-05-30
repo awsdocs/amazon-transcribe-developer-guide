@@ -110,6 +110,7 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
  Amazon Transcribe limits the characters that you can use to create custom vocabularies\. You can use the following character sets for each language\.
 
 **Topics**
++ [Arabic Character Set](#char-arabic)
 + [English Character Set](#char-english)
 + [French Character Set](#char-french)
 + [German Character Set](#char-german)
@@ -118,6 +119,62 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 + [Korean Character Set](#char-korean)
 + [Portuguese Character Set](#char-portuguese)
 + [Spanish Character Set](#char-spanish)
+
+### Arabic Character Set<a name="char-arabic"></a>
+
+For Arabic custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| ء | 0621 | س | 0633 | 
+| آ | 0622 | ش | 0634 | 
+| أ | 0623 | ص | 0635 | 
+| ؤ | 0624 | ض | 0636 | 
+| إ | 0625 | ط | 0637 | 
+| ئ | 0626 | ظ | 0638 | 
+| ا | 0627 | ع | 0639 | 
+| ب | 0628 | غ | 063A | 
+| ة | 0629 | ف | 0641 | 
+| ت | 062A | ق | 0642 | 
+| ث | 062B | ك | 0643 | 
+| ج | 062C | ل | 0644 | 
+| ح | 062D | م | 0645 | 
+| خ | 062E | ن | 0646 | 
+| د | 062F | ه | 0647 | 
+| ذ | 0630 | و | 0648 | 
+| ر | 0631 | ى | 0649 | 
+| ز | 0632 | ي | 064A | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | uː | 0075 02D0 | 
+| aː | 0061 02D0 | w | 0077 | 
+| aj | 0061 006A | x | 0078 | 
+| aw | 0061 0077 | z | 007A | 
+| b | 0062 | zˤ | 007A 02E4 | 
+| d | 0064 | ð | 00F0 | 
+| dˤ | 0064 02E4 | ð` | 00F0 0060 | 
+| f | 0066 | ðˤ | 00F0 02E4 | 
+| h | 0068 | ħ | 0127 | 
+| i | 0069 | ɖ | 0256 | 
+| iː | 0069 02D0 | ɣ | 0263 | 
+| j | 006A | ɪ | 026A | 
+| k | 006B | ɫ | 026B | 
+| l | 006C | ɭ | 026D | 
+| m | 006D | ʂ | 0282 | 
+| n | 006E | ʃ | 0283 | 
+| p | 0070 | ʈ | 0288 | 
+| q | 0071 | ʒ | 0292 | 
+| r | 0072 | ʔ | 0294 | 
+| s | 0073 | ʔ` | 0294 0060 | 
+| sˤ | 0073 02E4 | ʕ | 0295 | 
+| t | 0074 | θ | 03B8 | 
+| tˤ | 0074 02E4 | χ | 03C7 | 
+| u | 0075 |   |   | 
 
 ### English Character Set<a name="char-english"></a>
 

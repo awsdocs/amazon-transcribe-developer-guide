@@ -17,6 +17,7 @@ Amazon's trademarks and trade dress may not be used in
 + [What Is Amazon Transcribe?](what-is-transcribe.md)
 + [How Amazon Transcribe Works](how-it-works.md)
    + [Speech Input](input.md)
+   + [Transcribing Numbers](how-numbers.md)
    + [Identifying Speakers](how-diarization.md)
    + [Transcribing Streaming Audio](how-streaming-transcription.md)
    + [Channel Identification](how-channel-id.md)

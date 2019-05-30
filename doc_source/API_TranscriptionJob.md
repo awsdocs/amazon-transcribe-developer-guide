@@ -29,7 +29,7 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-TranscriptionJob-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA`   
 Required: No
 
  **Media**   <a name="transcribe-Type-TranscriptionJob-Media"></a>

@@ -3,6 +3,7 @@
 Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text\. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files\. For example, you can transcribe the audio track from a video recording to create closed captioning for the video\.
 
 You can use Amazon Transcribe to transcribe the following languages to text:
++ Modern Standard Arabic \(ar\-SA\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
 + Indian English \(en\-IN\)

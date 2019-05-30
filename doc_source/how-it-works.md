@@ -18,6 +18,7 @@ You can also use the Amazon Transcribe to create and manage custom vocabularies 
 + [UpdateVocabulary](API_UpdateVocabulary.md) – Updates an existing vocabulary\.
 
 You can transcribe speech in any of the following languages:
++ Modern Standard Arabic \(ar\-SA\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
 + Indian English \(en\-IN\)
@@ -41,6 +42,7 @@ You can use streaming transcription for the following languages:
 
 **Topics**
 + [Speech Input](input.md)
++ [Transcribing Numbers](how-numbers.md)
 + [Identifying Speakers](how-diarization.md)
 + [Transcribing Streaming Audio](how-streaming-transcription.md)
 + [Channel Identification](how-channel-id.md)
