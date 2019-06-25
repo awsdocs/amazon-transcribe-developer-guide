@@ -65,7 +65,7 @@ host: transcribestreaming.region.amazonaws.com
 authorization: Generated value
 content-type: application/vnd.amazon.eventstream
 x-amz-target: com.amazonaws.transcribe.Transcribe.StartStreamTranscription
-x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA356-EVENTS
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
 x-amz-date: Date
 x-amz-transcribe-language-code: en-US
 x-amz-transcribe-media-encoding: pcm

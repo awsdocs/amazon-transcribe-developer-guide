@@ -1,19 +1,19 @@
 # Using Amazon CloudWatch Events with Amazon Transcribe<a name="cloud-watch-events"></a>
 
-With Amazon CloudWatch Events, you can respond to state changes in your Amazon Transcribe jobs by triggering events in other AWS services\. When a transcription job changes state, CloudWatch Events automatically sends an event to a an event stream\. You create rules that define the events that you want to monitor in the event stream and the action that CloudWatch Events should take when those events occur, such as routing the event to another service \(or target\), which can then take an action\. For example, you can configure a rule to route an event to a Lambda function when a transcription job is completed successfully\.
+With Amazon CloudWatch Events, you can respond to state changes in your Amazon Transcribe jobs by triggering events in other AWS services\. When a transcription job changes state, CloudWatch Events automatically sends an event to an event stream\. You create rules that define the events that you want to monitor in the event stream and the action that CloudWatch Events should take when those events occur\. For example, routing the event to another service \(or target\), which can then take an action\. You could, for example, configure a rule to route an event to an AWS Lambda function when a transcription job has completed successfully\.
 
 Before using CloudWatch Events, you should understand the following concepts:
-+ **Event**—An event indicates a change in the state of one of your transcription jobs\. For example, when the `TranscriptionJobStatus` of a job changes from `IN_PROGRESS` to `COMPLETED`\.
-+ **Target**—A target is another AWS service that processes an event, for example, AWS Lambda or Amazon Simple Notification Service\. A target receives events in JSON format\. 
-+ **Rule**—A rule matches incoming events that you want CloudWatch Events to watch for and routes to a target or targets for processing\. A rule can route an event to multiple targets, all of which process the event in parallel\. A rule can customize the JSON sent to the target\.
++ **Event** – An event indicates a change in the state of one of your transcription jobs\. For example, when the `TranscriptionJobStatus` of a job changes from `IN_PROGRESS` to `COMPLETED`\.
++ **Target** – A target is another AWS service that processes an event\. For example, AWS Lambda or Amazon Simple Notification Service \(Amazon SNS\)\. A target receives events in JSON format\. 
++ **Rule** – A rule matches incoming events that you want CloudWatch Events to watch for and routes them to a target or targets for processing\. If a rule routes an event to multiple targets, all of the targets process the event in parallel\. A rule can customize the JSON sent to the target\.
 
-For more information about creating and managing CloudWatch Events, see [What is Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) in the *Amazon CloudWatch User Guide*\.
+For more information about creating and managing CloudWatch Events events, see [What is Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) in the *Amazon CloudWatch User Guide*\.
 
 ## Defining CloudWatch Events Rules<a name="defining-rules"></a>
 
-Use the [CloudWatch Events console](https://console.aws.amazon.com/cloudwatch) to create CloudWatch Events rules\. Define the rule with Amazon Transcribe as the service name\. For an example of creating a CloudWatch Events rule, see [ Creating a CloudWatch Events Rule That Triggers on an Event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) in the *Amazon CloudWatch User Guide*\. 
+To define CloudWatch Events rules, use the [CloudWatch Events console](https://console.aws.amazon.com/cloudwatch)\. When you define a rule, use Amazon Transcribe as the service name\. For an example of how to create a CloudWatch Events rule, see [ Creating a CloudWatch Events Rule That Triggers on an Event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) in the *Amazon CloudWatch User Guide*\. 
 
-The following is an example of a CloudWatch Events rule for Amazon Transcribe\. This rule is triggered when a transcription job's status changes to `COMPLETED` or `FAILED`\. 
+The following is an example of a CloudWatch Events rule for Amazon Transcribe\. It's triggered when a transcription job's status changes to `COMPLETED` or `FAILED`\. 
 
 ```
 {
@@ -33,13 +33,13 @@ The following is an example of a CloudWatch Events rule for Amazon Transcribe\. 
 ```
 
 The rule contains the following fields:
-+ `source`—The source of the event\. For Amazon Transcribe, this is always `aws.transcribe`\.
-+ `detail-type`—An identifier for the details of the event\. For Amazon Transcribe, this is always `Transcribe Job State Change`\.
-+ `detail`—The new job status of a transcription job\. In this example, the rule will raise an event when the job status changes to `COMPLETED` or `FAILED`\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.
++ `source` –The source of the event\. For Amazon Transcribe, this is always `aws.transcribe`\.
++ `detail-type` – An identifier for the details of the event\. For Amazon Transcribe, this is always `Transcribe Job State Change`\.
++ `detail` – The new job status of the transcription job\. In this example, the rule triggers an event when the job status changes to `COMPLETED` or `FAILED`\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.
 
 ## Amazon Transcribe Event<a name="events"></a>
 
-When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`, Amazon Transcribe generates an event\. To identify the job that changed state and raised the event in your target, use the event's `TranscriptionJobName` field\. An Amazon Transcribe event contains the following information:
+When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`, Amazon Transcribe generates an event\. To identify the job that changed state and triggered the event in your target, use the event's `TranscriptionJobName` field\. An Amazon Transcribe event contains the following information\.
 
 ```
  {
@@ -59,14 +59,14 @@ When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`,
 ```
 
 The event passed to the target contains the following information:
-+ `version`—The version of the event data\. This value is always `0`\.
-+ `id`—A unique identifier generated by CloudWatch Events for the event\.
-+ `detail-type`—An identifier for the details of the event\. For Amazon Transcribe, this is always `Transcribe Job State Change`\.
-+ `source`—The source of the event\. For Amazon Transcribe this is always `Transcribe Job State Change`\.
-+ `account`—The AWS account ID of the account that generated the API call\.
-+ `timestamp`—The date and time that the APIcall was made\.
-+ `region`—The AWS Region where the API call was made\.
-+ `resources`—Resources used by the API call\. For Amazon Transcribe this field is always empty\.
-+ `detail`—Details about the event\. It contains the following fields:
-  + `TranscriptionJobName`—The unique job name that you gave the job when it was created\. 
-  + `TranscriptionJobStatus`—The new status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.
++ `version` – The version of the event data\. This value is always `0`\.
++ `id` – A unique identifier generated by CloudWatch Events for the event\.
++ `detail-type` – An identifier for the details of the event\. For Amazon Transcribe, this is always `Transcribe Job State Change`\.
++ `source` – The source of the event\. For Amazon Transcribe this is always `Transcribe Job State Change`\.
++ `account ID` – The AWS account ID of the account that generated the API call\.
++ `timestamp` – The date and time that the API call was made\.
++ `region` – The AWS Region where the API call was made\.
++ `resources` – Resources used by the API call\. For Amazon Transcribe, this field is always empty\.
++ `detail` – Details about the event\. It contains the following fields:
+  + `TranscriptionJobName` – The unique name that you gave the job\. 
+  + `TranscriptionJobStatus` – The new status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.

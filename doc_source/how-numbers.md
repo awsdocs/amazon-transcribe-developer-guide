@@ -1,6 +1,6 @@
 # Transcribing Numbers<a name="how-numbers"></a>
 
-When you are transcribing US English audio, numbers are transcribed as digits instead of words\. For example, the spoken number "one thousand two hundred forty two" is transcribed as "1,242\." 
+When you are transcribing US English audio, numbers are transcribed as digits instead of words\. For example, the spoken number "one thousand two hundred forty two" is transcribed as "1242\." 
 
 In all other languages numbers are transcribed into their word forms\.
 

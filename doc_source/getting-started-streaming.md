@@ -9,15 +9,15 @@ To run this example, you need the following:
 ```
 /**
  * COPYRIGHT:
- *
+ * <p>
  * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -25,8 +25,31 @@ To run this example, you need the following:
  */
 package com.amazonaws.transcribestreaming;
 
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.core.SdkBytes;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.transcribestreaming.TranscribeStreamingAsyncClient;
+import software.amazon.awssdk.services.transcribestreaming.model.*;
+
+import javax.sound.sampled.*;
+import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.ByteBuffer;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
+
+
 public class TranscribeStreamingDemoApp {
-    private static final String REGION = "region";
+    private static final Region REGION = Region.US_EAST_1;
+    private static String currentSubscription;
 
     private static TranscribeStreamingAsyncClient client;
 
@@ -65,16 +88,6 @@ public class TranscribeStreamingDemoApp {
         return audioStream;
     }
 
-    private InputStream getStreamFromFile(String audioFileName) {
-        try {
-            File inputFile = new File(getClass().getClassLoader().getResource(audioFileName).getFile());
-            InputStream audioStream = new FileInputStream(inputFile);
-            return audioStream;
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private static AwsCredentialsProvider getCredentials() {
         return DefaultCredentialsProvider.create();
     }
@@ -94,15 +107,17 @@ public class TranscribeStreamingDemoApp {
                 })
                 .onError(e -> {
                     System.out.println(e.getMessage());
-                    System.out.println("Error Occurred: " + ExceptionUtils.getStackTrace(e.fillInStackTrace()));
+                    StringWriter sw = new StringWriter();
+                    e.printStackTrace(new PrintWriter(sw));
+                    System.out.println("Error Occurred: " + sw.toString());
                 })
                 .onComplete(() -> {
                     System.out.println("=== All records stream successfully ===");
                 })
                 .subscriber(event -> {
                     List<Result> results = ((TranscriptEvent) event).transcript().results();
-                    if(results.size()>0) {
-                        if(!results.get(0).alternatives().get(0).transcript().isEmpty()) {
+                    if (results.size() > 0) {
+                        if (!results.get(0).alternatives().get(0).transcript().isEmpty()) {
                             System.out.println(results.get(0).alternatives().get(0).transcript());
                         }
                     }
@@ -110,8 +125,19 @@ public class TranscribeStreamingDemoApp {
                 .build();
     }
 
+    private InputStream getStreamFromFile(String audioFileName) {
+        try {
+            File inputFile = new File(getClass().getClassLoader().getResource(audioFileName).getFile());
+            InputStream audioStream = new FileInputStream(inputFile);
+            return audioStream;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static class AudioStreamPublisher implements Publisher<AudioStream> {
         private final InputStream inputStream;
+
 
         private AudioStreamPublisher(InputStream inputStream) {
             this.inputStream = inputStream;
@@ -119,7 +145,8 @@ public class TranscribeStreamingDemoApp {
 
         @Override
         public void subscribe(Subscriber<? super AudioStream> s) {
-            if (currentSubscription == null) {
+
+            if (s.currentSubscription == null) {
                 this.currentSubscription = new SubscriptionImpl(s, inputStream);
             } else {
                 this.currentSubscription.cancel();
@@ -129,13 +156,12 @@ public class TranscribeStreamingDemoApp {
         }
     }
 
-    private static class SubscriptionImpl implements Subscription {
+    public static class SubscriptionImpl implements Subscription {
         private static final int CHUNK_SIZE_IN_BYTES = 1024 * 1;
-        private ExecutorService executor = Executors.newFixedThreadPool(1);
-        private AtomicLong demand = new AtomicLong(0);
-
         private final Subscriber<? super AudioStream> subscriber;
         private final InputStream inputStream;
+        private ExecutorService executor = Executors.newFixedThreadPool(1);
+        private AtomicLong demand = new AtomicLong(0);
 
         private SubscriptionImpl(Subscriber<? super AudioStream> s, InputStream inputStream) {
             this.subscriber = s;

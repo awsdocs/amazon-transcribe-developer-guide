@@ -10,36 +10,61 @@ To run the sample, do the following:
 ```
 /**
  * COPYRIGHT:
- *
+ * <p>
  * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
- *
  */
 package com.amazonaws.transcribestreaming.retryclient;
 
-public class SampleApp {
+import com.amazonaws.transcribestreaming.TranscribeStreamingDemoApp;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.transcribestreaming.model.AudioStream;
+import software.amazon.awssdk.services.transcribestreaming.model.LanguageCode;
+import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionRequest;
+
+import javax.sound.sampled.LineUnavailableException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+import static com.amazonaws.transcribestreaming.TranscribeStreamingDemoApp.getCredentials;
+
+public class StreamingRetryApp {
     private static final String endpoint = "endpoint";
-    private static final Region region = region;
+    private static final Region region = Region.US_EAST_1;
+    private static final int sample_rate = 28800;
+    private static final String encoding = " ";
+    private static final String language = LanguageCode.EN_US.toString();
+
     public static void main(String args[]) throws URISyntaxException, ExecutionException, InterruptedException, LineUnavailableException, FileNotFoundException {
         /**
          * Create Transcribe streaming retry client using AWS credentials.
          */
-        TranscribeStreamingRetryClient client = new TranscribeStreamingRetryClient(getCredentials(), endpoint, region);
 
-        StartStreamTranscriptionRequest request =  StartStreamTranscriptionRequest.builder()
-                .languageCode(LanguageCode.language.toString())
+        TranscribeStreamingRetryClient client = new TranscribeStreamingRetryClient(EnvironmentVariableCredentialsProvider.create() ,endpoint, region);
+
+        StartStreamTranscriptionRequest request = StartStreamTranscriptionRequest.builder()
+                .languageCode(language)
                 .mediaEncoding(encoding)
-                .mediaSampleRateHertz(sample rate)
+                .mediaSampleRateHertz(sample_rate)
                 .build();
         /**
          * Start real-time speech recognition. The Transcribe streaming java client uses the Reactive-streams 
@@ -69,9 +94,9 @@ public class SampleApp {
         result.get();
         client.close();
     }
-    
+
     private static class AudioStreamPublisher implements Publisher<AudioStream> {
-    private final InputStream inputStream;
+        private final InputStream inputStream;
 
         private AudioStreamPublisher(InputStream inputStream) {
             this.inputStream = inputStream;
@@ -79,11 +104,11 @@ public class SampleApp {
 
         @Override
         public void subscribe(Subscriber<? super AudioStream> s) {
-            if (currentSubscription == null) {
-                this.currentSubscription = new SubscriptionImpl(s, inputStream);
+            if (s.currentSubscription == null) {
+                this.currentSubscription = new TranscribeStreamingDemoApp.SubscriptionImpl(s, inputStream);
             } else {
                 this.currentSubscription.cancel();
-                this.currentSubscription = new SubscriptionImpl(s, inputStream);
+                this.currentSubscription = new TranscribeStreamingDemoApp.SubscriptionImpl(s, inputStream);
             }
             s.onSubscribe(currentSubscription);
         }
