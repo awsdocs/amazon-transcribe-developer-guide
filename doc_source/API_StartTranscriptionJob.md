@@ -15,7 +15,9 @@ Starts an asynchronous job to transcribe speech to text\.
    "[OutputBucketName](#transcribe-StartTranscriptionJob-request-OutputBucketName)": "string",
    "[Settings](#transcribe-StartTranscriptionJob-request-Settings)": { 
       "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
+      "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
       "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
+      "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
       "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
       "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
    },
@@ -32,7 +34,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | ru-RU | zh-CN | ar-SA | pt-PT | es-ES | en-IN | hi-IN | ja-JP | de-CH | he-IL | da-DK | ar-AE | af-ZA | nl-NL | ms-MY | id-ID | cy-GB | ga-IE | gd-GB | ta-IN`   
 Required: Yes
 
  ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>
@@ -48,13 +50,14 @@ Required: Yes
 
  ** [MediaSampleRateHertz](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the audio track in the input media file\.   
+If you do not specify the media sample rate, Amazon Transcribe determines the sample rate\. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe\. In most cases, you should leave the `MediaSampleRateHertz` field blank and let Amazon Transcribe determine the sample rate\.  
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No
 
  ** [OutputBucketName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-OutputBucketName"></a>
 The location where the transcription is stored\.  
-If you set the `OutputBucketName`, Amazon Transcribe puts the transcription in the specified S3 bucket\. When you call the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation, the operation returns this location in the `TranscriptFileUri` field\. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket\. For more information, see [Permissions Required for IAM User Roles](https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user)\.  
+If you set the `OutputBucketName`, Amazon Transcribe puts the transcription in the specified S3 bucket\. When you call the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation, the operation returns this location in the `TranscriptFileUri` field\. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket\. For more information, see [Permissions Required for IAM User Roles](https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user)\.  
 Amazon Transcribe uses the default Amazon S3 key for server\-side encryption of transcripts that are placed in your S3 bucket\. You can't specify your own encryption key\.  
 If you don't set the `OutputBucketName`, Amazon Transcribe generates a pre\-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the `TranscriptFileUri` field\. Use this URL to download the transcription\.  
 Type: String  
@@ -89,7 +92,9 @@ Required: Yes
       "[MediaSampleRateHertz](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaSampleRateHertz)": number,
       "[Settings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Settings)": { 
          "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
+         "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
          "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
+         "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
          "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
          "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
       },

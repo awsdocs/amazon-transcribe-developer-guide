@@ -56,9 +56,9 @@ You can create a custom vocabulary by creating a table in a text file\. Each row
 
 For valid character sets, see [Character Sets for Custom Vocabularies](#charsets)
 
-Place each word or phrase in your text file on a separate line\. Save the file in an Amazon S3 bucket in the same region that you are calling the API with the extension \.txt\. 
+Place each word or phrase in your text file on a separate line\. In addition to the data in each field, each line must have exactly three TAB characters to separate the fields\. Save the file with the extension `.txt` in an Amazon S3 bucket in the same region that you are calling the API\. 
 
-The following is an example input file in text format\. 
+The following examples are input files in text format\. The examples use spaces to align the columns, your input files should include spaces only in the `IPA` and `DisplayAs` columns\.
 
 ```
 Phrase     [TAB]IPA       [TAB]SoundsLike[TAB]DisplayAs

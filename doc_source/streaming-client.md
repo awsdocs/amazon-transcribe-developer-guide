@@ -1,4 +1,4 @@
-# Streaming Retry Client<a name="streaming-client"></a>
+# HTTP/2 Streaming Retry Client<a name="streaming-client"></a>
 
  You can use the following code in your applications to handle retry logic for Amazon Transcribe streaming transcription\. The code provides tolerance for intermittent failures in the connection to Amazon Transcribe\. There are two parts of the client: an interface that you implement for your application, and the retry client itself\.
 
@@ -308,61 +308,69 @@ public interface StreamTranscriptionBehavior {
 The following is an example implementation of the `StreamTranscriptionBehavior` interface\. You can use this implementation or use it as a starting point for your own implementation\.
 
 ```
+package com.amazonaws.transcribestreaming.retryclient;
+
+
+import com.amazonaws.transcribestreaming.retryclient.StreamTranscriptionBehavior;
+import software.amazon.awssdk.services.transcribestreaming.model.Result;
+import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionResponse;
+import software.amazon.awssdk.services.transcribestreaming.model.TranscriptEvent;
+import software.amazon.awssdk.services.transcribestreaming.model.TranscriptResultStream;
+
+import java.util.List;
+
 /**
+ * Implementation of StreamTranscriptionBehavior to define how a stream response should be handled.
+ *
  * COPYRIGHT:
- * <p>
- * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * <p>
+ *
+ * Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.amazonaws.transcribestreaming.retryclient;
-
-import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionResponse;
-import software.amazon.awssdk.services.transcribestreaming.model.TranscriptResultStream;
-
-/**
- * Defines how a stream response should be handled.
- * You should build a class implementing this interface to define the behavior.
- */
-public interface StreamTranscriptionBehavior {
-    /**
-     * Defines how to respond when encountering an error on the stream transcription.
-     *
-     * @param e The exception
-     */
-    void onError(Throwable e);
-
-    /**
-     * Defines how to respond to the Transcript result stream.
-     *
-     * @param e The TranscriptResultStream event
-     */
-    void onStream(TranscriptResultStream e);
-
-    /**
-     * Defines what to do on initiating a stream connection with the service.
-     *
-     * @param r StartStreamTranscriptionResponse
-     */
-    void onResponse(StartStreamTranscriptionResponse r);
+public class StreamTranscriptionBehaviorImpl implements StreamTranscriptionBehavior {
 
 
-    /**
-     * Defines what to do on stream completion
-     */
-    void onComplete();
-}
+    @Override
+    public void onError(Throwable e) {
+        System.out.println("=== Failure Encountered ===");
+        e.printStackTrace();
+    }
+
+    @Override
+    public void onStream(TranscriptResultStream e) {
+        // EventResultStream has other fields related to the the timestamp of the transcripts in it.
+        // Please refer to the javadoc of TranscriptResultStream for more details
+        List<Result> results = ((TranscriptEvent) e).transcript().results();
+        if (results.size() > 0) {
+            if (results.get(0).alternatives().size() > 0)
+                if (!results.get(0).alternatives().get(0).transcript().isEmpty()) {
+                    System.out.println(results.get(0).alternatives().get(0).transcript());
+                }
+        }
+    }
+
+    @Override
+    public void onResponse(StartStreamTranscriptionResponse r) {
+
+        System.out.println(String.format("=== Received Initial response. Request Id: %s ===", r.requestId()));
+    }
+
+    @Override
+    public void onComplete() {
+        System.out.println("=== All records stream successfully ===");
+    }
 ```
 
 ### Next step<a name="retry-client-next"></a>
 
-[Using the Retry Client](retry-client-example.md)
+[Using the HTTP/2 Retry Client](retry-client-example.md)

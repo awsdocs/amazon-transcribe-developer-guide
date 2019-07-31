@@ -27,3 +27,4 @@ Amazon Transcribe has the following limitations:
 | Maximum audio file size | 2 GB | 
 | Maximum size of a custom vocabulary | 50 KB | 
 | Maximum length of a custom vocabulary phrase | 256 characters | 
+| Number of days that job records are retained | 90 | 

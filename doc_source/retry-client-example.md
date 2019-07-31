@@ -1,4 +1,4 @@
-# Using the Retry Client<a name="retry-client-example"></a>
+# Using the HTTP/2 Retry Client<a name="retry-client-example"></a>
 
 The following is a sample application that uses the retry client to transcribe audio from either a file or your microphone\. You can use this application to test the client, or you can use it as a starting point for your own applications\.
 

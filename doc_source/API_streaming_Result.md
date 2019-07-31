@@ -15,7 +15,8 @@ Type: Double
 Required: No
 
  **IsPartial**   <a name="transcribe-Type-streaming_Result-IsPartial"></a>
- `true` to indicate that Amazon Transcribe has additional transcription data to send, `false` to indicate that this is the last transcription result for the audio stream\.  
+Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio\. Transcription results are returned based on these segments\.   
+The `IsPartial` field is `true` to indicate that Amazon Transcribe has additional transcription data to send, `false` to indicate that this is the last transcription result for the segment\.  
 Type: Boolean  
 Required: No
 

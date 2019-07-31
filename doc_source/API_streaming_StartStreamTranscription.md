@@ -1,16 +1,18 @@
 # StartStreamTranscription<a name="API_streaming_StartStreamTranscription"></a>
 
-Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
+Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
 
-The following are encoded as HTTP2 headers:
+The following are encoded as HTTP/2 headers:
 + x\-amzn\-transcribe\-language\-code
 + x\-amzn\-transcribe\-media\-encoding
 + x\-amzn\-transcribe\-sample\-rate
 + x\-amzn\-transcribe\-session\-id
 
-For more information about using the `StartStreamTranscription` operation, see [Streaming Transcription](streaming.md)\.
+For more information about using the `StartStreamTranscription` operation, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.
 
 ## Request Syntax<a name="API_streaming_StartStreamTranscription_RequestSyntax"></a>
+
+The following is a JSON representation of the `StartStreamTranscription` request\. The actual request is binary data encoded using event stream encoding\. For more information, see [Event Stream Encoding](event-stream.md)\.
 
 ```
 POST /stream-transcription HTTP/2
@@ -57,14 +59,16 @@ Pattern: `^[0-9a-zA-Z._-]+`
 
 ## Request Body<a name="API_streaming_StartStreamTranscription_RequestBody"></a>
 
-The request accepts the following data as a binary stream\. For more information, see [Amazon Transcribe Streaming Format](streaming-format.md)\.
+The request accepts the following data as a binary stream\. For more information, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.
 
  ** [AudioStream](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-AudioStream"></a>
-PCM\-encoded stream of audio blobs\. The audio stream is encoded as an HTTP2 data frame\. For details of the encoding, see [Amazon Transcribe Streaming Format](streaming-format.md)\.  
+PCM\-encoded stream of audio blobs\. The audio stream is encoded as an HTTP/2 data frame\. For details of the encoding, see [Event Stream Encoding](event-stream.md)\.  
 Type: [AudioStream](API_streaming_AudioStream.md) object  
 Required: Yes
 
 ## Response Syntax<a name="API_streaming_StartStreamTranscription_ResponseSyntax"></a>
+
+The response from Amazon Transcribe contains two parts: HTTP/2 headers with metadata about the response and binary data containing the response\. The binary data is encoded using event stream encoding\. Once the binary data is decoded, the content is a JSON object containing the results of the transcription\. For more information, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.
 
 ```
 HTTP/2 200
@@ -145,10 +149,10 @@ The name of the vocabulary used when processing the job\.
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
-The following data is returned in JSON format by the service\.
+The body of the response from Amazon Transcribe is binary data in event stream encoding\. Once the binary data is decoded, the content is a JSON object that contains the following information\.
 
  ** [TranscriptResultStream](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-TranscriptResultStream"></a>
-Represents the stream of transcription events from Amazon Transcribe to your application\. For more information, see [Amazon Transcribe Streaming Format](streaming-format.md)\.  
+Represents the stream of transcription events from Amazon Transcribe to your application\. For more information, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.  
 Type: [TranscriptResultStream](API_streaming_TranscriptResultStream.md) object
 
 ## Errors<a name="API_streaming_StartStreamTranscription_Errors"></a>
@@ -174,5 +178,6 @@ HTTP Status Code: 429
 ## See Also<a name="API_streaming_StartStreamTranscription_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
++  [AWS SDK for C\+\+](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_transcribe_streaming_service.html) 
 +  [AWS SDK for Java](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/transcribestreaming/package-summary.html) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeStreamingService/Client.html) 

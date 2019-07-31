@@ -10,7 +10,9 @@ To transcribe an audio file, Amazon Transcribe uses three operations:
 To transcribe streaming audio to text, Amazon Transcribe provides one operation:
 + [StartStreamTranscription](API_streaming_StartStreamTranscription.md) – Starts a bi\-directional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
 
-You can also use the Amazon Transcribe to create and manage custom vocabularies for your solution\. A custom vocabulary gives Amazon Transcribe more information about how to process speech in an audio clip\.
+You can also start a WebSocket protocol stream to send audio the Amazon Transcribe\. For more information, see [Using Amazon Transcribe Streaming With WebSockets](websocket.md)\.
+
+You can use Amazon Transcribe to create and manage custom vocabularies for your solution\. A custom vocabulary gives Amazon Transcribe more information about how to process speech in an audio clip\.
 + [CreateVocabulary](API_CreateVocabulary.md) – Creates a custom vocabulary that you can use in your transcription jobs\.
 + [DeleteVocabulary](API_DeleteVocabulary.md) – Deletes a custom vocabulary from your account\.
 + [GetVocabulary](API_GetVocabulary.md) – Gets information about a custom vocabulary and a URL that you can use to download the contents of a vocabulary\.

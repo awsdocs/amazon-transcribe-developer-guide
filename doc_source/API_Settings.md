@@ -11,10 +11,19 @@ You can't set both `ShowSpeakerLabels` and `ChannelIdentification` in the same r
 Type: Boolean  
 Required: No
 
+ **MaxAlternatives**   <a name="transcribe-Type-Settings-MaxAlternatives"></a>
+Type: Integer  
+Valid Range: Minimum value of 2\. Maximum value of 3\.  
+Required: No
+
  **MaxSpeakerLabels**   <a name="transcribe-Type-Settings-MaxSpeakerLabels"></a>
 The maximum number of speakers to identify in the input audio\. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker\. If you specify the `MaxSpeakerLabels` field, you must set the `ShowSpeakerLabels` field to true\.  
 Type: Integer  
 Valid Range: Minimum value of 2\. Maximum value of 10\.  
+Required: No
+
+ **ShowAlternatives**   <a name="transcribe-Type-Settings-ShowAlternatives"></a>
+Type: Boolean  
 Required: No
 
  **ShowSpeakerLabels**   <a name="transcribe-Type-Settings-ShowSpeakerLabels"></a>

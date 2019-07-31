@@ -1,14 +1,16 @@
 # Document History for Amazon Transcribe<a name="doc-history"></a>
-+ **Latest documentation update: **June 27, 2019
++ **Latest documentation update: **July 19, 2019
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html) | Amazon Transcribe adds support for streaming audio transcription using the WebSocket protocol\. For more information, see [Streaming Transcription](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html)\. | July 19, 2019 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the US West \(N\. California\) \(us\-west\-1\) region\. | June 27, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) | Amazon Transcribe adds support for Modern Standard Arabic\. | May 28, 2019 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | Amazon Transcribe now transcribes numeric words into numbers for US English\. For example, "forty\-two" is transcribed as "42"\. For more information, see [Transcribing Numbers](https://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html)\. | May 23, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) | Amazon Transcribe adds support for Hindi and Indian English\. | May 15, 2019 | 
+| [New SDK](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_transcribe_streaming_service.html) | The AWS SDK for C\+\+ now supports Amazon Transcribe\. | May 8, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) | Amazon Transcribe adds support for Spanish\. | April 19, 2019 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the EU \(Frankfurt\) \(eu\-central\-1\) and Asia Pacific \(Seoul\) \(ap\-northeast\-2\) regions\. | April 18, 2019 | 
 | [New feature](https://docs.aws.amazon.com/sdkforruby/api/Aws/TranscribeService.html) | The AWS SDK for Ruby V3 now supports Amazon Transcribe | March 25, 2019 | 
