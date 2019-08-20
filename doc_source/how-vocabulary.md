@@ -58,7 +58,7 @@ For valid character sets, see [Character Sets for Custom Vocabularies](#charsets
 
 Place each word or phrase in your text file on a separate line\. In addition to the data in each field, each line must have exactly three TAB characters to separate the fields\. Save the file with the extension `.txt` in an Amazon S3 bucket in the same region that you are calling the API\. 
 
-The following examples are input files in text format\. The examples use spaces to align the columns, your input files should include spaces only in the `IPA` and `DisplayAs` columns\.
+The following examples are input files in text format\. The examples use spaces to align the columns. Your input files should include spaces only in the `IPA` and `DisplayAs` columns\.
 
 ```
 Phrase     [TAB]IPA       [TAB]SoundsLike[TAB]DisplayAs
@@ -74,7 +74,7 @@ Phrase     [TAB]SoundsLike[TAB]IPA       [TAB]DisplayAs
 Los-Angeles[TAB]          [TAB]          [TAB]Los Angeles
 F.B.I      [TAB]          [TAB]ɛ f b i aɪ[TAB]FBI
 Etienne    [TAB]eh-tee-en [TAB]          [TAB]
-```
+.```
 
 ```
 DisplayAs  [TAB]SoundsLike[TAB]IPA       [TAB]Phrase
