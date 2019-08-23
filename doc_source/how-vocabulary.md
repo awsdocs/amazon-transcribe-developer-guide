@@ -56,9 +56,9 @@ You can create a custom vocabulary by creating a table in a text file\. Each row
 
 For valid character sets, see [Character Sets for Custom Vocabularies](#charsets)
 
-Place each word or phrase in your text file on a separate line\. In addition to the data in each field, each line must have exactly three TAB characters to separate the fields\. Save the file with the extension `.txt` in an Amazon S3 bucket in the same region that you are calling the API\. 
+Place each word or phrase in your text file on a separate line\. Separate the fields with TAB characters\. Save the file with the extension `.txt` in an Amazon S3 bucket in the same region that you are calling the API\. 
 
-The following examples are input files in text format\. The examples use spaces to align the columns. Your input files should include spaces only in the `IPA` and `DisplayAs` columns\.
+The following examples are input files in text format\. The examples use spaces to align the columns\. Your input files should use TAB characters to separate the columns\. Include spaces only in the `IPA` and `DisplayAs` columns\. If you copy these examples, remove the extra spaces between columns and replace "\[TAB\]" with a TAB character\.
 
 ```
 Phrase     [TAB]IPA       [TAB]SoundsLike[TAB]DisplayAs
@@ -74,7 +74,7 @@ Phrase     [TAB]SoundsLike[TAB]IPA       [TAB]DisplayAs
 Los-Angeles[TAB]          [TAB]          [TAB]Los Angeles
 F.B.I      [TAB]          [TAB]ɛ f b i aɪ[TAB]FBI
 Etienne    [TAB]eh-tee-en [TAB]          [TAB]
-.```
+```
 
 ```
 DisplayAs  [TAB]SoundsLike[TAB]IPA       [TAB]Phrase
@@ -86,7 +86,7 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 
   If the entry is a phrase, separate the words with a hyphen \(\-\)\. For example, you type **Los Angeles** as **Los\-Angeles**\.
 
-  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\. Acronyms are supported only in US English \(en\-US\)\.
+  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\.
 
   The `Phrase` field is required\. You can use any of the allowed characters for the input language\. For the list of allowed characters, see the individual languages\. If you do not specify the `DisplayAs` field, Amazon Transcribe uses the contents of the `Phrase` field in the output file\.
 + **IPA** – To specify the pronunciation of your word or phrase, you can include characters in the [International Phonetic Alphabet \(IPA\)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) in this field\. The `IPA` field can't contain leading or trailing spaces, and you must use a single space to separate each phoneme in the input\. For example, in English you would enter the phrase **Los\-Angeles** as **l ɔ s æ n ʤ ə l ə s**\. You would enter the phrase **F\.B\.I\.** as **ɛ f b i aɪ**\.
@@ -111,6 +111,7 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 
 **Topics**
 + [Arabic Character Set](#char-arabic)
++ [Chinese Character Set](#char-chinese)
 + [English Character Set](#char-english)
 + [French Character Set](#char-french)
 + [German Character Set](#char-german)
@@ -118,6 +119,7 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 + [Italian Character Set](#char-italian)
 + [Korean Character Set](#char-korean)
 + [Portuguese Character Set](#char-portuguese)
++ [Russian Character Set](#char-russian)
 + [Spanish Character Set](#char-spanish)
 
 ### Arabic Character Set<a name="char-arabic"></a>
@@ -175,6 +177,38 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | t | 0074 | θ | 03B8 | 
 | tˤ | 0074 02E4 | χ | 03C7 | 
 | u | 0075 |   |   | 
+
+### Chinese Character Set<a name="char-chinese"></a>
+
+ For Chinese custom vocabularies, the `Phrase` field can use any of the characters listed in the following file on GitHub\.
++ [chinese\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/chinese-character-set.txt) 
+
+The `SoundsLike` field can contain the pinyin syllables listed in the following file on GitHub\.
++ [pinyin\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/pinyin-set.txt) 
+
+When you use pinyin syllables in the `SoundsLike` field, separate the syllables with a hyphen \(\-\)\.
+
+Amazon Transcribe represents the four tones in Mandarin Chinese using numbers\. The following table shows how tone marks are mapped for the word "ma\."
+
+
+| Tone | Tone Mark | Tone Number | 
+| --- | --- | --- | 
+| Tone 1 | mā | ma1 | 
+| Tone 2 | má | ma2 | 
+| Tone 3 | mǎ | ma3 | 
+| Tone 4 | mà | ma4 | 
+
+Chinese custom vocabularies don't use the `IPA` field, but you must still include the `IPA` header in the vocabulary table\. 
+
+The following example is an input file in text format\. The example uses spaces to align the columns\. Your input files should use TAB characters to separate the columns\. Include spaces only in the `DisplayAs` column\.
+
+```
+Phrase     SoundsLike               IPA  DisplayAs
+康健        kang1-jian4
+谴责        qian3-ze2
+国防大臣    guo2-fang2-da4-chen2
+世界博览会  shi4-jie4-bo4-lan3-hui4       世博会
+```
 
 ### English Character Set<a name="char-english"></a>
 
@@ -529,6 +563,63 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | t | 0074 | ʒ | 0292 | 
 | tʃ | 0074 0283 | ʤ | 02A4 | 
 | u | 0075 | ẽ | 1EBD | 
+
+### Russian Character Set<a name="char-russian"></a>
+
+For Russian custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| ' | 0027 | п | 043F | 
+| \- | 002D | р | 0440 | 
+| \. | 002E | с | 0441 | 
+| а | 0430 | т | 0442 | 
+| б | 0431 | у | 0443 | 
+| в | 0432 | ф | 0444 | 
+| г | 0433 | х | 0445 | 
+| д | 0434 | ц | 0446 | 
+| е | 0435 | ч | 0447 | 
+| ж | 0436 | ш | 0448 | 
+| з | 0437 | щ | 0449 | 
+| и | 0438 | ъ | 044A | 
+| й | 0439 | ы | 044B | 
+| к | 043A | ь | 044C | 
+| л | 043B | э | 044D | 
+| м | 043C | ю | 044E | 
+| н | 043D | я | 044F | 
+| о | 043E | ё | 0451 | 
+
+You can use the following International Phonetic Alphabet characters in the IPA field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| b | 0062 | t | 0074 | 
+| bʲ | 0062 02B2 | tʃ | 0074 0283 | 
+| d | 0064 | tʲ | 0074 02B2 | 
+| dʲ | 0064 02B2 | u | 0075 | 
+| f | 0066 | v | 0076 | 
+| fʲ | 0066 02B2 | vʲ | 0076 02B2 | 
+| g | 0067 | x | 0078 | 
+| gʲ | 067 02B2 | xʲ | 0078 02B2 | 
+| i | 0069 | z | 007A | 
+| j | 006A | zʲ | 007A 02B2 | 
+| k | 006B | æ | 00E6 | 
+| kʲ | 006B 02B2 | ə | 0259 | 
+| l | 006C | ɛ | 025B | 
+| lʲ | 006C 02B2 | ɨ | 0268 | 
+| m | 006D | ʃ | 0283 | 
+| mʲ | 006D 02B2 | ʃʲ | 0283 02B2 | 
+| n | 006E | ʊ | 028A | 
+| nʲ | 006E 02B2 | ʌ | 028C | 
+| p | 0070 | ʒ | 0292 | 
+| pʲ | 0070 02B2 | ˈi | 02C8 0069 | 
+| r | 0072 | ˈo | 02C8 006F | 
+| rʲ | 0072 02B2 | ˈv | 02C8 0075 | 
+| s | 0073 | ˈɛ | 02C8 025B | 
+| sʲ | 0073 02B2 | ˈɨ | 02C8 0268 | 
+| ts | 0074 0073 | ˈa | 02C8 0061 | 
 
 ### Spanish Character Set<a name="char-spanish"></a>
 

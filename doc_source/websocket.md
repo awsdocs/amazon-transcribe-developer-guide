@@ -30,7 +30,7 @@ When you use the WebSocket protocol to call Amazon Transcribe, the role that mak
 You construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe\. The URL is in the following format\. Line breaks have been added for readability\.
 
 ```
-GET https://transcribe-streaming.region.amazonaws.com:8443/stream-transcription-websocket
+GET https://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket
 ?language-code=languageCode
    &sample-rate=mediaSampleRateHertz
    &media-encoding=mediaEncoding
@@ -53,7 +53,7 @@ Use the following values for the URL parameters\.
 + **sessionId** – Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.
 
  The following parameters are Signature Version 4 parameters\. For more information about Signature Version 4, see [Signing AWS API Requests ](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\. 
-+ **X\-Amz\-Security\-Token** – A Signature Version 4 token for temporary credentials\. Optional\.
++ **X\-Amz\-Security\-Token** – Optional\. A Signature Version 4 token for temporary credentials\. If you specify the parameter, include it in the canonical query string\.
 + **X\-Amz\-Algorithm** – The algorithm you're using as part of the signing process\. For example, if you use SHA\-256 to create hashes, the value is `AWS4-HMAC-SHA256`\.
 + **X\-Amz\-Date ** – A date and time generated following the instructions in [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html) in the *Amazon Web Services General Reference*\.
 + **X\-Amz\-SignedHeaders** – The headers that are signed when creating the signature for the request\. Always `host`\.
@@ -117,9 +117,10 @@ The first task is create a string that includes information from your request in
 
    ```
    canonical_querystring  = "X-Amz-Algorithm=AWS4-HMAC-SHA256"
-   canonical_querystring += "&X-Amz-Credentials="+access key + "/" + credential_scope
+   canonical_querystring += "&X-Amz-Credentials="+ access key + "/" + credential_scope
    canonical_querystring += "&X-Amz-Date=" + amz_date 
    canonical_querystring += "&X-Amz-Expires=300"
+   canonical_querystring += "&X-Amz-Security-Token=" + token
    canonical_querystring += "&X-Amz-SignedHeaders=" + signed_headers
    canonical_querystring += "&language-code=en-US&media-encoding=pcm&sample-rate=16000"
    ```

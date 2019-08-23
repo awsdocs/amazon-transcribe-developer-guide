@@ -21,6 +21,7 @@ You can use Amazon Transcribe to create and manage custom vocabularies for your 
 
 You can transcribe speech in any of the following languages:
 + Modern Standard Arabic \(ar\-SA\)
++ Chinese Mandarin\-Mainland \(zh\-CN\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
 + Indian English \(en\-IN\)
@@ -32,6 +33,7 @@ You can transcribe speech in any of the following languages:
 + Italian \(it\-IT\)
 + Korean \(ko\-KR\)
 + Brazilian Portuguese \(pt\-BR\)
++ Russian \(ru\-RU\)
 + Spanish \(es\-ES\)
 + US Spanish \(es\-US\)
 

@@ -4,6 +4,7 @@ Amazon Transcribe uses advanced machine learning technologies to recognize speec
 
 You can use Amazon Transcribe to transcribe the following languages to text:
 + Modern Standard Arabic \(ar\-SA\)
++ Chinese Mandarin\-Mainland \(zh\-CN\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
 + Indian English \(en\-IN\)
@@ -15,6 +16,7 @@ You can use Amazon Transcribe to transcribe the following languages to text:
 + Italian \(it\-IT\)
 + Korean \(ko\-KR\)
 + Brazilian Portuguese \(pt\-BR\)
++ Russian \(ru\-RU\)
 + Spanish \(es\-ES\)
 + US Spanish \(es\-US\)
 
@@ -39,7 +41,7 @@ Amazon Transcribe can identify the individual speakers in an audio clip, a techn
 + identify characters for closed captions
 + identify the speaker and questioners in a recorded press conference or lecture
 
-You can specify the number of voices that you want Amazon Transcribe to recognize in an audio clip
+You can specify the number of voices that you want Amazon Transcribe to recognize in an audio clip\.
 
 ## Transcribing Separate Audio Channels<a name="what-channel-id"></a>
 

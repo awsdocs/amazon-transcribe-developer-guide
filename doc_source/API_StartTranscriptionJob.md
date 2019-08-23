@@ -15,9 +15,7 @@ Starts an asynchronous job to transcribe speech to text\.
    "[OutputBucketName](#transcribe-StartTranscriptionJob-request-OutputBucketName)": "string",
    "[Settings](#transcribe-StartTranscriptionJob-request-Settings)": { 
       "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
-      "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
       "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
-      "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
       "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
       "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
    },
@@ -34,7 +32,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | ru-RU | zh-CN | ar-SA | pt-PT | es-ES | en-IN | hi-IN | ja-JP | de-CH | he-IL | da-DK | ar-AE | af-ZA | nl-NL | ms-MY | id-ID | cy-GB | ga-IE | gd-GB | ta-IN`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN`   
 Required: Yes
 
  ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>
@@ -46,7 +44,7 @@ Required: Yes
 The format of the input media file\.  
 Type: String  
 Valid Values:` mp3 | mp4 | wav | flac`   
-Required: Yes
+Required: No
 
  ** [MediaSampleRateHertz](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the audio track in the input media file\.   
@@ -92,9 +90,7 @@ Required: Yes
       "[MediaSampleRateHertz](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaSampleRateHertz)": number,
       "[Settings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Settings)": { 
          "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
-         "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
          "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
-         "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
          "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
          "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
       },

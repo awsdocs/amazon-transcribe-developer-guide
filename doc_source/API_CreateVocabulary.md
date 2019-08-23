@@ -22,7 +22,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | ru-RU | zh-CN | ar-SA | pt-PT | es-ES | en-IN | hi-IN | ja-JP | de-CH | he-IL | da-DK | ar-AE | af-ZA | nl-NL | ms-MY | id-ID | cy-GB | ga-IE | gd-GB | ta-IN`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN`   
 Required: Yes
 
  ** [Phrases](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-Phrases"></a>
@@ -74,7 +74,7 @@ Type: String
  ** [LanguageCode](#API_CreateVocabulary_ResponseSyntax) **   <a name="transcribe-CreateVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | ru-RU | zh-CN | ar-SA | pt-PT | es-ES | en-IN | hi-IN | ja-JP | de-CH | he-IL | da-DK | ar-AE | af-ZA | nl-NL | ms-MY | id-ID | cy-GB | ga-IE | gd-GB | ta-IN` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN` 
 
  ** [LastModifiedTime](#API_CreateVocabulary_ResponseSyntax) **   <a name="transcribe-CreateVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was created\.  
