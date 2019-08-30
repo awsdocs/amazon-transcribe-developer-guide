@@ -33,9 +33,9 @@ Required: No
 
  ** [VocabularyFileUri](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyFileUri"></a>
 The S3 location of the text file that contains the definition of the custom vocabulary\. The URI must be in the same region as the API endpoint that you are calling\. The general form is   
- ` https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
+ ` https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
 For example:  
- `https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt`   
+ `https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt`   
 For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
 For more information about custom vocabularies, see [Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
 Type: String  
