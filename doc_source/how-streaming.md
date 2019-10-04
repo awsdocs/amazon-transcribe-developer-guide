@@ -193,6 +193,7 @@ Create an audio event containing the audio data to send\. For details, see [Even
 :content-type: "application/octet-stream"
 :event-type: "AudioEvent"
 :message-type: "event"
+Content-Type: "application/x-amz-json-1.1"
 
 UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA/f8EAA==
 ```
@@ -205,8 +206,8 @@ Create an audio message that contains the audio data to send to Amazon Transcrib
 :date: 2019-01-29T01:56:17.291Z
 :chunk-signature: signature
 
-AAAA0gAAAIKVoRFcTTcjb250ZW50LXR5cGUHABhhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0LOmV2ZW50LXR5
-cGUHAApBdWRpb0V2ZW50DTptZXNzYWdlLXR5cGUHAAVldmVudAxDb256ZW50LVR5cGUHABphcHBsaWNhdGlv
+AAAA0gAAAIKVoRFcDTpjb250ZW50LXR5cGUHABhhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0LOmV2ZW50LXR5
+cGUHAApBdWRpb0V2ZW50DTptZXNzYWdlLXR5cGUHAAVldmVudAxDb250ZW50LVR5cGUHABphcHBsaWNhdGlv
 bi94LWFtei1qc29uLTEuMVJJRkY88T0AV0FWRWZtdCAQAAAAAQABAIA+AAAAfQAAAgAQAGRhdGFU8D0AAAAA
 AAAAAAAAAAAA//8CAP3/BAC7QLFf
 ```
@@ -214,13 +215,6 @@ AAAAAAAAAAAA//8CAP3/BAC7QLFf
 ### Step 5 \- Use the Response from Amazon Transcribe<a name="streaming-example-step5"></a>
 
 Amazon Transcribe creates a stream of transcription events that it sends to your application\. The events are sent in raw\-byte format\. In this example, the bytes are base64\-encoded\.
-
-The response from Amazon Transcribe is:
-
-```
-AAAAUwAAAEP1RHpYBTpkYXRlCAAAAWiXUkMLEDpjaHVuay1zaWduYXR1cmUGACCt6Zy+uymwEK2SrLp/zVBI
-5eGn83jdBwCaRUBJA+eaDafqjqI=
-```
 
 To see the transcription results, decode the raw bytes using event\-stream encoding: 
 
@@ -241,4 +235,11 @@ Finally, send an empty audio event to Amazon Transcribe to end the transcription
 ```
 :date: 2019-01-29T01:56:17.291Z
 :chunk-signature: signature
+```
+
+Which, when encoded in event stream format, results in:
+
+```
+AAAAUwAAAEP1RHpYBTpkYXRlCAAAAWiXUkMLEDpjaHVuay1zaWduYXR1cmUGACCt6Zy+uymwEK2SrLp/zVBI
+5eGn83jdBwCaRUBJA+eaDafqjqI=
 ```
