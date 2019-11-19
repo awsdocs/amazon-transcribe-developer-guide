@@ -39,7 +39,7 @@ The rule contains the following fields:
 
 ## Amazon Transcribe Event<a name="events"></a>
 
-When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`, Amazon Transcribe generates an event\. To identify the job that changed state and triggered the event in your target, use the event's `TranscriptionJobName` field\. An Amazon Transcribe event contains the following information\.
+When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`, Amazon Transcribe generates an event\. An Amazon Transcribe event contains the following information\.
 
 ```
  {
@@ -52,7 +52,6 @@ When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`,
    "region": "region",
    "resources": [],
    "detail": {
-     "TranscriptionJobName": "unique job name",
      "TranscriptionJobStatus": "status"
    }
  }
@@ -68,5 +67,4 @@ The event passed to the target contains the following information:
 + `region` – The AWS Region where the API call was made\.
 + `resources` – Resources used by the API call\. For Amazon Transcribe, this field is always empty\.
 + `detail` – Details about the event\. It contains the following fields:
-  + `TranscriptionJobName` – The unique name that you gave the job\. 
   + `TranscriptionJobStatus` – The new status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.
