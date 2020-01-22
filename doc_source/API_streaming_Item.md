@@ -4,6 +4,11 @@ A word or phrase transcribed from the input audio\.
 
 ## Contents<a name="API_streaming_Item_Contents"></a>
 
+ **Confidence**   <a name="transcribe-Type-streaming_Item-Confidence"></a>
+ a numeric score between 0\-1\.0 representing the confidence of the model in correct identification for each word\.  
+Type: Double  
+Required: No
+
  **Content**   <a name="transcribe-Type-streaming_Item-Content"></a>
 The word or punctuation that was recognized in the input audio\.  
 Type: String  
@@ -22,7 +27,7 @@ Required: No
  **Type**   <a name="transcribe-Type-streaming_Item-Type"></a>
 The type of the item\. `PRONUNCIATION` indicates that the item is a word that was recognized in the input audio\. `PUNCTUATION` indicates that the item was interpreted as a pause in the input audio\.  
 Type: String  
-Valid Values:` PRONUNCIATION | PUNCTUATION`   
+Valid Values:` pronunciation | punctuation`   
 Required: No
 
 ## See Also<a name="API_streaming_Item_SeeAlso"></a>
@@ -30,6 +35,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/Item) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/Item) 
-+  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-streaming-2017-10-26/Item) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-streaming-2017-10-26/Item) 
 +  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-streaming-2017-10-26/Item) 

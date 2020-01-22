@@ -3,11 +3,16 @@
 Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time\. The API makes it easy for developers to add real\-time speech\-to\-text capability to their applications\.
 
 You can use streaming transcription in the following languages:
-+ British English \(en\-GB\)
-+ US English \(en\-US\)
-+ French \(fr\-FR\)
-+ Canadian French \(fr\-CA\)
-+ US Spanish \(es\-US\)
++ 8 KHz and 16 KHz
++ 
+  + US English \(en\-US\)
+  + US Spanish \(es\-US\)
++ 8 KHz only
++ 
+  + Australian English \(en\-AU\)
+  + British English \(en\-GB\)
+  + French \(fr\-FR\)
+  + Canadian French \(fr\-CA\)
 
 Amazon Transcribe streaming transcription can be used for a variety of purposes\. For example:
 + Streaming transcriptions can generate real\-time subtitles for live broadcast media\.
@@ -107,5 +112,5 @@ The following example is a partial transcription response\.
 
 **Topics**
 + [Event Stream Encoding](event-stream.md)
-+ [Using Amazon Transcribe Streaming With WebSockets](websocket.md)
++ [Using Amazon Transcribe Streaming with WebSockets](websocket.md)
 + [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)

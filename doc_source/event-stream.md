@@ -1,6 +1,6 @@
 # Event Stream Encoding<a name="event-stream"></a>
 
-Event stream encoding provides bidirectional communication using messages between a client and a server\. Data frames sent to the Amazon Transcribe streaming service are encoded in this format\., The response from Amazon Transcribe also uses this encoding\.
+Event stream encoding provides bidirectional communication using messages between a client and a server\. Data frames sent to the Amazon Transcribe streaming service are encoded in this format\. The response from Amazon Transcribe also uses this encoding\.
 
 Each message consists of two sections: the prelude and the data\. The prelude consists of:
 

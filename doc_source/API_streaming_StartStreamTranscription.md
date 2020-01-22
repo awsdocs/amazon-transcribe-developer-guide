@@ -38,7 +38,7 @@ The request requires the following URI parameters\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
 Indicates the language used in the input audio stream\.  
-Valid Values:` en-GB en-US fr-CA fr-FR es-US` 
+Valid Values: `en-AU en-GB en-US es-US fr-CA fr-FR` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.   

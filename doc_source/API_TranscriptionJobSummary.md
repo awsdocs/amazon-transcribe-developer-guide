@@ -22,7 +22,7 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-TranscriptionJobSummary-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
 Required: No
 
  **OutputLocationType**   <a name="transcribe-Type-TranscriptionJobSummary-OutputLocationType"></a>
@@ -31,6 +31,11 @@ If the value is `CUSTOMER_BUCKET` then the location is the S3 bucket specified i
 If the value is `SERVICE_BUCKET` then the output is stored by Amazon Transcribe and can be retrieved using the URI in the `GetTranscriptionJob` response's `TranscriptFileUri` field\.  
 Type: String  
 Valid Values:` CUSTOMER_BUCKET | SERVICE_BUCKET`   
+Required: No
+
+ **StartTime**   <a name="transcribe-Type-TranscriptionJobSummary-StartTime"></a>
+A timestamp that shows when the job started processing\.  
+Type: Timestamp  
 Required: No
 
  **TranscriptionJobName**   <a name="transcribe-Type-TranscriptionJobSummary-TranscriptionJobName"></a>
@@ -43,7 +48,7 @@ Required: No
  **TranscriptionJobStatus**   <a name="transcribe-Type-TranscriptionJobSummary-TranscriptionJobStatus"></a>
 The status of the transcription job\. When the status is `COMPLETED`, use the `GetTranscriptionJob` operation to get the results of the transcription\.  
 Type: String  
-Valid Values:` IN_PROGRESS | FAILED | COMPLETED`   
+Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`   
 Required: No
 
 ## See Also<a name="API_TranscriptionJobSummary_SeeAlso"></a>
@@ -51,6 +56,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/TranscriptionJobSummary) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/TranscriptionJobSummary) 
-+  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-2017-10-26/TranscriptionJobSummary) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/TranscriptionJobSummary) 
 +  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-2017-10-26/TranscriptionJobSummary) 

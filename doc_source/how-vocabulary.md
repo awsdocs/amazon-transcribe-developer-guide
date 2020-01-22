@@ -30,9 +30,20 @@ Each entry must contain:
 
 For valid character sets, see [Character Sets for Custom Vocabularies](#charsets)\.
 
-If an entry is the list is a phrase, separate the words of the phrase with a hypen\. For example, if the phrase is **Los Angeles**, you would enter it in the file as **Los\-Angeles**\.
+If an entry is the list is a phrase, separate the words of the phrase with a hyphen\. For example, if the phrase is **Los Angeles**, you would enter it in the file as **Los\-Angeles**\.
 
-Enter acronyms or other words whose letters should be pronounced individually as single letters separated by dots, such as **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs", separate the "s" from the acronym with a hyphen: **A\.B\.C\.\-s**\. You can use either upper or lower case letters to enter an acronym\. Acronyms are only supported in US English \(en\-US\)\.
+Enter acronyms or other words whose letters should be pronounced individually as single letters separated by dots, such as **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs", separate the "s" from the acronym with a hyphen: **A\.B\.C\.\-s**\. You can use either upper or lower case letters to enter an acronym\. Acronyms are supported in the following languages:
++ Dutch
++ All English variants
++ All French variants
++ All German variants
++ Hindi
++ Indonesian
++ Italian
++ Malay
++ All Portuguese variants
++ All Spanish variants
++ Turkish
 
 The following example shows an input file with the vocabulary words and phrases on separate lines:
 
@@ -86,7 +97,7 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 
   If the entry is a phrase, separate the words with a hyphen \(\-\)\. For example, you type **Los Angeles** as **Los\-Angeles**\.
 
-  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\.
+  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\. For a list of languages that support acronyms, see [Create a Custom Vocabulary Using a List](#create-vocabulary-list)\.
 
   The `Phrase` field is required\. You can use any of the allowed characters for the input language\. For the list of allowed characters, see the individual languages\. If you do not specify the `DisplayAs` field, Amazon Transcribe uses the contents of the `Phrase` field in the output file\.
 + **IPA** – To specify the pronunciation of your word or phrase, you can include characters in the [International Phonetic Alphabet \(IPA\)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) in this field\. The `IPA` field can't contain leading or trailing spaces, and you must use a single space to separate each phoneme in the input\. For example, in English you would enter the phrase **Los\-Angeles** as **l ɔ s æ n ʤ ə l ə s**\. You would enter the phrase **F\.B\.I\.** as **ɛ f b i aɪ**\.
@@ -112,19 +123,28 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 **Topics**
 + [Arabic Character Set](#char-arabic)
 + [Chinese Character Set](#char-chinese)
++ [Dutch Character Set](#char-dutch)
 + [English Character Set](#char-english)
++ [Farsi Character Set](#char-farsi)
 + [French Character Set](#char-french)
 + [German Character Set](#char-german)
++ [Hebrew Character Set](#char-hebrew)
 + [Hindi Character Set](#char-hindi)
++ [Indonesian Character Set](#char-indonesian)
 + [Italian Character Set](#char-italian)
++ [Japanese Character Set](#char-japanese)
 + [Korean Character Set](#char-korean)
++ [Malay Character Set](#char-malay)
 + [Portuguese Character Set](#char-portuguese)
 + [Russian Character Set](#char-russian)
 + [Spanish Character Set](#char-spanish)
++ [Tamil Character Set](#char-tamil)
++ [Telugu Character Set](#char-telugu)
++ [Turkish Character Set](#char-turkish)
 
 ### Arabic Character Set<a name="char-arabic"></a>
 
-For Arabic custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+For Arabic custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields\. You can also use the hypen \(\-\) character to separate words\.
 
 
 | Character | Code | Character | Code | 
@@ -153,30 +173,26 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 
 | Character | Code | Character | Code | 
 | --- | --- | --- | --- | 
-| a | 0061 | uː | 0075 02D0 | 
-| aː | 0061 02D0 | w | 0077 | 
-| aj | 0061 006A | x | 0078 | 
-| aw | 0061 0077 | z | 007A | 
-| b | 0062 | zˤ | 007A 02E4 | 
-| d | 0064 | ð | 00F0 | 
-| dˤ | 0064 02E4 | ð` | 00F0 0060 | 
-| f | 0066 | ðˤ | 00F0 02E4 | 
-| h | 0068 | ħ | 0127 | 
-| i | 0069 | ɖ | 0256 | 
-| iː | 0069 02D0 | ɣ | 0263 | 
-| j | 006A | ɪ | 026A | 
-| k | 006B | ɫ | 026B | 
-| l | 006C | ɭ | 026D | 
-| m | 006D | ʂ | 0282 | 
-| n | 006E | ʃ | 0283 | 
-| p | 0070 | ʈ | 0288 | 
+| a | 0061 | tˤ | 0074 02E4 | 
+| aː | 0061 02D0 | u | 0075 | 
+| b | 0062 | uː | 0075 02D0 | 
+| d | 0064 | v | 0076 | 
+| dˤ | 0064 02E4 | w | 0077 | 
+| f | 0066 | x | 0078 | 
+| h | 0068 | z | 007A | 
+| i | 0069 | zˤ | 007A 02E4 | 
+| iː | 0069 02D0 | ð | 00F0 | 
+| j | 006A | ðˤ | 00F0 02E4 | 
+| k | 006B | ħ | 0127 | 
+| l | 006C | ɣ | 0263 | 
+| m | 006D | ɪ | 026A | 
+| n | 006E | ɫ | 026B | 
+| p | 0070 | ʃ | 0283 | 
 | q | 0071 | ʒ | 0292 | 
 | r | 0072 | ʔ | 0294 | 
-| s | 0073 | ʔ` | 0294 0060 | 
-| sˤ | 0073 02E4 | ʕ | 0295 | 
-| t | 0074 | θ | 03B8 | 
-| tˤ | 0074 02E4 | χ | 03C7 | 
-| u | 0075 |   |   | 
+| s | 0073 | ʕ | 0295 | 
+| sˤ | 0073 02E4 | θ | 03B8 | 
+| t | 0074 | χ | 03C7 | 
 
 ### Chinese Character Set<a name="char-chinese"></a>
 
@@ -209,6 +225,59 @@ Phrase     SoundsLike               IPA  DisplayAs
 国防大臣    guo2-fang2-da4-chen2
 世界博览会  shi4-jie4-bo4-lan3-hui4       世博会
 ```
+
+### Dutch Character Set<a name="char-dutch"></a>
+
+For Dutch custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
++ a \- z
++ A \- Z
++ ' \(apostrophe\)
++ \- \(hyphen\)
++ \. \(period\)
+
+You can also use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| à | 00E0 | î | 00EE | 
+| á | 00E1 | ï | 00EF | 
+| â | 00E2 | ñ | 00F1 | 
+| ä | 00E4 | ò | 00F2 | 
+| ç | 00E7 | ó | 00F3 | 
+| è | 00E8 | ô | 00F4 | 
+| é | 00E9 | ö | 00F6 | 
+| ê | 00EA | ù | 00F9 | 
+| ë | 00EB | ú | 00FA | 
+| ì | 00EC | û | 00FB | 
+| í | 00ED | ü | 00FC | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a: | 0061 003A | z | 007A | 
+| bː | 0062 02D0 | ø: | 00F8 003A | 
+| b | 0062 | ŋ | 014B | 
+| d | 0064 | œy | 0153 0079 | 
+| eː | 0065 02D0 | œː | 0153 02D0 | 
+| f | 0066 | ɑ | 0251 | 
+| g | 0067 | ɔ | 0254 | 
+| i | 0069 | ɔu | 0254 0075 | 
+| j | 006A | ɔː | 0254 02D0 | 
+| k | 006B | ə | 0259 | 
+| l | 006C | ɛ | 025B | 
+| m | 006D | ɛ: | 025B 003A | 
+| n | 006E | ɛi | 025B 0069 | 
+| oː | 006F 02D0 | ɦ | 0266 | 
+| p | 0070 | ɪ | 026A | 
+| s | 0073 | ɲ | 0272 | 
+| t | 0074 | ɾ | 027E | 
+| u | 0075 | ʃ | 0283 | 
+| v | 0076 | ʏ | 028F | 
+| w | 0077 | ʒ | 0292 | 
+| y | 0079 | χ | 03C7 | 
 
 ### English Character Set<a name="char-english"></a>
 
@@ -246,6 +315,56 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | t | 0074 | ʤ | 02A4 | 
 | u | 0075 | ʧ | 02A7 | 
 | v | 0076 | θ | 03B8 | 
+
+### Farsi Character Set<a name="char-farsi"></a>
+
+For Farsi custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields\.
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| ء | 0621 | ظ | 0638 | 
+| آ | 0622 | ع | 0639 | 
+| أ | 0623 | غ | 063A | 
+| ؤ | 0624 | ف | 0641 | 
+| ئ | 0626 | ق | 0642 | 
+| ا | 0627 | ل | 0644 | 
+| ب | 0628 | م | 0645 | 
+| ت | 062A | ن | 0646 | 
+| ث | 062B | ه | 0647 | 
+| ج | 062C | و | 0648 | 
+| ح | 062D | َ | 064E | 
+| خ | 062E | ُ | 064F | 
+| د | 062F | ِ | 0650 | 
+| ذ | 0630 | ّ | 0651 | 
+| ر | 0631 | پ | 067E | 
+| ز | 0632 | چ | 0686 | 
+| س | 0633 | ژ | 0698 | 
+| ش | 0634 | ک | 06A9 | 
+| ص | 0635 | گ | 06AF | 
+| ض | 0636 | ی | 06CC | 
+| ط | 0637 |   |   | 
+
+You can use the following International Phonetic Alphabet in the `IPA` field of your vocabulary file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| b | 0062 | u | 0075 | 
+| d | 0064 | v | 0076 | 
+| f | 0066 | z | 007A | 
+| g | 0067 | æ | 00E6 | 
+| h | 0068 | ɒ | 0252 | 
+| i | 0069 | ɛ | 025B | 
+| j | 006A | ɾ | 027E | 
+| k | 006B | ʁ | 0281 | 
+| l | 006C | ʃ | 0283 | 
+| m | 006D | ʒ | 0292 | 
+| n | 006E | ʔ | 0294 | 
+| o | 006F | ʔ | 0294 | 
+| p | 0070 | ʤ | 02A4 | 
+| s | 0073 | ʧ | 02A7 | 
+| t | 0074 | χ | 03C7 | 
 
 ### French Character Set<a name="char-french"></a>
 
@@ -350,6 +469,48 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | s | 0073 | ʧ | 02A7 | 
 | t | 0074 |   |   | 
 
+### Hebrew Character Set<a name="char-hebrew"></a>
+
+For Hebrew custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| \- | 002D | ם | 05DD | 
+| א | 05D0 | מ | 05DE | 
+| ב | 05D1 | ן | 05DF | 
+| ג | 05D2 | נ | 05E0 | 
+| ד | 05D3 | ס | 05E1 | 
+| ה | 05D4 | ע | 05E2 | 
+| ו | 05D5 | ף | 05E3 | 
+| ז | 05D6 | פ | 05E4 | 
+| ח | 05D7 | ץ | 05E5 | 
+| ט | 05D8 | צ | 05E6 | 
+| י | 05D9 | ק | 05E7 | 
+| ך | 05DA | ר | 05E8 | 
+| כ | 05DB | ש | 05E9 | 
+| ל | 05DC | ת | 05EA | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | p | 0070 | 
+| b | 0062 | s | 0073 | 
+| d | 0064 | t | 0074 | 
+| e | 0065 | u | 0075 | 
+| f | 0066 | v | 0076 | 
+| g | 0067 | w | 0077 | 
+| h | 0068 | z | 007A | 
+| i | 0069 | ŋ | 014B | 
+| j | 006A | ɣ | 0263 | 
+| k | 006B | ʃ | 0283 | 
+| l | 006C | ʒ | 0292 | 
+| m | 006D | ʔ | 0294 | 
+| n | 006E | χ | 03C7 | 
+| o | 006F |   |   | 
+
 ### Hindi Character Set<a name="char-hindi"></a>
 
 For Hindi custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
@@ -388,7 +549,7 @@ For Hindi custom vocabularies, you can use the following Unicode characters in t
 | ड | 0921 | ौ | 094C | 
 | ढ | 0922 | ् | 094D | 
 | ण | 0923 | ज़ | 095B | 
-| त | 0924 | ‘ | 2018 | 
+| त | 0924 |   |   | 
 
 You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
 
@@ -418,6 +579,40 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | tʰ | 0116 0688 | ʤʱ | 0676 0689 | 
 | uː | 0117 0720 | ʧ | 0679  | 
 | z | 0122  | ʧʰ | 0679 0688 | 
+
+### Indonesian Character Set<a name="char-indonesian"></a>
+
+For Indonesian custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
++ a \- z
++ A \- Z
++ ' \(apostrophe\)
++ \- \(hyphen\)
++ \. \(period\)
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | r | 0072 | 
+| ai | 0061 0069 | s | 0073 | 
+| au | 0061 0075 | t | 0074 | 
+| b | 0062 | tʃ | 0074 0283 | 
+| d | 0064 | u | 0075 | 
+| d | 0064 | v | 0076 | 
+| e | 0065 | w | 0077 | 
+| f | 0066 | x | 0078 | 
+| h | 0068 | y | 0079 | 
+| i | 0069 | ŋ | 014B | 
+| j | 006A | ɔ | 0254 | 
+| k | 006B | ə | 0259 | 
+| l | 006C | ɛ | 025B | 
+| m | 006D | ɡ | 0261 | 
+| n | 006E | ɣ | 0263 | 
+| o | 006F | ɪ | 026A | 
+| oi̯ | 006F 0069 032F | ɲ | 0272 | 
+| p | 0070 | ʃ | 0283 | 
+| q | 0071 | ʊ | 028A | 
 
 ### Italian Character Set<a name="char-italian"></a>
 
@@ -476,6 +671,35 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | rr | 0072 0072 | ʧ | 02A7 | 
 | s | 0073 | ʧʧ | 02A7 02A7 | 
 
+### Japanese Character Set<a name="char-japanese"></a>
+
+For Japanese custom vocabularies, the `Phrase` field use any of the characters list in the following file on GitHub\.
++ [ japanese\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/japanese-character-set.txt) 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | p | 0070 | 
+| aː | 0061 02D0 | s | 0073 | 
+| b | 0062 | t | 0074 | 
+| d | 0064 | ts | 0074 0073 | 
+| dz | 0064 007A | tɕ | 0074 0255 | 
+| dʑ | 0064 0291 | w | 0077 | 
+| e | 0065 | z | 007A | 
+| eː | 0065 02D0 | ç | 00E7 | 
+| g | 0067 | ŋ | 014B | 
+| h | 0068 | ɕ | 0255 | 
+| i | 0069 | ɯ | 026F | 
+| iː | 0069 02D0 | ɯː | 026F 02D0 | 
+| j | 006A | ɴ | 0274 | 
+| k | 006B | ɸ | 0278 | 
+| m | 006D | ɾ | 027E | 
+| n | 006E | ʑ | 0291 | 
+| o | 006F | ʔ | 0294 | 
+| oː | 006F 02D0 |   |   | 
+
 ### Korean Character Set<a name="char-korean"></a>
 
 For Korean custom vocabularies, you can use any of the Hangul syllables in the `Phrase` and `SoundsLike` fields\. For more information, see [Hangul Syllables](https://en.wikipedia.org/wiki/Hangul_Syllables) on Wikipedia\.
@@ -506,6 +730,40 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | pʰ | 0070 02B0 | ɾ | 027E | 
 | p͈ | 0070 0348 | ʌ | 028C | 
 | s | 0073 |   |   | 
+
+### Malay Character Set<a name="char-malay"></a>
+
+For Malay custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
++ a \- z
++ A \- Z
++ ' \(apostrophe\)
++ \- \(hyphen\)
++ \. \(period\)
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| F | 0046 | r | 0072 | 
+| a | 0061 | s | 0073 | 
+| ai | 0061 0069 | t | 0074 | 
+| au | 0061 0075 | tʃ | 0074 0283 | 
+| b | 0062 | v | 0076 | 
+| d | 0064 | w | 0077 | 
+| dʒ | 0064 0292 | x | 0078 | 
+| e | 0065 | y | 0079 | 
+| h | 0068 | ŋ | 014B | 
+| i | 0069 | ɔ | 0254 | 
+| j | 006A | ə | 0259 | 
+| k | 006B | ɛ | 025B | 
+| l | 006C | ɡ | 0261 | 
+| m | 006D | ɣ | 0263 | 
+| n | 006E | ɪ | 026A | 
+| o | 006F | ɲ | 0272 | 
+| oi̯ | 006F 0069 32F | ʃ | 0283 | 
+| p | 0070 | ʊ | 028A | 
+| q | 0071 | ʊi | 028A 0069 | 
 
 ### Portuguese Character Set<a name="char-portuguese"></a>
 
@@ -663,3 +921,197 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | n | 006E | ʝ | 029D | 
 | o | 006F | ʧ | 02A7 | 
 | p | 0070 | θ | 03B8 | 
+
+### Tamil Character Set<a name="char-tamil"></a>
+
+For Tamil custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| அ | 0B85 | ர | 0BB0 | 
+| ஆ | 0B86 | ல | 0BB2 | 
+| இ | 0B87 | வ | 0BB5 | 
+| ஈ | 0B88 | ழ | 0BB4 | 
+| உ | 0B89 | ள | 0BB3 | 
+| ஊ | 0B8A | ற | 0BB1 | 
+| எ | 0B8E | ன | 0BA9 | 
+| ஏ | 0B8F | ஜ | 0B9C | 
+| ஐ | 0B90 | ஶ | 0BB6 | 
+| ஒ | 0B92 | ஷ | 0BB7 | 
+| ஓ | 0B93 | ஸ | 0BB8 | 
+| ஔ | 0B94 | ஹ | 0BB9 | 
+| ஃ | 0B83 | ் | 0BCD | 
+| க | 0B95 | ா | 0BBE | 
+| ங | 0B99 | ி | 0BBF | 
+| ச | 0B9A | ீ | 0BC0 | 
+| ஞ | 0B9E | ு | 0BC1 | 
+| ட | 0B9F | ூ | 0BC2 | 
+| ண | 0BA3 | ெ | 0BC6 | 
+| த | 0BA4 | ே | 0BC7 | 
+| ந | 0BA8 | ை | 0BC8 | 
+| ப | 0BAA | ொ | 0BCA | 
+| ம | 0BAE | ோ | 0BCB | 
+| ய | 0BAF | ௌ | 0BCC | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | v | 0076 | 
+| aː | 0061 02D0 | w | 0077 | 
+| b | 0062 | z | 007A | 
+| d | 0064 | æ | 00E6 | 
+| dʒ | 0064 0292 | ð | 00F0 | 
+| e | 0065 | ŋ | 014B | 
+| f | 0066 | ɑ | 0251 | 
+| g | 0067 | ɔ | 0254 | 
+| h | 0068 | ə | 0259 | 
+| i | 0069 | ɛ | 025B | 
+| iː | 0069 02D0 | ɡ | 0261 | 
+| j | 006A | ɪ | 026A | 
+| k | 006B | ɭ | 026D | 
+| l | 006C | ɲ | 0272 | 
+| m | 006D | ɳ | 0273 | 
+| n | 006E | ɹ | 0279 | 
+| n̪ | 006E 032A | ɹ | 0279 | 
+| o | 006F | ɹ̩ | 0279 0329 | 
+| oː | 006F 02D0 | ɾ | 027E | 
+| p | 0070 | ʂ | 0282 | 
+| r | 0072 | ʃ | 0283 | 
+| s | 0073 | ʈ | 0288 | 
+| t | 0074 | ʊ | 028A | 
+| t̪ | 0074 032A | ʋ | 028B | 
+| tʃ | 0074 0283 | ʌ | 028C | 
+| u | 0075 | ʒ | 0292 | 
+| uː | 0075 02D0 | θ | 03B8 | 
+
+### Telugu Character Set<a name="char-telugu"></a>
+
+For Telugu custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| \- | 002D | త | 0C24 | 
+| ఁ | 0C01 | థ | 0C25 | 
+| ం | 0C02 | ద | 0C26 | 
+| ః | 0C03 | ధ | 0C27 | 
+| అ | 0C05 | న | 0C28 | 
+| ఆ | 0C06 | ప | 0C2A | 
+| ఇ | 0C07 | ఫ | 0C2B | 
+| ఈ | 0C08 | బ | 0C2C | 
+| ఉ | 0C09 | భ | 0C2D | 
+| ఊ | 0C0A | మ | 0C2E | 
+| ఋ | 0C0B | య | 0C2F | 
+| ఌ | 0C0C | ర | 0C30 | 
+| ఎ | 0C0E | ఱ | 0C31 | 
+| ఏ | 0C0F | ల | 0C32 | 
+| ఐ | 0C10 | ళ | 0C33 | 
+| ఒ | 0C12 | వ | 0C35 | 
+| ఓ | 0C13 | శ | 0C36 | 
+| ఔ | 0C14 | ష | 0C37 | 
+| క | 0C15 | స | 0C38 | 
+| ఖ | 0C16 | హ | 0C39 | 
+| గ | 0C17 | ా | 0C3E | 
+| ఘ | 0C18 | ి | 0C3F | 
+| ఙ | 0C19 | ీ | 0C40 | 
+| చ | 0C1A | ు | 0C41 | 
+| ఛ | 0C1B | ూ | 0C42 | 
+| జ | 0C1C | ృ | 0C43 | 
+| ఝ | 0C1D | ౄ | 0C44 | 
+| ఞ | 0C1E | ే | 0C47 | 
+| ట | 0C1F | ై | 0C48 | 
+| ఠ | 0C20 | ొ | 0C4A | 
+| డ | 0C21 | ో | 0C4B | 
+| ఢ | 0C22 | ౌ | 0C4C | 
+| ణ | 0C23 | ్ | 0C4D | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| d̪ | 0064 032A | ð | 00F0 | 
+| d̪̤ | 0064 032A 0324 | ŋ | 014B | 
+| dʒ | 0064 0292 | ɑ | 0251 | 
+| dʒ̤ | 0064 0292 0324 | ɔ | 0254 | 
+| e | 0065 | ɖ | 0256 | 
+| eː | 0065 02D0 | ɖ̤ | 0256 0324 | 
+| f | 0066 | ə | 0259 | 
+| h | 0068 | ɛ | 025B | 
+| i | 0069 | ɡ | 0261 | 
+| iʐ | 0069 0290 | ɡ̤ | 0261 0324 | 
+| j | 006A | ɪ | 026A | 
+| k | 006B | ɭ | 026D | 
+| kʰ | 006B 02B0 | ɲ | 0272 | 
+| l | 006C | ɳ | 0273 | 
+| m | 006D | ɹ | 0279 | 
+| n | 006E | ɹ̩ | 0279 0329 | 
+| o | 006F | ɽ | 027D | 
+| oː | 006F 02D0 | ʂ | 0282 | 
+| p | 0070 | ʃ | 0283 | 
+| pʰ | 0070 02B0 | ʈ | 0288 | 
+| r | 0072 | ʈʰ | 0288 02B0 | 
+| s | 0073 | ʊ | 028A | 
+| t | 0074 | ʋ | 028B | 
+| t̪ | 0074 032A | ʌ | 028C | 
+| t̪ʰ | 0074 032A 02B0 | ʒ | 0292 | 
+| t | 0074 | θ | 03B8 | 
+| tʃʰ | 0074 0283 02B0 |   |   | 
+
+### Turkish Character Set<a name="char-turkish"></a>
+
+For Turkish custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
++ a \- z
++ A \- Z
++ ' \(apostrophe\)
++ \- \(hyphen\)
++ \. \(period\)
+
+You can also use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| Ç | 00C7 | ö | 00F6 | 
+| Ö | 00D6 | û | 00FB | 
+| Ü | 00DC | ü | 00FC | 
+| â | 00E2 | Ğ | 011E | 
+| ä | 00E4 | ğ | 011F | 
+| ç | 00E7 | İ | 0130 | 
+| è | 00E8 | ı | 0131 | 
+| é | 00E9 | Ş | 015E | 
+| ê | 00EA | ş | 015F | 
+| í | 00ED | š | 0161 | 
+| î | 00EE | ž | 017E | 
+| ó | 00F3 |   |   | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | u | 0075 | 
+| aː | 0061 02D0 | uː | 0075 02D0 | 
+| b | 0062 | v | 0076 | 
+| c | 0063 | w | 0077 | 
+| d | 0064 | y | 0079 | 
+| e | 0065 | yː | 0079 02D0 | 
+| eː | 0065 02D0 | z | 007A | 
+| f | 0066 | ø | 00F8 | 
+| g | 0067 | øː | 00F8 02D0 | 
+| h | 0068 | ŋ | 014B | 
+| i | 0069 | ɟ | 025F | 
+| iː | 0069 02D0 | ɣ | 0263 | 
+| j | 006A | ɫ | 026B | 
+| k | 006B | ɯ | 026F | 
+| l | 006C | ɯː | 026F 02D0 | 
+| m | 006D | ɾ | 027E | 
+| n | 006E | ʃ | 0283 | 
+| o | 006F | ʒ | 0292 | 
+| oː | 006F 02D0 | ʔ | 0294 | 
+| p | 0070 | ʤ | 02A4 | 
+| s | 0073 | ʧ | 02A7 | 
+| t | 0074 |   |   | 

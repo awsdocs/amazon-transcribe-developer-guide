@@ -10,7 +10,7 @@ To transcribe an audio file, Amazon Transcribe uses three operations:
 To transcribe streaming audio to text, Amazon Transcribe provides one operation:
 + [StartStreamTranscription](API_streaming_StartStreamTranscription.md) – Starts a bi\-directional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
 
-You can also start a WebSocket protocol stream to send audio the Amazon Transcribe\. For more information, see [Using Amazon Transcribe Streaming With WebSockets](websocket.md)\.
+You can also start a WebSocket protocol stream to send audio the Amazon Transcribe\. For more information, see [Using Amazon Transcribe Streaming with WebSockets](websocket.md)\.
 
 You can use Amazon Transcribe to create and manage custom vocabularies for your solution\. A custom vocabulary gives Amazon Transcribe more information about how to process speech in an audio clip\.
 + [CreateVocabulary](API_CreateVocabulary.md) – Creates a custom vocabulary that you can use in your transcription jobs\.
@@ -20,24 +20,40 @@ You can use Amazon Transcribe to create and manage custom vocabularies for your 
 + [UpdateVocabulary](API_UpdateVocabulary.md) – Updates an existing vocabulary\.
 
 You can transcribe speech in any of the following languages:
++ Gulf Arabic \(ar\-AE\)
 + Modern Standard Arabic \(ar\-SA\)
 + Chinese Mandarin\-Mainland \(zh\-CN\)
++ Dutch \(nl\-NL\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
 + Indian English \(en\-IN\)
++ Irish English \(en\-IE\)
++ Scottish English \(en\-AB\)
 + US English \(en\-US\)
++ Welsh English \(en\-WL\)
 + French \(fr\-FR\)
 + Canadian French \(fr\-CA\)
++ Farsi \(fa\-IR\)
 + German \(de\-DE\)
++ Swiss German \(de\-CH\)
++ Hebrew \(he\-IL\)
 + Indian Hindi \(hi\-IN\)
++ Indonesian \(id\-ID\)
 + Italian \(it\-IT\)
++ Japanese \(ja\-JP\)
 + Korean \(ko\-KR\)
++ Malay \(ms\-MY\)
++ Portuguese \(pt\-PT\)
 + Brazilian Portuguese \(pt\-BR\)
 + Russian \(ru\-RU\)
 + Spanish \(es\-ES\)
 + US Spanish \(es\-US\)
++ Tamil \(ta\-IN\)
++ Telugu \(te\-IN\)
++ Turkish \(tr\-TR\)
 
 You can use streaming transcription for the following languages:
++ Australian English \(en\-AU\)
 + British English \(en\-GB\)
 + US English \(en\-US\)
 + French \(fr\-FR\)
@@ -47,7 +63,10 @@ You can use streaming transcription for the following languages:
 **Topics**
 + [Speech Input](input.md)
 + [Transcribing Numbers](how-numbers.md)
++ [Alternative Transcriptions](how-alternatives.md)
 + [Identifying Speakers](how-diarization.md)
 + [Transcribing Streaming Audio](how-streaming-transcription.md)
 + [Channel Identification](how-channel-id.md)
 + [Custom Vocabularies](how-vocabulary.md)
++ [Vocabulary Filtering](how-vocabulary-filter.md)
++ [Job Queuing](job-queuing.md)

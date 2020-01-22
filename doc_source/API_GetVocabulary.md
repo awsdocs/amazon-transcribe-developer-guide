@@ -45,7 +45,8 @@ The following data is returned in JSON format by the service\.
  ** [DownloadUri](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-DownloadUri"></a>
 The S3 location where the vocabulary is stored\. Use this URI to get the contents of the vocabulary\. The URI is available for a limited time\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 2000\.
+Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Pattern: `(s3://|http(s*)://).+` 
 
  ** [FailureReason](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-FailureReason"></a>
 If the `VocabularyState` field is `FAILED`, this field contains information about why the job failed\.  
@@ -54,7 +55,7 @@ Type: String
  ** [LanguageCode](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
 
  ** [LastModifiedTime](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was last modified\.  
@@ -98,7 +99,6 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/GetVocabulary) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/GetVocabulary) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/GetVocabulary) 
-+  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-2017-10-26/GetVocabulary) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/GetVocabulary) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/GetVocabulary) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/GetVocabulary) 

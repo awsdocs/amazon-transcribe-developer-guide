@@ -36,12 +36,13 @@ Required: No
 If the result of the previous request to `ListTranscriptionJobs` was truncated, include the `NextToken` to fetch the next set of jobs\.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
+Pattern: `.+`   
 Required: No
 
  ** [Status](#API_ListTranscriptionJobs_RequestSyntax) **   <a name="transcribe-ListTranscriptionJobs-request-Status"></a>
 When specified, returns only transcription jobs with the specified status\. Jobs are ordered by creation date, with the newest jobs returned first\. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date\.   
 Type: String  
-Valid Values:` IN_PROGRESS | FAILED | COMPLETED`   
+Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`   
 Required: No
 
 ## Response Syntax<a name="API_ListTranscriptionJobs_ResponseSyntax"></a>
@@ -57,6 +58,7 @@ Required: No
          "[FailureReason](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-FailureReason)": "string",
          "[LanguageCode](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-LanguageCode)": "string",
          "[OutputLocationType](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-OutputLocationType)": "string",
+         "[StartTime](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-StartTime)": number,
          "[TranscriptionJobName](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-TranscriptionJobName)": "string",
          "[TranscriptionJobStatus](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-TranscriptionJobStatus)": "string"
       }
@@ -73,12 +75,13 @@ The following data is returned in JSON format by the service\.
  ** [NextToken](#API_ListTranscriptionJobs_ResponseSyntax) **   <a name="transcribe-ListTranscriptionJobs-response-NextToken"></a>
 The `ListTranscriptionJobs` operation returns a page of jobs at a time\. The maximum size of the page is set by the `MaxResults` parameter\. If there are more jobs in the list than the page size, Amazon Transcribe returns the `NextPage` token\. Include the token in the next request to the `ListTranscriptionJobs` operation to return in the next page of jobs\.  
 Type: String  
-Length Constraints: Maximum length of 8192\.
+Length Constraints: Maximum length of 8192\.  
+Pattern: `.+` 
 
  ** [Status](#API_ListTranscriptionJobs_ResponseSyntax) **   <a name="transcribe-ListTranscriptionJobs-response-Status"></a>
 The requested status of the jobs returned\.  
 Type: String  
-Valid Values:` IN_PROGRESS | FAILED | COMPLETED` 
+Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED` 
 
  ** [TranscriptionJobSummaries](#API_ListTranscriptionJobs_ResponseSyntax) **   <a name="transcribe-ListTranscriptionJobs-response-TranscriptionJobSummaries"></a>
 A list of objects containing summary information for a transcription job\.  
@@ -107,7 +110,6 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/ListTranscriptionJobs) 

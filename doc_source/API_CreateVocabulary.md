@@ -22,13 +22,14 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
 Required: Yes
 
  ** [Phrases](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-Phrases"></a>
 An array of strings that contains the vocabulary entries\.   
 Type: Array of strings  
 Length Constraints: Minimum length of 0\. Maximum length of 256\.  
+Pattern: `.+`   
 Required: No
 
  ** [VocabularyFileUri](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyFileUri"></a>
@@ -40,6 +41,7 @@ For more information about S3 object names, see [Object Keys](http://docs.aws.am
 For more information about custom vocabularies, see [Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Pattern: `(s3://|http(s*)://).+`   
 Required: No
 
  ** [VocabularyName](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyName"></a>
@@ -74,7 +76,7 @@ Type: String
  ** [LanguageCode](#API_CreateVocabulary_ResponseSyntax) **   <a name="transcribe-CreateVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN` 
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
 
  ** [LastModifiedTime](#API_CreateVocabulary_ResponseSyntax) **   <a name="transcribe-CreateVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was created\.  
@@ -100,7 +102,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-When you are using the `StartTranscriptionJob` operation, the `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
+When you are using the `CreateVocabulary` operation, the `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
 When you are using the `UpdateVocabulary` operation, there are two jobs running at the same time\. Resend the second request later\.  
 HTTP Status Code: 400
 
@@ -119,7 +121,6 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateVocabulary) 
-+  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateVocabulary) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateVocabulary) 

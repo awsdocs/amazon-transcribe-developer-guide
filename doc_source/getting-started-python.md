@@ -35,8 +35,7 @@ When the transcription job is complete, the result links to an Amazon S3 presign
       "results": {
          "transcripts":[
             {
-               "transcript":" that's no answer",
-               "confidence":1.0
+               "transcript":" that's no answer"
             }
          ],
          "items":[

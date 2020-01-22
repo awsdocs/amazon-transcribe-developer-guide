@@ -26,10 +26,15 @@ The `FailureReason` field can contain one of the following values:
 Type: String  
 Required: No
 
+ **JobExecutionSettings**   <a name="transcribe-Type-TranscriptionJob-JobExecutionSettings"></a>
+Provides information about how a transcription job is executed\.  
+Type: [JobExecutionSettings](API_JobExecutionSettings.md) object  
+Required: No
+
  **LanguageCode**   <a name="transcribe-Type-TranscriptionJob-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN`   
+Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
 Required: No
 
  **Media**   <a name="transcribe-Type-TranscriptionJob-Media"></a>
@@ -54,6 +59,11 @@ Optional settings for the transcription job\. Use these settings to turn on spea
 Type: [Settings](API_Settings.md) object  
 Required: No
 
+ **StartTime**   <a name="transcribe-Type-TranscriptionJob-StartTime"></a>
+A timestamp that shows with the job was started processing\.  
+Type: Timestamp  
+Required: No
+
  **Transcript**   <a name="transcribe-Type-TranscriptionJob-Transcript"></a>
 An object that describes the output of the transcription job\.  
 Type: [Transcript](API_Transcript.md) object  
@@ -69,7 +79,7 @@ Required: No
  **TranscriptionJobStatus**   <a name="transcribe-Type-TranscriptionJob-TranscriptionJobStatus"></a>
 The status of the transcription job\.  
 Type: String  
-Valid Values:` IN_PROGRESS | FAILED | COMPLETED`   
+Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`   
 Required: No
 
 ## See Also<a name="API_TranscriptionJob_SeeAlso"></a>
@@ -77,6 +87,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/TranscriptionJob) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/TranscriptionJob) 
-+  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/transcribe-2017-10-26/TranscriptionJob) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/TranscriptionJob) 
 +  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-2017-10-26/TranscriptionJob) 
