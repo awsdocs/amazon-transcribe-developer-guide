@@ -661,9 +661,9 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | l | 006C | ʃ | 0283 | 
 | ll | 006C 006C | ʃʃ | 0283 0283 | 
 | m | 006D | ʎ | 028E | 
-| mm | 006D 006D | ʎʎ | 028e 028e | 
+| mm | 006D 006D | ʎʎ | 028E 028E | 
 | n | 006E | ʣ | 02A3 | 
-| nn | 006E 06E | ʣʣ | 02A3 02A3 | 
+| nn | 006E 006E | ʣʣ | 02A3 02A3 | 
 | o | 006F | ʤ | 02A4 | 
 | p | 0070 | ʤʤ | 02A4 02A4 | 
 | pp | 0070 0070 | ʦ | 02A6 | 
@@ -673,8 +673,25 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 
 ### Japanese Character Set<a name="char-japanese"></a>
 
-For Japanese custom vocabularies, the `Phrase` field use any of the characters list in the following file on GitHub\.
+For Japanese custom vocabularies, the `Phrase` and `DisplayAs` fields can use any of the characters listed in the following file on GitHub\.
 + [ japanese\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/japanese-character-set.txt) 
+
+Amazon Transcribe supports Romaji characters in the `SoundsLike` field\. You can use the following lower\-case characters:
++ a \- k
++ m \- p
++ r \- w
++ y \- z
+
+Represent long vowels by doubling the vowel:
+
+
+| Vowel | Representation | 
+| --- | --- | 
+| ā | aa | 
+| ē | ee | 
+| ī | ii | 
+| ō | oo | 
+| ū | uu | 
 
 You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
 
