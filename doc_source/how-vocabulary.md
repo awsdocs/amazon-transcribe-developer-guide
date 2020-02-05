@@ -223,7 +223,7 @@ Phrase     SoundsLike               IPA  DisplayAs
 康健        kang1-jian4
 谴责        qian3-ze2
 国防大臣    guo2-fang2-da4-chen2
-世界博览会  shi4-jie4-bo4-lan3-hui4       世博会
+世界博览会  shi4-jie4-bo2-lan3-hui4       世博会
 ```
 
 ### Dutch Character Set<a name="char-dutch"></a>
