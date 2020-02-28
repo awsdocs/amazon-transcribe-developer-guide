@@ -1,6 +1,7 @@
 # Amazon Transcribe Service<a name="API_Types_Amazon_Transcribe_Service"></a>
 
 The following data types are supported by Amazon Transcribe Service:
++  [ContentRedaction](API_ContentRedaction.md) 
 +  [JobExecutionSettings](API_JobExecutionSettings.md) 
 +  [Media](API_Media.md) 
 +  [Settings](API_Settings.md) 

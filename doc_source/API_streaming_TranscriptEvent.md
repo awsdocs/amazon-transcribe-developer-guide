@@ -15,4 +15,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/TranscriptEvent) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/TranscriptEvent) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-streaming-2017-10-26/TranscriptEvent) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-streaming-2017-10-26/TranscriptEvent) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/TranscriptEvent) 

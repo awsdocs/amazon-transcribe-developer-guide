@@ -10,7 +10,7 @@ Alternatives are presented at the segment level of the transcription\. Segments 
 
 Amazon Transcribe returns an overall transcription of your audio file in the response\. When you have configured Amazon Transcribe to return alternatives, the overall transcription is built from the segment alternatives with the highest confidence level\. Alternative transcriptions are returned in the `segments` structure in the output JSON\. If Amazon Transcribe doesn't find alternatives, it returns fewer than the number of alternatives specified in the `MaxAlternatives` field\.
 
-The following is the JSON output from Amazon Transcribe\. It is the transcription output for this input: "Uh, you can just call this number if I don't pick up, just leave a voicemail and I'll get back to you\. Okay\. And that's the number\. The 1166 number, you mean?" 
+The following is the JSON output from Amazon Transcribe\. It is the transcription output for this input: **Uh, you can just call this number if I don't pick up, just leave a voicemail and I'll get back to you\. Okay\. And that's the number\. The 1166 number, you mean?** 
 
 The following is the JSON output with `ShowAlternatives` set to `false`\.
 

@@ -5,17 +5,17 @@ In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to
 + Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
 + Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Permissions Required for IAM User Roles](security_iam_id-based-policy-examples.md#auth-role-iam-user)\.
 
-To transcribe text, you have to provide the input parameters in a JSON file\. 
+To transcribe text, you have to provide the input parameters in a JSON file\.
 
 **To transcribe text**
 
 1. Copy your input speech to an S3 bucket\. The location must be in the same region as the endpoint that you are calling\. This example assumes that the file is in an S3 bucket named `test-transcribe` and that the file name is `answer2.wav`\.
 
-1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
+1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
 
    ```
    {
-       "TranscriptionJobName": "request ID", 
+       "TranscriptionJobName": "unique job name", 
        "LanguageCode": "en-US", 
        "MediaFormat": "wav", 
        "Media": {
@@ -37,7 +37,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
    {
        "TranscriptionJob": {
-           "TranscriptionJobName": "request ID",
+           "TranscriptionJobName": "unique job name",
            "LanguageCode": "en-US",
            "TranscriptionJobStatus": "IN_PROGRESS",
            "Media": {
@@ -65,7 +65,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
       "Status": "IN_PROGRESS",
       "TranscriptionJobSummaries": [
           {
-              "TranscriptionJobName": "request ID",
+              "TranscriptionJobName": "unique job name",
               "LanguageCode": "en-US",
               "CreationTime": timestamp,
               "TranscriptionJobStatus": "IN_PROGRESS"
@@ -81,7 +81,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
    aws transcribe get-transcription-job \
       --region region \
-      --transcription-job-name "request ID"
+      --transcription-job-name "unique job name"
    ```
 
    Amazon Transcribe responds with the following:
@@ -89,7 +89,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
    {
        "TranscriptionJob": {
-           "TranscriptionJobName": "request ID",
+           "TranscriptionJobName": "unique job name",
            "LanguageCode": "en-US",
            "TranscriptionJobStatus": "COMPLETED",
            "Media": {

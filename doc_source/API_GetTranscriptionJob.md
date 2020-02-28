@@ -1,6 +1,6 @@
 # GetTranscriptionJob<a name="API_GetTranscriptionJob"></a>
 
-Returns information about a transcription job\. To see the status of the job, check the `TranscriptionJobStatus` field\. If the status is `COMPLETED`, the job is finished and you can find the results at the location specified in the `TranscriptionFileUri` field\.
+Returns information about a transcription job\. To see the status of the job, check the `TranscriptionJobStatus` field\. If the status is `COMPLETED`, the job is finished and you can find the results at the location specified in the `TranscriptFileUri` field\. If you enable content redaction, the redacted transcript appears in `RedactedTranscriptFileUri`\.
 
 ## Request Syntax<a name="API_GetTranscriptionJob_RequestSyntax"></a>
 
@@ -29,6 +29,10 @@ Required: Yes
 {
    "[TranscriptionJob](#transcribe-GetTranscriptionJob-response-TranscriptionJob)": { 
       "[CompletionTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CompletionTime)": number,
+      "[ContentRedaction](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-ContentRedaction)": { 
+         "[RedactionOutput](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionOutput)": "string",
+         "[RedactionType](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionType)": "string"
+      },
       "[CreationTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CreationTime)": number,
       "[FailureReason](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-FailureReason)": "string",
       "[JobExecutionSettings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-JobExecutionSettings)": { 
@@ -53,6 +57,7 @@ Required: Yes
       },
       "[StartTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-StartTime)": number,
       "[Transcript](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Transcript)": { 
+         "[RedactedTranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-RedactedTranscriptFileUri)": "string",
          "[TranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-TranscriptFileUri)": "string"
       },
       "[TranscriptionJobName](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobName)": "string",
@@ -102,4 +107,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/GetTranscriptionJob) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/GetTranscriptionJob) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetTranscriptionJob) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-2017-10-26/GetTranscriptionJob) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/GetTranscriptionJob) 

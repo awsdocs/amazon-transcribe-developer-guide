@@ -69,4 +69,5 @@ You can use streaming transcription for the following languages:
 + [Channel Identification](how-channel-id.md)
 + [Custom Vocabularies](how-vocabulary.md)
 + [Vocabulary Filtering](how-vocabulary-filter.md)
++ [Automatic Content Redaction](content-redaction.md)
 + [Job Queuing](job-queuing.md)

@@ -54,6 +54,10 @@ Required: No
    "[TranscriptionJobSummaries](#transcribe-ListTranscriptionJobs-response-TranscriptionJobSummaries)": [ 
       { 
          "[CompletionTime](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-CompletionTime)": number,
+         "[ContentRedaction](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-ContentRedaction)": { 
+            "[RedactionOutput](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionOutput)": "string",
+            "[RedactionType](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionType)": "string"
+         },
          "[CreationTime](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-CreationTime)": number,
          "[FailureReason](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-FailureReason)": "string",
          "[LanguageCode](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-LanguageCode)": "string",
@@ -114,4 +118,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/ListTranscriptionJobs) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/ListTranscriptionJobs) 
