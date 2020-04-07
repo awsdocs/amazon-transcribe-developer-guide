@@ -26,7 +26,7 @@ Valid Range: Minimum value of 1\. Maximum value of 100\.
 Required: No
 
  ** [NameContains](#API_ListVocabularies_RequestSyntax) **   <a name="transcribe-ListVocabularies-request-NameContains"></a>
-When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string\. The search is case\-insensitive, `ListVocabularies` will return both "vocabularyname" and "VocabularyName" in the response list\.  
+When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string\. The search is case\-insensitive, `ListVocabularies` returns both "vocabularyname" and "VocabularyName" in the response list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   

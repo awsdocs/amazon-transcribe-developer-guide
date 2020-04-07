@@ -35,7 +35,7 @@ Construct a URL for your WebSocket request that contains the information needed 
 The URL has the following format\. Line breaks have been added for readability\.
 
 ```
-GET https://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket
+GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket
 ?language-code=languageCode
    &X-Amz-Algorithm=AWS4-HMAC-SHA256
    &X-Amz-Credential=Signature Version 4 credential scope
@@ -82,7 +82,7 @@ Create a string that includes information from your request in a standardized fo
    # AWS Region
    region = "AWS Region"
    # Amazon Transcribe streaming endpoint
-   endpoint = "https://transcribestreaming.region.amazonaws.com:8443"
+   endpoint = "wss://transcribestreaming.region.amazonaws.com:8443"
    # Host
    host = "transcribestreaming.region.amazonaws.com:8443"
    # Date and time of request
@@ -176,7 +176,7 @@ The function `HMAC(key, data)` represents an HMAC\-SHA256 function that returns 
 
 **Task 4: Add Signing Information to the Request and Create the Request URL**
 
-After you calculate the signature, add it to the query string\. For more information, see [Add the Signature to the HTTP Request](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html) in the *Amazon Web Services General Reference*\.
+After you calculate the signature, add it to the query string\. For more information, see [Add the Signature to the Request](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html) in the *Amazon Web Services General Reference*\.
 
 1. Add the authentication information to the query string\.
 
@@ -223,7 +223,7 @@ HTTP/1.1 101 Web Socket Protocol Handshake
 
 Connection: upgrade
 Upgrade: websocket
-websocket-origin: https://transcribestreaming.region.amazonaws.com:8443
+websocket-origin: wss://transcribestreaming.region.amazonaws.com:8443
 websocket-location: transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket?
                    X-Amz-Algorithm=AWS4-HMAC-SHA256
                    &X-Amz-Credential=AKIDEXAMPLE%2F20190117%2Fregion%2Ftranscribe%2Faws4_request

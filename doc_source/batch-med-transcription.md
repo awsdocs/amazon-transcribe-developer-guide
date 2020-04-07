@@ -1,0 +1,45 @@
+# Batch Transcription Overview<a name="batch-med-transcription"></a>
+
+Amazon Transcribe Medical batch transcription is available in US English\. It has the ability to transcribe accented English from non\-native speakers\. It supports the transcription of individual audio files\. You start a transcription job with either the console or by direct API call\.
+
+You interact with Amazon Transcribe Medical using four main API resources\. To start a medical transcription job, use the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation\. To retrieve information on a medical transcription job, use [GetMedicalTranscriptionJob](API_GetMedicalTranscriptionJob.md)\. You list medical transcription jobs with [ListMedicalTranscriptionJobs](API_ListMedicalTranscriptionJobs.md)\. You delete a medical transcription job with [DeleteMedicalTranscriptionJob](API_DeleteMedicalTranscriptionJob.md)\.
+
+To transcribe an audio file, you use a transcription job\. You store the file as an object in an Amazon Simple Storage Service \(S3\) bucket\. The input file must: 
++ Be in FLAC, MP3, MP4, or WAV file format\.
++ Use 16\-bit Linear PCM encoding\.
++ Be less than 4 hours in duration or less than 2 GB in size\.
+
+For best results: 
++ Use a lossless format, such as FLAC or WAV\.
++ Use a sample rate of at least 16000 Hz or higher\.
+
+When creating a medical transcription job, you specify the language, the medical specialty, and the audio type of the source file\. You input US English \(en\-US\) as the language and `PRIMARYCARE` as the medical specialty\. Entering primary care as the value enables you to generate transcriptions from source audio in the following medical specialties:
++ Family Medicine
++ Internal Medicine
++ Obstetrics and Gynecology \(OB\-GYN\)
++ Pediatrics
+
+You have the choice between dictation and conversation for your audio type\. Choose dictation for audio files where the physician is giving a report about a patient visit or procedure\. Choose conversation for audio files that involve a conversation between a physician and a patient or a conversation between physicians\.
+
+To store the output of your transcription job, select an Amazon S3 bucket that you've already created\. For more information on S3 buckets see [Getting Started with Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)
+
+You can see the minimum number of request parameters to enter in the sample JSON here:
+
+```
+{
+    "TranscriptionJob": {
+        "TranscriptionJobName": "request ID",
+        "LanguageCode": "en-US",
+        "TranscriptionJobStatus": "IN_PROGRESS",
+        "Media": {
+            "MediaFileUri": "https://your-S3-bucket/an-optional-folder-to-store-your-audio-files/your-audio-file.wav"
+        },
+        "CreationTime": timestamp,
+        "MediaFormat": "wav"
+    }
+}
+```
+
+Amazon Transcribe Medical enables you to generate alternative transcriptions\. For more information, see [Alternative Transcriptions](how-alternatives-med.md)\.
+
+You can also use Amazon Transcribe Medical speaker identification feature to identify speakers in both single\-channel and multi\-channel audio\. For more information, see [Identifying Speakers](how-diarization-med.md) and [Channel Identification](how-channel-id-med.md)\.

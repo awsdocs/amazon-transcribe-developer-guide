@@ -1,6 +1,6 @@
 # Automatic Content Redaction<a name="content-redaction"></a>
 
- Amazon Transcribe's automatic content redaction feature automatically redacts sensitive personally identifiable information \(PII\) from your transcription results\. It replaces each identified instance of PII with a `[PII]` tag in the transcript\. You can use this feature to protect privacy and comply with local laws and regulations\. Automatic content redaction enables you to easily review and share transcripts to improve the customer service experience, coach agents, and discover new business opportunities while protecting sensitive personal information\. You can use this feature for source audio in US English \(en\-US\) with asynchronous API calls\.
+ Amazon Transcribe's automatic content redaction feature automatically redacts sensitive personally identifiable information \(PII\) from your transcription results\. It replaces each identified instance of PII with a `[PII]` tag in the transcript\. You can use this feature to protect privacy and comply with local laws and regulations\. Automatic content redaction enables you to easily review and share transcripts to improve the customer service experience, coach agents, and discover new business opportunities while protecting sensitive personal information\. You can use this feature for source audio in US English \(en\-US\) with batch API calls\.
 
 Personally Identifiable Information includes:
 

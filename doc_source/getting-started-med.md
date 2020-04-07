@@ -4,4 +4,5 @@ To get started using Amazon Transcribe Medical, set up an AWS account and create
 
 **Topics**
 + [Set Up an AWS Account and Create an Administrator User](setting-up-ascm-med.md)
-+ [Getting Started \(Console\)](getting-started-med-console.md)
++ [Getting Started With Console Streaming](getting-started-med-console.md)
++ [Getting Started With Batch Transcription](getting-started-med-console-batch.md)

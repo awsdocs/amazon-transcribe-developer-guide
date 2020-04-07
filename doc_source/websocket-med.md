@@ -31,7 +31,7 @@ To use the WebSocket protocol to call Amazon Transcribe Medical, you need to att
 
 ## Creating a Pre\-Signed URL<a name="websocket-url-med"></a>
 
-You need to construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe Medical\. WebSocket streaming uses the Amazon Signature Version 4 process for signing requests\. Signing the request helps to verify the identity of the requester and to protect your audio data in transit\. It also protects against potential replay attacks\. For more information about Signature Version 4, see [ Signing AWS API Requests ](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\.
+You need to construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe Medical\. To open a bi\-directional connection, you must use port 8443\. WebSocket streaming uses the Amazon Signature Version 4 process for signing requests\. Signing the request helps to verify the identity of the requester and to protect your audio data in transit\. It also protects against potential replay attacks\. For more information about Signature Version 4, see [ Signing AWS API Requests ](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\.
 
 The URL has the following format\. Line breaks have been added for readability\.
 

@@ -5,13 +5,13 @@ Provides information about when a transcription job should be executed\.
 ## Contents<a name="API_JobExecutionSettings_Contents"></a>
 
  **AllowDeferredExecution**   <a name="transcribe-Type-JobExecutionSettings-AllowDeferredExecution"></a>
-Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded\. When the `AllowDeferredExecution` field is true, jobs are queued and will be executed when the number of executing jobs falls below the concurrent execution limit\. If the field is false, Amazon Transcribe returns a `LimitExceededException` exception\.  
+Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded\. When the `AllowDeferredExecution` field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit\. If the field is false, Amazon Transcribe returns a `LimitExceededException` exception\.  
 If you specify the `AllowDeferredExecution` field, you must specify the `DataAccessRoleArn` field\.  
 Type: Boolean  
 Required: No
 
  **DataAccessRoleArn**   <a name="transcribe-Type-JobExecutionSettings-DataAccessRoleArn"></a>
-The Amazon Resource Name \(ARN\) of a role that has access to the S3 bucket that contains the input files\. Amazon Transcribe will assume this role to read queued media files\. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well\.  
+The Amazon Resource Name \(ARN\) of a role that has access to the S3 bucket that contains the input files\. Amazon Transcribe assumes this role to read queued media files\. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well\.  
 If you specify the `AllowDeferredExecution` field, you must specify the `DataAccessRoleArn` field\.  
 Type: String  
 Pattern: `^arn:aws:iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1023}$`   

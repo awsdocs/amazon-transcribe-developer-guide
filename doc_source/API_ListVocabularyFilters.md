@@ -66,7 +66,7 @@ Length Constraints: Maximum length of 8192\.
 Pattern: `.+` 
 
  ** [VocabularyFilters](#API_ListVocabularyFilters_ResponseSyntax) **   <a name="transcribe-ListVocabularyFilters-response-VocabularyFilters"></a>
-The list of vocabulary filters\. It will contain at most `MaxResults` number of filters\. If there are more filters, call the `ListVocabularyFilters` operation again with the `NextToken` parameter in the request set to the value of the `NextToken` field in the response\.  
+The list of vocabulary filters\. It contains at most `MaxResults` number of filters\. If there are more filters, call the `ListVocabularyFilters` operation again with the `NextToken` parameter in the request set to the value of the `NextToken` field in the response\.  
 Type: Array of [VocabularyFilterInfo](API_VocabularyFilterInfo.md) objects
 
 ## Errors<a name="API_ListVocabularyFilters_Errors"></a>
