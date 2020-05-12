@@ -6,10 +6,10 @@ Describes the input media file in a transcription request\.
 
  **MediaFileUri**   <a name="transcribe-Type-Media-MediaFileUri"></a>
 The S3 object location of the input media file\. The URI must be in the same region as the API endpoint that you are calling\. The general form is:  
- ` s3://<bucket-name>/<keyprefix>/<objectkey> `   
+ ` s3://<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey> `   
 For example:  
- `s3://examplebucket/example.mp4`   
- `s3://examplebucket/mediadocs/example.mp4`   
+ `s3://AWSDOC-EXAMPLE-BUCKET/example.mp4`   
+ `s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4`   
 For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  

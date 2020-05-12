@@ -20,7 +20,8 @@ Start a batch job to transcribe medical speech to text\.
       "[MaxAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxAlternatives)": number,
       "[MaxSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxSpeakerLabels)": number,
       "[ShowAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowAlternatives)": boolean,
-      "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean
+      "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean,
+      "[VocabularyName](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-VocabularyName)": "string"
    },
    "[Specialty](#transcribe-StartMedicalTranscriptionJob-request-Specialty)": "string",
    "[Type](#transcribe-StartMedicalTranscriptionJob-request-Type)": "string"
@@ -58,7 +59,7 @@ Valid Range: Minimum value of 8000\. Maximum value of 48000\.
 Required: No
 
  ** [MedicalTranscriptionJobName](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-MedicalTranscriptionJobName"></a>
-The name of the medical transcription job\. You can't use the strings "\." or "\.\." by themselves as the job name\. The name must also be unique within an AWS account\.  
+The name of the medical transcription job\. You can't use the strings "\." or "\.\." by themselves as the job name\. The name must also be unique within an AWS account\. If you try to create a medical transcription job with the same name as a previous medical transcription job you will receive a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -100,7 +101,7 @@ Valid Values:` PRIMARYCARE`
 Required: Yes
 
  ** [Type](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-Type"></a>
-The speech of clinician in the input audio\. `CONVERSATION` refers to conversations clinicians have with patients\. `DICTATION` refers to medical professionals dictating their notes about a patient encounter\.  
+The type of speech in the input audio\. `CONVERSATION` refers to conversations between two or more speakers, e\.g\., a conversations between doctors and patients\. `DICTATION` refers to single\-speaker dictated speech, e\.g\., for clinical notes\.  
 Type: String  
 Valid Values:` CONVERSATION | DICTATION`   
 Required: Yes
@@ -125,7 +126,8 @@ Required: Yes
          "[MaxAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxAlternatives)": number,
          "[MaxSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxSpeakerLabels)": number,
          "[ShowAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowAlternatives)": boolean,
-         "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean
+         "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean,
+         "[VocabularyName](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-VocabularyName)": "string"
       },
       "[Specialty](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Specialty)": "string",
       "[StartTime](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-StartTime)": number,
@@ -157,8 +159,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-When you are using the `CreateVocabulary` operation, the `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
-When you are using the `UpdateVocabulary` operation, there are two jobs running at the same time\. Resend the second request later\.  
+The resource name already exists\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

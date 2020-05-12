@@ -107,7 +107,7 @@ Type: [Settings](API_Settings.md) object
 Required: No
 
  ** [TranscriptionJobName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-TranscriptionJobName"></a>
-The name of the job\. Note that you can't use the strings "\." or "\.\." by themselves as the job name\. The name must also be unique within an AWS account\.  
+The name of the job\. Note that you can't use the strings "\." or "\.\." by themselves as the job name\. The name must also be unique within an AWS account\. If you try to create a transcription job with the same name as a previous transcription job you will receive a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -175,8 +175,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-When you are using the `CreateVocabulary` operation, the `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
-When you are using the `UpdateVocabulary` operation, there are two jobs running at the same time\. Resend the second request later\.  
+The resource name already exists\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

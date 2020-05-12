@@ -5,7 +5,7 @@ A word or phrase transcribed from the input audio\.
 ## Contents<a name="API_streaming_Item_Contents"></a>
 
  **Confidence**   <a name="transcribe-Type-streaming_Item-Confidence"></a>
- a numeric score between 0\-1\.0 representing the confidence of the model in correct identification for each word\.  
+The score indicating how confident Amazon Transcribe is in determining the correct item\.  
 Type: Double  
 Required: No
 
@@ -28,6 +28,11 @@ Required: No
 The type of the item\. `PRONUNCIATION` indicates that the item is a word that was recognized in the input audio\. `PUNCTUATION` indicates that the item was interpreted as a pause in the input audio\.  
 Type: String  
 Valid Values:` pronunciation | punctuation`   
+Required: No
+
+ **VocabularyFilterMatch**   <a name="transcribe-Type-streaming_Item-VocabularyFilterMatch"></a>
+Indicates whether a word in the item matches a word in the vocabulary filter you've chosen for your real\-time stream\. If `true` then a word in the item matches your vocabulary filter\.  
+Type: Boolean  
 Required: No
 
 ## See Also<a name="API_streaming_Item_SeeAlso"></a>

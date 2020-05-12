@@ -43,7 +43,8 @@ Required: Yes
          "[MaxAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxAlternatives)": number,
          "[MaxSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxSpeakerLabels)": number,
          "[ShowAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowAlternatives)": boolean,
-         "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean
+         "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean,
+         "[VocabularyName](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-VocabularyName)": "string"
       },
       "[Specialty](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Specialty)": "string",
       "[StartTime](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-StartTime)": number,

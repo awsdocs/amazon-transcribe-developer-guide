@@ -18,6 +18,11 @@ You can request a quota increase for the following resources:
 | Transactions per second, GetMedicalTranscriptionJob operation | 20 | 
 | Transactions per second, DeleteMedicalTranscriptionJob operation | 5 | 
 | Transactions per second, ListMedicalTranscriptionJobs operation | 5 | 
+| Transactions per second, CreateMedicalVocabulary operation | 10 | 
+| Transactions per second, UpdateMedicalVocabulary operation | 10 | 
+| Transactions per second, DeleteMedicalVocabulary operation | 5 | 
+| Transactions per second, GetMedicalVocabulary operation | 20 | 
+| Transactions per second, ListMedicalVocabularies operation | 5 | 
 
 For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits-med.html) in the *Amazon Web Services General Reference*\.
 
@@ -40,3 +45,4 @@ Amazon Transcribe Medical has the following quotas that are not alterable:
 | Maximum audio file size | 2 GB | 
 | Number of days that job records are retained | 90 | 
 | Number of channels for channel identification | 2 | 
+| Minimum audio file duration, in milliseconds \(ms\) | 500 | 

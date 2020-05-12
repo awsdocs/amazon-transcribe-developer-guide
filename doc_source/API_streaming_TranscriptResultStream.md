@@ -24,6 +24,11 @@ Your client has exceeded one of the Amazon Transcribe limits, typically the limi
 Type: Exception  
 Required: No
 
+ **ServiceUnavailableException**   <a name="transcribe-Type-streaming_TranscriptResultStream-ServiceUnavailableException"></a>
+Service is currently unavailable\. Try your request later\.  
+Type: Exception  
+Required: No
+
  **TranscriptEvent**   <a name="transcribe-Type-streaming_TranscriptResultStream-TranscriptEvent"></a>
 A portion of the transcription of the audio stream\. Events are sent periodically from Amazon Transcribe to your application\. The event can be a partial transcription of a section of the audio stream, or it can be the entire transcription of that portion of the audio stream\.   
 Type: [TranscriptEvent](API_streaming_TranscriptEvent.md) object  

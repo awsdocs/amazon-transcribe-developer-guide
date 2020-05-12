@@ -51,3 +51,4 @@ Amazon Transcribe has the following quotas that are not alterable:
 | Maximum number of vocabulary filters | 100 | 
 | Number of days that job records are retained | 90 | 
 | Number of channels for channel identification | 2 | 
+| Minimum audio file duration, in milliseconds \(ms\) | 500 | 

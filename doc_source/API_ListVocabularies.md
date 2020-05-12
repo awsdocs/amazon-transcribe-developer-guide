@@ -77,7 +77,7 @@ Pattern: `.+`
  ** [Status](#API_ListVocabularies_ResponseSyntax) **   <a name="transcribe-ListVocabularies-response-Status"></a>
 The requested vocabulary state\.  
 Type: String  
-Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED` 
+Valid Values:` PENDING | READY | FAILED` 
 
  ** [Vocabularies](#API_ListVocabularies_ResponseSyntax) **   <a name="transcribe-ListVocabularies-response-Vocabularies"></a>
 A list of objects that describe the vocabularies that match the search criteria in the request\.  

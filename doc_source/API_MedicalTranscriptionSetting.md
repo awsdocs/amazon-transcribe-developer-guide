@@ -34,6 +34,13 @@ You can't set both `ShowSpeakerLabels` and `ChannelIdentification` in the same r
 Type: Boolean  
 Required: No
 
+ **VocabularyName**   <a name="transcribe-Type-MedicalTranscriptionSetting-VocabularyName"></a>
+The name of the vocabulary to use when processing a medical transcription job\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[0-9a-zA-Z._-]+`   
+Required: No
+
 ## See Also<a name="API_MedicalTranscriptionSetting_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:

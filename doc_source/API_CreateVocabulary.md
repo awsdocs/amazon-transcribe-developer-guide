@@ -34,9 +34,9 @@ Required: No
 
  ** [VocabularyFileUri](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyFileUri"></a>
 The S3 location of the text file that contains the definition of the custom vocabulary\. The URI must be in the same region as the API endpoint that you are calling\. The general form is   
- ` https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
+ ` https://s3.<aws-region>.amazonaws.com/<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey> `   
 For example:  
- `https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt`   
+ `https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt`   
 For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
 For more information about custom vocabularies, see [Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
 Type: String  
@@ -45,7 +45,7 @@ Pattern: `(s3://|http(s*)://).+`
 Required: No
 
  ** [VocabularyName](#API_CreateVocabulary_RequestSyntax) **   <a name="transcribe-CreateVocabulary-request-VocabularyName"></a>
-The name of the vocabulary\. The name must be unique within an AWS account\. The name is case\-sensitive\.  
+The name of the vocabulary\. The name must be unique within an AWS account\. The name is case\-sensitive\. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -102,8 +102,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-When you are using the `CreateVocabulary` operation, the `JobName` field is a duplicate of a previously entered job name\. Resend your request with a different name\.  
-When you are using the `UpdateVocabulary` operation, there are two jobs running at the same time\. Resend the second request later\.  
+The resource name already exists\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

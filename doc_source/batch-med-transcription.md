@@ -27,16 +27,14 @@ You can see the minimum number of request parameters to enter in the sample JSON
 
 ```
 {
-    "TranscriptionJob": {
-        "TranscriptionJobName": "request ID",
-        "LanguageCode": "en-US",
-        "TranscriptionJobStatus": "IN_PROGRESS",
-        "Media": {
-            "MediaFileUri": "https://your-S3-bucket/an-optional-folder-to-store-your-audio-files/your-audio-file.wav"
-        },
-        "CreationTime": timestamp,
-        "MediaFormat": "wav"
-    }
+   "MedicalTranscriptionJobName": “job name",
+   "LanguageCode": "en-US",
+   "Media": {
+       "MediaFileUri": "s3://path to your audio file"
+   },
+   "OutputBucketName": “your output bucket name",
+   "Specialty": "PRIMARYCARE",
+   "Type": "CONVERSATION"
 }
 ```
 

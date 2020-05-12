@@ -28,7 +28,7 @@ Pattern: `(s3://|http(s*)://).+`
 Required: No
 
  ** [VocabularyFilterName](#API_UpdateVocabularyFilter_RequestSyntax) **   <a name="transcribe-UpdateVocabularyFilter-request-VocabularyFilterName"></a>
-The name of the vocabulary filter to update\.  
+The name of the vocabulary filter to update\. If you try to update a vocabulary filter with the same name as a previous vocabulary filter you will receive a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
