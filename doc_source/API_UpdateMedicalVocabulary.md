@@ -1,6 +1,6 @@
 # UpdateMedicalVocabulary<a name="API_UpdateMedicalVocabulary"></a>
 
-Updates an existing vocabulary with new values in a different text file\. The `UpdateMedicalVocabulary` operation overwrites all of the existing information with the values that you provide in the request\.
+Updates a vocabulary with new values that you provide in a different text file from the one you used to create the vocabulary\. The `UpdateMedicalVocabulary` operation overwrites all of the existing information with the values that you provide in the request\.
 
 ## Request Syntax<a name="API_UpdateMedicalVocabulary_RequestSyntax"></a>
 
@@ -19,17 +19,17 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [LanguageCode](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-LanguageCode"></a>
-The language code of the entries in the updated vocabulary\. US English \(en\-US\) is the only valid language code in Amazon Transcribe Medical\.  
+The language code of the language used for the entries in the updated vocabulary\. US English \(en\-US\) is the only valid language code in Amazon Transcribe Medical\.  
 Type: String  
 Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
 Required: Yes
 
  ** [VocabularyFileUri](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-VocabularyFileUri"></a>
-The Amazon S3 location of the text file containing the definition of the custom vocabulary\. The URI must be in the same AWS region as the API endpoint you are calling\. You can see the fields you need to enter for you Amazon S3 location in the example URI here:  
+The location in Amazon S3 of the text file that contains the you use for your custom vocabulary\. The URI must be in the same AWS Region as the resource that you are calling\. The following is the format for a URI:  
  ` https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
 For example:  
  `https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt`   
-For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
+For more information about Amazon S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
 For more information about custom vocabularies in Amazon Transcribe Medical, see [Medical Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
@@ -37,7 +37,7 @@ Pattern: `(s3://|http(s*)://).+`
 Required: No
 
  ** [VocabularyName](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-VocabularyName"></a>
-The name of the vocabulary to update\. The name is case\-sensitive\. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a `ConflictException` error\.  
+The name of the vocabulary to update\. The name is case sensitive\. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -61,12 +61,12 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [LanguageCode](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-LanguageCode"></a>
-The language code for the text file used to update the custom vocabulary\. US English \(en\-US\) is the only language supported in Amazon Transcribe Medical\.  
+The language code for the language of the text file used to update the custom vocabulary\. US English \(en\-US\) is the only language supported in Amazon Transcribe Medical\.  
 Type: String  
 Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
 
  ** [LastModifiedTime](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-LastModifiedTime"></a>
-The date and time the vocabulary was updated\.  
+The date and time that the vocabulary was updated\.  
 Type: Timestamp
 
  ** [VocabularyName](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-VocabularyName"></a>
@@ -76,7 +76,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 200\.
 Pattern: `^[0-9a-zA-Z._-]+` 
 
  ** [VocabularyState](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-VocabularyState"></a>
-The processing state of the update to the vocabulary\. When the `VocabularyState` field is `READY` the vocabulary is ready to be used in a `StartMedicalTranscriptionJob` request\.  
+The processing state of the update to the vocabulary\. When the `VocabularyState` field is `READY`, the vocabulary is ready to be used in a `StartMedicalTranscriptionJob` request\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
 
@@ -89,7 +89,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-The resource name already exists\.  
+There is already a resource with that name\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

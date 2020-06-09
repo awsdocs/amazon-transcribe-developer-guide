@@ -12,6 +12,7 @@ You can request a quota increase for the following resources:
 | Resource | Default | 
 | --- | --- | 
 | Number of concurrent batch transcription jobs | 100 | 
+| Job queue bandwidth ratio | 0\.9 | 
 | Transactions per second, StartTranscriptionJob operation | 10 | 
 | Number of concurrent HTTP/2 streams for streaming transcription | 5 | 
 | Number of StartStreamTranscription Websocket requests | 5 | 
@@ -27,6 +28,8 @@ You can request a quota increase for the following resources:
 | Transactions per second, ListVocabularies operation | 5 | 
 
 For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.
+
+If you don't need to process all of your transcription jobs concurrently, use [Job Queuing](job-queuing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\. You can request an increase to the job queue bandwidth ratio to run more transcription jobs\. The quota for the transcription jobs in your job queue is the product of the number of transcription jobs you can run concurrently and the bandwidth ratio\. For example, if you have a bandwidth ratio of `5` and a quota of `100` for the number of transcription jobs you can run concurrently then you can have 500 transcription jobs in your job queue\.
 
 ## Guidelines<a name="guidelines"></a>
 

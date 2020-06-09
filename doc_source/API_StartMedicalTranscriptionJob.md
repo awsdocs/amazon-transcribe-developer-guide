@@ -1,6 +1,6 @@
 # StartMedicalTranscriptionJob<a name="API_StartMedicalTranscriptionJob"></a>
 
-Start a batch job to transcribe medical speech to text\.
+Starts a batch job to transcribe medical speech to text\.
 
 ## Request Syntax<a name="API_StartMedicalTranscriptionJob_RequestSyntax"></a>
 
@@ -59,7 +59,7 @@ Valid Range: Minimum value of 8000\. Maximum value of 48000\.
 Required: No
 
  ** [MedicalTranscriptionJobName](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-MedicalTranscriptionJobName"></a>
-The name of the medical transcription job\. You can't use the strings "\." or "\.\." by themselves as the job name\. The name must also be unique within an AWS account\. If you try to create a medical transcription job with the same name as a previous medical transcription job you will receive a `ConflictException` error\.  
+The name of the medical transcription job\. You can't use the strings "`.`" or "`..`" by themselves as the job name\. The name must also be unique within an AWS account\. If you try to create a medical transcription job with the same name as a previous medical transcription job, you get a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -159,7 +159,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-The resource name already exists\.  
+There is already a resource with that name\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

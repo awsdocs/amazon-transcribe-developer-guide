@@ -17,7 +17,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [VocabularyName](#API_DeleteMedicalVocabulary_RequestSyntax) **   <a name="transcribe-DeleteMedicalVocabulary-request-VocabularyName"></a>
-The name of the vocabulary you are choosing to delete\.  
+The name of the vocabulary that you want to delete\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   

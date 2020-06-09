@@ -26,7 +26,7 @@ Valid Range: Minimum value of 1\. Maximum value of 100\.
 Required: No
 
  ** [NameContains](#API_ListVocabularies_RequestSyntax) **   <a name="transcribe-ListVocabularies-request-NameContains"></a>
-When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string\. The search is case\-insensitive, `ListVocabularies` returns both "vocabularyname" and "VocabularyName" in the response list\.  
+When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string\. The search is not case sensitive, `ListVocabularies` returns both "vocabularyname" and "VocabularyName" in the response list\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -69,7 +69,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [NextToken](#API_ListVocabularies_ResponseSyntax) **   <a name="transcribe-ListVocabularies-response-NextToken"></a>
-The `ListVocabularies` operation returns a page of vocabularies at a time\. The maximum size of the page is set by the `MaxResults` parameter\. If there are more jobs in the list than the page size, Amazon Transcribe returns the `NextPage` token\. Include the token in the next request to the `ListVocabularies` operation to return in the next page of jobs\.  
+The `ListVocabularies` operation returns a page of vocabularies at a time\. The maximum size of the page is set in the `MaxResults` parameter\. If there are more jobs in the list than will fit on the page, Amazon Transcribe returns the `NextPage` token\. To return in the next page of jobs, include the token in the next request to the `ListVocabularies` operation\.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
 Pattern: `.+` 

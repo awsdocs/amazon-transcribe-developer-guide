@@ -1,6 +1,6 @@
 # GetMedicalVocabulary<a name="API_GetMedicalVocabulary"></a>
 
-Retrieve information about a medical vocabulary\.
+Retrieves information about a medical vocabulary\.
 
 ## Request Syntax<a name="API_GetMedicalVocabulary_RequestSyntax"></a>
 
@@ -17,7 +17,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [VocabularyName](#API_GetMedicalVocabulary_RequestSyntax) **   <a name="transcribe-GetMedicalVocabulary-request-VocabularyName"></a>
-The name of the vocabulary you are trying to get information about\. The value you enter for this request is case\-sensitive\.   
+The name of the vocabulary that you want information about\. The value is case sensitive\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -43,7 +43,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [DownloadUri](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-DownloadUri"></a>
-The Amazon S3 location where the vocabulary is stored\. Use this URI to get the contents of the vocabulary\. You can download your vocabulary from the URI for a limited time\.  
+The location in Amazon S3 where the vocabulary is stored\. Use this URI to get the contents of the vocabulary\. You can download your vocabulary from the URI for a limited time\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
 Pattern: `(s3://|http(s*)://).+` 
@@ -53,22 +53,22 @@ If the `VocabularyState` is `FAILED`, this field contains information about why 
 Type: String
 
  ** [LanguageCode](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-LanguageCode"></a>
-The valid language code returned for your vocabulary entries\.  
+The valid language code for your vocabulary entries\.  
 Type: String  
 Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
 
  ** [LastModifiedTime](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-LastModifiedTime"></a>
-The date and time the vocabulary was last modified with a text file different from what was previously used\.  
+The date and time that the vocabulary was last modified with a text file different from the one that was previously used\.  
 Type: Timestamp
 
  ** [VocabularyName](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-VocabularyName"></a>
-The valid name that Amazon Transcribe Medical returns\.  
+The name of the vocabulary returned by Amazon Transcribe Medical\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
  ** [VocabularyState](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-VocabularyState"></a>
-The processing state of the vocabulary\.  
+The processing state of the vocabulary\. If the `VocabularyState` is `READY` then you can use it in the `StartMedicalTranscriptionJob` operation\.   
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
 

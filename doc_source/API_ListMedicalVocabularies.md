@@ -1,6 +1,6 @@
 # ListMedicalVocabularies<a name="API_ListMedicalVocabularies"></a>
 
-Returns a list of vocabularies that match the specified criteria\. You get the entire list of vocabularies if you don't enter a value in any of the request parameters\.
+Returns a list of vocabularies that match the specified criteria\. If you don't enter a value in any of the request parameters, returns the entire list of vocabularies\.
 
 ## Request Syntax<a name="API_ListMedicalVocabularies_RequestSyntax"></a>
 
@@ -26,21 +26,21 @@ Valid Range: Minimum value of 1\. Maximum value of 100\.
 Required: No
 
  ** [NameContains](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-NameContains"></a>
-Returns vocabularies in the list whose name contains the specified string\. The search is case\-insensitive, `ListMedicalVocabularies` returns both "vocabularyname" and "VocabularyName" in the response list\.  
+Returns vocabularies whose names contain the specified string\. The search is not case sensitive\. `ListMedicalVocabularies` returns both "`vocabularyname`" and "`VocabularyName`"\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
  ** [NextToken](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-NextToken"></a>
-If the result of your previous request to `ListMedicalVocabularies` was truncated, include the `NextToken` to fetch the next set of jobs\.  
+If the result of your previous request to `ListMedicalVocabularies` was truncated, include the `NextToken` to fetch the next set of vocabularies\.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
 Pattern: `.+`   
 Required: No
 
  ** [StateEquals](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-StateEquals"></a>
-When specified, only returns vocabularies with the `VocabularyState` equal to the specified vocabulary state\.  
+When specified, returns only vocabularies with the `VocabularyState` equal to the specified vocabulary state\. Use this field to see which vocabularies are ready for your medical transcription jobs\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED`   
 Required: No
@@ -69,7 +69,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [NextToken](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-NextToken"></a>
-The `ListMedicalVocabularies` operation returns a page of vocabularies at a time\. The maximum size of the page is set by the `MaxResults` parameter\. If there are more jobs in the list than the page size, Amazon Transcribe Medical returns the `NextPage` token\. Include the token in the next request to the `ListMedicalVocabularies` operation to return the next page of jobs\.  
+The `ListMedicalVocabularies` operation returns a page of vocabularies at a time\. You set the maximum number of vocabularies to return on a page with the `MaxResults` parameter\. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the `NextPage` token\. To return the next page of vocabularies, include the token in the next request to the `ListMedicalVocabularies` operation \.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
 Pattern: `.+` 
@@ -80,7 +80,7 @@ Type: String
 Valid Values:` PENDING | READY | FAILED` 
 
  ** [Vocabularies](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-Vocabularies"></a>
-A list of objects that describe the vocabularies that match the search criteria in the request\.  
+A list of objects that describe the vocabularies that match your search criteria\.  
 Type: Array of [VocabularyInfo](API_VocabularyInfo.md) objects
 
 ## Errors<a name="API_ListMedicalVocabularies_Errors"></a>

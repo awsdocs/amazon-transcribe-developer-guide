@@ -70,6 +70,5 @@ Amazon Transcribe has the capability to transcribe accented speech of individual
 + [Transcribing Streaming Audio](how-streaming-transcription.md)
 + [Channel Identification](how-channel-id.md)
 + [Custom Vocabularies](how-vocabulary.md)
-+ [Vocabulary Filtering](how-vocabulary-filter.md)
 + [Automatic Content Redaction](content-redaction.md)
 + [Job Queuing](job-queuing.md)

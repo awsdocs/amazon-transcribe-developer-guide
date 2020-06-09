@@ -1,6 +1,6 @@
 # MedicalTranscriptionJob<a name="API_MedicalTranscriptionJob"></a>
 
-The data structure that containts the information for a medical transcription job\.
+The data structure that contains the information for a medical transcription job\.
 
 ## Contents<a name="API_MedicalTranscriptionJob_Contents"></a>
 
@@ -21,7 +21,7 @@ The `FailureReason` field contains one of the following values:
 +  `The media format provided does not match the detected media format`\- The media format of the audio file doesn't match the format specified in the `MediaFormat` field in the request\. Check the media format of your media file and make sure the two values match\.
 +  `Invalid sample rate for audio file`\- The sample rate specified in the `MediaSampleRateHertz` of the request isn't valid\. The sample rate must be between 8000 and 48000 Hertz\.
 +  `The sample rate provided does not match the detected sample rate`\- The sample rate in the audio file doesn't match the sample rate specified in the `MediaSampleRateHertz` field in the request\. Check the sample rate of your media file and make sure that the two values match\.
-+  `Invalid file size: file size too large`\- The size of your audio file is larger than what Amazon Transcribe Medical can process\. For more information, see [Guidlines and Quotas](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits) in the *Amazon Transcribe Medical Guide* 
++  `Invalid file size: file size too large`\- The size of your audio file is larger than what Amazon Transcribe Medical can process\. For more information, see [Guidelines and Quotas](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits) in the *Amazon Transcribe Medical Guide* 
 +  `Invalid number of channels: number of channels too large`\- Your audio contains more channels than Amazon Transcribe Medical is configured to process\. To request additional channels, see [Amazon Transcribe Medical Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html) in the *Amazon Web Services General Reference* 
 Type: String  
 Required: No

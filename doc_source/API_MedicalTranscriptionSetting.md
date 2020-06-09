@@ -29,7 +29,7 @@ Type: Boolean
 Required: No
 
  **ShowSpeakerLabels**   <a name="transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels"></a>
-Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio\. Speaker recongition labels individual speakers in the audio file\. If you set the `ShowSpeakerLabels` field to true, you must also set the maximum number of speaker labels in the `MaxSpeakerLabels` field\.  
+Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio\. Speaker recognition labels individual speakers in the audio file\. If you set the `ShowSpeakerLabels` field to true, you must also set the maximum number of speaker labels in the `MaxSpeakerLabels` field\.  
 You can't set both `ShowSpeakerLabels` and `ChannelIdentification` in the same request\. If you set both, your request returns a `BadRequestException`\.  
 Type: Boolean  
 Required: No

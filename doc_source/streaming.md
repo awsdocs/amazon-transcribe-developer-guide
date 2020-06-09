@@ -9,10 +9,10 @@ You can use streaming transcription in the following languages:
   + US Spanish \(es\-US\)
 + 8 KHz only
 + 
-  + Australian English \(en\-AU\)
-  + British English \(en\-GB\)
-  + French \(fr\-FR\)
-  + Canadian French \(fr\-CA\)
+  + Australian English \(en\-AU\) \- API only
+  + British English \(en\-GB\) \- API only
+  + French \(fr\-FR\) \- API only
+  + Canadian French \(fr\-CA\) \- API only
 
 Amazon Transcribe streaming transcription can be used for a variety of purposes\. For example:
 + Streaming transcriptions can generate real\-time subtitles for live broadcast media\.

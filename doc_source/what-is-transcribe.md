@@ -36,11 +36,11 @@ You can use Amazon Transcribe to transcribe the following languages to text:
 + Turkish \(tr\-TR\)
 
 You can transcribe streaming audio in the following languages:
-+ Australian English \(en\-AU\)
-+ British English \(en\-GB\)
++ Australian English \(en\-AU\) \- supported in API only
++ British English \(en\-GB\) \- supported in API only
 + US English \(en\-US\)
-+ French \(fr\-FR\)
-+ Canadian French \(fr\-CA\)
++ French \(fr\-FR\) \- supported in API only
++ Canadian French \(fr\-CA\) \- supported in API only
 + US Spanish \(es\-US\)
 
 You can use Amazon Transcribe with other AWS services to create applications\. For example, you can: 

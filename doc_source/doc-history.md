@@ -1,10 +1,13 @@
 # Document History for Amazon Transcribe<a name="doc-history"></a>
-+ **Latest documentation update:** December 20, 2019
++ **Latest documentation update:** April 29th, 2020
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary-med.html) | Amazon Transcribe Medical adds support for custom vocabularies in both batch processing and streaming\. For more information, see [Medical Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary-med.html)\. | April 29, 2020 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html) | Amazon Transcribe Medical adds support for batch processing of audio files\. For more information, see [ Batch Transcription Overview](https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html)\. | April 1, 2020 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html) | Amazon Transcribe adds support for automatically redacting personally identifiable information\. For more information, see [ Automatic Content Redaction](https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html)\. | February 26, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary-filter.html) | Amazon Transcribe adds support for creating a vocabulary of words to filter from a transcription\. For more information, see [ Vocabulary Filtering](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary-filter.html)\. | December 20, 2019 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/job-queuing.html) | Amazon Transcribe adds support for queuing transcription jobs\. For more information, see [Job Queuing](https://docs.aws.amazon.com/transcribe/latest/dg/job-queuing.html)\. | December 19, 2019 | 
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the Asia Pacific \(Tokyo\) \(ap\-northeast\-1\) region\. | November 21, 2019 | 

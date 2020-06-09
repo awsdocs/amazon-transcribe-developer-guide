@@ -45,7 +45,7 @@ Pattern: `(s3://|http(s*)://).+`
 Required: No
 
  ** [VocabularyName](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-VocabularyName"></a>
-The name of the vocabulary to update\. The name is case\-sensitive\. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a `ConflictException` error\.  
+The name of the vocabulary to update\. The name is case sensitive\. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
@@ -97,7 +97,7 @@ Your request didn't pass one or more validation tests\. For example, if the tran
 HTTP Status Code: 400
 
  **ConflictException**   
-The resource name already exists\.  
+There is already a resource with that name\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

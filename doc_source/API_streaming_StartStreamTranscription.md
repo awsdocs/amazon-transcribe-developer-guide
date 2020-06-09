@@ -1,18 +1,14 @@
 # StartStreamTranscription<a name="API_streaming_StartStreamTranscription"></a>
 
-Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
+Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
 
-The following are encoded as HTTP/2 headers:
+The following are encoded as HTTP2 headers:
 + x\-amzn\-transcribe\-language\-code
 + x\-amzn\-transcribe\-media\-encoding
 + x\-amzn\-transcribe\-sample\-rate
 + x\-amzn\-transcribe\-session\-id
 
-For more information about using the `StartStreamTranscription` operation, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.
-
 ## Request Syntax<a name="API_streaming_StartStreamTranscription_RequestSyntax"></a>
-
-The following is a JSON representation of the `StartStreamTranscription` request\. The actual request is binary data encoded using event stream encoding\. For more information, see [Event Stream Encoding](event-stream.md)\.
 
 ```
 POST /stream-transcription HTTP/2
@@ -21,6 +17,8 @@ x-amzn-transcribe-sample-rate: MediaSampleRateHertz
 x-amzn-transcribe-media-encoding: MediaEncoding
 x-amzn-transcribe-vocabulary-name: VocabularyName
 x-amzn-transcribe-session-id: SessionId
+x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
+x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
 Content-type: application/json
 
 {
@@ -37,8 +35,8 @@ Content-type: application/json
 The request requires the following URI parameters\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
-Indicates the language used in the input audio stream\.  
-Valid Values: `en-AU en-GB en-US es-US fr-CA fr-FR` 
+Indicates the source language used in the input audio stream\.  
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.   
@@ -50,7 +48,17 @@ Valid Range: Minimum value of 8000\. Maximum value of 48000\.
 
  ** [SessionId](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-SessionId"></a>
 A identifier for the transcription session\. Use this parameter when you want to retry a session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.  
+Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
+
+ ** [VocabularyFilterMethod](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterMethod"></a>
+The manner in which you use your vocabulary filter to filter words in your transcript\. `Remove` removes filtered words from your transcription results\. `Mask` masks those words with a `***` in your transcription results\. `Tag` keeps the filtered words in your transcription results and tags them\. The tag appears as `VocabularyFilterMatch` equal to `True`   
+Valid Values:` remove | mask | tag` 
+
+ ** [VocabularyFilterName](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterName"></a>
+The name of the vocabulary filter you've created that is unique to your AWS account\. Provide the name in this field to successfully use it in a stream\.  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[0-9a-zA-Z._-]+` 
 
  ** [VocabularyName](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyName"></a>
 The name of the vocabulary to use when processing the transcription job\.  
@@ -59,16 +67,14 @@ Pattern: `^[0-9a-zA-Z._-]+`
 
 ## Request Body<a name="API_streaming_StartStreamTranscription_RequestBody"></a>
 
-The request accepts the following data as a binary stream\. For more information, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.
+The request accepts the following data in JSON format\.
 
  ** [AudioStream](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-AudioStream"></a>
-PCM\-encoded stream of audio blobs\. The audio stream is encoded as an HTTP/2 data frame\. For details of the encoding, see [Event Stream Encoding](event-stream.md)\.  
+PCM\-encoded stream of audio blobs\. The audio stream is encoded as an HTTP2 data frame\.  
 Type: [AudioStream](API_streaming_AudioStream.md) object  
 Required: Yes
 
 ## Response Syntax<a name="API_streaming_StartStreamTranscription_ResponseSyntax"></a>
-
-The response from Amazon Transcribe contains two parts: HTTP/2 headers with metadata about the response and binary data containing the response\. The binary data is encoded using event stream encoding\. Once the binary data is decoded, the content is a JSON object containing the results of the transcription\. For more information, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.
 
 ```
 HTTP/2 200
@@ -78,6 +84,8 @@ x-amzn-transcribe-sample-rate: MediaSampleRateHertz
 x-amzn-transcribe-media-encoding: MediaEncoding
 x-amzn-transcribe-vocabulary-name: VocabularyName
 x-amzn-transcribe-session-id: SessionId
+x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
+x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
 Content-type: application/json
 
 {
@@ -90,6 +98,8 @@ Content-type: application/json
       },
       "[LimitExceededException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-LimitExceededException)": { 
       },
+      "[ServiceUnavailableException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-ServiceUnavailableException)": { 
+      },
       "[TranscriptEvent](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-TranscriptEvent)": { 
          "[Transcript](API_streaming_TranscriptEvent.md#transcribe-Type-streaming_TranscriptEvent-Transcript)": { 
             "[Results](API_streaming_Transcript.md#transcribe-Type-streaming_Transcript-Results)": [ 
@@ -101,7 +111,8 @@ Content-type: application/json
                               "[Content](API_streaming_Item.md#transcribe-Type-streaming_Item-Content)": "string",
                               "[EndTime](API_streaming_Item.md#transcribe-Type-streaming_Item-EndTime)": number,
                               "[StartTime](API_streaming_Item.md#transcribe-Type-streaming_Item-StartTime)": number,
-                              "[Type](API_streaming_Item.md#transcribe-Type-streaming_Item-Type)": "string"
+                              "[Type](API_streaming_Item.md#transcribe-Type-streaming_Item-Type)": "string",
+                              "[VocabularyFilterMatch](API_streaming_Item.md#transcribe-Type-streaming_Item-VocabularyFilterMatch)": boolean
                            }
                         ],
                         "[Transcript](API_streaming_Alternative.md#transcribe-Type-streaming_Alternative-Transcript)": "string"
@@ -127,7 +138,7 @@ The response returns the following HTTP headers\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageCode"></a>
 The language code for the input audio stream\.  
-Valid Values:` en-GB en-US fr-CA fr-FR es-US` 
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
@@ -142,17 +153,27 @@ An identifier for the streaming transcription\.
 
  ** [SessionId](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-SessionId"></a>
 An identifier for a specific transcription session\.  
+Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
 
- ** [VocabularyName](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyName"></a>
-The name of the vocabulary used when processing the job\.  
+ ** [VocabularyFilterMethod](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterMethod"></a>
+The vocabulary filtering method used in the real\-time stream\.  
+Valid Values:` remove | mask | tag` 
+
+ ** [VocabularyFilterName](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterName"></a>
+The name of the vocabulary filter used in your real\-time stream\.  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
-The body of the response from Amazon Transcribe is binary data in event stream encoding\. Once the binary data is decoded, the content is a JSON object that contains the following information\.
+ ** [VocabularyName](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyName"></a>
+The name of the vocabulary used when processing the stream\.  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[0-9a-zA-Z._-]+` 
+
+The following data is returned in JSON format by the service\.
 
  ** [TranscriptResultStream](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-TranscriptResultStream"></a>
-Represents the stream of transcription events from Amazon Transcribe to your application\. For more information, see [Using Amazon Transcribe Streaming With HTTP/2](how-streaming.md)\.  
+Represents the stream of transcription events from Amazon Transcribe to your application\.  
 Type: [TranscriptResultStream](API_streaming_TranscriptResultStream.md) object
 
 ## Errors<a name="API_streaming_StartStreamTranscription_Errors"></a>
@@ -174,6 +195,10 @@ HTTP Status Code: 500
  **LimitExceededException**   
 You have exceeded the maximum number of concurrent transcription streams, are starting transcription streams too quickly, or the maximum audio length of 4 hours\. Wait until a stream has finished processing, or break your audio stream into smaller chunks and try your request again\.  
 HTTP Status Code: 429
+
+ **ServiceUnavailableException**   
+Service is currently unavailable\. Try your request later\.  
+HTTP Status Code: 503
 
 ## See Also<a name="API_streaming_StartStreamTranscription_SeeAlso"></a>
 

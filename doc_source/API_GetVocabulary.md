@@ -17,7 +17,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [VocabularyName](#API_GetVocabulary_RequestSyntax) **   <a name="transcribe-GetVocabulary-request-VocabularyName"></a>
-The name of the vocabulary to return information about\. The name is case\-sensitive\.  
+The name of the vocabulary to return information about\. The name is case sensitive\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   

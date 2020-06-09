@@ -4,11 +4,6 @@ A word or phrase transcribed from the input audio\.
 
 ## Contents<a name="API_streaming_Item_Contents"></a>
 
- **Confidence**   <a name="transcribe-Type-streaming_Item-Confidence"></a>
-The score indicating how confident Amazon Transcribe is in determining the correct item\.  
-Type: Double  
-Required: No
-
  **Content**   <a name="transcribe-Type-streaming_Item-Content"></a>
 The word or punctuation that was recognized in the input audio\.  
 Type: String  
