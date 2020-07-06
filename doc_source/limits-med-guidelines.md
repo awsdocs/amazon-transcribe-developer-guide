@@ -30,7 +30,7 @@ For information about requesting a quota increase, see [AWS Service Quotas](http
 
 For best results:
 + Use a lossless format, such as FLAC or WAV, with PCM 16\-bit encoding\.
-+ Use a sample rate of 8000 Hz for low\-fidelity audio and 16000 Hz for high\-fidelity audio\.
++ Use a sample rate of 16000 Hz or greater\.
 
 Amazon Transcribe Medical may store your content to continuously improve the quality of its analysis models\. See the [Amazon Transcribe Medical FAQ](https://aws.amazon.com/transcribe/faqs/) to learn more\. To request that we delete content that may have been stored by Amazon Transcribe Medical, open a case with AWS Support\.
 

@@ -17,3 +17,4 @@ For more information about data protection, see the [AWS Shared Responsibility M
 + [Encryption at Rest](encryption-at-rest.md)
 + [Encryption in Transit](encryption-in-transit.md)
 + [Key Management](key-management.md)
++ [Amazon Transcribe and interface VPC endpoints \(AWS PrivateLink\)](vpc-interface-endpoints.md)
