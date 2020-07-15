@@ -69,6 +69,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Encryption at Rest](encryption-at-rest.md)
       + [Encryption in Transit](encryption-in-transit.md)
       + [Key Management](key-management.md)
+      + [Opting Out of Using Your Data for Service Improvement](opt-out.md)
       + [Amazon Transcribe and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md)
    + [Identity and Access Management for Amazon Transcribe](security-iam.md)
       + [How Amazon Transcribe Works with IAM](security_iam_service-with-iam.md)

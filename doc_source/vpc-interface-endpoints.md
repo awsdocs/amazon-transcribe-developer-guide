@@ -33,7 +33,7 @@ You can attach an endpoint policy to your VPC endpoint that controls access to t
 For more information, see [Controlling access to services with VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) in the *Amazon VPC User Guide*\. 
 
 **Example: VPC endpoint policy for Amazon Transcribe actions**  
-The following is an example of an endpoint policy forAmazon Transcribe\. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe actions for all principals on all resources\.
+The following is an example of an endpoint policy for Amazon Transcribe\. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe actions for all principals on all resources\.
 
 ```
 {
