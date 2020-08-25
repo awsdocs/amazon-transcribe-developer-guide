@@ -14,7 +14,8 @@ Required: No
 The Amazon Resource Name \(ARN\) of a role that has access to the S3 bucket that contains the input files\. Amazon Transcribe assumes this role to read queued media files\. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well\.  
 If you specify the `AllowDeferredExecution` field, you must specify the `DataAccessRoleArn` field\.  
 Type: String  
-Pattern: `^arn:aws:iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1023}$`   
+Length Constraints: Minimum length of 20\. Maximum length of 2048\.  
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso-{0,1}[a-z]{0,1}):iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1024}$`   
 Required: No
 
 ## See Also<a name="API_JobExecutionSettings_SeeAlso"></a>

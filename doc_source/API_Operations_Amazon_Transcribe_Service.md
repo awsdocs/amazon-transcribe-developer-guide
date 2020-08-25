@@ -1,19 +1,23 @@
 # Amazon Transcribe Service<a name="API_Operations_Amazon_Transcribe_Service"></a>
 
 The following actions are supported by Amazon Transcribe Service:
++  [CreateLanguageModel](API_CreateLanguageModel.md) 
 +  [CreateMedicalVocabulary](API_CreateMedicalVocabulary.md) 
 +  [CreateVocabulary](API_CreateVocabulary.md) 
 +  [CreateVocabularyFilter](API_CreateVocabularyFilter.md) 
++  [DeleteLanguageModel](API_DeleteLanguageModel.md) 
 +  [DeleteMedicalTranscriptionJob](API_DeleteMedicalTranscriptionJob.md) 
 +  [DeleteMedicalVocabulary](API_DeleteMedicalVocabulary.md) 
 +  [DeleteTranscriptionJob](API_DeleteTranscriptionJob.md) 
 +  [DeleteVocabulary](API_DeleteVocabulary.md) 
 +  [DeleteVocabularyFilter](API_DeleteVocabularyFilter.md) 
++  [DescribeLanguageModel](API_DescribeLanguageModel.md) 
 +  [GetMedicalTranscriptionJob](API_GetMedicalTranscriptionJob.md) 
 +  [GetMedicalVocabulary](API_GetMedicalVocabulary.md) 
 +  [GetTranscriptionJob](API_GetTranscriptionJob.md) 
 +  [GetVocabulary](API_GetVocabulary.md) 
 +  [GetVocabularyFilter](API_GetVocabularyFilter.md) 
++  [ListLanguageModels](API_ListLanguageModels.md) 
 +  [ListMedicalTranscriptionJobs](API_ListMedicalTranscriptionJobs.md) 
 +  [ListMedicalVocabularies](API_ListMedicalVocabularies.md) 
 +  [ListTranscriptionJobs](API_ListTranscriptionJobs.md) 

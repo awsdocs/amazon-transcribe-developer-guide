@@ -6,10 +6,10 @@ Lists transcription jobs with the specified status\.
 
 ```
 {
-   "[JobNameContains](#transcribe-ListTranscriptionJobs-request-JobNameContains)": "string",
-   "[MaxResults](#transcribe-ListTranscriptionJobs-request-MaxResults)": number,
-   "[NextToken](#transcribe-ListTranscriptionJobs-request-NextToken)": "string",
-   "[Status](#transcribe-ListTranscriptionJobs-request-Status)": "string"
+   "JobNameContains": "string",
+   "MaxResults": number,
+   "NextToken": "string",
+   "Status": "string"
 }
 ```
 
@@ -49,22 +49,27 @@ Required: No
 
 ```
 {
-   "[NextToken](#transcribe-ListTranscriptionJobs-response-NextToken)": "string",
-   "[Status](#transcribe-ListTranscriptionJobs-response-Status)": "string",
-   "[TranscriptionJobSummaries](#transcribe-ListTranscriptionJobs-response-TranscriptionJobSummaries)": [ 
+   "NextToken": "string",
+   "Status": "string",
+   "TranscriptionJobSummaries": [ 
       { 
-         "[CompletionTime](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-CompletionTime)": number,
-         "[ContentRedaction](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-ContentRedaction)": { 
-            "[RedactionOutput](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionOutput)": "string",
-            "[RedactionType](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionType)": "string"
+         "CompletionTime": number,
+         "ContentRedaction": { 
+            "RedactionOutput": "string",
+            "RedactionType": "string"
          },
-         "[CreationTime](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-CreationTime)": number,
-         "[FailureReason](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-FailureReason)": "string",
-         "[LanguageCode](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-LanguageCode)": "string",
-         "[OutputLocationType](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-OutputLocationType)": "string",
-         "[StartTime](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-StartTime)": number,
-         "[TranscriptionJobName](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-TranscriptionJobName)": "string",
-         "[TranscriptionJobStatus](API_TranscriptionJobSummary.md#transcribe-Type-TranscriptionJobSummary-TranscriptionJobStatus)": "string"
+         "CreationTime": number,
+         "FailureReason": "string",
+         "IdentifiedLanguageScore": number,
+         "IdentifyLanguage": boolean,
+         "LanguageCode": "string",
+         "ModelSettings": { 
+            "LanguageModelName": "string"
+         },
+         "OutputLocationType": "string",
+         "StartTime": number,
+         "TranscriptionJobName": "string",
+         "TranscriptionJobStatus": "string"
       }
    ]
 }
@@ -96,7 +101,7 @@ Type: Array of [TranscriptionJobSummary](API_TranscriptionJobSummary.md) objects
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

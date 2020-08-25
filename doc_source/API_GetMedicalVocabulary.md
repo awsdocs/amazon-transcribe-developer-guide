@@ -6,7 +6,7 @@ Retrieves information about a medical vocabulary\.
 
 ```
 {
-   "[VocabularyName](#transcribe-GetMedicalVocabulary-request-VocabularyName)": "string"
+   "VocabularyName": "string"
 }
 ```
 
@@ -27,12 +27,12 @@ Required: Yes
 
 ```
 {
-   "[DownloadUri](#transcribe-GetMedicalVocabulary-response-DownloadUri)": "string",
-   "[FailureReason](#transcribe-GetMedicalVocabulary-response-FailureReason)": "string",
-   "[LanguageCode](#transcribe-GetMedicalVocabulary-response-LanguageCode)": "string",
-   "[LastModifiedTime](#transcribe-GetMedicalVocabulary-response-LastModifiedTime)": number,
-   "[VocabularyName](#transcribe-GetMedicalVocabulary-response-VocabularyName)": "string",
-   "[VocabularyState](#transcribe-GetMedicalVocabulary-response-VocabularyState)": "string"
+   "DownloadUri": "string",
+   "FailureReason": "string",
+   "LanguageCode": "string",
+   "LastModifiedTime": number,
+   "VocabularyName": "string",
+   "VocabularyState": "string"
 }
 ```
 
@@ -55,7 +55,7 @@ Type: String
  ** [LanguageCode](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-LanguageCode"></a>
 The valid language code for your vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
 
  ** [LastModifiedTime](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was last modified with a text file different from the one that was previously used\.  
@@ -77,7 +77,7 @@ Valid Values:` PENDING | READY | FAILED`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

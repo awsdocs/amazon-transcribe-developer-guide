@@ -6,10 +6,10 @@ Lists medical transcription jobs with a specified status or substring that match
 
 ```
 {
-   "[JobNameContains](#transcribe-ListMedicalTranscriptionJobs-request-JobNameContains)": "string",
-   "[MaxResults](#transcribe-ListMedicalTranscriptionJobs-request-MaxResults)": number,
-   "[NextToken](#transcribe-ListMedicalTranscriptionJobs-request-NextToken)": "string",
-   "[Status](#transcribe-ListMedicalTranscriptionJobs-request-Status)": "string"
+   "JobNameContains": "string",
+   "MaxResults": number,
+   "NextToken": "string",
+   "Status": "string"
 }
 ```
 
@@ -49,22 +49,22 @@ Required: No
 
 ```
 {
-   "[MedicalTranscriptionJobSummaries](#transcribe-ListMedicalTranscriptionJobs-response-MedicalTranscriptionJobSummaries)": [ 
+   "MedicalTranscriptionJobSummaries": [ 
       { 
-         "[CompletionTime](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-CompletionTime)": number,
-         "[CreationTime](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-CreationTime)": number,
-         "[FailureReason](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-FailureReason)": "string",
-         "[LanguageCode](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-LanguageCode)": "string",
-         "[MedicalTranscriptionJobName](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-MedicalTranscriptionJobName)": "string",
-         "[OutputLocationType](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-OutputLocationType)": "string",
-         "[Specialty](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-Specialty)": "string",
-         "[StartTime](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-StartTime)": number,
-         "[TranscriptionJobStatus](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-TranscriptionJobStatus)": "string",
-         "[Type](API_MedicalTranscriptionJobSummary.md#transcribe-Type-MedicalTranscriptionJobSummary-Type)": "string"
+         "CompletionTime": number,
+         "CreationTime": number,
+         "FailureReason": "string",
+         "LanguageCode": "string",
+         "MedicalTranscriptionJobName": "string",
+         "OutputLocationType": "string",
+         "Specialty": "string",
+         "StartTime": number,
+         "TranscriptionJobStatus": "string",
+         "Type": "string"
       }
    ],
-   "[NextToken](#transcribe-ListMedicalTranscriptionJobs-response-NextToken)": "string",
-   "[Status](#transcribe-ListMedicalTranscriptionJobs-response-Status)": "string"
+   "NextToken": "string",
+   "Status": "string"
 }
 ```
 
@@ -94,7 +94,7 @@ Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

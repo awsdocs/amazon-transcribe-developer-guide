@@ -14,6 +14,11 @@ The offset from the beginning of the audio stream to the end of the audio that r
 Type: Double  
 Required: No
 
+ **Speaker**   <a name="transcribe-Type-streaming_Item-Speaker"></a>
+If speaker identification is enabled, shows the speakers identified in the real\-time stream\.  
+Type: String  
+Required: No
+
  **StartTime**   <a name="transcribe-Type-streaming_Item-StartTime"></a>
 The offset from the beginning of the audio stream to the beginning of the audio that resulted in the item\.  
 Type: Double  

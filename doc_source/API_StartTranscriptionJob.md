@@ -6,33 +6,38 @@ Starts an asynchronous job to transcribe speech to text\.
 
 ```
 {
-   "[ContentRedaction](#transcribe-StartTranscriptionJob-request-ContentRedaction)": { 
-      "[RedactionOutput](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionOutput)": "string",
-      "[RedactionType](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionType)": "string"
+   "ContentRedaction": { 
+      "RedactionOutput": "string",
+      "RedactionType": "string"
    },
-   "[JobExecutionSettings](#transcribe-StartTranscriptionJob-request-JobExecutionSettings)": { 
-      "[AllowDeferredExecution](API_JobExecutionSettings.md#transcribe-Type-JobExecutionSettings-AllowDeferredExecution)": boolean,
-      "[DataAccessRoleArn](API_JobExecutionSettings.md#transcribe-Type-JobExecutionSettings-DataAccessRoleArn)": "string"
+   "IdentifyLanguage": boolean,
+   "JobExecutionSettings": { 
+      "AllowDeferredExecution": boolean,
+      "DataAccessRoleArn": "string"
    },
-   "[LanguageCode](#transcribe-StartTranscriptionJob-request-LanguageCode)": "string",
-   "[Media](#transcribe-StartTranscriptionJob-request-Media)": { 
-      "[MediaFileUri](API_Media.md#transcribe-Type-Media-MediaFileUri)": "string"
+   "LanguageCode": "string",
+   "LanguageOptions": [ "string" ],
+   "Media": { 
+      "MediaFileUri": "string"
    },
-   "[MediaFormat](#transcribe-StartTranscriptionJob-request-MediaFormat)": "string",
-   "[MediaSampleRateHertz](#transcribe-StartTranscriptionJob-request-MediaSampleRateHertz)": number,
-   "[OutputBucketName](#transcribe-StartTranscriptionJob-request-OutputBucketName)": "string",
-   "[OutputEncryptionKMSKeyId](#transcribe-StartTranscriptionJob-request-OutputEncryptionKMSKeyId)": "string",
-   "[Settings](#transcribe-StartTranscriptionJob-request-Settings)": { 
-      "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
-      "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
-      "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
-      "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
-      "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
-      "[VocabularyFilterMethod](API_Settings.md#transcribe-Type-Settings-VocabularyFilterMethod)": "string",
-      "[VocabularyFilterName](API_Settings.md#transcribe-Type-Settings-VocabularyFilterName)": "string",
-      "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
+   "MediaFormat": "string",
+   "MediaSampleRateHertz": number,
+   "ModelSettings": { 
+      "LanguageModelName": "string"
    },
-   "[TranscriptionJobName](#transcribe-StartTranscriptionJob-request-TranscriptionJobName)": "string"
+   "OutputBucketName": "string",
+   "OutputEncryptionKMSKeyId": "string",
+   "Settings": { 
+      "ChannelIdentification": boolean,
+      "MaxAlternatives": number,
+      "MaxSpeakerLabels": number,
+      "ShowAlternatives": boolean,
+      "ShowSpeakerLabels": boolean,
+      "VocabularyFilterMethod": "string",
+      "VocabularyFilterName": "string",
+      "VocabularyName": "string"
+   },
+   "TranscriptionJobName": "string"
 }
 ```
 
@@ -47,6 +52,11 @@ An object that contains the request parameters for content redaction\.
 Type: [ContentRedaction](API_ContentRedaction.md) object  
 Required: No
 
+ ** [IdentifyLanguage](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-IdentifyLanguage"></a>
+Set this field to `true` to enable automatic language identification\. Automatic language identification is disabled by default\. You receive a `BadRequestException` error if you enter a value for a `LanguageCode`\.  
+Type: Boolean  
+Required: No
+
  ** [JobExecutionSettings](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-JobExecutionSettings"></a>
 Provides information about how a transcription job is executed\. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job\.  
 Type: [JobExecutionSettings](API_JobExecutionSettings.md) object  
@@ -55,8 +65,15 @@ Required: No
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
-Required: Yes
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Required: No
+
+ ** [LanguageOptions](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageOptions"></a>
+An object containing a list of languages that might be present in your collection of audio files\. Automatic language identification chooses a language that best matches the source audio from that list\.  
+Type: Array of strings  
+Array Members: Minimum number of 2 items\.  
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Required: No
 
  ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>
 An object that describes the input media for a transcription job\.  
@@ -74,6 +91,11 @@ The sample rate, in Hertz, of the audio track in the input media file\.
 If you do not specify the media sample rate, Amazon Transcribe determines the sample rate\. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe\. In most cases, you should leave the `MediaSampleRateHertz` field blank and let Amazon Transcribe determine the sample rate\.  
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
+Required: No
+
+ ** [ModelSettings](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-ModelSettings"></a>
+Choose the custom language model you use for your transcription job in this parameter\.  
+Type: [ModelSettings](API_ModelSettings.md) object  
 Required: No
 
  ** [OutputBucketName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-OutputBucketName"></a>
@@ -117,41 +139,47 @@ Required: Yes
 
 ```
 {
-   "[TranscriptionJob](#transcribe-StartTranscriptionJob-response-TranscriptionJob)": { 
-      "[CompletionTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CompletionTime)": number,
-      "[ContentRedaction](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-ContentRedaction)": { 
-         "[RedactionOutput](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionOutput)": "string",
-         "[RedactionType](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionType)": "string"
+   "TranscriptionJob": { 
+      "CompletionTime": number,
+      "ContentRedaction": { 
+         "RedactionOutput": "string",
+         "RedactionType": "string"
       },
-      "[CreationTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CreationTime)": number,
-      "[FailureReason](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-FailureReason)": "string",
-      "[JobExecutionSettings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-JobExecutionSettings)": { 
-         "[AllowDeferredExecution](API_JobExecutionSettings.md#transcribe-Type-JobExecutionSettings-AllowDeferredExecution)": boolean,
-         "[DataAccessRoleArn](API_JobExecutionSettings.md#transcribe-Type-JobExecutionSettings-DataAccessRoleArn)": "string"
+      "CreationTime": number,
+      "FailureReason": "string",
+      "IdentifiedLanguageScore": number,
+      "IdentifyLanguage": boolean,
+      "JobExecutionSettings": { 
+         "AllowDeferredExecution": boolean,
+         "DataAccessRoleArn": "string"
       },
-      "[LanguageCode](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-LanguageCode)": "string",
-      "[Media](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Media)": { 
-         "[MediaFileUri](API_Media.md#transcribe-Type-Media-MediaFileUri)": "string"
+      "LanguageCode": "string",
+      "LanguageOptions": [ "string" ],
+      "Media": { 
+         "MediaFileUri": "string"
       },
-      "[MediaFormat](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaFormat)": "string",
-      "[MediaSampleRateHertz](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaSampleRateHertz)": number,
-      "[Settings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Settings)": { 
-         "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
-         "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
-         "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
-         "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
-         "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
-         "[VocabularyFilterMethod](API_Settings.md#transcribe-Type-Settings-VocabularyFilterMethod)": "string",
-         "[VocabularyFilterName](API_Settings.md#transcribe-Type-Settings-VocabularyFilterName)": "string",
-         "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
+      "MediaFormat": "string",
+      "MediaSampleRateHertz": number,
+      "ModelSettings": { 
+         "LanguageModelName": "string"
       },
-      "[StartTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-StartTime)": number,
-      "[Transcript](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Transcript)": { 
-         "[RedactedTranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-RedactedTranscriptFileUri)": "string",
-         "[TranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-TranscriptFileUri)": "string"
+      "Settings": { 
+         "ChannelIdentification": boolean,
+         "MaxAlternatives": number,
+         "MaxSpeakerLabels": number,
+         "ShowAlternatives": boolean,
+         "ShowSpeakerLabels": boolean,
+         "VocabularyFilterMethod": "string",
+         "VocabularyFilterName": "string",
+         "VocabularyName": "string"
       },
-      "[TranscriptionJobName](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobName)": "string",
-      "[TranscriptionJobStatus](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobStatus)": "string"
+      "StartTime": number,
+      "Transcript": { 
+         "RedactedTranscriptFileUri": "string",
+         "TranscriptFileUri": "string"
+      },
+      "TranscriptionJobName": "string",
+      "TranscriptionJobStatus": "string"
    }
 }
 ```
@@ -171,7 +199,7 @@ Type: [TranscriptionJob](API_TranscriptionJob.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   

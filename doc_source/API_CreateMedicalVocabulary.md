@@ -6,9 +6,9 @@ Creates a new custom vocabulary that you can use to change how Amazon Transcribe
 
 ```
 {
-   "[LanguageCode](#transcribe-CreateMedicalVocabulary-request-LanguageCode)": "string",
-   "[VocabularyFileUri](#transcribe-CreateMedicalVocabulary-request-VocabularyFileUri)": "string",
-   "[VocabularyName](#transcribe-CreateMedicalVocabulary-request-VocabularyName)": "string"
+   "LanguageCode": "string",
+   "VocabularyFileUri": "string",
+   "VocabularyName": "string"
 }
 ```
 
@@ -21,7 +21,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-LanguageCode"></a>
 The language code for the language used for the entries in your custom vocabulary\. The language code of your custom vocabulary must match the language code of your transcription job\. US English \(en\-US\) is the only language code available for Amazon Transcribe Medical\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
 Required: Yes
 
  ** [VocabularyFileUri](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-VocabularyFileUri"></a>
@@ -47,11 +47,11 @@ Required: Yes
 
 ```
 {
-   "[FailureReason](#transcribe-CreateMedicalVocabulary-response-FailureReason)": "string",
-   "[LanguageCode](#transcribe-CreateMedicalVocabulary-response-LanguageCode)": "string",
-   "[LastModifiedTime](#transcribe-CreateMedicalVocabulary-response-LastModifiedTime)": number,
-   "[VocabularyName](#transcribe-CreateMedicalVocabulary-response-VocabularyName)": "string",
-   "[VocabularyState](#transcribe-CreateMedicalVocabulary-response-VocabularyState)": "string"
+   "FailureReason": "string",
+   "LanguageCode": "string",
+   "LastModifiedTime": number,
+   "VocabularyName": "string",
+   "VocabularyState": "string"
 }
 ```
 
@@ -68,7 +68,7 @@ Type: String
  ** [LanguageCode](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LanguageCode"></a>
 The language code for the entries in your custom vocabulary\. US English \(en\-US\) is the only valid language code for Amazon Transcribe Medical\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
 
  ** [LastModifiedTime](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LastModifiedTime"></a>
 The date and time that you created the vocabulary\.  
@@ -90,7 +90,7 @@ Valid Values:` PENDING | READY | FAILED`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   

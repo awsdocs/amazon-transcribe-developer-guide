@@ -6,10 +6,10 @@ Updates an existing vocabulary with new values\. The `UpdateVocabulary` operatio
 
 ```
 {
-   "[LanguageCode](#transcribe-UpdateVocabulary-request-LanguageCode)": "string",
-   "[Phrases](#transcribe-UpdateVocabulary-request-Phrases)": [ "string" ],
-   "[VocabularyFileUri](#transcribe-UpdateVocabulary-request-VocabularyFileUri)": "string",
-   "[VocabularyName](#transcribe-UpdateVocabulary-request-VocabularyName)": "string"
+   "LanguageCode": "string",
+   "Phrases": [ "string" ],
+   "VocabularyFileUri": "string",
+   "VocabularyName": "string"
 }
 ```
 
@@ -22,7 +22,7 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
 Required: Yes
 
  ** [Phrases](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-Phrases"></a>
@@ -55,10 +55,10 @@ Required: Yes
 
 ```
 {
-   "[LanguageCode](#transcribe-UpdateVocabulary-response-LanguageCode)": "string",
-   "[LastModifiedTime](#transcribe-UpdateVocabulary-response-LastModifiedTime)": number,
-   "[VocabularyName](#transcribe-UpdateVocabulary-response-VocabularyName)": "string",
-   "[VocabularyState](#transcribe-UpdateVocabulary-response-VocabularyState)": "string"
+   "LanguageCode": "string",
+   "LastModifiedTime": number,
+   "VocabularyName": "string",
+   "VocabularyState": "string"
 }
 ```
 
@@ -71,7 +71,7 @@ The following data is returned in JSON format by the service\.
  ** [LanguageCode](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
 
  ** [LastModifiedTime](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was updated\.  
@@ -93,7 +93,7 @@ Valid Values:` PENDING | READY | FAILED`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **ConflictException**   

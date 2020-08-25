@@ -40,13 +40,79 @@ Amazon Transcribe doesn't support specifying resource ARNs in a policy\.
 
 #### Condition Keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
-Amazon Transcribe doesn't provide service\-specific condition keys, but it does support using some global condition keys\. For all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
+Use the `Condition` element \(or a `Condition` *block*\) to specify conditions in which a statement is in effect\. The `Condition` element is optional\. You can build conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request\.
+
+If you specify multiple `Condition` elements in a statement, or multiple keys in a single `Condition` element, AWS evaluates them using a logical `AND` operation\. If you specify multiple values for a single condition key, AWS evaluates the condition using a logical `OR` operation\. All of the conditions must be met before the statement's permissions are granted\.
+
+You can also use placeholder variables when you specify conditions\. For example, you can grant an IAM user permission to access a resource only if it is tagged with their IAM user name\. For more information, see [IAM Policy Elements: Variables and Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html) in the *IAM User Guide*\.
+
+Amazon Transcribe defines its own set of condition keys and also supports using some global condition keys\. For a list of all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
+
+The following table lists the Amazon Transcribe condition keys that apply to Amazon Transcribe resources\. You can include these keys in the `Condition` element in an IAM permissions policy\.
+
+
+| Amazon Transcribe Condition Key | Description | Value Type | Action | 
+| --- | --- | --- | --- | 
+| transcribe:OutputBucketName | Filters access by the output bucket used to start a transcription job\. | String | [StartTranscriptionJob](API_StartTranscriptionJob.md) | 
+| transcribe:OutputEncryptionKMSKeyId | Filters access by the KMS key used to start a transcription job\. | String | [StartTranscriptionJob](API_StartTranscriptionJob.md) | 
+
+For examples of how you can use condition keys to control access to the resources of Amazon Transcribe, see the following\.
+
+If you want your users to always use a specific output bucket when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, you can use the following policy\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "transcribe:StartTranscriptionJob",
+                  ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "transcribe:OutputBucketName": "AWSDOC-EXAMPLE-BUCKET"
+                }
+            }
+        }
+    ]
+}
+```
+
+If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, you can use the following policy\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "transcribe:StartTranscriptionJob",
+                  ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "transcribe:OutputEncryptionKMSKeyId": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+For information on AWS KMS keys, see [Key Management](key-management.md)\.
 
 #### Examples<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
 
 
 For examples of Amazon Transcribe identity\-based policies, see [Amazon Transcribe Identity\-Based Policy Examples](security_iam_id-based-policy-examples.md)\.
+
+#### <a name="transcribe-"></a>
 
 ### Amazon Transcribe Resource\-Based Policies<a name="security_iam_service-with-iam-resource-based-policies"></a>
 

@@ -31,6 +31,16 @@ The `FailureReason` field can contain one of the following values:
 Type: String  
 Required: No
 
+ **IdentifiedLanguageScore**   <a name="transcribe-Type-TranscriptionJob-IdentifiedLanguageScore"></a>
+The score that Amazon Transcribe gives for the predominant language that it identified in your collection of source audio files\. This score reflects the confidence that the language that Amazon Transcribe identified is the correct language\.  
+Type: Float  
+Required: No
+
+ **IdentifyLanguage**   <a name="transcribe-Type-TranscriptionJob-IdentifyLanguage"></a>
+A value that shows if automatic language identification was enabled for a transcription job\.  
+Type: Boolean  
+Required: No
+
  **JobExecutionSettings**   <a name="transcribe-Type-TranscriptionJob-JobExecutionSettings"></a>
 Provides information about how a transcription job is executed\.  
 Type: [JobExecutionSettings](API_JobExecutionSettings.md) object  
@@ -39,7 +49,14 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-TranscriptionJob-LanguageCode"></a>
 The language code for the input speech\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Required: No
+
+ **LanguageOptions**   <a name="transcribe-Type-TranscriptionJob-LanguageOptions"></a>
+An object that shows the optional array of languages inputted for transcription jobs with automatic language identification enabled\.  
+Type: Array of strings  
+Array Members: Minimum number of 2 items\.  
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
 Required: No
 
  **Media**   <a name="transcribe-Type-TranscriptionJob-Media"></a>
@@ -57,6 +74,11 @@ Required: No
 The sample rate, in Hertz, of the audio track in the input media file\.   
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
+Required: No
+
+ **ModelSettings**   <a name="transcribe-Type-TranscriptionJob-ModelSettings"></a>
+An object containing the details of your custom language model\.  
+Type: [ModelSettings](API_ModelSettings.md) object  
 Required: No
 
  **Settings**   <a name="transcribe-Type-TranscriptionJob-Settings"></a>

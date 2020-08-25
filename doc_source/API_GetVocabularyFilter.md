@@ -6,7 +6,7 @@ Returns information about a vocabulary filter\.
 
 ```
 {
-   "[VocabularyFilterName](#transcribe-GetVocabularyFilter-request-VocabularyFilterName)": "string"
+   "VocabularyFilterName": "string"
 }
 ```
 
@@ -27,10 +27,10 @@ Required: Yes
 
 ```
 {
-   "[DownloadUri](#transcribe-GetVocabularyFilter-response-DownloadUri)": "string",
-   "[LanguageCode](#transcribe-GetVocabularyFilter-response-LanguageCode)": "string",
-   "[LastModifiedTime](#transcribe-GetVocabularyFilter-response-LastModifiedTime)": number,
-   "[VocabularyFilterName](#transcribe-GetVocabularyFilter-response-VocabularyFilterName)": "string"
+   "DownloadUri": "string",
+   "LanguageCode": "string",
+   "LastModifiedTime": number,
+   "VocabularyFilterName": "string"
 }
 ```
 
@@ -49,7 +49,7 @@ Pattern: `(s3://|http(s*)://).+`
  ** [LanguageCode](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-LanguageCode"></a>
 The language code of the words in the vocabulary filter\.  
 Type: String  
-Valid Values:` en-US | es-US | en-AU | fr-CA | en-GB | de-DE | pt-BR | fr-FR | it-IT | ko-KR | es-ES | en-IN | hi-IN | ar-SA | ru-RU | zh-CN | nl-NL | id-ID | ta-IN | fa-IR | en-IE | en-AB | en-WL | pt-PT | te-IN | tr-TR | de-CH | he-IL | ms-MY | ja-JP | ar-AE` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
 
  ** [LastModifiedTime](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-LastModifiedTime"></a>
 The date and time that the contents of the vocabulary filter were updated\.  
@@ -66,7 +66,7 @@ Pattern: `^[0-9a-zA-Z._-]+`
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

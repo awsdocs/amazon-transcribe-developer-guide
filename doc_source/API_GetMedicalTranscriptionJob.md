@@ -6,7 +6,7 @@ Returns information about a transcription job from Amazon Transcribe Medical\. T
 
 ```
 {
-   "[MedicalTranscriptionJobName](#transcribe-GetMedicalTranscriptionJob-request-MedicalTranscriptionJobName)": "string"
+   "MedicalTranscriptionJobName": "string"
 }
 ```
 
@@ -27,32 +27,32 @@ Required: Yes
 
 ```
 {
-   "[MedicalTranscriptionJob](#transcribe-GetMedicalTranscriptionJob-response-MedicalTranscriptionJob)": { 
-      "[CompletionTime](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-CompletionTime)": number,
-      "[CreationTime](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-CreationTime)": number,
-      "[FailureReason](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-FailureReason)": "string",
-      "[LanguageCode](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-LanguageCode)": "string",
-      "[Media](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Media)": { 
-         "[MediaFileUri](API_Media.md#transcribe-Type-Media-MediaFileUri)": "string"
+   "MedicalTranscriptionJob": { 
+      "CompletionTime": number,
+      "CreationTime": number,
+      "FailureReason": "string",
+      "LanguageCode": "string",
+      "Media": { 
+         "MediaFileUri": "string"
       },
-      "[MediaFormat](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-MediaFormat)": "string",
-      "[MediaSampleRateHertz](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-MediaSampleRateHertz)": number,
-      "[MedicalTranscriptionJobName](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-MedicalTranscriptionJobName)": "string",
-      "[Settings](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Settings)": { 
-         "[ChannelIdentification](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ChannelIdentification)": boolean,
-         "[MaxAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxAlternatives)": number,
-         "[MaxSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-MaxSpeakerLabels)": number,
-         "[ShowAlternatives](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowAlternatives)": boolean,
-         "[ShowSpeakerLabels](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-ShowSpeakerLabels)": boolean,
-         "[VocabularyName](API_MedicalTranscriptionSetting.md#transcribe-Type-MedicalTranscriptionSetting-VocabularyName)": "string"
+      "MediaFormat": "string",
+      "MediaSampleRateHertz": number,
+      "MedicalTranscriptionJobName": "string",
+      "Settings": { 
+         "ChannelIdentification": boolean,
+         "MaxAlternatives": number,
+         "MaxSpeakerLabels": number,
+         "ShowAlternatives": boolean,
+         "ShowSpeakerLabels": boolean,
+         "VocabularyName": "string"
       },
-      "[Specialty](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Specialty)": "string",
-      "[StartTime](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-StartTime)": number,
-      "[Transcript](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Transcript)": { 
-         "[TranscriptFileUri](API_MedicalTranscript.md#transcribe-Type-MedicalTranscript-TranscriptFileUri)": "string"
+      "Specialty": "string",
+      "StartTime": number,
+      "Transcript": { 
+         "TranscriptFileUri": "string"
       },
-      "[TranscriptionJobStatus](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-TranscriptionJobStatus)": "string",
-      "[Type](API_MedicalTranscriptionJob.md#transcribe-Type-MedicalTranscriptionJob-Type)": "string"
+      "TranscriptionJobStatus": "string",
+      "Type": "string"
    }
 }
 ```
@@ -72,7 +72,7 @@ Type: [MedicalTranscriptionJob](API_MedicalTranscriptionJob.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

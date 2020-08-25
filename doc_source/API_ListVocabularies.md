@@ -6,10 +6,10 @@ Returns a list of vocabularies that match the specified criteria\. If no criteri
 
 ```
 {
-   "[MaxResults](#transcribe-ListVocabularies-request-MaxResults)": number,
-   "[NameContains](#transcribe-ListVocabularies-request-NameContains)": "string",
-   "[NextToken](#transcribe-ListVocabularies-request-NextToken)": "string",
-   "[StateEquals](#transcribe-ListVocabularies-request-StateEquals)": "string"
+   "MaxResults": number,
+   "NameContains": "string",
+   "NextToken": "string",
+   "StateEquals": "string"
 }
 ```
 
@@ -49,14 +49,14 @@ Required: No
 
 ```
 {
-   "[NextToken](#transcribe-ListVocabularies-response-NextToken)": "string",
-   "[Status](#transcribe-ListVocabularies-response-Status)": "string",
-   "[Vocabularies](#transcribe-ListVocabularies-response-Vocabularies)": [ 
+   "NextToken": "string",
+   "Status": "string",
+   "Vocabularies": [ 
       { 
-         "[LanguageCode](API_VocabularyInfo.md#transcribe-Type-VocabularyInfo-LanguageCode)": "string",
-         "[LastModifiedTime](API_VocabularyInfo.md#transcribe-Type-VocabularyInfo-LastModifiedTime)": number,
-         "[VocabularyName](API_VocabularyInfo.md#transcribe-Type-VocabularyInfo-VocabularyName)": "string",
-         "[VocabularyState](API_VocabularyInfo.md#transcribe-Type-VocabularyInfo-VocabularyState)": "string"
+         "LanguageCode": "string",
+         "LastModifiedTime": number,
+         "VocabularyName": "string",
+         "VocabularyState": "string"
       }
    ]
 }
@@ -88,7 +88,7 @@ Type: Array of [VocabularyInfo](API_VocabularyInfo.md) objects
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

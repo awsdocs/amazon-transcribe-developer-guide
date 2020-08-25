@@ -6,7 +6,7 @@ Returns information about a transcription job\. To see the status of the job, ch
 
 ```
 {
-   "[TranscriptionJobName](#transcribe-GetTranscriptionJob-request-TranscriptionJobName)": "string"
+   "TranscriptionJobName": "string"
 }
 ```
 
@@ -27,41 +27,47 @@ Required: Yes
 
 ```
 {
-   "[TranscriptionJob](#transcribe-GetTranscriptionJob-response-TranscriptionJob)": { 
-      "[CompletionTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CompletionTime)": number,
-      "[ContentRedaction](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-ContentRedaction)": { 
-         "[RedactionOutput](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionOutput)": "string",
-         "[RedactionType](API_ContentRedaction.md#transcribe-Type-ContentRedaction-RedactionType)": "string"
+   "TranscriptionJob": { 
+      "CompletionTime": number,
+      "ContentRedaction": { 
+         "RedactionOutput": "string",
+         "RedactionType": "string"
       },
-      "[CreationTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-CreationTime)": number,
-      "[FailureReason](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-FailureReason)": "string",
-      "[JobExecutionSettings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-JobExecutionSettings)": { 
-         "[AllowDeferredExecution](API_JobExecutionSettings.md#transcribe-Type-JobExecutionSettings-AllowDeferredExecution)": boolean,
-         "[DataAccessRoleArn](API_JobExecutionSettings.md#transcribe-Type-JobExecutionSettings-DataAccessRoleArn)": "string"
+      "CreationTime": number,
+      "FailureReason": "string",
+      "IdentifiedLanguageScore": number,
+      "IdentifyLanguage": boolean,
+      "JobExecutionSettings": { 
+         "AllowDeferredExecution": boolean,
+         "DataAccessRoleArn": "string"
       },
-      "[LanguageCode](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-LanguageCode)": "string",
-      "[Media](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Media)": { 
-         "[MediaFileUri](API_Media.md#transcribe-Type-Media-MediaFileUri)": "string"
+      "LanguageCode": "string",
+      "LanguageOptions": [ "string" ],
+      "Media": { 
+         "MediaFileUri": "string"
       },
-      "[MediaFormat](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaFormat)": "string",
-      "[MediaSampleRateHertz](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-MediaSampleRateHertz)": number,
-      "[Settings](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Settings)": { 
-         "[ChannelIdentification](API_Settings.md#transcribe-Type-Settings-ChannelIdentification)": boolean,
-         "[MaxAlternatives](API_Settings.md#transcribe-Type-Settings-MaxAlternatives)": number,
-         "[MaxSpeakerLabels](API_Settings.md#transcribe-Type-Settings-MaxSpeakerLabels)": number,
-         "[ShowAlternatives](API_Settings.md#transcribe-Type-Settings-ShowAlternatives)": boolean,
-         "[ShowSpeakerLabels](API_Settings.md#transcribe-Type-Settings-ShowSpeakerLabels)": boolean,
-         "[VocabularyFilterMethod](API_Settings.md#transcribe-Type-Settings-VocabularyFilterMethod)": "string",
-         "[VocabularyFilterName](API_Settings.md#transcribe-Type-Settings-VocabularyFilterName)": "string",
-         "[VocabularyName](API_Settings.md#transcribe-Type-Settings-VocabularyName)": "string"
+      "MediaFormat": "string",
+      "MediaSampleRateHertz": number,
+      "ModelSettings": { 
+         "LanguageModelName": "string"
       },
-      "[StartTime](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-StartTime)": number,
-      "[Transcript](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-Transcript)": { 
-         "[RedactedTranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-RedactedTranscriptFileUri)": "string",
-         "[TranscriptFileUri](API_Transcript.md#transcribe-Type-Transcript-TranscriptFileUri)": "string"
+      "Settings": { 
+         "ChannelIdentification": boolean,
+         "MaxAlternatives": number,
+         "MaxSpeakerLabels": number,
+         "ShowAlternatives": boolean,
+         "ShowSpeakerLabels": boolean,
+         "VocabularyFilterMethod": "string",
+         "VocabularyFilterName": "string",
+         "VocabularyName": "string"
       },
-      "[TranscriptionJobName](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobName)": "string",
-      "[TranscriptionJobStatus](API_TranscriptionJob.md#transcribe-Type-TranscriptionJob-TranscriptionJobStatus)": "string"
+      "StartTime": number,
+      "Transcript": { 
+         "RedactedTranscriptFileUri": "string",
+         "TranscriptFileUri": "string"
+      },
+      "TranscriptionJobName": "string",
+      "TranscriptionJobStatus": "string"
    }
 }
 ```
@@ -81,7 +87,7 @@ Type: [TranscriptionJob](API_TranscriptionJob.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

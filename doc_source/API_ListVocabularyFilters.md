@@ -6,9 +6,9 @@ Gets information about vocabulary filters\.
 
 ```
 {
-   "[MaxResults](#transcribe-ListVocabularyFilters-request-MaxResults)": number,
-   "[NameContains](#transcribe-ListVocabularyFilters-request-NameContains)": "string",
-   "[NextToken](#transcribe-ListVocabularyFilters-request-NextToken)": "string"
+   "MaxResults": number,
+   "NameContains": "string",
+   "NextToken": "string"
 }
 ```
 
@@ -42,12 +42,12 @@ Required: No
 
 ```
 {
-   "[NextToken](#transcribe-ListVocabularyFilters-response-NextToken)": "string",
-   "[VocabularyFilters](#transcribe-ListVocabularyFilters-response-VocabularyFilters)": [ 
+   "NextToken": "string",
+   "VocabularyFilters": [ 
       { 
-         "[LanguageCode](API_VocabularyFilterInfo.md#transcribe-Type-VocabularyFilterInfo-LanguageCode)": "string",
-         "[LastModifiedTime](API_VocabularyFilterInfo.md#transcribe-Type-VocabularyFilterInfo-LastModifiedTime)": number,
-         "[VocabularyFilterName](API_VocabularyFilterInfo.md#transcribe-Type-VocabularyFilterInfo-VocabularyFilterName)": "string"
+         "LanguageCode": "string",
+         "LastModifiedTime": number,
+         "VocabularyFilterName": "string"
       }
    ]
 }
@@ -74,7 +74,7 @@ Type: Array of [VocabularyFilterInfo](API_VocabularyFilterInfo.md) objects
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-Your request didn't pass one or more validation tests\. For example, if the transcription you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
+Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
  **InternalFailureException**   

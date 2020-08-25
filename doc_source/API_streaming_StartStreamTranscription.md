@@ -19,12 +19,13 @@ x-amzn-transcribe-vocabulary-name: VocabularyName
 x-amzn-transcribe-session-id: SessionId
 x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
 x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
+x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
 Content-type: application/json
 
 {
-   "[AudioStream](#transcribe-streaming_StartStreamTranscription-request-AudioStream)": { 
-      "[AudioEvent](API_streaming_AudioStream.md#transcribe-Type-streaming_AudioStream-AudioEvent)": { 
-         "[AudioChunk](API_streaming_AudioEvent.md#transcribe-Type-streaming_AudioEvent-AudioChunk)": blob
+   "AudioStream": { 
+      "AudioEvent": { 
+         "AudioChunk": blob
       }
    }
 }
@@ -32,28 +33,33 @@ Content-type: application/json
 
 ## URI Request Parameters<a name="API_streaming_StartStreamTranscription_RequestParameters"></a>
 
-The request requires the following URI parameters\.
+The request uses the following URI parameters\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
 Indicates the source language used in the input audio stream\.  
-Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU` 
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU`   
+Required: Yes
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
-The encoding used for the input audio\.   
-Valid Values:` pcm` 
+The encoding used for the input audio\. `pcm` is the only valid value\.  
+Valid Values:` flac | ogg-opus | pcm`   
+Required: Yes
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the input audio\. We suggest that you use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
-Valid Range: Minimum value of 8000\. Maximum value of 48000\.
+Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
+Required: Yes
 
  ** [SessionId](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-SessionId"></a>
 A identifier for the transcription session\. Use this parameter when you want to retry a session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.  
-Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
+
+ ** [ShowSpeakerLabel](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-ShowSpeakerLabel"></a>
+When `true`, enables speaker identification in your real\-time stream\.
 
  ** [VocabularyFilterMethod](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterMethod"></a>
 The manner in which you use your vocabulary filter to filter words in your transcript\. `Remove` removes filtered words from your transcription results\. `Mask` masks those words with a `***` in your transcription results\. `Tag` keeps the filtered words in your transcription results and tags them\. The tag appears as `VocabularyFilterMatch` equal to `True`   
-Valid Values:` remove | mask | tag` 
+Valid Values:` mask | remove | tag` 
 
  ** [VocabularyFilterName](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterName"></a>
 The name of the vocabulary filter you've created that is unique to your AWS account\. Provide the name in this field to successfully use it in a stream\.  
@@ -86,42 +92,44 @@ x-amzn-transcribe-vocabulary-name: VocabularyName
 x-amzn-transcribe-session-id: SessionId
 x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
 x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
+x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
 Content-type: application/json
 
 {
-   "[TranscriptResultStream](#transcribe-streaming_StartStreamTranscription-response-TranscriptResultStream)": { 
-      "[BadRequestException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-BadRequestException)": { 
+   "TranscriptResultStream": { 
+      "BadRequestException": { 
       },
-      "[ConflictException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-ConflictException)": { 
+      "ConflictException": { 
       },
-      "[InternalFailureException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-InternalFailureException)": { 
+      "InternalFailureException": { 
       },
-      "[LimitExceededException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-LimitExceededException)": { 
+      "LimitExceededException": { 
       },
-      "[ServiceUnavailableException](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-ServiceUnavailableException)": { 
+      "ServiceUnavailableException": { 
       },
-      "[TranscriptEvent](API_streaming_TranscriptResultStream.md#transcribe-Type-streaming_TranscriptResultStream-TranscriptEvent)": { 
-         "[Transcript](API_streaming_TranscriptEvent.md#transcribe-Type-streaming_TranscriptEvent-Transcript)": { 
-            "[Results](API_streaming_Transcript.md#transcribe-Type-streaming_Transcript-Results)": [ 
+      "TranscriptEvent": { 
+         "Transcript": { 
+            "Results": [ 
                { 
-                  "[Alternatives](API_streaming_Result.md#transcribe-Type-streaming_Result-Alternatives)": [ 
+                  "Alternatives": [ 
                      { 
-                        "[Items](API_streaming_Alternative.md#transcribe-Type-streaming_Alternative-Items)": [ 
+                        "Items": [ 
                            { 
-                              "[Content](API_streaming_Item.md#transcribe-Type-streaming_Item-Content)": "string",
-                              "[EndTime](API_streaming_Item.md#transcribe-Type-streaming_Item-EndTime)": number,
-                              "[StartTime](API_streaming_Item.md#transcribe-Type-streaming_Item-StartTime)": number,
-                              "[Type](API_streaming_Item.md#transcribe-Type-streaming_Item-Type)": "string",
-                              "[VocabularyFilterMatch](API_streaming_Item.md#transcribe-Type-streaming_Item-VocabularyFilterMatch)": boolean
+                              "Content": "string",
+                              "EndTime": number,
+                              "Speaker": "string",
+                              "StartTime": number,
+                              "Type": "string",
+                              "VocabularyFilterMatch": boolean
                            }
                         ],
-                        "[Transcript](API_streaming_Alternative.md#transcribe-Type-streaming_Alternative-Transcript)": "string"
+                        "Transcript": "string"
                      }
                   ],
-                  "[EndTime](API_streaming_Result.md#transcribe-Type-streaming_Result-EndTime)": number,
-                  "[IsPartial](API_streaming_Result.md#transcribe-Type-streaming_Result-IsPartial)": boolean,
-                  "[ResultId](API_streaming_Result.md#transcribe-Type-streaming_Result-ResultId)": "string",
-                  "[StartTime](API_streaming_Result.md#transcribe-Type-streaming_Result-StartTime)": number
+                  "EndTime": number,
+                  "IsPartial": boolean,
+                  "ResultId": "string",
+                  "StartTime": number
                }
             ]
          }
@@ -142,7 +150,7 @@ Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU`
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
-Valid Values:` pcm` 
+Valid Values:` flac | ogg-opus | pcm` 
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaSampleRateHertz"></a>
 The sample rate for the input audio stream\. Use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
@@ -153,12 +161,14 @@ An identifier for the streaming transcription\.
 
  ** [SessionId](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-SessionId"></a>
 An identifier for a specific transcription session\.  
-Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
+
+ ** [ShowSpeakerLabel](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-ShowSpeakerLabel"></a>
+Shows whether speaker identification was enabled in the stream\.
 
  ** [VocabularyFilterMethod](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterMethod"></a>
 The vocabulary filtering method used in the real\-time stream\.  
-Valid Values:` remove | mask | tag` 
+Valid Values:` mask | remove | tag` 
 
  ** [VocabularyFilterName](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterName"></a>
 The name of the vocabulary filter used in your real\-time stream\.  
