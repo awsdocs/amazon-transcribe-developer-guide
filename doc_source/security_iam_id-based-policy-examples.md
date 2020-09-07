@@ -88,8 +88,8 @@ The user's IAM policy must have Amazon S3 permissions to access the S3 bucket wh
         {
             "Effect": "Allow",
             "Action": [
-                        “s3:GetObject”,
-             ],
+                "s3:GetObject"
+            ],
             "Resource": "S3 bucket location"
         }
     ]
