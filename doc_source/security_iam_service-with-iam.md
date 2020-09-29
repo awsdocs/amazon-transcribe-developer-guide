@@ -73,7 +73,7 @@ If you want your users to always use a specific output bucket when they use the 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "transcribe:OutputBucketName": "AWSDOC-EXAMPLE-BUCKET"
+                    "transcribe:OutputBucketName": "DOC-EXAMPLE-BUCKET"
                 }
             }
         }

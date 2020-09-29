@@ -38,7 +38,7 @@ To use the console to create a vocabulary filter, you must have a plain text fil
   1. The language code for the language of your source audio in the `LanguageCode` parameter
 
   1. The words for your vocabulary filter using one of the following options:
-     + Specify the Amazon Simple Storage Service \(Amazon S3\) location of the text file in the `VocabularyFilterFileUri` parameter using this format: `s3://AWSDOC-EXAMPLE-BUCKET1/vocabulary-filter-example.txt`\.
+     + Specify the Amazon Simple Storage Service \(Amazon S3\) location of the text file in the `VocabularyFilterFileUri` parameter using this format: `s3://DOC-EXAMPLE-BUCKET1/vocabulary-filter-example.txt`\.
      + Enter the words as an array of strings in the `Words` parameter, for example `["word", "banana", "potato", "chair"]`\.
 
 To see all of the vocabulary filters that you've created, use the [ListVocabularyFilters](API_ListVocabularyFilters.md) operation\. You can then use that information with the [GetVocabularyFilter](API_GetVocabularyFilter.md) operation to retrieve the download URI for your vocabulary filter and learn more about that filter\.
@@ -51,7 +51,7 @@ The following is an example AWS Command Line Interface \(AWS CLI\) request to cr
 aws transcribe create-vocabulary-filter \ 
     --vocabulary-filter-name your-filter-name  \ 
     --language-code en-US \ 
-    --vocabulary-filter-file-uri s3://AWSDOC-EXAMPLE-BUCKET1/vocabulary-filter-example.txt
+    --vocabulary-filter-file-uri s3://DOC-EXAMPLE-BUCKET1/vocabulary-filter-example.txt
                     
                     
 {                  

@@ -35,13 +35,17 @@ You can use Amazon Transcribe to transcribe the following languages to text:
 + Telugu \(te\-IN\)
 + Turkish \(tr\-TR\)
 
-You can transcribe streaming audio in the following languages:
-+ Australian English \(en\-AU\) \- supported in API only
-+ British English \(en\-GB\) \- supported in API only
-+ US English \(en\-US\)
-+ French \(fr\-FR\) \- supported in API only
-+ Canadian French \(fr\-CA\) \- supported in API only
-+ US Spanish \(es\-US\)
+You can transcribe streaming audio in the following languages\.
+
+
+| Language | Supported Sample Rates | Supported In | 
+| --- | --- | --- | 
+| Australian English \(en\-AU\) | 8 kHz | API | 
+| British English \(en\-GB\) | 8 kHz | API | 
+| US English \(en\-US\) | 16 kHz, 8 kHz | Console, API | 
+| French \(fr\-FR\) | 8 kHz | API | 
+| Canadian French \(fr\-CA\) | 8 kHz | API | 
+| US Spanish \(es\-US\) | 16 kHz, 8 kHz | Console, API | 
 
 You can use Amazon Transcribe with other AWS services to create applications\. For example, you can: 
 + Use Amazon Transcribe to convert voice to text, send the text to Amazon Translate to translate it into another language, and send the translated text to Amazon Polly to speak the translated text\.
@@ -67,7 +71,7 @@ Use channel identification when your audio is on multiple channels\. For example
 + When your recording has a customer service representative on one channel and a customer on another
 + When you transcribe a podcast where the host is recorded on one channel and the guest on another
 
-For more information about channel identification, see [Channel Identification](how-channel-id.md)\.
+For more information about channel identification, see [Transcribing Multi\-Channel Audio](channel-id.md)\.
 
 ## Transcribing Streaming Audio<a name="what-streaming-transcription"></a>
 

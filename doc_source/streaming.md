@@ -2,25 +2,23 @@
 
 Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time\. The API makes it easy for developers to add real\-time speech\-to\-text capability to their applications\.
 
-You can use streaming transcription in the following languages:
-+ 8 KHz and 16 KHz
-+ 
-  + US English \(en\-US\)
-  + US Spanish \(es\-US\)
-+ 8 KHz only
-+ 
-  + Australian English \(en\-AU\) \- API only
-  + British English \(en\-GB\) \- API only
-  + French \(fr\-FR\) \- API only
-  + Canadian French \(fr\-CA\) \- API only
+The following table shows which languages are available for streaming transcription and how you can access them\.
+
+
+| Language | Sample Rate | Available In | 
+| --- | --- | --- | 
+| US English \(en\-US\) | 16 kHz, 8 kHz | [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation, and WebSocket request | 
+| US Spanish \(es\-US\) | 16 kHz, 8 kHz | [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation, and WebSocket request | 
+| Australian English \(en\-AU\) | 8 kHz | [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and WebSocket request | 
+| British English \(en\-GB\) | 8 kHz | [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and WebSocket request | 
+| French \(fr\-FR\) | 8 kHz | [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and WebSocket request | 
+| Canadian French \(fr\-CA\) | 8 kHz | [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and WebSocket request | 
 
 Amazon Transcribe streaming transcription can be used for a variety of purposes\. For example:
 + Streaming transcriptions can generate real\-time subtitles for live broadcast media\.
 + Lawyers can make real\-time annotations on top of streaming transcriptions during courtroom depositions\.
 + Video game chat can be transcribed in real time so that hosts can moderate content or run real\-time analysis\.
 + Streaming transcriptions can provide assistance to the hearing impaired\.
-
-Streaming transcription does not support channel identification or speaker identification\. Use the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation if you need these features\.
 
 If you are using HTTP/2, we provide an HTTP/2 streaming client that handles retrying the connection when there are transient problems on the network\. You can use this client as a starting point for your own applications\. To use Amazon Transcribe streaming with the WebSocket protocol, you can create your own client\.
 

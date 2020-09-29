@@ -24,6 +24,7 @@ Use the following table to determine how to upload your data\.
 | A large amount of domain\-specific text and a much smaller amount of audio transcript text data | Domain\-specific text as training data\. Upload your transcription text as tuning data\. | 
 | A minimum of 10,000 words of audio transcript text | Audio transcript text as training data\. | 
 | At least 100,000 words of audio transcript text and a large amount of additional domain\-specific text | Audio transcript text as training data\. Typically, this method leads to the greatest possible increase in transcription accuracy\. Follow the first method described in this table if this method doesn't produce the desired increase in transcription accuracy\. | 
+| Domain\-specific text only | Domain\-specific text as training data\. We recommend any of the preceding methods of uploading your data over this one\. | 
 
 You can provide up to 2 GB of training data and 200 MB of tuning data\. 
 

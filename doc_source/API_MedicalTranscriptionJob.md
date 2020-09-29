@@ -40,7 +40,7 @@ Required: No
  **MediaFormat**   <a name="transcribe-Type-MedicalTranscriptionJob-MediaFormat"></a>
 The format of the input media file\.  
 Type: String  
-Valid Values:` mp3 | mp4 | wav | flac`   
+Valid Values:` mp3 | mp4 | wav | flac | ogg | amr | webm`   
 Required: No
 
  **MediaSampleRateHertz**   <a name="transcribe-Type-MedicalTranscriptionJob-MediaSampleRateHertz"></a>

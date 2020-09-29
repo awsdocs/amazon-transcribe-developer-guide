@@ -40,4 +40,4 @@ You can see the minimum number of request parameters to enter in the sample JSON
 
 Amazon Transcribe Medical enables you to generate alternative transcriptions\. For more information, see [Alternative Transcriptions](how-alternatives-med.md)\.
 
-You can also use Amazon Transcribe Medical speaker identification feature to identify speakers in both single\-channel and multi\-channel audio\. For more information, see [Identifying Speakers](how-diarization-med.md) and [Channel Identification](how-channel-id-med.md)\.
+You can also identify different speakers or channels in your audio\. For more information, see [Identifying Speakers in Audio Files](diarization-batch-med.md) and [Channel Identification](how-channel-id-med.md)\.

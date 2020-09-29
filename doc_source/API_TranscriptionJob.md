@@ -32,7 +32,7 @@ Type: String
 Required: No
 
  **IdentifiedLanguageScore**   <a name="transcribe-Type-TranscriptionJob-IdentifiedLanguageScore"></a>
-The score that Amazon Transcribe gives for the predominant language that it identified in your collection of source audio files\. This score reflects the confidence that the language that Amazon Transcribe identified is the correct language\.  
+A value between zero and one that Amazon Transcribe assigned to the language that it identified in the source audio\. Larger values indicate that Amazon Transcribe has higher confidence in the language it identified\.  
 Type: Float  
 Required: No
 
@@ -67,7 +67,7 @@ Required: No
  **MediaFormat**   <a name="transcribe-Type-TranscriptionJob-MediaFormat"></a>
 The format of the input media file\.  
 Type: String  
-Valid Values:` mp3 | mp4 | wav | flac`   
+Valid Values:` mp3 | mp4 | wav | flac | ogg | amr | webm`   
 Required: No
 
  **MediaSampleRateHertz**   <a name="transcribe-Type-TranscriptionJob-MediaSampleRateHertz"></a>

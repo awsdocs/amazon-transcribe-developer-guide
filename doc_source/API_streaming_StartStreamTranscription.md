@@ -20,6 +20,8 @@ x-amzn-transcribe-session-id: SessionId
 x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
 x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
 x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
+x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
+x-amzn-transcribe-number-of-channels: NumberOfChannels
 Content-type: application/json
 
 {
@@ -35,14 +37,19 @@ Content-type: application/json
 
 The request uses the following URI parameters\.
 
+ ** [EnableChannelIdentification](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-EnableChannelIdentification"></a>
+When `true`, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription\.  
+Amazon Transcribe also produces a transcription of each item\. An item includes the start time, end time, and any alternative transcriptions\.  
+You can't set both `ShowSpeakerLabel` and `EnableChannelIdentification` in the same request\. If you set both, your request returns a `BadRequestException`\.
+
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
 Indicates the source language used in the input audio stream\.  
 Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU`   
 Required: Yes
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
-The encoding used for the input audio\. `pcm` is the only valid value\.  
-Valid Values:` flac | ogg-opus | pcm`   
+The encoding used for the input audio\.  
+Valid Values:` pcm`   
 Required: Yes
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaSampleRateHertz"></a>
@@ -50,8 +57,13 @@ The sample rate, in Hertz, of the input audio\. We suggest that you use 8000 Hz 
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: Yes
 
+ ** [NumberOfChannels](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-NumberOfChannels"></a>
+The number of channels that are in your audio stream\.  
+Valid Range: Minimum value of 2\.
+
  ** [SessionId](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-SessionId"></a>
 A identifier for the transcription session\. Use this parameter when you want to retry a session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.  
+Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
 
  ** [ShowSpeakerLabel](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-ShowSpeakerLabel"></a>
@@ -59,7 +71,7 @@ When `true`, enables speaker identification in your real\-time stream\.
 
  ** [VocabularyFilterMethod](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterMethod"></a>
 The manner in which you use your vocabulary filter to filter words in your transcript\. `Remove` removes filtered words from your transcription results\. `Mask` masks those words with a `***` in your transcription results\. `Tag` keeps the filtered words in your transcription results and tags them\. The tag appears as `VocabularyFilterMatch` equal to `True`   
-Valid Values:` mask | remove | tag` 
+Valid Values:` remove | mask | tag` 
 
  ** [VocabularyFilterName](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterName"></a>
 The name of the vocabulary filter you've created that is unique to your AWS account\. Provide the name in this field to successfully use it in a stream\.  
@@ -93,6 +105,8 @@ x-amzn-transcribe-session-id: SessionId
 x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
 x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
 x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
+x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
+x-amzn-transcribe-number-of-channels: NumberOfChannels
 Content-type: application/json
 
 {
@@ -126,6 +140,7 @@ Content-type: application/json
                         "Transcript": "string"
                      }
                   ],
+                  "ChannelId": "string",
                   "EndTime": number,
                   "IsPartial": boolean,
                   "ResultId": "string",
@@ -144,23 +159,31 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The response returns the following HTTP headers\.
 
+ ** [EnableChannelIdentification](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-EnableChannelIdentification"></a>
+Shows whether channel identification has been enabled in the stream\.
+
  ** [LanguageCode](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageCode"></a>
 The language code for the input audio stream\.  
 Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
-Valid Values:` flac | ogg-opus | pcm` 
+Valid Values:` pcm` 
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaSampleRateHertz"></a>
 The sample rate for the input audio stream\. Use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.
+
+ ** [NumberOfChannels](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-NumberOfChannels"></a>
+The number of channels identified in the stream\.  
+Valid Range: Minimum value of 2\.
 
  ** [RequestId](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-RequestId"></a>
 An identifier for the streaming transcription\.
 
  ** [SessionId](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-SessionId"></a>
 An identifier for a specific transcription session\.  
+Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
 
  ** [ShowSpeakerLabel](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-ShowSpeakerLabel"></a>
@@ -168,7 +191,7 @@ Shows whether speaker identification was enabled in the stream\.
 
  ** [VocabularyFilterMethod](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterMethod"></a>
 The vocabulary filtering method used in the real\-time stream\.  
-Valid Values:` mask | remove | tag` 
+Valid Values:` remove | mask | tag` 
 
  ** [VocabularyFilterName](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterName"></a>
 The name of the vocabulary filter used in your real\-time stream\.  

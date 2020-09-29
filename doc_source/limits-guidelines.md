@@ -19,6 +19,9 @@ You can request a quota increase for the following resources:
 | Transactions per second, StartStreamTranscription operation | 5 | 
 | Total number of vocabularies per account | 100 | 
 | Number of pending vocabularies | 10 | 
+| Number of concurrently training custom language models | 3 | 
+| Total number of custom language models per account | 10 | 
+| Number of channels for channel identification | 2 | 
 | Transactions per second, GetTranscriptionJob operation | 20 | 
 | Transactions per second, DeleteTranscriptionJob operation | 5 | 
 | Transactions per second, ListTranscriptionJobs operation | 5 | 
@@ -53,5 +56,4 @@ Amazon Transcribe has the following quotas that are not alterable:
 | Maximum size of a vocabulary filter | 50 KB | 
 | Maximum number of vocabulary filters | 100 | 
 | Number of days that job records are retained | 90 | 
-| Number of channels for channel identification | 2 | 
 | Minimum audio file duration, in milliseconds \(ms\) | 500 | 

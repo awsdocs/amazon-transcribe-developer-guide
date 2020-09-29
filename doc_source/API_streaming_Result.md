@@ -9,6 +9,12 @@ A list of possible transcriptions for the audio\. Each alternative typically con
 Type: Array of [Alternative](API_streaming_Alternative.md) objects  
 Required: No
 
+ **ChannelId**   <a name="transcribe-Type-streaming_Result-ChannelId"></a>
+When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately\.  
+You can use `ChannelId` to retrieve the transcription results for a single channel in your audio stream\.  
+Type: String  
+Required: No
+
  **EndTime**   <a name="transcribe-Type-streaming_Result-EndTime"></a>
 The offset in seconds from the beginning of the audio stream to the end of the result\.  
 Type: Double  

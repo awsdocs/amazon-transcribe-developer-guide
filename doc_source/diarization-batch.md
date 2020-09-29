@@ -159,6 +159,21 @@ The following code shows an example output of a transcription job with speaker i
   --cli-input-json file://example-start-command.json
   ```
 
+  The following code shows the contents of `example-start-command.json`\.
+
+  ```
+    {
+      "TranscriptionJobName": "your-transcription-job-name",
+      "LanguageCode": "en-US",
+      "Media": {
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.mp4"
+      },
+      "Settings":{
+          "MaxSpeakerLabels": 2,
+    "ShowSpeakerLabels":true
+    }
+  ```
+
   The following is the response from running the preceding CLI command\.
 
   ```
@@ -168,7 +183,7 @@ The following code shows an example output of a transcription job with speaker i
           "TranscriptionJobStatus": "IN_PROGRESS",
           "LanguageCode": "en-US",
           "Media": {
-              "MediaFileUri": "s3://AWSDOC-EXAMPLE-BUCKET1/your-audio-file"
+              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET1/your-audio-file"
           },
           "StartTime": "2020-07-29T17:45:09.826000+00:00",
           "CreationTime": "2020-07-29T17:45:09.791000+00:00",
@@ -179,16 +194,3 @@ The following code shows an example output of a transcription job with speaker i
       }
   }
   ```
-
-```
-  {
-    "TranscriptionJobName": "your-transcription-job-name",
-    "LanguageCode": "en-US",
-    "Media": {
-        "MediaFileUri": "s3://AWSDOC-EXAMPLE-BUCKET/your-audio-file.mp4"
-    },
-    "Settings":{
-        "MaxSpeakerLabels": 2,
-  "ShowSpeakerLabels":true
-  }
-```

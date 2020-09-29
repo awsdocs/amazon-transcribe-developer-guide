@@ -15,6 +15,7 @@ Starts a batch job to transcribe medical speech to text\.
    "MedicalTranscriptionJobName": "string",
    "OutputBucketName": "string",
    "OutputEncryptionKMSKeyId": "string",
+   "OutputKey": "string",
    "Settings": { 
       "ChannelIdentification": boolean,
       "MaxAlternatives": number,
@@ -48,7 +49,7 @@ Required: Yes
  ** [MediaFormat](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-MediaFormat"></a>
 The audio format of the input media file\.  
 Type: String  
-Valid Values:` mp3 | mp4 | wav | flac`   
+Valid Values:` mp3 | mp4 | wav | flac | ogg | amr | webm`   
 Required: No
 
  ** [MediaSampleRateHertz](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-MediaSampleRateHertz"></a>
@@ -87,6 +88,16 @@ If you specify a KMS key to encrypt your output, you must also specify an output
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$`   
+Required: No
+
+ ** [OutputKey](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-OutputKey"></a>
+You can specify a location in an Amazon S3 bucket to store the output of your medical transcription job\.  
+If you don't specify an output key, Amazon Transcribe Medical stores the output of your transcription job in the Amazon S3 bucket you specified\. By default, the object key is "your\-transcription\-job\-name\.json"\.  
+You can use output keys to specify the Amazon S3 prefix and file name of the transcription output\. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your\-transcription\-job\-name\.json"\. If you specify "my\-other\-job\-name\.json" as the output key, the object key is changed to "my\-other\-job\-name\.json"\. You can use an output key to change both the prefix and the file name, for example "folder/my\-other\-job\-name\.json"\.  
+If you specify an output key, you must also specify an S3 bucket in the `OutputBucketName` parameter\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
+Pattern: `[a-zA-Z0-9-_.!*'()/]{1,1024}$`   
 Required: No
 
  ** [Settings](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-Settings"></a>

@@ -1,13 +1,29 @@
 # Transcribing Numbers<a name="how-numbers"></a>
 
-When you are transcribing US English, Australian English, British English, or Indian English audio using the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, numbers are transcribed as digits instead of words\. For streaming transcription, numbers are transcribed as digits for US English and British English only\. For example, the spoken number "one thousand two hundred forty\-two" is transcribed as 1242\. 
+When using the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, numbers are transcribed as digits instead of words for the following languages:
++ Australian English \(en\-AU\)
++ British English \(en\-GB\)
++ Indian English \(en\-IN\)
++ Irish English \(en\-IE\)
++ Scottish English \(en\-AB\)
++ US English \(en\-US\)
++ Welsh English \(en\-WL\)
++ German \(de\-DE\)
++ Swiss German \(de\-CH\)
 
-In all other languages numbers are transcribed into their word forms\.
+For streaming transcription, numbers are transcribed as digits for the following languages:
++ Australian English \(en\-AU\)
++ British English \(en\-GB\)
++ US English \(en\-US\)
 
-Numbers are transcribed according to the following rules:
+For the preceding languages, the spoken number "one thousand two hundred forty\-two" is transcribed as 1242\. For all other languages, numbers are transcribed into their word forms\.
+
+## Rules for Transcribing Numbers in English<a name="rules-english"></a>
+
+For all English languages, such British English \(en\-GB\) or US English \(en\-US\), numbers are transcribed according to the following rules\. 
 
 
-| Rule | Description | 
+| Rule | Example | 
 | --- | --- | 
 | Convert cardinal numbers greater than 10 to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
 | Convert cardinal numbers followed by "million" or "billion" to numerals followed by a word when "million" or "billion" is not followed by a number\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
@@ -23,3 +39,23 @@ Numbers are transcribed according to the following rules:
 | Combine years expressed as two digits into four\. Only valid for the 20th, 21st, and 22nd centuries\.  | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
 | Convert dates to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
 | Separate spans of numbers by the word "to\." | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+
+## Rules for Transcribing Numbers in German<a name="rules-german"></a>
+
+For German \(de\-DE\) and Swiss German \(de\-CH\), numbers are transcribed according to the following rules\. 
+
+
+| Rule | Example | 
+| --- | --- | 
+| Convert cardinal numbers greater than 10 to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Convert cardinal numbers followed by "million" or "billion" to numerals followed by a word when "million" or "billion" is not followed by a number\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Convert ordinal numbers greater than 10 to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Fractions are not converted into a numeric format\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Convert numbers less than 10 to digits if there are more than one in a row\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Decimals are indicated by ","\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Convert the word "percent" after a number to a percent symbol \(%\)\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Convert the words "Euro" to a euro sign\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html)  | 
+| Convert times to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html)  | 
+| Convert dates to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Display slashes and dashes\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
+| Display numbered paragraphs | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
