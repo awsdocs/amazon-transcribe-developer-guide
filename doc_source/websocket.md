@@ -120,7 +120,7 @@ Create a string that includes information from your request in a standardized fo
 
    ```
    canonical_querystring  = "X-Amz-Algorithm=" + algorithm
-   canonical_querystring += "&X-Amz-Credentials="+ access key + "/" + credential_scope
+   canonical_querystring += "&X-Amz-Credential="+ access key + "/" + credential_scope
    canonical_querystring += "&X-Amz-Date=" + amz_date 
    canonical_querystring += "&X-Amz-Expires=300"
    canonical_querystring += "&X-Amz-Security-Token=" + token
