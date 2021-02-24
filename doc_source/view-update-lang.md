@@ -1,4 +1,4 @@
-# Step 5: Viewing and Updating Your Custom Language Models<a name="view-update-lang"></a>
+# Step 5: Viewing and updating your custom language models<a name="view-update-lang"></a>
 
 The speech recognition capabilities of Amazon Transcribe are constantly improving\. Specifically, Amazon Transcribe continually updates the base models used in custom language models\.
 

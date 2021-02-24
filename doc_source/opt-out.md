@@ -1,4 +1,4 @@
-# Opting Out of Using Your Data for Service Improvement<a name="opt-out"></a>
+# Opting out of using your data for service improvement<a name="opt-out"></a>
 
 By default, Amazon Transcribe stores and uses voice inputs that it has processed to develop the service and continuously improve your experience\. You can opt out of having your content used to develop and improve Amazon Transcribe by using an AWS Organizations opt\-out policy\. For information about how to opt out, see [AI services opt\-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html)\.
 
@@ -10,6 +10,8 @@ Opting out has the following effect:
 If you store transcripts in service\-managed buckets, we highly recommend backing them up\. To back up your transcripts, store them in an S3 bucket that you manage before you opt out\. To see which of your transcription jobs uses Amazon Transcribe to store its outputs, see the `OutputLocationType` response parameter of the [ListTranscriptionJobs](API_ListTranscriptionJobs.md) operation\.
 
 **To move transcripts to your own S3 buckets**
+
+
 
 1.  In the `TranscriptionJobName` parameter of the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation, specify the name of the transcription job whose output you want to back up\.
 

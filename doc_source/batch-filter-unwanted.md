@@ -1,4 +1,4 @@
-# Filtering Batch Transcriptions<a name="batch-filter-unwanted"></a>
+# Filtering batch transcriptions<a name="batch-filter-unwanted"></a>
 
 Use a vocabulary filter to filter unwanted words from a batch transcription job with either the Amazon Transcribe console or the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
 
@@ -38,7 +38,7 @@ The following operation shows the parameters and data types\.
 
 ## Console<a name="batch-filter-console"></a>
 
-To use the console to start a batch transcription job with vocabulary filtering, you must have created a vocabulary filter, as described in [Step 2: Creating a Vocabulary Filter](create-filter.md)\.
+To use the console to start a batch transcription job with vocabulary filtering, you must have created a vocabulary filter, as described in [Step 2: Creating a vocabulary filter](create-filter.md)\.
 
  **To filter unwanted words in a transcription job \(console\)** 
 

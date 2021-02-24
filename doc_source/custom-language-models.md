@@ -1,4 +1,4 @@
-# Improving Domain\-Specific Transcription Accuracy with Custom Language Models<a name="custom-language-models"></a>
+# Improving domain\-specific transcription accuracy with custom language models<a name="custom-language-models"></a>
 
 Use *custom language models* to train and develop language models that are domain\-specific\. For example, you can use custom language models to improve transcription performance for domains such as legal, hospitality, finance, and insurance\. Although the general model provided by Amazon Transcribe works well in most instances, custom language models might produce even more accurate results\.
 
@@ -28,13 +28,13 @@ Use the following table to determine how to upload your data\.
 
 You can provide up to 2 GB of training data and 200 MB of tuning data\. 
 
-If you have enough text that represents the audio you want to transcribe, training custom language models can produce significant improvements in accuracy over using [Custom Vocabularies](how-vocabulary.md) \. Custom vocabularies improve the ability of Amazon Transcribe to recognize terms without using the context in which they're spoken\. Custom language models not only recognize individual terms, but additionally use each term's context to transcribe your audio\. 
+If you have enough text that represents the audio you want to transcribe, training custom language models can produce significant improvements in accuracy over using [Custom vocabularies](how-vocabulary.md)\. Custom vocabularies improve the ability of Amazon Transcribe to recognize terms without using the context in which they're spoken\. Custom language models not only recognize individual terms, but additionally use each term's context to transcribe your audio\. 
 
 Custom language models can also add words to their recognition vocabularies automatically, eliminating the need for you to manually input new words\. You can't use custom language models with custom vocabularies\.
 
 Custom language models are available only in US English \(en\-US\)\.
 
-You can't use AWS Key Management Service \(AWS KMS\) to encrypt your training data,  but you can use AWS KMS condition keys to encrypt your transcription output\. For information about condition keys, see [Key Management](key-management.md)\.
+You can't use AWS Key Management Service \(AWS KMS\) to encrypt your training data,  but you can use AWS KMS condition keys to encrypt your transcription output\. For information about condition keys, see [Key management](key-management.md)\.
 
 To use custom language models in your transcription jobs, you do the following:
 + Prepare and upload plain text data
@@ -44,8 +44,8 @@ To use custom language models in your transcription jobs, you do the following:
 + View and update your custom language models to take advantage of speech recognition improvements in Amazon Transcribe
 
 **Topics**
-+ [Step 1: Preparing the Data](prepare-training-data.md)
-+ [Step 2: Providing Amazon Transcribe with Data Permissions](training-data-permissions.md)
-+ [Step 3: Creating a Custom Language Model](create-custom-language-model.md)
-+ [Step 4: Transcribing with a Custom Language Model](clm-transcription.md)
-+ [Step 5: Viewing and Updating Your Custom Language Models](view-update-lang.md)
++ [Step 1: Preparing the data](prepare-training-data.md)
++ [Step 2: Providing Amazon Transcribe with data permissions](training-data-permissions.md)
++ [Step 3: Creating a custom language model](create-custom-language-model.md)
++ [Step 4: Transcribing with a custom language model](clm-transcription.md)
++ [Step 5: Viewing and updating your custom language models](view-update-lang.md)

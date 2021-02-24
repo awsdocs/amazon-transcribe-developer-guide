@@ -1,4 +1,4 @@
-# Guidelines and Quotas<a name="limits-med-guidelines"></a>
+# Guidelines and quotas<a name="limits-med-guidelines"></a>
 
 ## Supported Regions<a name="transcribe-regions"></a>
 
@@ -6,15 +6,17 @@ For a list of AWS Regions where Amazon Transcribe Medical is available, see [Ama
 
 ## Throttling<a name="limits-med-throttling"></a>
 
-You can request a quota increase for the following resources:
+You can request a quota increase for the following resources\.
 
 
 | Resource | Default | 
 | --- | --- | 
 | Number of concurrent batch transcription jobs | 100 | 
 | Transactions per second, StartMedicalTranscriptionJob operation | 10 | 
-| Number of StartMedicalStreamTranscription Websocket requests | 5 | 
+| Number of StartMedicalStreamTranscription or Websocket requests | 5 | 
 | Transactions per second, StartMedicalStreamTranscription operation | 5 | 
+| Total number of medical vocabularies per account | 100 | 
+| Number of pending medical vocabularies | 10 | 
 | Transactions per second, GetMedicalTranscriptionJob operation | 20 | 
 | Transactions per second, DeleteMedicalTranscriptionJob operation | 5 | 
 | Transactions per second, ListMedicalTranscriptionJobs operation | 5 | 
@@ -24,7 +26,7 @@ You can request a quota increase for the following resources:
 | Transactions per second, GetMedicalVocabulary operation | 20 | 
 | Transactions per second, ListMedicalVocabularies operation | 5 | 
 
-For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits-med.html) in the *Amazon Web Services General Reference*\.
+For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits-med.html) in the *Amazon Web Services General Reference*\.
 
 ## Guidelines<a name="guidelines-med"></a>
 
@@ -36,7 +38,7 @@ Amazon Transcribe Medical may store your content to continuously improve the qua
 
 ## Quotas<a name="limits-med"></a>
 
-Amazon Transcribe Medical has the following quotas that are not alterable:
+Amazon Transcribe Medical has the following quotas\. They can't be changed:
 
 
 | Description | Quotas | 

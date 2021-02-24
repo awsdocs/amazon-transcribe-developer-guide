@@ -1,10 +1,22 @@
-# Document History for Amazon Transcribe<a name="doc-history"></a>
-+ **Latest documentation update:** September 17th, 2020
+# Document history for Amazon Transcribe and Amazon Transcribe Medical<a name="doc-history"></a>
++ **Latest documentation update:** January 29th, 2021
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](url-doc-domain;transcribe/latest/dg/phi-id.html) | Amazon Transcribe Medical now supports personal health information identification\. | January 29, 2021 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/conversation-channel-id-med.html) | Amazon Transcribe Medical now supports channel identification\. | December 21, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/streaming-med.html) | Amazon Transcribe Medical now supports the HTTP/2 streaming protocol\. | November 24, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/what-is-transcribe-med.html) | Amazon Transcribe Medical now supports the neurology medical specialty for streaming audio transcription\. | November 24, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/what-is-transcribe-med.html) | Amazon Transcribe Medical now supports the urology medical specialty for streaming audio transcription\. | November 24, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/what-is-transcribe-med.html) | Amazon Transcribe Medical now supports the radiology medical specialty for streaming audio transcription\. | November 24, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/what-is-transcribe-med.html) | Amazon Transcribe Medical now supports the cardiology medical specialty for streaming audio transcription\. | November 24, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/what-is-transcribe-med.html) | Amazon Transcribe Medical now supports the oncology medical specialty for streaming audio transcription\. | November 24, 2020 | 
+| [New feature](url-doc-domain;transcribe/latest/dg/transcribe-medical-dictation.html) | Amazon Transcribe now supports OGG/OPUS and FLAC codecs for streaming audio transcription\. | November 24, 2020 | 
+| [Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the Frankfurt \(eu\-central\-1\) and London \(eu\-west\-2\) regions\. | November 4, 2020 | 
+| [New languages](https://docs.aws.amazon.com/transcribe/latest/dg/vpc-interface-endpoints.html) | Amazon Transcribe adds support for Italian and German for streaming audio transcription\. | November 4, 2020 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/vpc-interface-endpoints.html) | Amazon Transcribe adds support for interface VPC endpoints in batch transcription\. For more information, see [Amazon Transcribe and interface VPC endpoints \(AWS PrivateLink\)](https://docs.aws.amazon.com/transcribe/latest/dg/vpc-interface-endpoints.html)\. | October 9, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html) | Amazon Transcribe adds support for channel identification in streaming\. For more information, see [Transcribing Multi\-Channel Audio](https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html)\. | September 17, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/auto-lang-id.html) | Amazon Transcribe adds support for automatic language identification in batch transcription\. For more information, see [Identifying the Language](https://docs.aws.amazon.com/transcribe/latest/dg/auto-lang-id.html)\. | September 15, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/diarization-streaming.html) | Amazon Transcribe adds support for speaker identification in streaming\. For more information, see [Filtering Streaming Transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/diarization-streaming.html)\. | August 19, 2020 | 

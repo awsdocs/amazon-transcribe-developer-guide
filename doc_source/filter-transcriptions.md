@@ -1,4 +1,4 @@
-# Step 3: Filtering Transcriptions<a name="filter-transcriptions"></a>
+# Step 3: Filtering transcriptions<a name="filter-transcriptions"></a>
 
 You can filter unwanted words from both batch and streaming transcriptions\. When you create a real\-time stream or batch transcription job, specify the vocabulary filter that you want to use and the vocabulary filter method\. The method specifies how the words are filtered from your transcription results\. There are two vocabulary filter methods available for batch transcription and three methods available for real\-time streaming\.
 
@@ -8,8 +8,8 @@ You can use the following filter methods for both batch and real\-time streaming
 
 In real\-time streaming transcriptions *only*, you can use the `tag` method to keep unwanted words in your transcription results with a tag that indicates that they were listed in your vocabulary filter\. You can then manually remove the words from some transcripts and leave them in others to generate transcripts for multiple audiences from a single stream\.
 
-For information about streaming transcriptions, see [Streaming Transcription](streaming.md)\. For information about batch transcriptions, see [How Amazon Transcribe Works](how-it-works.md)\.
+For information about streaming transcriptions, see [Streaming transcription](streaming.md)\. For information about batch transcriptions, see [How Amazon Transcribe works](how-it-works.md)\.
 
 **Topics**
-+ [Filtering Batch Transcriptions](batch-filter-unwanted.md)
-+ [Filtering Streaming Transcriptions](streaming-filter-unwanted.md)
++ [Filtering batch transcriptions](batch-filter-unwanted.md)
++ [Filtering streaming transcriptions](streaming-filter-unwanted.md)

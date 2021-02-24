@@ -1,6 +1,14 @@
-# Speech Input<a name="input"></a>
+# Speech input<a name="input"></a>
 
-To transcribe an audio file, you use a transcription job\. You store the file as an object in an Amazon S3 bucket\. The input file must be: 
+Amazon Transcribe can transcribe speech as either a media file or a real\-time stream\. Your input audio must use the encodings and formats described in the following sections\.
+
+**Topics**
++ [Containers and formats for batch transcription](#file-format)
++ [Audio containers and formats for streaming transcription](#streaming-format)
+
+## Containers and formats for batch transcription<a name="file-format"></a>
+
+When you transcribe an audio file or video file using the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation or the Amazon Transcribe console, make sure that the file is:
 + In FLAC, MP3, MP4, Ogg, WebM, AMR, or WAV file format
 + Less than 4 hours in length or less than 2 GB of audio data
 
@@ -8,8 +16,19 @@ To transcribe an audio file, you use a transcription job\. You store the file as
 For AMR, Amazon Transcribe supports both Adaptive Multi\-Rate Wideband \(AMR\-WB\) and Adaptive Multi\-Rate Narrowband \(AMR\-NB\) codecs\.  
 For the Ogg and WebM file formats, Amazon Transcribe supports the Opus codec\.
 
-Specify the language and format of the input file\. 
-
 For best results: 
-+ Use a lossless format, such as FLAC or WAV, with PCM 16\-bit encoding\.
++ Use a lossless format\. You can choose either FLAC, or WAV with PCM 16\-bit encoding\.
 + Use a sample rate of 8000 Hz for telephone audio\.
+
+## Audio containers and formats for streaming transcription<a name="streaming-format"></a>
+
+When you transcribe a real\-time stream using the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation or a WebSocket request, make sure that your stream is encoded in:
++ PCM 16\-bit signed little endian
++ FLAC
++ OPUS encoded audio in the Ogg container
+
+For best results:
++ Use a lossless format, such as FLAC or PCM encoding\.
++ Use a sample rate of 8000 Hz for telephone audio\.
+
+For more information on using a WebSocket request to transcribe your streaming audio, see [Using Amazon Transcribe streaming with WebSockets](websocket.md)\.

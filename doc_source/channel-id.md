@@ -1,16 +1,133 @@
-# Transcribing Multi\-Channel Audio<a name="channel-id"></a>
+# Transcribing multi\-channel audio<a name="channel-id"></a>
 
 If you have an audio file or stream that has multiple channels, you can use *channel identification* to transcribe the speech from each of those channels\. Amazon Transcribe identifies the speech from each channel and transcribes that speech in separate transcriptions\. It combines those transcriptions into a single transcription output\.
 
  You can enable channel identification for both batch processing and real\-time streaming\. The following list describes how to enable it for each method\.
 + Batch transcription \- Console and [StartTranscriptionJob](API_StartTranscriptionJob.md) operation
-+ Streaming transcription \- WebSocket Streaming and [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation
++ Streaming transcription \- WebSocket streaming and [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation
 
-## Transcribing Multi\-Channel Audio Files<a name="channel-id-batch"></a>
+## Transcribing multi\-channel audio files<a name="channel-id-batch"></a>
 
-For batch transcription, each channel has speech that consists of speaker *utterances*\. An *utterance* is a unit of speech on an audio channel that is typically separated from other utterances by silence\. If an utterance on one channel overlaps with an utterance on another channel, Amazon Transcribe orders them in the transcription by their start times\. Utterances that overlap in the input audio don't overlap in the transcription output\.
+To transcribe multi\-channel audio in a batch transcription job, use the Amazon Transcribe console or the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
 
-By default, you can transcribe audio files with two channels\. You can request a quota increase if you need to transcribe files that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
+### Console<a name="channel-id-batch-console"></a>
+
+To use the console to enable channel identification in your batch transcription job, you enable audio identification and then channel identification\. Channel identification is a subset of audio identification in the console\.
+
+**To transcribe a multi\-channel audio file \(console\)**
+
+1. Sign in to AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+
+1. In the navigation pane, under Amazon Transcribe, choose **Transcription jobs**\.
+
+1. Choose **Create job**\.
+
+1. On the **Specify job details** page, provide information about your transcription job\.
+
+1. Choose **Next**\.
+
+1. Enable **Audio identification**\.
+
+1. For **Audio identification type**, choose **Channel identification**\.
+
+1. Choose **Create**\.
+
+### API<a name="channel-id-batch-api"></a>
+
+**To transcribe a multi\-channel audio file \(API\)**
++  In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following\.
+
+  1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
+
+  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file\. For available languages and corresponding language codes, see [What is Amazon Transcribe?](what-is-transcribe.md)\. 
+
+  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the media file that you want to transcribe\.
+
+  1. For the `Settings` object, set `ChannelIdentification` to `true`\.
+
+The following is an example request using the AWS SDK for Python \(Boto3\)\.
+
+```
+  from __future__ import print_function
+  import time
+  import boto3
+  transcribe = boto3.client('transcribe')
+  job_name = "your-transcription-job-name"
+  job_uri = "the-Amazon-S3-object-URL-of-your-media-file"
+  transcribe.start_transcription_job(
+      TranscriptionJobName=job_name,
+      Media= {'MediaFileUri': job_uri},
+      MediaFormat= 'mp4',
+      LanguageCode= 'en-US',
+  Settings = {
+          'ChannelIdentification': True,
+          }
+  )
+  while True:
+      status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+      if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
+          break
+      print("Not ready yet...")
+      time.sleep(5)
+  print(status)
+```
+
+### AWS CLI<a name="channel-id-cli"></a>
+
+**To transcribe a multi\-channel audio file using a batch transcription job \(AWS CLI\)**
++ Run the following code\.
+
+  ```
+                      
+  aws transcribe start-transcription-job \
+  --cli-input-json file://example-start-command.json
+  ```
+
+  The following is the code of `example-start-command.json`\.
+
+  ```
+    {
+      "TranscriptionJobName": "your-transcription-job-name",
+      "LanguageCode": "en-US",
+      "Media": {
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.mp4"
+      },
+      "Settings":{
+    "ChannelIdentification":true
+    }
+  ```
+
+  ```
+    {
+      "TranscriptionJobName": "your-transcription-job-name",
+      "LanguageCode": "en-US",
+      "Media": {
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
+      },
+      "Settings":{
+    "ChannelIdentification":true
+    }
+  ```
+
+  The following is the response\.
+
+  ```
+  {
+      "TranscriptionJob": {
+          "TranscriptionJobName": "your-transcription-job",
+          "TranscriptionJobStatus": "IN_PROGRESS",
+          "LanguageCode": "en-US",
+          "Media": {
+              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
+          },
+          "StartTime": "2020-09-12T23:20:28.239000+00:00",
+          "CreationTime": "2020-09-12T23:20:28.203000+00:00",
+          "Settings": {
+              "ChannelIdentification": true
+          }
+      }
+  }
+  ```
 
 The following code shows the transcription output for an audio file that has a conversation on two channels\.
 
@@ -107,140 +224,25 @@ The following code shows the transcription output for an audio file that has a c
 }
 ```
 
-To transcribe multi\-channel audio in a batch transcription job, use the Amazon Transcribe console or the [StartTranscriptionJob](API_StartTranscriptionJob.md)\.
+Amazon Transcribe transcribes the audio from each channel separately and combines the transcribed text from each channel into a single transcription output\.
 
-### Console<a name="channel-id-batch-console"></a>
+For each channel in the transcription output, Amazon Transcribe returns a list of *items*\. An item is a transcribed word, pause, or punctuation mark\. Each item has a start time and an end time\. If a person on one channel speaks over a person on a separate channel, the start times and end times of the items for each channel overlap while the individuals are speaking over each other\.
 
-To use the console to enable channel identification in your batch transcription job, you enable audio identification and then channel identification\. Channel identification is a subset of audio identification in the console\.
+By default, you can transcribe audio files with two channels\. You can request a quota increase if you need to transcribe files that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
-**To transcribe a multi\-channel audio file \(console\)**
-
-1. Sign in to AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
-
-1. In the navigation pane, under Amazon Transcribe, choose **Transcription jobs**\.
-
-1. Choose **Create job**\.
-
-1. On the **Specify job details** page, provide information about your transcription job\.
-
-1. Choose **Next**\.
-
-1. Enable **Audio identification**\.
-
-1. For **Audio identification type**, choose **Channel identification**\.
-
-1. Choose **Create**\.
-
-### API<a name="channel-id-batch-api"></a>
-
-**To transcribe a multi\-channel audio file \(API\)**
-+  In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following\.
-
-  1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
-
-  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file\. For available languages and corresponding language codes, see [What Is Amazon Transcribe?](what-is-transcribe.md)\. 
-
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the media file that you want to transcribe\.
-
-  1. For the `Settings` object, set `ChannelIdentification` to `true`\.
-
-The following is an example request using the AWS SDK for Python \(Boto3\)\.
-
-```
-  from __future__ import print_function
-  import time
-  import boto3
-  transcribe = boto3.client('transcribe')
-  job_name = "your-transcription-job-name"
-  job_uri = "the-Amazon-S3-object-URL-of-your-media-file"
-  transcribe.start_transcription_job(
-      TranscriptionJobName=job_name,
-      Media= {'MediaFileUri': job_uri},
-      MediaFormat= 'mp4',
-      LanguageCode= 'en-US',
-  Settings = {
-          'ChannelIdentification': True,
-          }
-  )
-  while True:
-      status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
-      if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
-          break
-      print("Not ready yet...")
-      time.sleep(5)
-  print(status)
-```
-
-### AWS CLI<a name="channel-id-cli"></a>
-
-**To transcribe a multi\-channel audio file using a batch transcription job \(AWS CLI\)**
-+ Run the following code\.
-
-  ```
-                      
-  aws transcribe start-transcription-job \
-  --cli-input-json file://example-start-command.json
-  ```
-
-  The following is the code of `example-start-command.json`\.
-
-  ```
-    {
-      "TranscriptionJobName": "your-transcription-job-name",
-      "LanguageCode": "en-US",
-      "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.mp4"
-      },
-      "Settings":{
-    "ChannelIdentification":true
-    }
-  ```
-
-  ```
-    {
-      "TranscriptionJobName": "your-transcription-job-name",
-      "LanguageCode": "en-US",
-      "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
-      },
-      "Settings":{
-    "ChannelIdentification":true
-    }
-  ```
-
-  The following is the response\.
-
-  ```
-  {
-      "TranscriptionJob": {
-          "TranscriptionJobName": "your-transcription-job",
-          "TranscriptionJobStatus": "IN_PROGRESS",
-          "LanguageCode": "en-US",
-          "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
-          },
-          "StartTime": "2020-09-12T23:20:28.239000+00:00",
-          "CreationTime": "2020-09-12T23:20:28.203000+00:00",
-          "Settings": {
-              "ChannelIdentification": true
-          }
-      }
-  }
-  ```
-
-## Transcribing Multi\-Channel Audio Streams<a name="channel-id-stream"></a>
+## Transcribing multi\-channel audio streams<a name="channel-id-stream"></a>
 
 You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation
 
 By default, you can transcribe streams with two channels\. You can request a quota increase if you need to transcribe streams that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
-### Transcribing Multi\-Channel Audio in an HTTP/2 Stream<a name="channel-id-http2"></a>
+### Transcribing multi\-channel audio in an HTTP/2 stream<a name="channel-id-http2"></a>
 
 To transcribe multi\-channel audio in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and specify the following:
 + `LanguageCode` \- The language code of the audio\.
-+ `MediaEncoding` \- `pcm`
++ `MediaEncoding` \- The encoding of the audio\.
 + `EnableChannelIdentification` \- `true`
-+ `NumberOfChannels` \- the number of channels in your streaming audio\.
++ `NumberOfChannels` \- The number of channels in your streaming audio\.
 
 The following is the syntax for the parameters of an HTTP/2 request\.
 
@@ -265,7 +267,7 @@ The following is the syntax for the parameters of an HTTP/2 request\.
     }
 ```
 
-### Transcribing Multi\-Channel Audio in a WebSocket Stream<a name="channel-id-websocket"></a>
+### Transcribing multi\-channel audio in a WebSocket stream<a name="channel-id-websocket"></a>
 
 To identify speakers in WebSocket streams, use the following format to create a pre\-signed URL and start a WebSocket request\. Specify `enable-channel-id` as `true` and the number of channels in your stream in `number-of-channels`\. A pre\-signed URL contains the information needed to set up bi\-directional communication between your application and Amazon Transcribe\.
 
@@ -286,9 +288,9 @@ GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-web
     &number-of-channels=number of channels in your audio stream
 ```
 
-For more information about WebSocket requests, see [Creating a Pre\-Signed URL](websocket.md#websocket-url)\.
+For more information about WebSocket requests, see [Creating a pre\-signed URL](websocket.md#websocket-url)\.
 
-### Multi\-Channel Streaming Output<a name="streaming-output"></a>
+### Multi\-channel streaming output<a name="streaming-output"></a>
 
 The output of a streaming transcription is the same for HTTP/2 and WebSocket requests\. The following is an example output\.
 

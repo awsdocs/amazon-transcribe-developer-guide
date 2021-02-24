@@ -1,10 +1,10 @@
-# Monitoring Amazon Transcribe API Calls with AWS CloudTrail<a name="monitoring-transcribe-cloud-trail"></a>
+# Monitoring Amazon Transcribe API calls with AWS CloudTrail<a name="monitoring-transcribe-cloud-trail"></a>
 
 Amazon Transcribe is integrated with AWS CloudTrail, a service that provides a record of actions taken in Amazon Transcribe by an AWS Identity and Access Management \(IAM\) user or role, or by an AWS service\. CloudTrail captures all API calls for Amazon Transcribe, including calls from the Amazon Transcribe console and from code calls to the Amazon Transcribe APIs, as events\. By creating a trail, you can enable continuous delivery of CloudTrail events, including events for Amazon Transcribe, to an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you don't create a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can see each request that was made to Amazon Transcribe, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
-## Amazon Transcribe Information in CloudTrail<a name="transcribe-info-in-cloudtrail"></a>
+## Amazon Transcribe information in CloudTrail<a name="transcribe-info-in-cloudtrail"></a>
 
 CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in Amazon Transcribe, that activity is recorded in a CloudTrail event along with other AWS service events in the CloudTrail **Event history**\. You can view, search, and download recent events in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)\. 
 
@@ -27,7 +27,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 You can also aggregate Amazon Transcribe log files from multiple AWS Regions and multiple AWS accounts into a single S3 bucket\. For more information, see [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)\. 
 
-### Example: Amazon Transcribe Log File Entries<a name="cloud-trail-log-entry"></a>
+### Example: Amazon Transcribe log file entries<a name="cloud-trail-log-entry"></a>
 
 A *trail* is a configuration that enables delivery of events as log files to a specified S3 bucket\. CloudTrail log files contain one or more log entries\. An *event* represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\. 
 

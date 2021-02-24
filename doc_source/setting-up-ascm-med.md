@@ -1,10 +1,10 @@
-# Set Up an AWS Account and Create an Administrator User<a name="setting-up-ascm-med"></a>
+# Set up an AWS account and create an administrator user<a name="setting-up-ascm-med"></a>
 
 Before you use Amazon Transcribe Medical for the first time, complete the following tasks:
 
 1. [Sign up for AWS](#setting-up-ascm-signup-med)
 
-1. [Create an IAM User](#setting-up-ascm-iam-med)
+1. [Create an IAM user](#setting-up-ascm-iam-med)
 
 ## Sign up for AWS<a name="setting-up-ascm-signup-med"></a>
 
@@ -24,7 +24,7 @@ If you already have an AWS account, skip to the next section\.
 
 Record your AWS account ID because you'll need it for the next task\.
 
-## Create an IAM User<a name="setting-up-ascm-iam-med"></a>
+## Create an IAM user<a name="setting-up-ascm-iam-med"></a>
 
 Services in AWS, such as Amazon Transcribe Medical, require that you provide credentials when you access them\. This allows the service to determine whether you have permissions to access the service's resources\. 
 
@@ -40,9 +40,9 @@ The Getting Started exercises in this guide assume that you have a user with adm
 
 For more information about IAM, see the following:
 + [AWS Identity and Access Management \(IAM\)](https://aws.amazon.com/iam/)
-+ [Getting Started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
++ [Getting started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
 + [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
 
-## Next Step<a name="setting-up-ascm-next-step-2-med"></a>
+## Next step<a name="setting-up-ascm-next-step-2-med"></a>
 
 To get started with medical transcription using the console, see [Getting Started \(Console\)](getting-started-med-console.md)\.

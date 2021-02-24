@@ -9,7 +9,7 @@ Before using CloudWatch Events, you should understand the following concepts:
 
 For more information about creating and managing CloudWatch Events events, see [What is Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) in the *Amazon CloudWatch User Guide*\.
 
-## Defining CloudWatch Events Rules<a name="defining-rules"></a>
+## Defining CloudWatch Events rules<a name="defining-rules"></a>
 
 To define CloudWatch Events rules, use the [CloudWatch Events console](https://console.aws.amazon.com/cloudwatch)\. When you define a rule, use Amazon Transcribe as the service name\. For an example of how to create a CloudWatch Events rule, see [ Creating a CloudWatch Events Rule That Triggers on an Event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) in the *Amazon CloudWatch User Guide*\. 
 
@@ -37,11 +37,11 @@ The rule contains the following fields:
 + `detail-type` – An identifier for the details of the event\. For Amazon Transcribe, this is always `Transcribe Job State Change`\.
 + `detail` – The new job status of the transcription job\. In this example, the rule triggers an event when the job status changes to `COMPLETED` or `FAILED`\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.
 
-## Amazon Transcribe Events<a name="events"></a>
+## Amazon Transcribe events<a name="events"></a>
 
 Amazon CloudWatch logs two kinds of Amazon Transcribe events: transcription job events and automatic language identification events\.
 
-### Transcription Job Events<a name="job-event"></a>
+### Transcription job events<a name="job-event"></a>
 
 When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`, Amazon Transcribe generates an event\. To identify the job that changed state and triggered the event in your target, use the event's `TranscriptionJobName` field\. An Amazon Transcribe event contains the following information\.
 
@@ -75,7 +75,7 @@ The event passed to the target contains the following information:
   + `TranscriptionJobName` – The unique name that you gave the job\. 
   + `TranscriptionJobStatus` – The new status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) data type\.
 
-### Language Identification Events<a name="lang-id-event"></a>
+### Language identification events<a name="lang-id-event"></a>
 
 When you enable automatic language identification, Amazon Transcribe generates an event when the language identification state is either `COMPLETED` or `FAILED`\. To identify the job that changed state and triggered the event in your target, use the event's `JobName` field\. An Amazon Transcribe event contains the following information\.
 

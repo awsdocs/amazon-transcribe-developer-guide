@@ -1,12 +1,12 @@
-# Identifying Speakers In Audio Files<a name="diarization-batch"></a>
+# Identifying speakers in audio files<a name="diarization-batch"></a>
 
-You can enable speaker identification in a batch transcription job using either the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation or the Amazon Transcribe console\.
+You can enable speaker diarization in a batch transcription job using either the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation or the Amazon Transcribe console\.
 
 ## Console<a name="diarization-batch-console"></a>
 
 **To identify speakers in an audio file \(console\)**
 
-To use the console to enable speaker identification in your transcription job, you enable audio identification and then speaker identification\.
+To use the console to enable speaker diarization in your transcription job, you enable audio identification and then speaker diarization\.
 
 1. Sign in to AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
@@ -39,7 +39,7 @@ To use the console to enable speaker identification in your transcription job, y
 
   1. For the `Settings` object, specify the following\.
 
-     1. `ShowSpeakerLabels` \- `true`\.
+     1. `ShowSpeakerLabels` – `true`\.
 
      1.  `MaxSpeakerLabels` \- An integer between 2 and 10 for that indicates the number of speakers that you think are speaking in your audio\. For best results, match the number of speakers that you ask to identify to the number of speakers in the input audio\. If you specify a value less than the number of speakers in your input audio, the transcription text of the most similar sounding speakers are attributed to a speaker label\. 
 

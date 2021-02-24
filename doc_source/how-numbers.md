@@ -1,4 +1,4 @@
-# Transcribing Numbers<a name="how-numbers"></a>
+# Transcribing numbers<a name="how-numbers"></a>
 
 When using the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, numbers are transcribed as digits instead of words for the following languages:
 + Australian English \(en\-AU\)
@@ -18,7 +18,7 @@ For streaming transcription, numbers are transcribed as digits for the following
 
 For the preceding languages, the spoken number "one thousand two hundred forty\-two" is transcribed as 1242\. For all other languages, numbers are transcribed into their word forms\.
 
-## Rules for Transcribing Numbers in English<a name="rules-english"></a>
+## Rules for transcribing numbers in English<a name="rules-english"></a>
 
 For all English languages, such British English \(en\-GB\) or US English \(en\-US\), numbers are transcribed according to the following rules\. 
 
@@ -40,7 +40,7 @@ For all English languages, such British English \(en\-GB\) or US English \(en\-U
 | Convert dates to numbers\. | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
 | Separate spans of numbers by the word "to\." | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-numbers.html) | 
 
-## Rules for Transcribing Numbers in German<a name="rules-german"></a>
+## Rules for transcribing numbers in German<a name="rules-german"></a>
 
 For German \(de\-DE\) and Swiss German \(de\-CH\), numbers are transcribed according to the following rules\. 
 

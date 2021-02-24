@@ -1,4 +1,4 @@
-# Alternative Transcriptions<a name="how-alternatives"></a>
+# Alternative transcriptions<a name="how-alternatives"></a>
 
 When Amazon Transcribe transcribes an audio file, it returns the transcription with the highest confidence level\. You can specify that Amazon Transcribe return additional transcriptions with lower confidence levels\. Use alternative transcriptions to see different interpretations of the transcribed audio\. For example, in an application that enables a person to review the transcription, you can present the alternative transcriptions for the person to choose from\. Alternative transcriptions are only available for the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
 

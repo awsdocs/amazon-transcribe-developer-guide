@@ -1,4 +1,4 @@
-# Guidelines and Quotas<a name="limits-guidelines"></a>
+# Guidelines and quotas<a name="limits-guidelines"></a>
 
 ## Supported Regions<a name="transcribe-regions"></a>
 
@@ -32,7 +32,7 @@ You can request a quota increase for the following resources:
 
 For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.
 
-If you don't need to process all of your transcription jobs concurrently, use [Job Queuing](job-queuing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\. You can request an increase to the job queue bandwidth ratio to run more transcription jobs\. The quota for the transcription jobs in your job queue is the product of the number of transcription jobs you can run concurrently and the bandwidth ratio\. For example, if you have a bandwidth ratio of `5` and a quota of `100` for the number of transcription jobs you can run concurrently then you can have 500 transcription jobs in your job queue\.
+If you don't need to process all of your transcription jobs concurrently, use [Job queuing](job-queuing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\. You can request an increase to the job queue bandwidth ratio to run more transcription jobs\. The quota for the transcription jobs in your job queue is the product of the number of transcription jobs you can run concurrently and the bandwidth ratio\. For example, if you have a bandwidth ratio of `5` and a quota of `100` for the number of transcription jobs you can run concurrently then you can have 500 transcription jobs in your job queue\.
 
 ## Guidelines<a name="guidelines"></a>
 
@@ -49,7 +49,7 @@ Amazon Transcribe has the following quotas that are not alterable:
 
 | Description | Quotas | 
 | --- | --- | 
-| Maximum audio file length | 14,400 seconds | 
+| Maximum audio file length | 4:00:00 \(four\) hours, 14,400 seconds | 
 | Maximum audio file size | 2 GB | 
 | Maximum size of a custom vocabulary | 50 KB | 
 | Maximum length of a custom vocabulary phrase | 256 characters | 

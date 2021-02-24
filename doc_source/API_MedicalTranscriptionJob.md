@@ -86,7 +86,7 @@ Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`
 Required: No
 
  **Type**   <a name="transcribe-Type-MedicalTranscriptionJob-Type"></a>
-The type of speech in the transcription job\. `CONVERSATION` is generally used for patient\-physician dialogues\. `DICTATION` is the setting for physicians speaking their notes after seeing a patient\. For more information, see [How Amazon Transcribe Medical Works](how-it-works-med.md)   
+The type of speech in the transcription job\. `CONVERSATION` is generally used for patient\-physician dialogues\. `DICTATION` is the setting for physicians speaking their notes after seeing a patient\. For more information, see [How Amazon Transcribe Medical works](how-it-works-med.md)   
 Type: String  
 Valid Values:` CONVERSATION | DICTATION`   
 Required: No
@@ -96,5 +96,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/MedicalTranscriptionJob) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/MedicalTranscriptionJob) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/MedicalTranscriptionJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/MedicalTranscriptionJob) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/MedicalTranscriptionJob) 

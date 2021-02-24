@@ -5,7 +5,7 @@ You don't need the AWS CLI to perform the steps in the Getting Started exercises
 **To set up the AWS CLI**
 
 1. Download and configure the AWS CLI\. For instructions, see the following topics in the *AWS Command Line Interface User Guide*: 
-   + [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)
+   + [Getting set up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)
    + [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
 1. In the AWS CLI `config` file, add a named profile for the administrator user: 
@@ -25,6 +25,6 @@ You don't need the AWS CLI to perform the steps in the Getting Started exercises
    aws help
    ```
 
-## Next Step<a name="setting-up-asc-next-step-3"></a>
+## Next step<a name="setting-up-asc-next-step-3"></a>
 
-[Step 3: Getting Started Using the Console](getting-started-asc-console.md)
+[Step 3: Getting started using the console](getting-started-asc-console.md)

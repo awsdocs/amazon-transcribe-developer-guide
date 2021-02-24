@@ -1,4 +1,4 @@
-# Step 5: Getting Started With Streaming Audio<a name="getting-started-streaming"></a>
+# Step 5: Getting started with streaming audio<a name="getting-started-streaming"></a>
 
 The following example is a Java program that transcribes streaming audio\. The input comes from your computer's microphone or a file upload and the output is presented on your computer's standard output\. 
 
@@ -7,50 +7,8 @@ To run this example, you need the following:
 + Clients must use Java 1\.8 to be compatible with the AWS SDK for Java 2\.x\.
 
 ```
-/**
- * COPYRIGHT:
- * <p>
- * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
-package com.amazonaws.transcribestreaming;
-
-import org.reactivestreams.Publisher;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
-import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
-import software.amazon.awssdk.core.SdkBytes;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.transcribestreaming.TranscribeStreamingAsyncClient;
-import software.amazon.awssdk.services.transcribestreaming.model.*;
-
-import javax.sound.sampled.*;
-import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.ByteBuffer;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicLong;
-
-
 public class TranscribeStreamingDemoApp {
     private static final Region REGION = Region.US_EAST_1;
-    private static Subscription currentSubscription;
-
     private static TranscribeStreamingAsyncClient client;
 
     public static void main(String args[]) throws URISyntaxException, ExecutionException, InterruptedException, LineUnavailableException {
@@ -137,6 +95,7 @@ public class TranscribeStreamingDemoApp {
 
     private static class AudioStreamPublisher implements Publisher<AudioStream> {
         private final InputStream inputStream;
+        private static Subscription currentSubscription;
 
 
         private AudioStreamPublisher(InputStream inputStream) {
@@ -163,7 +122,7 @@ public class TranscribeStreamingDemoApp {
         private ExecutorService executor = Executors.newFixedThreadPool(1);
         private AtomicLong demand = new AtomicLong(0);
 
-        private SubscriptionImpl(Subscriber<? super AudioStream> s, InputStream inputStream) {
+        SubscriptionImpl(Subscriber<? super AudioStream> s, InputStream inputStream) {
             this.subscriber = s;
             this.inputStream = inputStream;
         }

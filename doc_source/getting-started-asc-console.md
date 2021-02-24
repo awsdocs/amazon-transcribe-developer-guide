@@ -1,12 +1,12 @@
-# Step 3: Getting Started Using the Console<a name="getting-started-asc-console"></a>
+# Step 3: Getting started using the console<a name="getting-started-asc-console"></a>
 
-The easiest way to get started with Amazon Transcribe is to submit a job using the console to transcribe an audio file\. If you haven't reviewed the concepts and terminology in [How Amazon Transcribe Works](how-it-works.md), we recommend that you do that before proceeding\.
+The easiest way to get started with Amazon Transcribe is to submit a job using the console to transcribe an audio file\. If you haven't reviewed the concepts and terminology in [How Amazon Transcribe works](how-it-works.md), we recommend that you do that before proceeding\.
 
 **Topics**
-+ [Create a Transcription Job](#console-create-job)
-+ [View a Transcription Job](#console-view-job)
++ [Create a transcription job](#console-create-job)
++ [View a transcription job](#console-view-job)
 
-## Create a Transcription Job<a name="console-create-job"></a>
+## Create a transcription job<a name="console-create-job"></a>
 
 Use the Amazon Transcribe console to create a transcription job for your audio files\.
 
@@ -22,7 +22,7 @@ Use the Amazon Transcribe console to create a transcription job for your audio f
 
 1. Choose **Create** to submit the job for processing\.
 
-## View a Transcription Job<a name="console-view-job"></a>
+## View a transcription job<a name="console-view-job"></a>
 
 Completed transcription jobs are displayed in a list that contains a brief description of the job\. The **Availability** column shows the remaining time that the job results will be kept on the server\. Jobs are kept for 90 days and then deleted from the system\.
 
@@ -40,5 +40,5 @@ The **Code samples** section contains the JSON input for the [StartTranscription
 
 ![\[The code samples section of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-40.png)
 
-**Next Step**  
-[Step 4: Getting Started Using the API](getting-started-asc-api.md)
+**Next step**  
+[Step 4: Getting started using the API](getting-started-asc-api.md)

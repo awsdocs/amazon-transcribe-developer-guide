@@ -1,4 +1,4 @@
-# Step 3: Creating a Custom Language Model<a name="create-custom-language-model"></a>
+# Step 3: Creating a custom language model<a name="create-custom-language-model"></a>
 
 To create a custom language model, you must provide your text data using an Amazon S3 prefix and specify a *base model*\. There are two base models:
 + `NarrowBand` \- For audio with a sample rate of less than 16 kHz\. You typically use this type of model for telephone conversations recorded at 8 kHz\.
@@ -6,7 +6,7 @@ To create a custom language model, you must provide your text data using an Amaz
 
 You can create a custom language model with the base model and the training data using console, the [CreateLanguageModel](API_CreateLanguageModel.md) operation, the AWS Command Line Interface \(AWS CLI\)\.
 
-## Using Prefixes in Amazon Simple Storage Service to Retrieve Your Data<a name="prefix-get-data"></a>
+## Using prefixes in Amazon Simple Storage Service to retrieve your data<a name="prefix-get-data"></a>
 
 To create a custom language model, you use prefixes in Amazon Simple Storage Service to specify the training and the optional tuning data\. To understand how to use prefixes, you need to be familiar with the following Amazon S3 concepts:
 + Bucket \- A container to store your objects\.
@@ -27,7 +27,7 @@ Amazon Transcribe uses any object whose key matches one of the prefixes that you
 
 You create a custom language model by providing prefixes to train a base model in either the console or the API\.
 
-## Creating a Custom Language Model \(Console\)<a name="create-console"></a>
+## Creating a custom language model \(console\)<a name="create-console"></a>
 
 **To creating a custom language model \(Console\)**
 
@@ -51,7 +51,7 @@ To use the console to create a custom language model with the console, you must 
 
 1. Choose **Train model**\.
 
-## Creating a Custom Language Model \(API\)<a name="create-api"></a>
+## Creating a custom language model \(API\)<a name="create-api"></a>
 
  To create a custom language model use the [CreateLanguageModel](API_CreateLanguageModel.md) operation\. 
 
@@ -60,6 +60,8 @@ To use the console to create a custom language model with the console, you must 
   + `BaseModelName` \- The type of base model that you want to use for your custom language model
   + `InputDataConfig` \- Specify the Amazon S3 object location and the IAM data access role for your training data:
 
+     
+
     `DataAccessRoleARN` \- The Amazon Resource Name \(ARN\) that identifies the permissions to your Amazon S3 bucket\.
 
     `S3Uri` \- The prefix of the keys to your training data\.
@@ -67,24 +69,31 @@ To use the console to create a custom language model with the console, you must 
     \(Optional\) `TuningDataS3URI` \- The prefix of the keys to your tuning data\.
   + `LanguageCode` \- The language code for the language that your training data is in\.
 
+    
+
     US English \(en\-US\) is the only valid language code for custom language models\.
   + `ModelName` \- The name of your custom language model\.
 
-  The following is an example of a successful request:
+The following is an example request using the AWS SDK for Python \(Boto3\)\.
 
-  ```
-  {
-      "LanguageCode": "en-US",
-      "BaseModelName": "base-model-type",
-      "ModelName": "name-for-your-custom-language-model",
-      "InputDataConfig": {
-          "S3Uri": "s3://prefix-location/of-your-text-files",
-          "DataAccessRoleArn": "arn:aws:iam::aws-account-number:role/account-role"
-      }
-  }
-  ```
+```
+from __future__ import print_function
+import time
+import boto3
+transcribe = boto3.client('transcribe')
+model_name = "example-language-model"
+transcribe.create_language_model(
+    LanguageCode = 'en-US',
+    BaseModelName = 'WideBand',
+    ModelName = model_name,
+    InputDataConfig = {'S3Uri': 's3://DOC-EXAMPLE-BUCKET/clm-training/',
+        'TuningDataS3Uri': 's3://DOC-EXAMPLE-BUCKET/clm-tuning',
+        'DataAccessRoleArn':'arn:aws:iam::AWS-account-number:role/IAM role'
+         }
+         )
+```
 
-## Creating a Custom Language Model \(AWS CLI\)<a name="create-cli"></a>
+## Creating a custom language model \(AWS CLI\)<a name="create-cli"></a>
 
 **To create a custom language model \(AWS CLI\)**
 + Run the following code\.
@@ -92,10 +101,10 @@ To use the console to create a custom language model with the console, you must 
   ```
   aws transcribe create-language-model \ 
   --language-code en-US \ 
-  --base-model-name NarrowBand \ 
+  --base-model-name base-model-name \ 
   --model-name example-model-name \ 
   --input-data-config S3Uri="s3://example-bucket",DataAccessRoleArn="arn:aws:iam::aws-account-number:role/IAM role"
   ```
 
-**Next Step**  
-[Step 4: Transcribing with a Custom Language Model](clm-transcription.md)
+**Next step**  
+[Step 4: Transcribing with a custom language model](clm-transcription.md)

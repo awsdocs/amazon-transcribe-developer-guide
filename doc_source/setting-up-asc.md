@@ -1,10 +1,10 @@
-# Step 1: Set up an AWS Account and Create an Administrator User<a name="setting-up-asc"></a>
+# Step 1: Set up an AWS account and create an administrator user<a name="setting-up-asc"></a>
 
 Before you use Amazon Transcribe for the first time, complete the following tasks:
 
 1. [Sign up for AWS](#setting-up-asc-signup)
 
-1. [Create an IAM User](#setting-up-asc-iam)
+1. [Create an IAM user](#setting-up-asc-iam)
 
 ## Sign up for AWS<a name="setting-up-asc-signup"></a>
 
@@ -24,7 +24,7 @@ If you already have an AWS account, skip to the next section\.
 
 Record your AWS account ID because you'll need it for the next task\.
 
-## Create an IAM User<a name="setting-up-asc-iam"></a>
+## Create an IAM user<a name="setting-up-asc-iam"></a>
 
 Services in AWS, such as Amazon Transcribe, require that you provide credentials when you access them\. This allows the service to determine whether you have permissions to access the service's resources\. 
 
@@ -40,9 +40,9 @@ The Getting Started exercises in this guide assume that you have a user with adm
 
 For more information about IAM, see the following:
 + [AWS Identity and Access Management \(IAM\)](https://aws.amazon.com/iam/)
-+ [Getting Started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
++ [Getting started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
 + [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
 
-## Next Step<a name="setting-up-asc-next-step-2"></a>
+## Next step<a name="setting-up-asc-next-step-2"></a>
 
 [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)

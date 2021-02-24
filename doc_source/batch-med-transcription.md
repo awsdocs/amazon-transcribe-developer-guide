@@ -1,4 +1,4 @@
-# Batch Transcription Overview<a name="batch-med-transcription"></a>
+# Batch transcription overview<a name="batch-med-transcription"></a>
 
 Amazon Transcribe Medical batch transcription is available in US English\. It has the ability to transcribe accented English from non\-native speakers\. It supports the transcription of individual audio files\. You start a transcription job with either the console or by direct API call\.
 
@@ -23,7 +23,7 @@ You have the choice between dictation and conversation for your audio type\. Cho
 
 To store the output of your transcription job, select an Amazon S3 bucket that you've already created\. For more information on S3 buckets see [Getting Started with Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)
 
-You can see the minimum number of request parameters to enter in the sample JSON here:
+The following are the minimum number of request parameters to enter in the sample JSON\.
 
 ```
 {
@@ -38,6 +38,6 @@ You can see the minimum number of request parameters to enter in the sample JSON
 }
 ```
 
-Amazon Transcribe Medical enables you to generate alternative transcriptions\. For more information, see [Alternative Transcriptions](how-alternatives-med.md)\.
+Amazon Transcribe Medical enables you to generate alternative transcriptions\. For more information, see [Generating alternative transcriptions](alternative-med-transcriptions.md)\.
 
-You can also identify different speakers or channels in your audio\. For more information, see [Identifying Speakers in Audio Files](diarization-batch-med.md) and [Channel Identification](how-channel-id-med.md)\.
+You can also identify different speakers or channels in your audio\. For more information, see [Identifying speakers and labeling their speech](conversation-diarization-med.md) and [Transcribing multi\-channel audio](conversation-channel-id-med.md)\.

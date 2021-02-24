@@ -1,4 +1,4 @@
-# Step 1: Creating a List of Unwanted Words<a name="create-filter-file"></a>
+# Step 1: Creating a list of unwanted words<a name="create-filter-file"></a>
 
 To create a vocabulary filter, you can create a list of words to filter from your transcription results and save them in a text file\. Or, you can use the [CreateVocabularyFilter](API_CreateVocabularyFilter.md) operation and enter the words that you want to filter as an array of strings in the `Words` parameter\. Although listing unwanted words in the `CreateVocabularyFilter` operation is more convenient, if you use a text file, you can edit your word list later and reuse it in another vocabulary filter\. 
 
@@ -7,7 +7,7 @@ The following guidelines apply to vocabulary filters:
 + Amazon Transcribe filters only words that exactly match words in the filter\. For example, if your filter includes "swear," Amazon Transcribe filters "swear," but not "swears\." You must provide every variation of a word that you want to filter\.
 +  Amazon Transcribe doesn't filter words that are contained in other words\. For example, if a vocabulary filter contained "marine," but not "submarine," "submarine" would appear in your transcription results\. 
 
-To create a word list with the console, complete the following procedure\. To use the `CreateVocabularyFilter` operation, see [Step 2: Creating a Vocabulary Filter](create-filter.md)\.
+To create a word list with the console, complete the following procedure\. To use the `CreateVocabularyFilter` operation, see [Step 2: Creating a vocabulary filter](create-filter.md)\.
 
 **To create a list of unfiltered words \(console\)**
 
@@ -23,5 +23,5 @@ To create a word list with the console, complete the following procedure\. To us
 
 1. Save the list as a plain text file locally or in Amazon Simple Storage Service \(Amazon S3\)\. 
 
-**Next Step**  
-[Step 2: Creating a Vocabulary Filter](create-filter.md)
+**Next step**  
+[Step 2: Creating a vocabulary filter](create-filter.md)

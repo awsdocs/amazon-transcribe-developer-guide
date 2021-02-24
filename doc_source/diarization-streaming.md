@@ -1,6 +1,6 @@
-# Identifying Speakers in Real\-time Streams<a name="diarization-streaming"></a>
+# Identifying speakers in real\-time streams<a name="diarization-streaming"></a>
 
-You can identify different speakers in either HTTP/2 or Websocket streams\. Speaker identification works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker identification decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation\. To start a Websocket request, you use a pre\-signed URL, a URL that contains the information needed to start your stream\. To use the console to transcribe speech spoken into your microphone, use the following procedure\.
+You can identify different speakers in either HTTP/2 or Websocket streams\. Speaker diarization works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation\. To start a Websocket request, you use a pre\-signed URL, a URL that contains the information needed to start your stream\. To use the console to transcribe speech spoken into your microphone, use the following procedure\.
 
 You can identify speakers in real\-time streams that are in US English \(en\-US\)\.
 
@@ -20,7 +20,7 @@ You can use the Amazon Transcribe console to start a real\-time stream and trans
 
 1. Speak into the microphone\.
 
-## HTTP/2 Streaming<a name="diarization-http2"></a>
+## HTTP/2 streaming<a name="diarization-http2"></a>
 
 The following is the syntax for the parameters of an HTTP/2 request\.
 
@@ -49,9 +49,9 @@ To identify speakers in an HTTP/2 stream, use the [StartStreamTranscription](API
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + `ShowSpeakerLabel` – `true`\.
 
-## Websocket Streaming<a name="diarization-websocket"></a>
+## WebSocket streaming<a name="diarization-websocket"></a>
 
-To identify speakers in Websocket streams, use the following format to create a pre\-signed URL to start a Websocket request and specify `show-speaker-label` as `true`\. A pre\-signed URL contains the information to set up bi\-directional communication between your application and Amazon Transcribe\.
+To identify speakers in WebSocket streams, use the following format to create a pre\-signed URL to start a WebSocket request and specify `show-speaker-label` as `true`\. A pre\-signed URL contains the information to set up bi\-directional communication between your application and Amazon Transcribe\.
 
 ```
 GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket
@@ -69,9 +69,9 @@ GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-web
     &show-speaker-label=true
 ```
 
-For more information on completing Websocket requests, see [Creating a Pre\-Signed URL](websocket.md#websocket-url)\.
+For more information on completing WebSocket requests, see [Creating a pre\-signed URL](websocket.md#websocket-url)\.
 
-## Streaming Transcription Output<a name="diarization-output"></a>
+## Streaming transcription output<a name="diarization-output"></a>
 
 The following code shows the truncated example response of a streaming request\.
 

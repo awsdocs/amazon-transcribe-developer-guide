@@ -1,4 +1,4 @@
-# How Amazon Transcribe Works<a name="how-it-works"></a>
+# How Amazon Transcribe works<a name="how-it-works"></a>
 
 Amazon Transcribe analyzes audio files that contain speech and uses advanced machine learning techniques to transcribe the voice data into text\. You can then use the transcription as you would any text document\.
 
@@ -10,7 +10,7 @@ To transcribe an audio file, Amazon Transcribe uses three operations:
 To transcribe streaming audio to text, Amazon Transcribe provides one operation:
 + [StartStreamTranscription](API_streaming_StartStreamTranscription.md) – Starts a bi\-directional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
 
-You can also start a WebSocket protocol stream to send audio the Amazon Transcribe\. For more information, see [Using Amazon Transcribe Streaming with WebSockets](websocket.md)\.
+You can also start a WebSocket protocol stream to send audio the Amazon Transcribe\. For more information, see [Using Amazon Transcribe streaming with WebSockets](websocket.md)\.
 
 You can use Amazon Transcribe to create and manage custom vocabularies for your solution\. A custom vocabulary gives Amazon Transcribe more information about how to process speech in an audio clip\.
 + [CreateVocabulary](API_CreateVocabulary.md) – Creates a custom vocabulary that you can use in your transcription jobs\.
@@ -22,7 +22,7 @@ You can use Amazon Transcribe to create and manage custom vocabularies for your 
 You can transcribe speech in any of the following languages:
 + Gulf Arabic \(ar\-AE\)
 + Modern Standard Arabic \(ar\-SA\)
-+ Chinese Mandarin\-Mainland \(zh\-CN\)
++ Mandarin Chinese \- Mainland \(zh\-CN\)
 + Dutch \(nl\-NL\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
@@ -58,15 +58,20 @@ You can use streaming transcription for the following languages:
 + US English \(en\-US\)
 + French \(fr\-FR\)
 + Canadian French \(fr\-CA\)
++ German \(de\-DE\)
++ Italian \(it\-IT\)
++ Japanese \(ja\-JP\)
++ Korean \(ko\-KR\)
++ Brazilian Portuguese \(pt\-BR\)
 + US Spanish \(es\-US\)
 
 Amazon Transcribe has the capability to transcribe accented speech of individuals who are non\-native speakers of a language\. For example, Amazon Transcribe enables you to transcribe US English \(en\-US\) audio spoken with a German \(de\-DE\) accent\.
 
 **Topics**
-+ [Speech Input](input.md)
-+ [Transcribing Numbers](how-numbers.md)
-+ [Alternative Transcriptions](how-alternatives.md)
-+ [Transcribing Streaming Audio](how-streaming-transcription.md)
-+ [Custom Vocabularies](how-vocabulary.md)
-+ [Automatic Content Redaction](content-redaction.md)
-+ [Job Queuing](job-queuing.md)
++ [Speech input](input.md)
++ [Transcribing numbers](how-numbers.md)
++ [Alternative transcriptions](how-alternatives.md)
++ [Transcribing streaming audio](how-streaming-transcription.md)
++ [Custom vocabularies](how-vocabulary.md)
++ [Automatic content redaction](content-redaction.md)
++ [Job queuing](job-queuing.md)

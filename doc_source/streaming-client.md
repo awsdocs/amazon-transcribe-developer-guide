@@ -1,8 +1,8 @@
-# HTTP/2 Streaming Retry Client<a name="streaming-client"></a>
+# HTTP/2 streaming retry client<a name="streaming-client"></a>
 
  You can use the following code in your applications to handle retry logic for Amazon Transcribe streaming transcription\. The code provides tolerance for intermittent failures in the connection to Amazon Transcribe\. There are two parts of the client: an interface that you implement for your application, and the retry client itself\.
 
-## Streaming Retry Client Code<a name="streaming-retry-client"></a>
+## Streaming retry client code<a name="streaming-retry-client"></a>
 
 This code implements a streaming retry client\. It manages the connection to Amazon Transcribe and retries sending data when there are errors on the connection\. For example, if there is a transient error on the network, this client resends the request that failed\.
 
@@ -13,48 +13,6 @@ The retry client has two properties that control the behavior of the client\. Yo
 The following is the client\. You can copy this code to your application or use it as a starting point for your own client\.
 
 ```
-/**
- * COPYRIGHT:
- * <p>
- * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
-package com.amazonaws.transcribestreaming.retryclient;
-
-import org.reactivestreams.Publisher;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
-import software.amazon.awssdk.auth.signer.EventStreamAws4Signer;
-import software.amazon.awssdk.core.client.config.SdkAdvancedClientOption;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.transcribestreaming.TranscribeStreamingAsyncClient;
-import software.amazon.awssdk.services.transcribestreaming.model.AudioStream;
-import software.amazon.awssdk.services.transcribestreaming.model.BadRequestException;
-import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionRequest;
-import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionResponseHandler;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
-
-/**
- * Build a client wrapper around the Amazon Transcribe client to retry
- * on an exception that can be retried.
- */
 public class TranscribeStreamingRetryClient {
 
     private static final int DEFAULT_MAX_RETRIES = 10;
@@ -67,11 +25,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Create a TranscribeStreamingRetryClient with given credential and configuration
-     *
-     * @param creds    Creds to use for transcription
-     * @param endpoint Endpoint to use for transcription
-     * @param region   Region to use for transcriptions
-     * @throws URISyntaxException if the endpoint is not a URI
      */
     public TranscribeStreamingRetryClient(AwsCredentialsProvider creds,
                                           String endpoint, Region region) throws URISyntaxException {
@@ -88,8 +41,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Initiate TranscribeStreamingRetryClient with TranscribeStreamingAsyncClient
-     *
-     * @param client TranscribeStreamingAsyncClient
      */
 
     public TranscribeStreamingRetryClient(TranscribeStreamingAsyncClient client) {
@@ -98,8 +49,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Get Max retries
-     *
-     * @return Max retries
      */
     public int getMaxRetries() {
         return maxRetries;
@@ -107,8 +56,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Set Max retries
-     *
-     * @param maxRetries Max retries
      */
     public void setMaxRetries(int maxRetries) {
         this.maxRetries = maxRetries;
@@ -116,8 +63,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Get sleep time
-     *
-     * @return sleep time between retries
      */
     public int getSleepTime() {
         return sleepTime;
@@ -125,8 +70,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Set sleep time between retries
-     *
-     * @param sleepTime sleep time
      */
     public void setSleepTime(int sleepTime) {
         this.sleepTime = sleepTime;
@@ -134,11 +77,6 @@ public class TranscribeStreamingRetryClient {
 
     /**
      * Initiate a Stream Transcription with retry.
-     *
-     * @param request         StartStreamTranscriptionRequest to use to start transcription
-     * @param publisher       The source audio stream as Publisher
-     * @param responseHandler StreamTranscriptionBehavior object that defines how the response needs to be handled.
-     * @return Completable future to handle stream response.
      */
 
     public CompletableFuture<Void> startStreamTranscription(final StartStreamTranscriptionRequest request,
@@ -153,13 +91,8 @@ public class TranscribeStreamingRetryClient {
     }
 
     /**
-     * Recursively call startStreamTranscription() to be called till the request is completed or till we run out of retries.
+     * Recursively call startStreamTranscription() until the request is completed or we run out of retries.
      *
-     * @param request         StartStreamTranscriptionRequest
-     * @param publisher       The source audio stream as Publisher
-     * @param responseHandler StreamTranscriptionBehavior object that defines how the response needs to be handled.
-     * @param finalFuture     final future to finish on completing the chained futures.
-     * @param retryAttempt    Current attempt number
      */
     private void recursiveStartStream(final StartStreamTranscriptionRequest request,
                                       final Publisher<AudioStream> publisher,
@@ -229,8 +162,6 @@ public class TranscribeStreamingRetryClient {
     /**
      * Check if the exception can be retried.
      *
-     * @param e Exception that occurred
-     * @return True if the exception is retriable
      */
     private boolean isExceptionRetriable(Throwable e) {
         e.printStackTrace();
@@ -245,28 +176,12 @@ public class TranscribeStreamingRetryClient {
 }
 ```
 
-## Streaming Retry Client Interface Code<a name="streaming-client-interface"></a>
+## Streaming retry client interface code<a name="streaming-client-interface"></a>
 
 This interface is similar to the response handler used in the getting started example\. It implements the same event handlers\. Implement this interface to use the streaming retry client\.
 
 ```
-/**
- * COPYRIGHT:
- * <p>
- * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
-package com.amazonaws.transcribestreaming.retryclient;
+package com.amazonaws.transcribestreaming;
 
 import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionResponse;
 import software.amazon.awssdk.services.transcribestreaming.model.TranscriptResultStream;
@@ -278,22 +193,16 @@ import software.amazon.awssdk.services.transcribestreaming.model.TranscriptResul
 public interface StreamTranscriptionBehavior {
     /**
      * Defines how to respond when encountering an error on the stream transcription.
-     *
-     * @param e The exception
      */
     void onError(Throwable e);
 
     /**
      * Defines how to respond to the Transcript result stream.
-     *
-     * @param e The TranscriptResultStream event
      */
     void onStream(TranscriptResultStream e);
 
     /**
      * Defines what to do on initiating a stream connection with the service.
-     *
-     * @param r StartStreamTranscriptionResponse
      */
     void onResponse(StartStreamTranscriptionResponse r);
 
@@ -373,4 +282,4 @@ public class StreamTranscriptionBehaviorImpl implements StreamTranscriptionBehav
 
 ### Next step<a name="retry-client-next"></a>
 
-[Using the HTTP/2 Retry Client](retry-client-example.md)
+[Using the HTTP/2 retry client](retry-client-example.md)

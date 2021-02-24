@@ -50,6 +50,10 @@ HTTP Status Code: 403
 A required parameter for the specified action is not supplied\.  
 HTTP Status Code: 400
 
+ **NotAuthorized**   <a name="CommonErrors-NotAuthorized"></a>
+You do not have permission to perform this action\.  
+HTTP Status Code: 400
+
  **OptInRequired**   <a name="CommonErrors-OptInRequired"></a>
 The AWS access key ID needs a subscription for the service\.  
 HTTP Status Code: 403

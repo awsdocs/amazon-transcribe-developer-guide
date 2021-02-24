@@ -1,4 +1,4 @@
-# Transcribing with Automatic Language Identification<a name="transcribe-lang-id"></a>
+# Transcribing with automatic language identification<a name="transcribe-lang-id"></a>
 
 You can use automatic language identification in a batch transcription job with either the Amazon Transcribe console or the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
 
@@ -26,11 +26,15 @@ You can use automatic language identification in a batch transcription job with 
 
  **To start a transcription job with automatic language identification \(API\)** 
 
+
+
 In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following:
 + For `TranscriptionJobName`, specify a name that is unique in your AWS account\.
 + In the `MediaFileUri` parameter of the `Media` object, specify the location in S3 object location of the media file that you want to transcribe\.
 + Set the `IdentifyLanguage` parameter to `true`\.
 + \(Optional\) For increased accuracy with language identification, enter an array of the languages that are spoken in your file in `LanguageOptions`\. For example, if you're confident your media file is either in US English, US Spanish, or French, provide the following array: `["en-US", "es-US", "fr-FR"]`\.
+
+
 
 Don't specify a value for the `LanguageCode` parameter\. Doing so generates a `BadRequestException` error\.
 
@@ -153,7 +157,7 @@ aws transcribe start-transcription-job \
 --transcription-job-name your-transcription-job-name
 ```
 
-## Finding the Identified Language of a Transcription Job<a name="view-lang-ident"></a>
+## Finding the identified language of a transcription job<a name="view-lang-ident"></a>
 
 To see the language code and its confidence score for a transcription job where you've identified the language, use the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation \. You can retrieve this information about a transcription job during processing\. You don't need to wait for a transcription to complete to get this information\. The following AWS CLI request gets information about a specific transcription job, as shown in the example response\.
 

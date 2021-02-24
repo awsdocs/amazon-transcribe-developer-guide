@@ -1,4 +1,4 @@
-# Use Vocabulary Filtering to Filter Unwanted Words<a name="filter-unwanted-words"></a>
+# Using vocabulary filtering to filter unwanted words<a name="filter-unwanted-words"></a>
 
 You can mask or remove words that you don't want to appear in your transcription results with *vocabulary filtering*\. For example, you can use vocabulary filtering to prevent the display of offensive or profane terms\. This enables you to generate family\-friendly captions of a TV show or transcripts of conferences that are appropriate for your audiences\. Use vocabulary filtering for any word that you consider profane, obscene, offensive, or otherwise unsuitable for the readers of your transcripts\. 
 
@@ -15,6 +15,6 @@ To filter unwanted words, you:
 You can filter unwanted words with the Amazon Transcribe console or the API\. 
 
 **Topics**
-+ [Step 1: Creating a List of Unwanted Words](create-filter-file.md)
-+ [Step 2: Creating a Vocabulary Filter](create-filter.md)
-+ [Step 3: Filtering Transcriptions](filter-transcriptions.md)
++ [Step 1: Creating a list of unwanted words](create-filter-file.md)
++ [Step 2: Creating a vocabulary filter](create-filter.md)
++ [Step 3: Filtering transcriptions](filter-transcriptions.md)

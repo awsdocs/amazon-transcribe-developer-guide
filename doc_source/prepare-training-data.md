@@ -1,4 +1,4 @@
-# Step 1: Preparing the Data<a name="prepare-training-data"></a>
+# Step 1: Preparing the data<a name="prepare-training-data"></a>
 
 Create a custom language model by providing training data in plain text format and by choosing a base model\. You can also provide additional tuning data, also in plain text format, for optimization\.
 
@@ -28,5 +28,5 @@ Interferon type 1 signaling proteins help prevent viruses from replicating their
 
 It doesn't matter how many text files you use to upload your training or tuning data\. For model training, you get the same improvements in transcription accuracy if you use one file with 100,000 words or 10 files with 10,000 words\. Prepare your text data in a way that is most convenient for you\.
 
-**Next Step**  
-[Step 2: Providing Amazon Transcribe with Data Permissions](training-data-permissions.md)
+**Next step**  
+[Step 2: Providing Amazon Transcribe with data permissions](training-data-permissions.md)

@@ -1,4 +1,4 @@
-# Job Queuing<a name="job-queuing"></a>
+# Job queuing<a name="job-queuing"></a>
 
 When you send transcription jobs to Amazon Transcribe, there is a limit to the total number of jobs that can run at one time\. By default, there are 100 slots for jobs\. When the limit is reached, you must wait until one or more jobs have finished and freed up a slot before you can send your next job\.
 
@@ -14,13 +14,13 @@ You can see the progress of a queued job using the console or by using the [GetT
 
 You can submit up to 10,000 jobs to the queue\. If you exceed 10,000 jobs, you get a `LimitExceededConcurrentJobException` exception\.
 
-## IAM Policies for Job Queuing<a name="job-queuing-policy"></a>
+## IAM policies for job queuing<a name="job-queuing-policy"></a>
 
 To use job queuing, you need to provide Amazon Transcribe with a data access role that permits access to your audio file to be transcribed\. You can choose the data access role using the console, or you use the `DataAccessRoleArn` field of the `JobExecutionSettings` parameter of the `StartTranscriptionJob` operation to specify the role to use\.
 
 The role policies that you use depends on where you are storing your input files, where you are storing your output files, and whether or not you are encrypting the output with an AWS KMS customer master key \(CMK\)\. The IAM policies in this section are required for the role\. The policies enable Amazon Transcribe to work on your behalf, allow access to the input and output locations for your jobs, and enable Amazon Transcribe to use a AWS KMS CMK to encrypt your transcriptions\.
 
-### Trust Policy<a name="job-queuing-trust-policy"></a>
+### Trust policy<a name="job-queuing-trust-policy"></a>
 
 The data access role that you use for transcription must have a trust policy that enables Amazon Transcribe to assume the role\. Use the following trust policy\.
 
@@ -42,7 +42,7 @@ The data access role that you use for transcription must have a trust policy tha
 }
 ```
 
-### Input Bucket Policy<a name="job-queuing-input-bucket"></a>
+### Input bucket policy<a name="job-queuing-input-bucket"></a>
 
 The following IAM policy gives the data access role permission to read files from your input bucket\.
 
@@ -63,7 +63,7 @@ The following IAM policy gives the data access role permission to read files fro
 }
 ```
 
-### Output Bucket Policy<a name="job-queuing-output-bucket"></a>
+### Output bucket policy<a name="job-queuing-output-bucket"></a>
 
 The following IAM policy gives the data access role permission to write files to your output bucket\.
 
@@ -82,7 +82,7 @@ The following IAM policy gives the data access role permission to write files to
 }
 ```
 
-### AWS KMS Key Policy for Input Buckets<a name="job-queuing-input-kms"></a>
+### AWS KMS key policy for input buckets<a name="job-queuing-input-kms"></a>
 
 If you have encrypted your input files, the data access role needs permission to use the AWS KMS key to decrypt the files\. The following policy provides that permission\.
 
@@ -101,7 +101,7 @@ If you have encrypted your input files, the data access role needs permission to
 }
 ```
 
-### AWS KMS Key Policy for Output Buckets<a name="job-queuing-output-kms"></a>
+### AWS KMS key policy for output buckets<a name="job-queuing-output-kms"></a>
 
 To encrypt your output transcriptions, the data access role needs permission to use the AWS KMS key\. The following policy provides that permission\.
 

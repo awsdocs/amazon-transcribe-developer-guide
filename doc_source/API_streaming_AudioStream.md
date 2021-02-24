@@ -6,6 +6,8 @@ Represents the audio stream from your application to Amazon Transcribe\.
 
  **AudioEvent**   <a name="transcribe-Type-streaming_AudioStream-AudioEvent"></a>
 A blob of audio from your application\. You audio stream consists of one or more audio events\.  
+For information on audio encoding formats in Amazon Transcribe, see [Speech input](input.md)\. For information on audio encoding formats in Amazon Transcribe Medical, see [Speech input](input-med.md)\.  
+For more information on stream encoding in Amazon Transcribe, see [Event stream encoding](event-stream.md)\. For information on stream encoding in Amazon Transcribe Medical, see [Event stream encoding](event-stream-med.md)\.  
 Type: [AudioEvent](API_streaming_AudioEvent.md) object  
 Required: No
 
@@ -14,5 +16,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/AudioStream) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/AudioStream) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-streaming-2017-10-26/AudioStream) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-streaming-2017-10-26/AudioStream) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/AudioStream) 

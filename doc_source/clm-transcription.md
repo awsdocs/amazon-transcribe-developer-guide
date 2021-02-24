@@ -1,8 +1,10 @@
-# Step 4: Transcribing with a Custom Language Model<a name="clm-transcription"></a>
+# Step 4: Transcribing with a custom language model<a name="clm-transcription"></a>
 
 You can use a custom language model in transcription jobs with the Amazon Transcribe console, the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, or the AWS CLI\.
 
-## Transcribing with a Custom Language Model \(Console\)<a name="start-console"></a>
+## Transcribing with a custom language model \(console\)<a name="start-console"></a>
+
+
 
 **To start a transcription job \(console\)**
 
@@ -22,7 +24,7 @@ You can use a custom language model in transcription jobs with the Amazon Transc
 
 1. Choose **Create**\.
 
-## Transcribing with a Custom Language Model \(API\)<a name="start-api"></a>
+## Transcribing with a custom language model \(API\)<a name="start-api"></a>
 
 **To start a transcription job \(API\)**
 
@@ -65,7 +67,7 @@ You can use a custom language model in transcription jobs with the Amazon Transc
        }
    ```
 
-## Transcribing with a Custom Language Model \(AWS CLI\)<a name="start-custom-cli"></a>
+## Transcribing with a custom language model \(AWS CLI\)<a name="start-custom-cli"></a>
 
 **To transcribe with a custom language model \(AWS CLI\)**
 + Run the following code\.
@@ -79,4 +81,4 @@ You can use a custom language model in transcription jobs with the Amazon Transc
   ```
 
 **Next step**  
-[Step 5: Viewing and Updating Your Custom Language Models](view-update-lang.md)
+[Step 5: Viewing and updating your custom language models](view-update-lang.md)

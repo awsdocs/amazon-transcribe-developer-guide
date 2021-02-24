@@ -1,17 +1,19 @@
-# Custom Vocabularies<a name="how-vocabulary"></a>
+# Custom vocabularies<a name="how-vocabulary"></a>
 
 **Topics**
-+ [Create a Custom Vocabulary Using a List](#create-vocabulary-list)
-+ [Create a Custom Vocabulary Using a Table](#create-vocabulary-table)
-+ [Character Sets for Custom Vocabularies](#charsets)
++ [Create a custom vocabulary using a list](#create-vocabulary-list)
++ [Create a custom vocabulary using a table](#create-vocabulary-table)
++ [Character sets for custom vocabularies](#charsets)
 
 You can give Amazon Transcribe more information about how to process speech in your input file by creating a custom vocabulary\. A *custom vocabulary* is a list of specific words that you want Amazon Transcribe to recognize in your audio input\. These are generally domain\-specific words and phrases, words that Amazon Transcribe isn't recognizing, or proper nouns\.
+
+You are responsible for the integrity of your own data when you use Amazon Transcribe\. Do not enter confidential information, personal information \(PII\), or protected health information \(PHI\), into a custom vocabulary\.
 
 Custom vocabularies work best when used to target specific words or phrases\. We recommend that you create separate small vocabularies tailored to specific audio recordings instead of creating a single vocabulary with many terms to use for all of your recordings\. You can have up to 100 vocabularies in your account\. The size limit for a custom vocabulary is 50 Kb\.
 
 You specify the custom vocabulary in a text file\. You can specify either a list of words in the vocabulary, or a four\-column table that gives you more control over the input and output of the words in the custom vocabulary\.
 
-For more information about creating a custom vocabulary, see [Create a Custom Vocabulary Using a List](#create-vocabulary-list) and [Create a Custom Vocabulary Using a Table](#create-vocabulary-table)\.
+For more information about creating a custom vocabulary, see [Create a custom vocabulary using a list](#create-vocabulary-list) and [Create a custom vocabulary using a table](#create-vocabulary-table)\.
 
 To create a custom vocabulary, use the [CreateVocabulary](API_CreateVocabulary.md) operation or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. After you submit the `CreateVocabulary` request, Amazon Transcribe processes the vocabulary\. To see the processing status of the vocabulary, use the console or the [GetVocabulary](API_GetVocabulary.md) operation\.
 
@@ -20,7 +22,7 @@ If you are uploading the custom vocabulary using the Amazon Transcribe console, 
 
 To use the custom vocabulary, set the `VocabularyName` field of the `Settings` field when you call the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation or choose the vocabulary in the console when you create the transcription job\. 
 
-## Create a Custom Vocabulary Using a List<a name="create-vocabulary-list"></a>
+## Create a custom vocabulary using a list<a name="create-vocabulary-list"></a>
 
 You can create a custom vocabulary using a list of words or phrases in a text file\. You can place each word on its own line, or you can put multiple words on a single line, separating the words or phrases from each other with a comma\. 
 
@@ -28,9 +30,9 @@ Each entry must contain:
 + Fewer than 256 characters, including hyphens
 + Only characters from the allowed character set
 
-For valid character sets, see [Character Sets for Custom Vocabularies](#charsets)\.
+For valid character sets, see [Character sets for custom vocabularies](#charsets)\.
 
-If an entry is the list is a phrase, separate the words of the phrase with a hyphen\. For example, if the phrase is **Los Angeles**, you would enter it in the file as **Los\-Angeles**\.
+If an entry in the list is a phrase, separate the words of the phrase with a hyphen\. For example, if the phrase is **Los Angeles**, you would enter it in the file as **Los\-Angeles**\.
 
 Enter acronyms or other words whose letters should be pronounced individually as single letters separated by dots, such as **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs", separate the "s" from the acronym with a hyphen: **A\.B\.C\.\-s**\. You can use either upper or lower case letters to enter an acronym\. Acronyms are supported in the following languages:
 + Dutch
@@ -59,15 +61,17 @@ The following example shows an input file with the vocabulary words and phrases 
 Los-Angeles,F.B.I.,Etienne
 ```
 
-## Create a Custom Vocabulary Using a Table<a name="create-vocabulary-table"></a>
+## Create a custom vocabulary using a table<a name="create-vocabulary-table"></a>
 
 You can create a custom vocabulary by creating a table in a text file\. Each row in the table is a word or phrase followed by the optional `IPA`, `SoundsLike`, and `DisplayAs` fields\. Each field must contain:
 + Fewer than 256 characters, including hyphens
 + Only characters from the allowed character set
 
-For valid character sets, see [Character Sets for Custom Vocabularies](#charsets)
+For valid character sets, see [Character sets for custom vocabularies](#charsets)
 
 Place each word or phrase in your text file on a separate line\. Separate the fields with TAB characters\. Save the file with the extension `.txt` in an Amazon S3 bucket in the same region that you are calling the API\. 
+
+If you edit your text file in Windows, make sure that your file is in `LF` format and not in `CRLF` format\. Otherwise, you will be unable to create your custom vocabulary\. Some text editors enable you to change the formatting with Find and Replace commands\.
 
 The following examples are input files in text format\. The examples use spaces to align the columns\. Your input files should use TAB characters to separate the columns\. Include spaces only in the `IPA` and `DisplayAs` columns\. If you copy these examples, remove the extra spaces between columns and replace "\[TAB\]" with a TAB character\.
 
@@ -97,7 +101,7 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 
   If the entry is a phrase, separate the words with a hyphen \(\-\)\. For example, you type **Los Angeles** as **Los\-Angeles**\.
 
-  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\. For a list of languages that support acronyms, see [Create a Custom Vocabulary Using a List](#create-vocabulary-list)\.
+  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\. For a list of languages that support acronyms, see [Create a custom vocabulary using a list](#create-vocabulary-list)\.
 
   The `Phrase` field is required\. You can use any of the allowed characters for the input language\. For the list of allowed characters, see the individual languages\. If you do not specify the `DisplayAs` field, Amazon Transcribe uses the contents of the `Phrase` field in the output file\.
 + **IPA** – To specify the pronunciation of your word or phrase, you can include characters in the [International Phonetic Alphabet \(IPA\)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) in this field\. The `IPA` field can't contain leading or trailing spaces, and you must use a single space to separate each phoneme in the input\. For example, in English you would enter the phrase **Los\-Angeles** as **l ɔ s æ n ʤ ə l ə s**\. You would enter the phrase **F\.B\.I\.** as **ɛ f b i aɪ**\.
@@ -116,33 +120,33 @@ FBI        [TAB]          [TAB]ɛ f b i aɪ[TAB]F.B.I.
 
   You can use any UTF\-8 character in the `DisplayAs` field\.
 
-## Character Sets for Custom Vocabularies<a name="charsets"></a>
+## Character sets for custom vocabularies<a name="charsets"></a>
 
  Amazon Transcribe limits the characters that you can use to create custom vocabularies\. You can use the following character sets for each language\.
 
 **Topics**
-+ [Arabic Character Set](#char-arabic)
-+ [Chinese Character Set](#char-chinese)
-+ [Dutch Character Set](#char-dutch)
-+ [English Character Set](#char-english)
-+ [Farsi Character Set](#char-farsi)
-+ [French Character Set](#char-french)
-+ [German Character Set](#char-german)
-+ [Hebrew Character Set](#char-hebrew)
-+ [Hindi Character Set](#char-hindi)
-+ [Indonesian Character Set](#char-indonesian)
-+ [Italian Character Set](#char-italian)
-+ [Japanese Character Set](#char-japanese)
-+ [Korean Character Set](#char-korean)
-+ [Malay Character Set](#char-malay)
-+ [Portuguese Character Set](#char-portuguese)
-+ [Russian Character Set](#char-russian)
-+ [Spanish Character Set](#char-spanish)
-+ [Tamil Character Set](#char-tamil)
-+ [Telugu Character Set](#char-telugu)
-+ [Turkish Character Set](#char-turkish)
++ [Arabic character set](#char-arabic)
++ [Chinese character set](#char-chinese)
++ [Dutch character set](#char-dutch)
++ [English character set](#char-english)
++ [Farsi character set](#char-farsi)
++ [French character set](#char-french)
++ [German character set](#char-german)
++ [Hebrew character set](#char-hebrew)
++ [Hindi character set](#char-hindi)
++ [Indonesian character set](#char-indonesian)
++ [Italian character set](#char-italian)
++ [Japanese character set](#char-japanese)
++ [Korean character set](#char-korean)
++ [Malay character set](#char-malay)
++ [Portuguese character set](#char-portuguese)
++ [Russian character set](#char-russian)
++ [Spanish character set](#char-spanish)
++ [Tamil character set](#char-tamil)
++ [Telugu character set](#char-telugu)
++ [Turkish character set](#char-turkish)
 
-### Arabic Character Set<a name="char-arabic"></a>
+### Arabic character set<a name="char-arabic"></a>
 
 For Arabic custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields\. You can also use the hypen \(\-\) character to separate words\.
 
@@ -194,7 +198,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | sˤ | 0073 02E4 | θ | 03B8 | 
 | t | 0074 | χ | 03C7 | 
 
-### Chinese Character Set<a name="char-chinese"></a>
+### Chinese character set<a name="char-chinese"></a>
 
  For Chinese custom vocabularies, the `Phrase` field can use any of the characters listed in the following file on GitHub\.
 + [chinese\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/chinese-character-set.txt) 
@@ -207,7 +211,7 @@ When you use pinyin syllables in the `SoundsLike` field, separate the syllables 
 Amazon Transcribe represents the four tones in Mandarin Chinese using numbers\. The following table shows how tone marks are mapped for the word "ma\."
 
 
-| Tone | Tone Mark | Tone Number | 
+| Tone | Tone mark | Tone number | 
 | --- | --- | --- | 
 | Tone 1 | mā | ma1 | 
 | Tone 2 | má | ma2 | 
@@ -226,7 +230,7 @@ Phrase     SoundsLike               IPA  DisplayAs
 世界博览会  shi4-jie4-bo2-lan3-hui4       世博会
 ```
 
-### Dutch Character Set<a name="char-dutch"></a>
+### Dutch character set<a name="char-dutch"></a>
 
 For Dutch custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -279,7 +283,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | w | 0077 | ʒ | 0292 | 
 | y | 0079 | χ | 03C7 | 
 
-### English Character Set<a name="char-english"></a>
+### English character set<a name="char-english"></a>
 
 For English custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -316,7 +320,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | u | 0075 | ʧ | 02A7 | 
 | v | 0076 | θ | 03B8 | 
 
-### Farsi Character Set<a name="char-farsi"></a>
+### Farsi character set<a name="char-farsi"></a>
 
 For Farsi custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields\.
 
@@ -366,7 +370,7 @@ You can use the following International Phonetic Alphabet in the `IPA` field of 
 | s | 0073 | ʧ | 02A7 | 
 | t | 0074 | χ | 03C7 | 
 
-### French Character Set<a name="char-french"></a>
+### French character set<a name="char-french"></a>
 
 For French custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -420,9 +424,11 @@ You can use the following International Phonetic Alphabet in the `IPA` field of 
 | w | 0077 | ẽ | 1EBD | 
 | y | 0079 |   |   | 
 
-### German Character Set<a name="char-german"></a>
+### German character set<a name="char-german"></a>
 
 For German custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
+
+
 + a \- z
 + A \- Z
 + ' \(apostrophe\)
@@ -469,7 +475,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | s | 0073 | ʧ | 02A7 | 
 | t | 0074 |   |   | 
 
-### Hebrew Character Set<a name="char-hebrew"></a>
+### Hebrew character set<a name="char-hebrew"></a>
 
 For Hebrew custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
 
@@ -511,7 +517,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | n | 006E | χ | 03C7 | 
 | o | 006F |   |   | 
 
-### Hindi Character Set<a name="char-hindi"></a>
+### Hindi character set<a name="char-hindi"></a>
 
 For Hindi custom vocabularies, you can use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
 
@@ -594,7 +600,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | uː | 0117 0720 | ʧ | 0679  | 
 | z | 0122  | ʧʰ | 0679 0688 | 
 
-### Indonesian Character Set<a name="char-indonesian"></a>
+### Indonesian character set<a name="char-indonesian"></a>
 
 For Indonesian custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -613,7 +619,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | au | 0061 0075 | t | 0074 | 
 | b | 0062 | tʃ | 0074 0283 | 
 | d | 0064 | u | 0075 | 
-| d | 0064 | v | 0076 | 
+| dʒ | 0064 0292 | v | 0076 | 
 | e | 0065 | w | 0077 | 
 | f | 0066 | x | 0078 | 
 | h | 0068 | y | 0079 | 
@@ -628,7 +634,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | p | 0070 | ʃ | 0283 | 
 | q | 0071 | ʊ | 028A | 
 
-### Italian Character Set<a name="char-italian"></a>
+### Italian character set<a name="char-italian"></a>
 
 For Italian custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -685,7 +691,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | rr | 0072 0072 | ʧ | 02A7 | 
 | s | 0073 | ʧʧ | 02A7 02A7 | 
 
-### Japanese Character Set<a name="char-japanese"></a>
+### Japanese character set<a name="char-japanese"></a>
 
 For Japanese custom vocabularies, the `Phrase` and `DisplayAs` fields can use any of the characters listed in the following file on GitHub\.
 + [ japanese\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/japanese-character-set.txt) 
@@ -731,7 +737,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | o | 006F | ʔ | 0294 | 
 | oː | 006F 02D0 |   |   | 
 
-### Korean Character Set<a name="char-korean"></a>
+### Korean character set<a name="char-korean"></a>
 
 For Korean custom vocabularies, you can use any of the Hangul syllables in the `Phrase` and `SoundsLike` fields\. For more information, see [Hangul Syllables](https://en.wikipedia.org/wiki/Hangul_Syllables) on Wikipedia\.
 
@@ -762,7 +768,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | p͈ | 0070 0348 | ʌ | 028C | 
 | s | 0073 |   |   | 
 
-### Malay Character Set<a name="char-malay"></a>
+### Malay character set<a name="char-malay"></a>
 
 For Malay custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -796,7 +802,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | p | 0070 | ʊ | 028A | 
 | q | 0071 | ʊi | 028A 0069 | 
 
-### Portuguese Character Set<a name="char-portuguese"></a>
+### Portuguese character set<a name="char-portuguese"></a>
 
 For Portuguese custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -853,7 +859,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | tʃ | 0074 0283 | ʤ | 02A4 | 
 | u | 0075 | ẽ | 1EBD | 
 
-### Russian Character Set<a name="char-russian"></a>
+### Russian character set<a name="char-russian"></a>
 
 For Russian custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 
@@ -910,7 +916,7 @@ You can use the following International Phonetic Alphabet characters in the IPA 
 | sʲ | 0073 02B2 | ˈɨ | 02C8 0268 | 
 | ts | 0074 0073 | ˈa | 02C8 0061 | 
 
-### Spanish Character Set<a name="char-spanish"></a>
+### Spanish character set<a name="char-spanish"></a>
 
 For Spanish custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z
@@ -953,7 +959,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | o | 006F | ʧ | 02A7 | 
 | p | 0070 | θ | 03B8 | 
 
-### Tamil Character Set<a name="char-tamil"></a>
+### Tamil character set<a name="char-tamil"></a>
 
 For Tamil custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 
@@ -1018,7 +1024,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | u | 0075 | ʒ | 0292 | 
 | uː | 0075 02D0 | θ | 03B8 | 
 
-### Telugu Character Set<a name="char-telugu"></a>
+### Telugu character set<a name="char-telugu"></a>
 
 For Telugu custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 
@@ -1092,7 +1098,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | t | 0074 | θ | 03B8 | 
 | tʃʰ | 0074 0283 02B0 |   |   | 
 
-### Turkish Character Set<a name="char-turkish"></a>
+### Turkish character set<a name="char-turkish"></a>
 
 For Turkish custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
 + a \- z

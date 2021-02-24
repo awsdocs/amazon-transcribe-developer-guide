@@ -44,12 +44,12 @@ You can't set both `ShowSpeakerLabel` and `EnableChannelIdentification` in the s
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
 Indicates the source language used in the input audio stream\.  
-Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU`   
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR`   
 Required: Yes
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.  
-Valid Values:` pcm`   
+Valid Values:` pcm | ogg-opus | flac`   
 Required: Yes
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaSampleRateHertz"></a>
@@ -129,6 +129,7 @@ Content-type: application/json
                      { 
                         "Items": [ 
                            { 
+                              "Confidence": number,
                               "Content": "string",
                               "EndTime": number,
                               "Speaker": "string",
@@ -164,11 +165,11 @@ Shows whether channel identification has been enabled in the stream\.
 
  ** [LanguageCode](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageCode"></a>
 The language code for the input audio stream\.  
-Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU` 
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
-Valid Values:` pcm` 
+Valid Values:` pcm | ogg-opus | flac` 
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaSampleRateHertz"></a>
 The sample rate for the input audio stream\. Use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
@@ -214,7 +215,7 @@ Type: [TranscriptResultStream](API_streaming_TranscriptResultStream.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-One or more arguments to the `StartStreamTranscription` operation was invalid\. For example, `MediaEncoding` was not set to `pcm` or `LanguageCode` was not set to a valid code\. Check the parameters and try your request again\.  
+One or more arguments to the `StartStreamTranscription` or `StartMedicalStreamTranscription` operation was invalid\. For example, `MediaEncoding` was not set to a valid encoding, or `LanguageCode` was not set to a valid code\. Check the parameters and try your request again\.  
 HTTP Status Code: 400
 
  **ConflictException**   
@@ -222,7 +223,7 @@ A new stream started with the same session ID\. The current stream has been term
 HTTP Status Code: 409
 
  **InternalFailureException**   
-A problem occurred while processing the audio\. Amazon Transcribe terminated processing\. Try your request again\.  
+A problem occurred while processing the audio\. Amazon Transcribe or Amazon Transcribe Medical terminated processing\. Try your request again\.  
 HTTP Status Code: 500
 
  **LimitExceededException**   

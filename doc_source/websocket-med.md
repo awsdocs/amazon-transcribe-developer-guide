@@ -1,17 +1,16 @@
-# Establish a Bi\-Directional Connection Using the WebSocket Protocol<a name="websocket-med"></a>
+# Establish a bi\-directional connection using the WebSocket protocol<a name="websocket-med"></a>
 
-You can use the [WebSocket protocol](https://tools.ietf.org/html/rfc6455) to open a bi\-directional connection that is designed to be secure with Amazon Transcribe Medical\. You encode the audio stream with event stream encoding, and Amazon Transcribe Medical returns a stream of text in JSON blobs that are also encoded using event stream encoding\. For more information, see [Event Stream Encoding](event-stream-med.md)\. You can use the information in this section to create applications using the WebSocket library of your choice\.
+You can use the [WebSocket protocol](https://tools.ietf.org/html/rfc6455) to open a bi\-directional connection that is designed to be secure with Amazon Transcribe Medical\. You encode the audio stream with event stream encoding, and Amazon Transcribe Medical returns a stream of text in JSON blobs that are also encoded using event stream encoding\. For more information, see [Event stream encoding](event-stream-med.md)\. You can use the information in this section to create applications using the WebSocket library of your choice\.
 
 **Topics**
-+ [Adding a Policy for WebSocket Requests to Your IAM Role](#websocket-iam-med)
-+ [Creating a Pre\-Signed URL](#websocket-url-med)
-+ [Handling the WebSocket Upgrade Response](#websocket-response-med)
-+ [Event Stream Encoding](event-stream-med.md)
-+ [Making a WebSocket Streaming Request](#websocket-streaming-request-med)
-+ [Handling a WebSocket Streaming Response](#websocket-streaming-response-med)
-+ [Handling WebSocket Streaming Errors](#websocket-errors-med)
++ [Adding a policy for WebSocket requests to your IAM role](#websocket-iam-med)
++ [Creating a pre\-signed URL](#websocket-url-med)
++ [Handling the WebSocket upgrade response](#websocket-response-med)
++ [Making a WebSocket streaming request](#websocket-streaming-med-request)
++ [Handling a WebSocket streaming response](#websocket-streaming-med-response-med)
++ [Handling WebSocket streaming errors](#websocket-errors-med)
 
-## Adding a Policy for WebSocket Requests to Your IAM Role<a name="websocket-iam-med"></a>
+## Adding a policy for WebSocket requests to your IAM role<a name="websocket-iam-med"></a>
 
 To use the WebSocket protocol to call Amazon Transcribe Medical, you need to attach the following policy to the AWS Identity and Access Management \(IAM\) role that makes the request\.
 
@@ -29,9 +28,9 @@ To use the WebSocket protocol to call Amazon Transcribe Medical, you need to att
 }
 ```
 
-## Creating a Pre\-Signed URL<a name="websocket-url-med"></a>
+## Creating a pre\-signed URL<a name="websocket-url-med"></a>
 
-You need to construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe Medical\. To open a bi\-directional connection, you must use port 8443\. WebSocket streaming uses the Amazon Signature Version 4 process for signing requests\. Signing the request helps to verify the identity of the requester and to protect your audio data in transit\. It also protects against potential replay attacks\. For more information about Signature Version 4, see [ Signing AWS API Requests ](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\.
+You need to construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe Medical\. To open a bi\-directional connection, you must use port 8443\. WebSocket streaming\-med uses the Amazon Signature Version 4 process for signing requests\. Signing the request helps to verify the identity of the requester and to protect your audio data in transit\. It also protects against potential replay attacks\. For more information about Signature Version 4, see [ Signing AWS API Requests ](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\.
 
 The URL has the following format\. Line breaks have been added for readability\.
 
@@ -48,19 +47,19 @@ GET https://transcribestreaming.region.amazonaws.com:8443/medical-stream-transcr
    &media-encoding=mediaEncoding
    &sample-rate=mediaSampleRateHertz
    &session-id=sessionId
-   &specialty=PRIMARYCARE
-    &type=DICTATION
+   &specialty=specialty
+   &type=type
 ```
 
 For TYPE, it is best to select CONVERSATION if your use case involves multiple speakers engaged in a discussion\. An example would be a conversation between a clinician and a patient\. Select DICTATION if your use case involves a single speaker where a person is dictating speech\. An example would be if a physician is dictating medical notes for data entry purposes after a patient encounter\. 
 
 Use the following values for the URL parameters:
-+ **language\-code** – The language code for the input audio\. The valid value is en\-US\.
++ **language\-code** – The language code for the input audio\. The valid value is `en-US`\.
 + **media\-encoding** – The encoding used for the input audio\. The valid value is `pcm`\.
 + **sample\-rate** – The sample rate of the input audio in hertz\. 16,000 Hz or higher sample rates are accepted\. 
 + **sessionId** – Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe Medical generates one for you and returns it in the response\.
-+ **specialty** – The specialty in the medical domain\. Must be PRIMARYCARE\.
-+ **type** – The type of audio\. Must be DICTATION or CONVERSATION\.
++ **specialty** – The specialty of the medical domain\. Valid values are `PRIMARYCARE`, `CARDIOLOGY`, `NEUROLOGY`, `ONCOLOGY`, `RADIOLOGY`, and `UROLOGY`\.
++ **type** – The type of audio\. Must be `DICTATION` or `CONVERSATION`\.
 
  The remaining parameters are Signature Version 4 parameters: 
 + **X\-Amz\-Algorithm** – The algorithm you're using in the signing process\. The only valid value is `AWS4-HMAC-SHA256`\.
@@ -71,9 +70,9 @@ Use the following values for the URL parameters:
 + **X\-Amz\-Signature** – The Signature Version 4 signature that you generated for the request\.
 + **X\-Amz\-SignedHeaders** – The headers that are signed when creating the signature for the request\. The only valid value is `host`\.
 
-To construct the URL for the request and create the Signature Version 4 signature, use the following steps\. The examples are in pseudocode\. 
+To construct the URL for the request and create the Signature Version 4 signature, use the following steps\. The examples are in pseudocode\.
 
-**Task 1: Create a Canonical Request**
+**Task 1: Create a canonical request**
 
 Create a string that includes information from your request in a standardized format\. This ensures that when AWS receives the request, it can calculate the same signature that you calculate in Task 3\. For more information, see [Create a Canonical Request for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html) in the *Amazon Web Services General Reference*\.
 
@@ -86,7 +85,7 @@ Create a string that includes information from your request in a standardized fo
    service = "transcribe"
    # AWS Region
    region = "AWS Region"
-   # Amazon Transcribe streaming endpoint
+   # Amazon Transcribe streaming-med endpoint
    endpoint = "https://transcribestreaming.region.amazonaws.com:8443"
    # Host
    host = "transcribestreaming.region.amazonaws.com:8443"
@@ -118,20 +117,22 @@ Create a string that includes information from your request in a standardized fo
 1. Create the credential scope, which scopes the derived key to the date, AWS Region, and service to which the request is made\.
 
    ```
-   credential_scope = datestamp + "/" + region + "/" + service + "/" + "aws4_request"
+   credential_scope = datestamp + "%2f" + region + "%2f" + service + "%2f" + "aws4_request"
    ```
+
+   `"%2f"` is the url\-encoded value of `"/"`\.
 
 1. Create the canonical query string\. Query string values must be URL\-encoded and sorted by name\.
 
    ```
    canonical_querystring  = "X-Amz-Algorithm=" + algorithm
-   canonical_querystring += "&X-Amz-Credentials="+ access key + "/" + credential_scope
+   canonical_querystring += "&X-Amz-Credential="+ access key + "%2f" + credential_scope
    canonical_querystring += "&X-Amz-Date=" + amz_date 
    canonical_querystring += "&X-Amz-Expires=300"
    canonical_querystring += "&X-Amz-Security-Token=" + token
    canonical_querystring += "&X-Amz-SignedHeaders=" + signed_headers
    canonical_querystring += "&language-code=en-US&media-encoding=pcm&sample-rate=16000"
-   canonical_querystring += "&specialty=PRIMARYCARE;"
+   canonical_querystring += "&specialty=PRIMARYCARE"
    canonical_querystring += "&type=DICTATION"
    ```
 
@@ -152,7 +153,7 @@ Create a string that includes information from your request in a standardized fo
       + payload_hash
    ```
 
-**Task 2: Create the String to Sign**
+**Task 2: Create the string to sign**
 
 The string to sign contains meta information about your request\. You use the string to sign in the next step when you calculate the request signature\. For more information, see [Create a String to Sign for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-string-to-sign.html) in the *Amazon Web Services General Reference*\.
 + Create the string\.
@@ -164,7 +165,7 @@ The string to sign contains meta information about your request\. You use the st
      + HashSHA256(canonical_request.Encode("utf-8").HexDigest()
   ```
 
-**Task 3: Calculate the Signature**
+**Task 3: Calculate the signature**
 
 You derive a signing key from your AWS secret access key\. For a greater degree of protection, the derived key is specific to the date, service, and AWS Region\. You use the derived key to sign the request\. For more information, see [ Calculate the Signature for AWS Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html) in the *Amazon Web Services General Reference*\.
 
@@ -181,7 +182,7 @@ The function `HMAC(key, data)` represents an HMAC\-SHA256 function that returns 
   signature = HMAC.new(signing_key, (string_to_sign).Encode("utf-8"), Sha256()).HexDigest
   ```
 
-**Task 4: Add Signing Information to the Request and Create the Request URL**
+**Task 4: Add signing information to the request and create the request URL**
 
 After you calculate the signature, add it to the query string\. For more information, see [Add the Signature to the HTTP Request](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html) in the *Amazon Web Services General Reference*\.
 
@@ -199,9 +200,9 @@ After you calculate the signature, add it to the query string\. For more informa
 
 You use the request URL with your WebSocket library to make the request to the Amazon Transcribe Medical service\.
 
-### Including WebSocket Request Headers<a name="websocket-headers-med"></a>
+### Including WebSocket request headers<a name="websocket-headers-med"></a>
 
-The request to Amazon Transcribe Medical must include the following headers\. Typically these headers are managed by your WebSocket client library\.
+The request to Amazon Transcribe Medical must include the following headers\. Typically thesemed headers are managed by your WebSocket client library\.
 
 ```
 Host: transcribestreaming.region.amazonaws.com:8443
@@ -219,7 +220,7 @@ Use the following values for the headers:
 + **Sec\-WebSocket\-Version** – The version of the WebSocket protocol to use\.
 + **Sec\-WebSocket\-Key** – A base\-64 encoded randomly generated string that identifies the request\.
 
-## Handling the WebSocket Upgrade Response<a name="websocket-response-med"></a>
+## Handling the WebSocket upgrade response<a name="websocket-response-med"></a>
 
 When Amazon Transcribe Medical receives your WebSocket request, it responds with a WebSocket upgrade response\. Typically, your WebSocket library manages this response and sets up a socket for communications with Amazon Transcribe Medical\.
 
@@ -253,20 +254,20 @@ The response has the following values:
 + `Connection` – Always `Upgrade`\.
 + `Upgrade` – Always `websocket`\.
 + `websocket-origin` – The URI of the WebSocket server that responded to the request\.
-+ `websocket-location` – The contents of the request URI that was sent to the server\. For a description of the contents, see [Creating a Pre\-Signed URL](websocket.md#websocket-url)\.
++ `websocket-location` – The contents of the request URI that was sent to the server\. For a description of the contents, see [Creating a pre\-signed URL](websocket.md#websocket-url)\.
 + `x-amzn-RequestId` – An identifier for the request\. 
 + `x-amzn-SessionId` – An identifier for a transcription session\. 
 + `Strict-Transport-Security` – A header that informs browsers to access the endpoint using only HTTPS\.
 + `sec-websocket-accept` – The hash of the `Sec-WebSocket-Key` header sent in the request\.
 
-## Making a WebSocket Streaming Request<a name="websocket-streaming-request-med"></a>
+## Making a WebSocket streaming request<a name="websocket-streaming-med-request"></a>
 
-After the WebSocket connection is established, the client can start sending a sequence of audio frames\. Each frame contains one data frame that is encoded in event stream encoding\. For more information, see [Event Stream Encoding](event-stream.md)\.
+After the WebSocket connection is established, the client can start sending a sequence of audio frames\. Each frame contains one data frame that is encoded in event stream encoding\. For more information, see [Event stream encoding](event-stream.md)\.
 
 Each data frame contains three headers combined with a chunk of raw audio bytes\. The following table lists and describes the headers\. 
 
 
-| Header Name Byte Length | Header Name \(String\) | Header Value Type | Value String Byte Length | Value String \(UTF\-8\) | 
+| Header name Byte Length | Header name \(string\) | Header value type | Value string byte length | Value string \(UTF\-8\) | 
 | --- | --- | --- | --- | --- | 
 | 13 | :content\-type | 7 | 24 | application/octet\-stream | 
 | 11 | :event\-type | 7 | 10 | AudioEvent | 
@@ -274,32 +275,32 @@ Each data frame contains three headers combined with a chunk of raw audio bytes\
 
 To end the audio data stream, send an empty audio chunk in an event\-stream\-encoded message\.
 
-## Handling a WebSocket Streaming Response<a name="websocket-streaming-response-med"></a>
+## Handling a WebSocket streaming response<a name="websocket-streaming-med-response-med"></a>
 
 The response contains event\-stream\-encoded raw bytes in the payload\. It contains the standard prelude and the following headers\.
 
 
-| Header Name Byte Length | Header Name \(String\) | Header Value Type | Value String Byte Length | Value String \(UTF\-8\) | 
+| Header name byte length | Header name \(string\) | Header value type | Value string byte length | Value string \(UTF\-8\) | 
 | --- | --- | --- | --- | --- | 
 | 13 | :content\-type | 7 | 24 | application/octet\-stream | 
 | 11 | :event\-type | 7 | 15 | TranscriptEvent | 
 | 13 | :message\-type | 7 | 5 | event | 
 
-When you decode the binary response, you end up with a JSON structure with the results of the transcription\. For an example of the JSON response, see [Streaming Transcription](streaming.md)\.
+When you decode the binary response, you end up with a JSON structure with the results of the transcription\. For an example of the JSON response, see [Streaming transcription](streaming-med.md)\.
 
-## Handling WebSocket Streaming Errors<a name="websocket-errors-med"></a>
+## Handling WebSocket streaming errors<a name="websocket-errors-med"></a>
 
 If an exception occurs while processing your request, Amazon Transcribe Medical responds with a terminal WebSocket frame containing an event\-stream\-encoded response\. The response has the headers described in the following table, and the body of the response contains a descriptive error message\. After sending the exception response, Amazon Transcribe Medical sends a close frame\.
 
 
-| Header Name Byte Length | Header Name \(String\) | Header Value Type | Value String Byte Length | Value String \(UTF\-8\) | 
+| Header name byte length | Header name \(string\) | Header value type | Value string byte length | Value string \(UTF\-8\) | 
 | --- | --- | --- | --- | --- | 
 | 13 | :content\-type | 7 | 24 | application/octet\-stream | 
 | 15 | :exception\-type | 7 | varies | varies, see below | 
 | 13 | :message\-type | 7 | 9 | exception | 
 
 The `exception-type` header contains one of the following values:
-+ `BadRequestException` – There was a client error when the stream was created, or an error occurred while streaming data\. Make sure that your client is ready to accept data and try your request again\.
++ `BadRequestException` – There was a client error when the stream was created, or an error occurred while streaming\-med data\. Make sure that your client is ready to accept data and try your request again\.
 + `InternalFailureException` – Amazon Transcribe Medical had a problem during the handshake with the client\. Try your request again\.
 + `LimitExceededException` – The client exceeded the concurrent stream limit\. For more information, see [Amazon Transcribe Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe) in the *Amazon Web Services General Reference*\. Reduce the number of streams that you are transcribing\.
 + `UnrecognizedClientException` – The WebSocket upgrade request was signed with an incorrect access key or secret key\. Make sure that you are correctly creating the access key and try your request again\.

@@ -35,9 +35,9 @@ Type: Boolean
 Required: No
 
  **VocabularyFilterMethod**   <a name="transcribe-Type-Settings-VocabularyFilterMethod"></a>
-Set to `mask` to remove filtered text from the transcript and replace it with three asterisks \("\*\*\*"\) as placeholder text\. Set to `remove` to remove filtered text from the transcript without using placeholder text\.  
+Set to `mask` to remove filtered text from the transcript and replace it with three asterisks \("\*\*\*"\) as placeholder text\. Set to `remove` to remove filtered text from the transcript without using placeholder text\. Set to `tag` to mark the word in the transcription output that matches the vocabulary filter\. When you set the filter method to `tag`, the words matching your vocabulary filter are not masked or removed\.  
 Type: String  
-Valid Values:` remove | mask`   
+Valid Values:` remove | mask | tag`   
 Required: No
 
  **VocabularyFilterName**   <a name="transcribe-Type-Settings-VocabularyFilterName"></a>
@@ -59,5 +59,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/Settings) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/Settings) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/transcribe-2017-10-26/Settings) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/Settings) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/Settings) 

@@ -12,18 +12,21 @@ Before you set up an interface VPC endpoint for Amazon Transcribe Medical, ensur
 
 Amazon Transcribe Medical supports making calls to all of its API actions from your VPC\. 
 
-## Creating an interface VPC endpoint for Amazon Transcribe Medical Streaming<a name="med-vpc-endpoint-create"></a>
+## Creating an interface VPC endpoint for Amazon Transcribe Medical<a name="med-vpc-endpoint-create"></a>
 
 You can create a VPC endpoint for the Amazon Transcribe Medical service using either the Amazon VPC console or the AWS Command Line Interface \(AWS CLI\)\. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
 
-Create a VPC endpoint for Amazon Transcribe Medical using the following service name: 
+For batch transcription in Amazon Transcribe Medical, create a VPC endpoint using the following service name: 
++ com\.amazonaws\.*region*\.transcribe 
+
+For streaming transcription in Amazon Transcribe Medical, create a VPC endpoint using the following service name: 
 + com\.amazonaws\.*region*\.transcribestreaming 
 
 If you enable private DNS for the endpoint, you can make API requests to Amazon Transcribe Medical using its default DNS name for the Region, for example, `transcribestreaming.us-east-2.amazonaws.com`\. 
 
 For more information, see [Accessing a service through an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#access-service-though-endpoint) in the *Amazon VPC User Guide*\.
 
-## Creating a VPC endpoint policy for Amazon Transcribe Medical Streaming<a name="med-vpc-endpoint-policy"></a>
+## Creating a VPC endpoint policy for Amazon Transcribe Medical streaming<a name="med-vpc-endpoint-policy"></a>
 
 You can attach an endpoint policy to your VPC endpoint that controls access to Amazon Transcribe Medical\. The policy specifies the following information:
 + The principal that can perform actions\.
@@ -32,8 +35,8 @@ You can attach an endpoint policy to your VPC endpoint that controls access to A
 
 For more information, see [Controlling access to services with VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) in the *Amazon VPC User Guide*\. 
 
-**Example: VPC endpoint policy for Amazon Transcribe Medical actions**  
-The following is an example of an endpoint policy for Amazon Transcribe Medical\. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe Medical actions for all principals on all resources\.
+**Example: VPC endpoint policy for Amazon Transcribe Medical streaming transcription actions**  
+The following is an example of an endpoint policy for streaming transcription in Amazon Transcribe Medical\. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe Medical actions for all principals on all resources\.
 
 ```
 {
@@ -43,6 +46,24 @@ The following is an example of an endpoint policy for Amazon Transcribe Medical\
          "Effect":"Allow",
          "Action":[
             "transcribe:StartMedicalStreamTranscription",
+         ],
+         "Resource":"*"
+      }
+   ]
+}
+```
+
+**Example: VPC endpoint policy for Amazon Transcribe Medical batch transcription actions**  
+The following is an example of an endpoint policy for batch transcription in Amazon Transcribe Medical\. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe Medical actions for all principals on all resources\.
+
+```
+{
+   "Statement":[
+      {
+         "Principal":"*",
+         "Effect":"Allow",
+         "Action":[
+            "transcribe:StartMedicalTranscriptionJob"
          ],
          "Resource":"*"
       }

@@ -30,4 +30,5 @@ The following actions are supported by Amazon Transcribe Service:
 +  [UpdateVocabularyFilter](API_UpdateVocabularyFilter.md) 
 
 The following actions are supported by Amazon Transcribe Streaming Service:
++  [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) 
 +  [StartStreamTranscription](API_streaming_StartStreamTranscription.md) 

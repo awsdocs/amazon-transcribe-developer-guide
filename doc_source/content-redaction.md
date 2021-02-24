@@ -1,11 +1,11 @@
-# Automatic Content Redaction<a name="content-redaction"></a>
+# Automatic content redaction<a name="content-redaction"></a>
 
- Amazon Transcribe's automatic content redaction feature automatically redacts sensitive personally identifiable information \(PII\) from your transcription results\. It replaces each identified instance of PII with a `[PII]` tag in the transcript\. You can use this feature to protect privacy and comply with local laws and regulations\. Automatic content redaction enables you to easily review and share transcripts to improve the customer service experience, coach agents, and discover new business opportunities while protecting sensitive personal information\. You can use this feature for source audio in US English \(en\-US\) with batch API calls\.
+Use *automatic content redaction* to automatically redact sensitive personally identifiable information \(PII\) from your transcription results\. It replaces each identified instance of PII with a `[PII]` tag in the transcript\. You can use this feature to protect privacy and comply with local laws and regulations\. Automatic content redaction enables you to easily review and share transcripts to improve the customer service experience, coach agents, and discover new business opportunities while protecting sensitive personal information\. You can use this feature for source audio in US English \(en\-US\) with batch API calls\.
 
 Personally Identifiable Information includes:
 
 
-| PII Entity | Definition | 
+| PII entity | Definition | 
 | --- | --- | 
 |  Bank Account Number  |  A number that uniquely identifies a bank account\.  | 
 |  Bank Routing Number  |  A number that identifies the location of a bank account\.  | 
@@ -127,4 +127,4 @@ The following is the unredacted JSON output:
 }
 ```
 
-Amazon Transcribe throws an error message if you use automatic content redaction in an unsupported region\. Similarly, you receive an error message if you use content redaction with an unsupported language\.
+Automatic content redaction is unavailable in the AWS GovCloud \(US\-East\) Region\. For more information on the availability of Amazon Transcribe in AWS Regions, see [Amazon Transcribe Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region)\.

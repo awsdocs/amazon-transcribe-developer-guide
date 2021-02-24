@@ -1,4 +1,4 @@
-# Step 2: Providing Amazon Transcribe with Data Permissions<a name="training-data-permissions"></a>
+# Step 2: Providing Amazon Transcribe with data permissions<a name="training-data-permissions"></a>
 
 To create a custom language model, you need to give Amazon Transcribe access to your text data\. To do this, give Amazon Transcribe the `GetObject` and `ListBucket` permissions to your Amazon Simple Storage Service \(Amazon S3\) bucket\.
 
@@ -93,5 +93,5 @@ To create a custom language model, you need to give Amazon Transcribe access to 
 
 Amazon Transcribe now has the necessary permissions to access the data for your custom language model\.
 
-**Next Step**  
-[Step 3: Creating a Custom Language Model](create-custom-language-model.md)
+**Next step**  
+[Step 3: Creating a custom language model](create-custom-language-model.md)

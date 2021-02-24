@@ -1,4 +1,4 @@
-# Event Stream Encoding<a name="event-stream"></a>
+# Event stream encoding<a name="event-stream"></a>
 
 Event stream encoding provides bidirectional communication using messages between a client and a server\. Data frames sent to the Amazon Transcribe streaming service are encoded in this format\. The response from Amazon Transcribe also uses this encoding\.
 
@@ -34,6 +34,18 @@ Each message contains the following components:
 Each header contains the following components\. There are multiple headers per frame\.
 + **Header name byte\-length:** The byte\-length of the header name\.
 + **Header name:** The name of the header indicating the header type\. For valid values, see the following frame descriptions\.
-+ **Header value type:** An enumeration indicating the header value type\. 
++ **Header value type:** An enumeration indicating the header value\.
+
+  The following shows the possible values for the header and what they indicate\.
+  + `0` – TRUE
+  + `1` – FALSE
+  + `2` – BYTE
+  + `3` – SHORT
+  + `4` – INTEGER
+  + `5` – LONG
+  + `6` – BYTE ARRAY
+  + `7` – STRING
+  + `8` – TIMESTAMP
+  + `9` – UUID
 + **Value string byte length:** The byte\-length of the header value string\.
 + **Header value:** The value of the header string\. Valid values for this field depend on the type of header\. For valid values, see the following frame descriptions\.

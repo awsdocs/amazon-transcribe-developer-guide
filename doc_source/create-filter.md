@@ -1,4 +1,4 @@
-# Step 2: Creating a Vocabulary Filter<a name="create-filter"></a>
+# Step 2: Creating a vocabulary filter<a name="create-filter"></a>
 
 You can create a vocabulary filter with either the [CreateVocabularyFilter](API_CreateVocabularyFilter.md) operation or the Amazon Transcribe console\.
 
@@ -6,9 +6,9 @@ If you use the [CreateVocabularyFilter](API_CreateVocabularyFilter.md) operation
 
 ## Console<a name="create-filter-console"></a>
 
-**Creating a Vocabulary Filter \(Console\)**
+****
 
-To use the console to create a vocabulary filter, you must have a plain text file that contains the words that you want to filter, formatted as described in [Step 1: Creating a List of Unwanted Words ](create-filter-file.md)\. Your file can be saved locally or in Amazon Simple Storage Service \(Amazon S3\)\. 
+To use the console to create a vocabulary filter, you must have a plain text file that contains the words that you want to filter, formatted as described in [Step 1: Creating a list of unwanted words ](create-filter-file.md)\. Your file can be saved locally or in Amazon Simple Storage Service \(Amazon S3\)\. 
 
 **To create a vocabulary filter \(console\)**
 
@@ -60,5 +60,5 @@ aws transcribe create-vocabulary-filter \
 }
 ```
 
-**Next Step**  
-[Step 3: Filtering Transcriptions](filter-transcriptions.md)
+**Next step**  
+[Step 3: Filtering transcriptions](filter-transcriptions.md)
