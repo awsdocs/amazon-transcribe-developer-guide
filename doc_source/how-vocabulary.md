@@ -218,6 +218,9 @@ Amazon Transcribe represents the four tones in Mandarin Chinese using numbers\. 
 | Tone 3 | mǎ | ma3 | 
 | Tone 4 | mà | ma4 | 
 
+**Note**  
+For the 5th \(neutral\) tone, you can use Tone 1, with the exception of 'er', which must be mapped to Tone 2\. For example, 打转儿 would be represented as 'da3\-zhuan4\-er2'\.
+
 Chinese custom vocabularies don't use the `IPA` field, but you must still include the `IPA` header in the vocabulary table\. 
 
 The following example is an input file in text format\. The example uses spaces to align the columns\. Your input files should use TAB characters to separate the columns\. Include spaces only in the `DisplayAs` column\.

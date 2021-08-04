@@ -2,7 +2,7 @@
 
 Provides a wrapper for the audio chunks that you are sending\.
 
-For information on audio encoding in Amazon Transcribe, see [Speech input](input.md)\. For information on audio encoding formats in Amazon Transcribe Medical, see [Speech input](input-med.md)\.
+For information on audio encoding in Amazon Transcribe, see [Speech input](https://docs.aws.amazon.com/transcribe/latest/dg/input.html)\. For information on audio encoding formats in Amazon Transcribe Medical, see [Speech input](https://docs.aws.amazon.com/transcribe/latest/dg/input-med.html)\.
 
 ## Contents<a name="API_streaming_AudioEvent_Contents"></a>
 

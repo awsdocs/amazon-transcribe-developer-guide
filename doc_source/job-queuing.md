@@ -1,6 +1,6 @@
 # Job queuing<a name="job-queuing"></a>
 
-When you send transcription jobs to Amazon Transcribe, there is a limit to the total number of jobs that can run at one time\. By default, there are 100 slots for jobs\. When the limit is reached, you must wait until one or more jobs have finished and freed up a slot before you can send your next job\.
+When you send transcription jobs to Amazon Transcribe, there is a limit to the total number of jobs that can run at one time\. By default, there are 250 slots for jobs\. When the limit is reached, you must wait until one or more jobs have finished and freed up a slot before you can send your next job\.
 
 To queue jobs so that they run as soon as a slot becomes available, you can use *job queuing*\. Job queuing creates a queue on your behalf that contains your jobs\. When a slot is available, Amazon Transcribe takes the next job from the queue and immediately starts processing it\. To allow resources for new jobs to be submitted and processed, Amazon Transcribe uses at most 90 percent of your slots to process jobs in the queue\.
 

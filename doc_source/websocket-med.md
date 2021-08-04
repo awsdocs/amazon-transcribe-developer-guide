@@ -66,7 +66,7 @@ Use the following values for the URL parameters:
 + **X\-Amz\-Credential** – A string separated by slashes \("/"\) that is formed by concatenating your access key ID and your credential scope components\. Credential scope includes the date in YYYYMMDD format, the AWS Region, the service name, and a special termination string \(aws4\_request\)\.
 + **X\-Amz\-Date** – The date and time that the signature was created\. Generate the date and time by following the instructions in [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html) in the *Amazon Web Services General Reference*\.
 + **X\-Amz\-Expires** – The length of time in seconds until the credentials expire\. The maximum value is 300 seconds \(5 minutes\)\.
-+ **X\-Amz\-Security\-Token** – Optional\. A Signature Version 4 token for temporary credentials\. If you specify this parameter, include it in the canonical request\. For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html) in the *AWS Identity and Access Management User Guide*\.
++ **X\-Amz\-Security\-Token** – Optional\. A Signature Version 4 token for temporary credentials\. If you specify this parameter, include it in the canonical request\. For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html) in the *AWS AWS Identity and Access Management User Guide*\.
 + **X\-Amz\-Signature** – The Signature Version 4 signature that you generated for the request\.
 + **X\-Amz\-SignedHeaders** – The headers that are signed when creating the signature for the request\. The only valid value is `host`\.
 

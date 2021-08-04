@@ -14,7 +14,9 @@ You can use a custom language model in transcription jobs with the Amazon Transc
 
 1. For **Name**, enter a transcription job name that is unique within your AWS account\.
 
-1. For **Model selection**, choose your custom language model\.
+1. For **Language**, choose the language of your media file\.
+
+1. For **Custom model selection**, choose your custom language model\.
 
 1. For **Input file location on S3**, enter the URI of the media file\. If you can't remember the URI, choose **Browse S3** and choose it\.
 
@@ -28,44 +30,43 @@ You can use a custom language model in transcription jobs with the Amazon Transc
 
 **To start a transcription job \(API\)**
 
-1. Specify values for the required parameters:
-   + `TranscriptionJobName` \- The name of the transcription job\.
-   + `LanguageCode` \- The language code of the transcription job\. US English \(en\-US\) is the only valid language code\.
-   + `MediaFileUri` parameter of the `Media` object \- The Amazon S3 location of the media file that you want to transcribe\.
-   + `LanguageModelName` parameter of the `ModelSettings` object \- The name of the custom language model\.
+**To transcribe an audio or video file with a custom language model \(API\)**
++  In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following\.
 
-1. Specify values for optional parameters\. The following code shows both required and optional parameters:
+  1. For `TranscriptionJobName`, specify a name that is unique to your AWS account\.
 
-   ```
-       {
-       "JobExecutionSettings": {
-       "AllowDeferredExecution": boolean,
-       "DataAccessRoleArn": "string"
-       },
-       "LanguageCode": "string",
-       "Media": {
-       "MediaFileUri": "string"
-       },
-       "MediaFormat": "string",
-       "MediaSampleRateHertz": number,
-       "ModelSettings": {
-       "LanguageModelName": "string"
-       },
-       "OutputBucketName": "string",
-       "OutputEncryptionKMSKeyId": "string",
-       "Settings": {
-       "ChannelIdentification": boolean,
-       "MaxAlternatives": number,
-       "MaxSpeakerLabels": number,
-       "ProfanityCollectionName": "string",
-       "ProfanityFilterMethod": "string",
-       "ShowAlternatives": boolean,
-       "ShowSpeakerLabels": boolean,
-       "VocabularyName": "string"
-       },
-       "TranscriptionJobName": "string"
-       }
-   ```
+  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio or video file\.
+
+  1. In the `MediaFileUri` parameter of the `Media` object, specify Amazon S3 location of the file that you want to transcribe\.
+
+  1. For the `LanguageModelName` parameter of the `ModelSettings` object, specify the name of the custom language model\.
+
+The following is an example request using the AWS SDK for Python \(Boto3\)\.
+
+```
+import time
+import boto3
+transcribe = boto3.client('transcribe')
+job_name = 'transcription-job-name'
+job_uri = 's3://path-to-your-media-file/media-file.file-extension'
+
+transcribe.start_transcription_job(
+        TranscriptionJobName = job_name,
+        Media = {'MediaFileUri': job_uri},
+        MediaFormat = 'media-format',
+        LanguageCode = 'language-code',
+    ModelSettings = {
+        'LanguageModelName': 'language-model-name'
+        }
+    )
+while True:
+    status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+    if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
+        break
+    print('Not ready yet...')
+    time.sleep(5)
+print(status)
+```
 
 ## Transcribing with a custom language model \(AWS CLI\)<a name="start-custom-cli"></a>
 
@@ -75,7 +76,7 @@ You can use a custom language model in transcription jobs with the Amazon Transc
   ```
   aws transcribe start-transcription-job \ 
    --transcription-job-name "example-job-name" \ 
-   --language-code "en-US" \ 
+   --language-code "language-code" \ 
    --media MediaFileUri="s3://example-bucket/example-audio.wav" \ 
    --model-settings LanguageModelName="ExampleLanguageModel"
   ```

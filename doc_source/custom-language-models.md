@@ -30,9 +30,14 @@ You can provide up to 2 GB of training data and 200 MB of tuning data\.
 
 If you have enough text that represents the audio you want to transcribe, training custom language models can produce significant improvements in accuracy over using [Custom vocabularies](how-vocabulary.md)\. Custom vocabularies improve the ability of Amazon Transcribe to recognize terms without using the context in which they're spoken\. Custom language models not only recognize individual terms, but additionally use each term's context to transcribe your audio\. 
 
-Custom language models can also add words to their recognition vocabularies automatically, eliminating the need for you to manually input new words\. You can't use custom language models with custom vocabularies\.
+Custom language models can also add words to their recognition vocabularies automatically, eliminating the need for you to manually input new words\. For the highest possible transcription accuracy, you can use custom vocabularies with your custom language model\.
 
-Custom language models are available only in US English \(en\-US\)\.
+Custom language models are available in the following languages:
++ Australian English \(en\-AU\)
++ British English \(en\-GB\)
++ US English \(en\-US\)
++ Indian Hindi \(hi\-IN\)
++ US Spanish \(es\-US\)
 
 You can't use AWS Key Management Service \(AWS KMS\) to encrypt your training data,  but you can use AWS KMS condition keys to encrypt your transcription output\. For information about condition keys, see [Key management](key-management.md)\.
 

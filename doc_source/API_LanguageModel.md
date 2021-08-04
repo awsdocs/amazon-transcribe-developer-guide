@@ -28,7 +28,7 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-LanguageModel-LanguageCode"></a>
 The language code you used to create your custom language model\.  
 Type: String  
-Valid Values:` en-US`   
+Valid Values:` en-US | hi-IN | es-US | en-GB | en-AU`   
 Required: No
 
  **LastModifiedTime**   <a name="transcribe-Type-LanguageModel-LastModifiedTime"></a>

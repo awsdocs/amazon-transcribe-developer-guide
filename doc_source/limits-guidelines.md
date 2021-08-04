@@ -4,36 +4,6 @@
 
 For a list of AWS Regions where Amazon Transcribe is available, see [Amazon Transcribe Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region) in the *Amazon Web Services General Reference*\.
 
-## Throttling<a name="limits-throttling"></a>
-
-You can request a quota increase for the following resources:
-
-
-| Resource | Default | 
-| --- | --- | 
-| Number of concurrent batch transcription jobs | 100 | 
-| Job queue bandwidth ratio | 0\.9 | 
-| Transactions per second, StartTranscriptionJob operation | 10 | 
-| Number of concurrent HTTP/2 streams for streaming transcription | 5 | 
-| Number of StartStreamTranscription Websocket requests | 5 | 
-| Transactions per second, StartStreamTranscription operation | 5 | 
-| Total number of vocabularies per account | 100 | 
-| Number of pending vocabularies | 10 | 
-| Number of concurrently training custom language models | 3 | 
-| Total number of custom language models per account | 10 | 
-| Number of channels for channel identification | 2 | 
-| Transactions per second, GetTranscriptionJob operation | 20 | 
-| Transactions per second, DeleteTranscriptionJob operation | 5 | 
-| Transactions per second, ListTranscriptionJobs operation | 5 | 
-| Transactions per second, CreateVocabulary and UpdateVocabulary operations | 10 | 
-| Transactions per second, DeleteVocabulary operation | 5 | 
-| Transactions per second, GetVocabulary operation | 20 | 
-| Transactions per second, ListVocabularies operation | 5 | 
-
-For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.
-
-If you don't need to process all of your transcription jobs concurrently, use [Job queuing](job-queuing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\. You can request an increase to the job queue bandwidth ratio to run more transcription jobs\. The quota for the transcription jobs in your job queue is the product of the number of transcription jobs you can run concurrently and the bandwidth ratio\. For example, if you have a bandwidth ratio of `5` and a quota of `100` for the number of transcription jobs you can run concurrently then you can have 500 transcription jobs in your job queue\.
-
 ## Guidelines<a name="guidelines"></a>
 
 For best results:
@@ -44,16 +14,67 @@ Amazon Transcribe may store your content to continuously improve the quality of 
 
 ## Quotas<a name="limits"></a>
 
-Amazon Transcribe has the following quotas that are not alterable:
+You can request a quota increase for the following resources:
 
 
-| Description | Quotas | 
+| Resource | Default | 
 | --- | --- | 
-| Maximum audio file length | 4:00:00 \(four\) hours, 14,400 seconds | 
-| Maximum audio file size | 2 GB | 
-| Maximum size of a custom vocabulary | 50 KB | 
-| Maximum length of a custom vocabulary phrase | 256 characters | 
-| Maximum size of a vocabulary filter | 50 KB | 
-| Maximum number of vocabulary filters | 100 | 
+| Number of concurrent batch transcription jobs | 250 | 
+| Number of concurrent batch transcription jobs \(call analytics\) | 100 | 
+| Job queue bandwidth ratio | 0\.9 | 
+| Number of concurrent HTTP/2 streams for streaming transcription | 25 | 
+| Number of StartStreamTranscription Websocket requests | 25 | 
+| Total number of vocabularies per account | 100 | 
+| Number of pending vocabularies | 10 | 
+| Number of concurrently training custom language models | 3 | 
+| Total number of custom language models per account | 10 | 
+| Number of channels for channel identification | 2 | 
+| Number of categories per account \(call analytics\) | 200 | 
+| Number of rules per category \(call analytics\) | 20 | 
+| Number of channels for channel identification \(call analytics\) | 90 | 
+
+The below operations limits can also be increased upon request:
+
+
+| Operation | Transactions per second | 
+| --- | --- | 
+| StartTranscriptionJob | 25 | 
+| StartStreamTranscription | 25 | 
+| GetTranscriptionJob | 30 | 
+| DeleteTranscriptionJob | 5 | 
+| ListTranscriptionJobs | 5 | 
+| CreateVocabulary | 10 | 
+| UpdateVocabulary | 10 | 
+| DeleteVocabulary | 5 | 
+| GetVocabulary | 20 | 
+| ListVocabularies | 5 | 
+| StartCallAnalyticsJob | 10 | 
+| GetCallAnalyticsJob | 20 | 
+| ListCallAnalyticsJobs | 5 | 
+| DeleteCallAnalyticsJob | 5 | 
+| CreateCallAnalyticsCategory | 10 | 
+| UpdateCallAnalyticsCategory | 10 | 
+| DeleteCallAnalyticsCategory | 5 | 
+| GetCallAnalyticsCategory | 20 | 
+| ListCallAnalyticsCategories | 5 | 
+
+**Note**  
+For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.
+
+The following quotas **cannot** be increased:
+
+
+| Description | Quota | 
+| --- | --- | 
+| Audio file length | 4:00:00 \(four\) hours \(14,400 seconds\) | 
+| Audio file size | 2 GB | 
+| Audio file size \(call analytics\) | 500 MB | 
+| Size of a custom vocabulary | 50 KB | 
+| Length of a custom vocabulary phrase | 256 characters | 
+| Size of a vocabulary filter | 50 KB | 
+| Number of vocabulary filters | 100 | 
 | Number of days that job records are retained | 90 | 
 | Minimum audio file duration, in milliseconds \(ms\) | 500 | 
+| Number of days job records are retained \(call analytics\) | 90 | 
+
+If you don't need to process all of your transcription jobs concurrently, use [Job queuing](job-queuing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\. You can request an increase to the job queue bandwidth ratio to run more transcription jobs\. The quota for the transcription jobs in your job queue is the product of the number of transcription jobs you can run concurrently and the bandwidth ratio\. For example, if you have a bandwidth ratio of `5` and a quota of `100` for the number of transcription jobs you can run concurrently then you can have 500 transcription jobs in your job queue\.

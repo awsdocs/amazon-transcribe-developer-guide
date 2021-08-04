@@ -7,11 +7,11 @@ You interact with Amazon Transcribe Medical using four main API resources\. To s
 To transcribe an audio file, you use a transcription job\. You store the file as an object in an Amazon Simple Storage Service \(S3\) bucket\. The input file must: 
 + Be in FLAC, MP3, MP4, or WAV file format\.
 + Use 16\-bit Linear PCM encoding\.
-+ Be less than 4 hours in duration or less than 2 GB in size\.
++ Be less than 4 hours in length and less than 2 GB in size
++ Use a sample rate of at least 16000 Hz\.
 
 For best results: 
 + Use a lossless format, such as FLAC or WAV\.
-+ Use a sample rate of at least 16000 Hz or higher\.
 
 When creating a medical transcription job, you specify the language, the medical specialty, and the audio type of the source file\. You input US English \(en\-US\) as the language and `PRIMARYCARE` as the medical specialty\. Entering primary care as the value enables you to generate transcriptions from source audio in the following medical specialties:
 + Family Medicine

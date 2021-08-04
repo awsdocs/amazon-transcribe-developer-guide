@@ -1,11 +1,13 @@
-# What is Amazon Transcribe?<a name="what-is-transcribe"></a>
+# What is Amazon Transcribe?<a name="transcribe-whatis"></a>
 
-Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text\. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files\. For example, you can transcribe the audio track from a video recording to create closed captioning for the video\.
+Amazon Transcribe uses advanced machine learning technologies to recognize speech in your audio or video and transcribe that speech into text\. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files\. For example, you can transcribe the audio track from a video recording to create closed captioning for the video\.
 
-You can use Amazon Transcribe to transcribe the following languages to text:
+You can also provide Amazon Transcribe with video files and transcribe the audio directly from those files\. For example, you can provide Amazon Transcribe with an MP4 video file, and it will transcribe the audio directly from that file\. For information on available file containers and formats, see [Speech input](input.md)\.
+
+The following list shows the languages available for batch transcription\. Each language has its own *language code*, which is shown in the parentheses next to the language\. You use the language code to specify the language of your audio or video file\.
 + Gulf Arabic \(ar\-AE\)
 + Modern Standard Arabic \(ar\-SA\)
-+ Mandarin Chinese \- Mainland \(zh\-CN\)
++ Mandarin Chinese – Mainland \(zh\-CN\)
 + Dutch \(nl\-NL\)
 + Australian English \(en\-AU\)
 + British English \(en\-GB\)
@@ -18,7 +20,7 @@ You can use Amazon Transcribe to transcribe the following languages to text:
 + US Spanish \(es\-US\)
 + French \(fr\-FR\)
 + Canadian French \(fr\-CA\)
-+ Farsi \(fa\-IR\)
++ Farsi Persian \(fa\-IR\)
 + German \(de\-DE\)
 + Swiss German \(de\-CH\)
 + Hebrew \(he\-IL\)
@@ -35,22 +37,19 @@ You can use Amazon Transcribe to transcribe the following languages to text:
 + Telugu \(te\-IN\)
 + Turkish \(tr\-TR\)
 
-You can transcribe streaming audio in the following languages\.
-
-
-| Language | Supported sample rates | Supported in | 
-| --- | --- | --- | 
-| Australian English \(en\-AU\) | 8 kHz | API | 
-| British English \(en\-GB\) | 8 kHz | API | 
-| US English \(en\-US\) | 16 kHz, 8 kHz | Console, API | 
-| French \(fr\-FR\) | 8 kHz | API | 
-| Canadian French \(fr\-CA\) | 8 kHz | API | 
-| German \(de\-DE\) | 16 kHz, 8 kHz | Console, API | 
-| Italian \(it\-IT\) | 16 kHz, 8 kHz | Console, API | 
-| Japanese \(ja\-JP\) | 16 kHz, 8 kHz | Console, API | 
-| Korean \(ko\-KR\) | 16 kHz, 8 kHz | Console, API | 
-| Brazilian Portuguese \(pt\-BR\) | 16 kHz, 8 kHz | Console, API | 
-| US Spanish \(es\-US\) | 16 kHz, 8 kHz | Console, API | 
+You can transcribe streaming audio in the following languages\. To specify a language in your real\-time stream, you use a *language code*\. The language codes are shown in parentheses next to the languages\.
++ Mandarin Chinese – Mainland \(zh\-CN\)
++ Australian English \(en\-AU\)
++ British English \(en\-GB\)
++ US English \(en\-US\)
++ French \(fr\-FR\)
++ Canadian French \(fr\-CA\)
++ German \(de\-DE\)
++ Italian \(it\-IT\)
++ Japanese \(ja\-JP\)
++ Korean \(ko\-KR\)
++ Brazilian Portuguese \(pt\-BR\)
++ US Spanish \(es\-US\)
 
 You can use Amazon Transcribe with other AWS services to create applications\. For example, you can: 
 + Use Amazon Transcribe to convert voice to text, send the text to Amazon Translate to translate it into another language, and send the translated text to Amazon Polly to speak the translated text\.

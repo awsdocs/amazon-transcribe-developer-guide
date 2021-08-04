@@ -9,17 +9,25 @@ You can create a custom language model with the base model and the training data
 ## Using prefixes in Amazon Simple Storage Service to retrieve your data<a name="prefix-get-data"></a>
 
 To create a custom language model, you use prefixes in Amazon Simple Storage Service to specify the training and the optional tuning data\. To understand how to use prefixes, you need to be familiar with the following Amazon S3 concepts:
-+ Bucket \- A container to store your objects\.
-+ Object \- The entity stored in the S3 bucket\. In this case, it's your training or tuning text files\.
-+ Key \- The unique identifier for an object within a bucket\. 
++ Bucket – A container to store your objects\.
++ Object – The entity stored in the S3 bucket\. In this case, it's your training or tuning text files\.
++ Key – The unique identifier for an object within a bucket\. 
++ Prefix – Any portion of the key up to the final delimiter\. You use prefixes to organize your data and specify objects in the S3 bucket\.
 
 You store an object, your text file, in a bucket with a key that uniquely identifies the file\.
 
-For example, the key `myfiles/2020/may/file.txt` uniquely identifies a text file in an S3 bucket\.
+For example, the key `s3://DOC-EXAMPLE-BUCKET1/myfiles/2020/may/file.txt` uniquely identifies a text file in an S3 bucket\.
 
 The prefix can be any part of the key that comes before its final delimiter\.
 
-You specify prefixes in the [CreateLanguageModel](API_CreateLanguageModel.md) operation using the following fields: 
+For example, the key `myfiles/2020/may/file.txt` has the following prefixes:
++ s3://*DOC\-EXAMPLE\-BUCKET1*/myfiles/2020/may/
++ s3://*DOC\-EXAMPLE\-BUCKET1*/myfiles/2020/
++ s3://*DOC\-EXAMPLE\-BUCKET1*/myfiles/
+
+You can use any of the preceding prefixes to access `file.txt`\. For more information on prefixes, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html)\. 
+
+When you use the [CreateLanguageModel](API_CreateLanguageModel.md) operation, you specify prefixes for your text data in the following fields: 
 + `S3Uri` for the training data
 + Optional: `TuningDataS3Uri` for the tuning data
 
@@ -29,7 +37,7 @@ You create a custom language model by providing prefixes to train a base model i
 
 ## Creating a custom language model \(console\)<a name="create-console"></a>
 
-**To creating a custom language model \(Console\)**
+**To create a custom language model \(Console\)**
 
 To use the console to create a custom language model with the console, you must have your training data stored in an Amazon S3 bucket\.
 
@@ -40,6 +48,8 @@ To use the console to create a custom language model with the console, you must 
 1. Choose **Train model**\.
 
 1. For **Name**, enter a name for your custom language model that is unique within your AWS account\.
+
+1. For **Language**, choose the language of your custom language model\.
 
 1. For **Base model**, choose **Narrow band** or **Wide band**, as appropriate for the sample rate of the audio that you want to transcribe\.
 
@@ -60,18 +70,12 @@ To use the console to create a custom language model with the console, you must 
   + `BaseModelName` \- The type of base model that you want to use for your custom language model
   + `InputDataConfig` \- Specify the Amazon S3 object location and the IAM data access role for your training data:
 
-     
-
     `DataAccessRoleARN` \- The Amazon Resource Name \(ARN\) that identifies the permissions to your Amazon S3 bucket\.
 
     `S3Uri` \- The prefix of the keys to your training data\.
 
     \(Optional\) `TuningDataS3URI` \- The prefix of the keys to your tuning data\.
-  + `LanguageCode` \- The language code for the language that your training data is in\.
-
-    
-
-    US English \(en\-US\) is the only valid language code for custom language models\.
+  + `LanguageCode` \- The language code for the language of your training data\.
   + `ModelName` \- The name of your custom language model\.
 
 The following is an example request using the AWS SDK for Python \(Boto3\)\.
@@ -83,8 +87,8 @@ import boto3
 transcribe = boto3.client('transcribe')
 model_name = "example-language-model"
 transcribe.create_language_model(
-    LanguageCode = 'en-US',
-    BaseModelName = 'WideBand',
+    LanguageCode = 'language-code',
+    BaseModelName = 'base-model-name',
     ModelName = model_name,
     InputDataConfig = {'S3Uri': 's3://DOC-EXAMPLE-BUCKET/clm-training/',
         'TuningDataS3Uri': 's3://DOC-EXAMPLE-BUCKET/clm-tuning',
@@ -100,7 +104,7 @@ transcribe.create_language_model(
 
   ```
   aws transcribe create-language-model \ 
-  --language-code en-US \ 
+  --language-code language-code \ 
   --base-model-name base-model-name \ 
   --model-name example-model-name \ 
   --input-data-config S3Uri="s3://example-bucket",DataAccessRoleArn="arn:aws:iam::aws-account-number:role/IAM role"

@@ -1,4 +1,4 @@
-# Getting started \(AWS SDK for Python \(Boto\)\)<a name="getting-started-python"></a>
+# AWS SDK for Python \(Boto\)<a name="getting-started-python"></a>
 
 In this exercise you create script that uses the SDK for Python to transcribe speech into text\. To complete this exercise, you need to: 
 + Install the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\. This installs the AWS SDK for Python \(Boto\)\.
@@ -10,7 +10,7 @@ import time
 import boto3
 transcribe = boto3.client('transcribe')
 job_name = "job name"
-job_uri = "https://S3 endpoint/test-transcribe/answer2.wav"
+job_uri = "s3://DOC-EXAMPLE-BUCKET1/key-prefix/file.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
     Media={'MediaFileUri': job_uri},

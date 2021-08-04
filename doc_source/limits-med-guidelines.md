@@ -4,30 +4,6 @@
 
 For a list of AWS Regions where Amazon Transcribe Medical is available, see [Amazon Transcribe Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html#transcribe_region) in the *Amazon Web Services General Reference*\.
 
-## Throttling<a name="limits-med-throttling"></a>
-
-You can request a quota increase for the following resources\.
-
-
-| Resource | Default | 
-| --- | --- | 
-| Number of concurrent batch transcription jobs | 100 | 
-| Transactions per second, StartMedicalTranscriptionJob operation | 10 | 
-| Number of StartMedicalStreamTranscription or Websocket requests | 5 | 
-| Transactions per second, StartMedicalStreamTranscription operation | 5 | 
-| Total number of medical vocabularies per account | 100 | 
-| Number of pending medical vocabularies | 10 | 
-| Transactions per second, GetMedicalTranscriptionJob operation | 20 | 
-| Transactions per second, DeleteMedicalTranscriptionJob operation | 5 | 
-| Transactions per second, ListMedicalTranscriptionJobs operation | 5 | 
-| Transactions per second, CreateMedicalVocabulary operation | 10 | 
-| Transactions per second, UpdateMedicalVocabulary operation | 10 | 
-| Transactions per second, DeleteMedicalVocabulary operation | 5 | 
-| Transactions per second, GetMedicalVocabulary operation | 20 | 
-| Transactions per second, ListMedicalVocabularies operation | 5 | 
-
-For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits-med.html) in the *Amazon Web Services General Reference*\.
-
 ## Guidelines<a name="guidelines-med"></a>
 
 For best results:
@@ -38,7 +14,36 @@ Amazon Transcribe Medical may store your content to continuously improve the qua
 
 ## Quotas<a name="limits-med"></a>
 
-Amazon Transcribe Medical has the following quotas\. They can't be changed:
+You can request a quota increase for the following resources\.
+
+
+| Resource | Default | 
+| --- | --- | 
+| Number of concurrent batch transcription jobs | 250 | 
+| Number of StartMedicalStreamTranscription or Websocket requests | 25 | 
+| Total number of medical vocabularies per account | 100 | 
+| Number of pending medical vocabularies | 10 | 
+
+The below operations limits can also be increased upon request:
+
+
+| Operation | Maximum transactions per second | 
+| --- | --- | 
+| StartMedicalTranscriptionJob | 25 | 
+| StartMedicalStreamTranscription | 25 | 
+| GetMedicalTranscriptionJob | 30 | 
+| DeleteMedicalTranscriptionJob | 5 | 
+| ListMedicalTranscriptionJobs | 5 | 
+| CreateMedicalVocabulary | 10 | 
+| UpdateMedicalVocabulary | 10 | 
+| DeleteMedicalVocabulary | 5 | 
+| GetMedicalVocabulary | 20 | 
+| ListMedicalVocabularies | 5 | 
+
+**Note**  
+For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.
+
+The following quotas **cannot** be increased:
 
 
 | Description | Quotas | 

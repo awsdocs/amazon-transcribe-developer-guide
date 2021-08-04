@@ -9,6 +9,12 @@ A timestamp that shows when the job was completed\.
 Type: Timestamp  
 Required: No
 
+ **ContentIdentificationType**   <a name="transcribe-Type-MedicalTranscriptionJob-ContentIdentificationType"></a>
+Shows the type of content that you've configured Amazon Transcribe Medical to identify in a transcription job\. If the value is `PHI`, you've configured the job to identify personal health information \(PHI\) in the transcription output\.  
+Type: String  
+Valid Values:` PHI`   
+Required: No
+
  **CreationTime**   <a name="transcribe-Type-MedicalTranscriptionJob-CreationTime"></a>
 A timestamp that shows when the job was created\.  
 Type: Timestamp  
@@ -45,7 +51,7 @@ Required: No
 
  **MediaSampleRateHertz**   <a name="transcribe-Type-MedicalTranscriptionJob-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the source audio containing medical information\.  
-If you don't specify the sample rate, Amazon Transcribe Medical determines it for you\. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical\. In most cases, you should leave the `MediaSampleHertz` blank and let Amazon Transcribe Medical determine the sample rate\.  
+If you don't specify the sample rate, Amazon Transcribe Medical determines it for you\. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical\. In most cases, you should leave the `MedicalMediaSampleHertz` blank and let Amazon Transcribe Medical determine the sample rate\.  
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No
@@ -86,7 +92,7 @@ Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`
 Required: No
 
  **Type**   <a name="transcribe-Type-MedicalTranscriptionJob-Type"></a>
-The type of speech in the transcription job\. `CONVERSATION` is generally used for patient\-physician dialogues\. `DICTATION` is the setting for physicians speaking their notes after seeing a patient\. For more information, see [How Amazon Transcribe Medical works](how-it-works-med.md)   
+The type of speech in the transcription job\. `CONVERSATION` is generally used for patient\-physician dialogues\. `DICTATION` is the setting for physicians speaking their notes after seeing a patient\. For more information, see [What is Amazon Transcribe Medical?](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe-med.html)\.  
 Type: String  
 Valid Values:` CONVERSATION | DICTATION`   
 Required: No

@@ -52,6 +52,7 @@ Required: No
    "MedicalTranscriptionJobSummaries": [ 
       { 
          "CompletionTime": number,
+         "ContentIdentificationType": "string",
          "CreationTime": number,
          "FailureReason": "string",
          "LanguageCode": "string",

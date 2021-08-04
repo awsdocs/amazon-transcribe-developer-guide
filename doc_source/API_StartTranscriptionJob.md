@@ -1,6 +1,6 @@
 # StartTranscriptionJob<a name="API_StartTranscriptionJob"></a>
 
-Starts an asynchronous job to transcribe speech to text\. 
+Starts an asynchronous job to transcribe speech to text\.
 
 ## Request Syntax<a name="API_StartTranscriptionJob_RequestSyntax"></a>
 
@@ -18,7 +18,8 @@ Starts an asynchronous job to transcribe speech to text\.
    "LanguageCode": "string",
    "LanguageOptions": [ "string" ],
    "Media": { 
-      "MediaFileUri": "string"
+      "MediaFileUri": "string",
+      "RedactedMediaFileUri": "string"
    },
    "MediaFormat": "string",
    "MediaSampleRateHertz": number,
@@ -65,14 +66,16 @@ Required: No
 
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
+To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16000 Hz or higher\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
 Required: No
 
  ** [LanguageOptions](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageOptions"></a>
 An object containing a list of languages that might be present in your collection of audio files\. Automatic language identification chooses a language that best matches the source audio from that list\.  
+To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16000 Hz or higher\.  
 Type: Array of strings  
-Array Members: Minimum number of 2 items\.  
+Array Members: Minimum number of 1 item\.  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
 Required: No
 
@@ -167,7 +170,8 @@ Required: Yes
       "LanguageCode": "string",
       "LanguageOptions": [ "string" ],
       "Media": { 
-         "MediaFileUri": "string"
+         "MediaFileUri": "string",
+         "RedactedMediaFileUri": "string"
       },
       "MediaFormat": "string",
       "MediaSampleRateHertz": number,

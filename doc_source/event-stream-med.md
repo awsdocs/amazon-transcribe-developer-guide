@@ -28,7 +28,7 @@ Each message contains the following components:
   + *Second 4 bytes:* The headers byte\-length\. This is the big\-endian integer byte\-length of the headers portion of the message, excluding the headers length field itself\.
 + **Prelude CRC:** The 4\-byte CRC checksum for the prelude portion of the message, excluding the CRC itself\. The prelude has a separate CRC from the message CRC to ensure that Amazon Transcribe Medical can detect corrupted byte\-length information immediately without causing errors such as buffer overruns\.
 + **Headers:** Metadata annotating the message, such as the message type, content type, and so on\. Messages have multiple headers\. Headers are key\-value pairs where the key is a UTF\-8 string\. Headers can appear in any order in the headers portion of the message and any given header can appear only once\. For the required header types, see the following sections\.
-+ **Payload:**The audio content to be transcribed\.
++ **Payload:** The audio content to be transcribed\.
 + **Message CRC:** The 4\-byte CRC checksum from the start of the message to the start of the checksum\. That is, everything in the message except the CRC itself\.
 
 Each header contains the following components\. There are multiple headers per frame\.

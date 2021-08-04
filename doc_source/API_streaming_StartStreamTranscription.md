@@ -22,6 +22,8 @@ x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
 x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
 x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
 x-amzn-transcribe-number-of-channels: NumberOfChannels
+x-amzn-transcribe-enable-partial-results-stabilization: EnablePartialResultsStabilization
+x-amzn-transcribe-partial-results-stability: PartialResultsStability
 Content-type: application/json
 
 {
@@ -42,9 +44,12 @@ When `true`, instructs Amazon Transcribe to process each audio channel separatel
 Amazon Transcribe also produces a transcription of each item\. An item includes the start time, end time, and any alternative transcriptions\.  
 You can't set both `ShowSpeakerLabel` and `EnableChannelIdentification` in the same request\. If you set both, your request returns a `BadRequestException`\.
 
+ ** [EnablePartialResultsStabilization](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-EnablePartialResultsStabilization"></a>
+When `true`, instructs Amazon Transcribe to present transcription results that have the partial results stabilized\. Normally, any word or phrase from one partial result can change in a subsequent partial result\. With partial results stabilization enabled, only the last few words of one partial result can change in another partial result\.
+
  ** [LanguageCode](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
 Indicates the source language used in the input audio stream\.  
-Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR`   
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN`   
 Required: Yes
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
@@ -53,13 +58,17 @@ Valid Values:` pcm | ogg-opus | flac`
 Required: Yes
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaSampleRateHertz"></a>
-The sample rate, in Hertz, of the input audio\. We suggest that you use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
+The sample rate for the input audio stream\. Use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: Yes
 
  ** [NumberOfChannels](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-NumberOfChannels"></a>
 The number of channels that are in your audio stream\.  
 Valid Range: Minimum value of 2\.
+
+ ** [PartialResultsStability](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-PartialResultsStability"></a>
+You can use this field to set the stability level of the transcription results\. A higher stability level means that the transcription results are less likely to change\. Higher stability levels can come with lower overall transcription accuracy\.  
+Valid Values:` high | medium | low` 
 
  ** [SessionId](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-SessionId"></a>
 A identifier for the transcription session\. Use this parameter when you want to retry a session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.  
@@ -107,6 +116,8 @@ x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
 x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
 x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
 x-amzn-transcribe-number-of-channels: NumberOfChannels
+x-amzn-transcribe-enable-partial-results-stabilization: EnablePartialResultsStabilization
+x-amzn-transcribe-partial-results-stability: PartialResultsStability
 Content-type: application/json
 
 {
@@ -133,6 +144,7 @@ Content-type: application/json
                               "Content": "string",
                               "EndTime": number,
                               "Speaker": "string",
+                              "Stable": boolean,
                               "StartTime": number,
                               "Type": "string",
                               "VocabularyFilterMatch": boolean
@@ -163,9 +175,12 @@ The response returns the following HTTP headers\.
  ** [EnableChannelIdentification](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-EnableChannelIdentification"></a>
 Shows whether channel identification has been enabled in the stream\.
 
+ ** [EnablePartialResultsStabilization](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-EnablePartialResultsStabilization"></a>
+Shows whether partial results stabilization has been enabled in the stream\.
+
  ** [LanguageCode](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageCode"></a>
 The language code for the input audio stream\.  
-Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR` 
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN` 
 
  ** [MediaEncoding](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
@@ -178,6 +193,10 @@ Valid Range: Minimum value of 8000\. Maximum value of 48000\.
  ** [NumberOfChannels](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-NumberOfChannels"></a>
 The number of channels identified in the stream\.  
 Valid Range: Minimum value of 2\.
+
+ ** [PartialResultsStability](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-PartialResultsStability"></a>
+If partial results stabilization has been enabled in the stream, shows the stability level\.  
+Valid Values:` high | medium | low` 
 
  ** [RequestId](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-RequestId"></a>
 An identifier for the streaming transcription\.

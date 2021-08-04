@@ -10,7 +10,14 @@ The S3 object location of the input media file\. The URI must be in the same reg
 For example:  
  `s3://AWSDOC-EXAMPLE-BUCKET/example.mp4`   
  `s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4`   
-For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
+For more information about S3 object names, see [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Pattern: `(s3://|http(s*)://).+`   
+Required: No
+
+ **RedactedMediaFileUri**   <a name="transcribe-Type-Media-RedactedMediaFileUri"></a>
+ The S3 object location for your redacted output media file\. This is only supported for call analytics jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
 Pattern: `(s3://|http(s*)://).+`   

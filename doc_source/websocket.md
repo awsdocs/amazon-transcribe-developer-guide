@@ -14,7 +14,7 @@ When you use the [WebSocket protocol](https://tools.ietf.org/html/rfc6455) to st
 
 ## Adding a policy for WebSocket requests to your IAM role<a name="websocket-iam"></a>
 
-To use the WebSocket protocol to call Amazon Transcribe, you need to attach the following policy to the AWS Identity and Access Management \(IAM\) role that makes the request\.
+To use the WebSocket protocol to call Amazon Transcribe, you need to attach the following policy to the AWS Identity and Access Management \(IAM\) role that makes the request\. See [ Adding IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policy-api) for more information on how to do this\.
 
 ```
 {
@@ -32,7 +32,7 @@ To use the WebSocket protocol to call Amazon Transcribe, you need to attach the 
 
 ## Creating a pre\-signed URL<a name="websocket-url"></a>
 
-Construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe\. WebSocket streaming uses the Amazon Signature Version 4 process for signing requests\. Signing the request helps to verify the identity of the requester and to protect your audio data in transit\. It also protects against potential replay attacks\. For more information about Signature Version 4, see [ Signing AWS API Requests ](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\.
+Construct a URL for your WebSocket request that contains the information needed to set up communication between your application and Amazon Transcribe\. WebSocket streaming uses the Amazon Signature Version 4 process for signing requests\. Signing the request helps to verify the identity of the requester and to protect your audio data in transit\. It also protects against potential replay attacks\. For more information about Signature Version 4, see [ Signing AWS API Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*\.
 
 The URL has the following format\. Line breaks have been added for readability\.
 
@@ -53,7 +53,7 @@ GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-web
 ```
 
 Use the following values for the URL parameters:
-+ **language\-code** – The language code for the input audio\. Valid values are `en-GB, en-US, es-US, fr-CA, fr-FR, de-DE, ja-JP, ko-KR, pt-BR` and `it-IT`\.
++ **language\-code** – The language code for the input audio\. Valid values are `en-AU, en-GB, en-US, es-US, fr-CA, fr-FR, de-DE, ja-JP, ko-KR, pt-BR, zh-CN` and `it-IT`\.
 + **media\-encoding** – The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
 + **sample\-rate** – The sample rate of the input audio in Hertz\. We suggest that you use 8000 Hz for low\-quality audio and 16000 Hz for high\-quality audio\. The sample rate must match the sample rate in the audio file\.
 + **sessionId** – Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.

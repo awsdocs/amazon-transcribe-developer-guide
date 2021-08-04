@@ -52,13 +52,13 @@ There are two steps to creating a data frame:
 
 The following diagram shows how this works\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/streaming10.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/streaming10.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 #### Create the audio event<a name="audio-event"></a>
 
 To create the message to send to Amazon Transcribe, create the audio event\. Combine the headers described in the following table with a chunk of audio bytes into an event\-encoded message\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-event-headers.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-event-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 To create the payload for the event message, use a buffer in raw\-byte format\.
 
@@ -66,7 +66,7 @@ To create the payload for the event message, use a buffer in raw\-byte format\.
 
 Create a data frame using the audio event payload to send to Amazon Transcribe\. The data frame contains event\-encoding headers that include the current date and a signature for the audio chunk and the audio event\. To indicate to Amazon Transcribe that the audio stream is complete, send an empty data frame that contains only the date and signature\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-message-headers.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-message-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 To create the signature for the data frame, first create a string to sign, and then calculate the signature for the event\. Construct the string to sign as follows\.
 
@@ -115,7 +115,7 @@ Responses from Amazon Transcribe are also sent using event stream encoding\. Use
 
 A transcription response is event stream encoded\. It contains the standard prelude and the following headers\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-response-headers.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-response-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 For details, see [Event stream encoding](event-stream.md)\. 
 
@@ -137,7 +137,7 @@ If there is an error in processing your transcription stream, Amazon Transcribe 
 
 The response contains the standard prelude and the following headers\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-error-headers.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-error-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 When the exception response is decoded, it contains the following information\.
 

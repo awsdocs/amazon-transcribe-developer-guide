@@ -6,7 +6,7 @@ You can use automatic language identification in a batch transcription job with 
 
  **To start a transcription job with automatic language identification \(console\)** 
 
-1. Sign in to the AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](console.aws.amazon.com/transcribe)\.
+1. Sign in to the AWS Management Console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe)\.
 
 1. In the navigation pane, choose **Transcription jobs**\.
 

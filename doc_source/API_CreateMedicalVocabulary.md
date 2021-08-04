@@ -29,8 +29,8 @@ The location in Amazon S3 of the text file you use to define your custom vocabul
  ` https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
 The following is an example URI for a vocabulary file that is stored in Amazon S3:  
  `https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt`   
-For more information about Amazon S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
-For more information about custom vocabularies, see [Medical Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med)\.  
+For more information about Amazon S3 object names, see [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
+For more information about custom vocabularies, see [Medical Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
 Pattern: `(s3://|http(s*)://).+`   

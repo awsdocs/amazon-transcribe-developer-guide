@@ -1,15 +1,15 @@
-# Getting started \(AWS Command Line Interface\)<a name="getting-started-cli"></a>
+# AWS Command Line Interface<a name="getting-started-cli"></a>
 
 In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to transcribe speech into text\. To complete this exercise, you need to: 
 + Have a text editor\.
 + Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
-+ Have a speech file in \.WAV or \.MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Permissions required for IAM user roles](security_iam_id-based-policy-examples.md#auth-role-iam-user)\.
++ Have a speech file in WAV or MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Permissions required for IAM user roles](security_iam_id-based-policy-examples.md#auth-role-iam-user)\.
 
 To transcribe text, you have to provide the input parameters in a JSON file\.
 
 **To transcribe text**
 
-1. Copy your input speech to an S3 bucket\. The location must be in the same region as the endpoint that you are calling\. This example assumes that the file is in an S3 bucket named `test-transcribe` and that the file name is `answer2.wav`\.
+1. Copy your input speech to an S3 bucket\. The location must be in the same region as the endpoint that you are calling\.
 
 1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
 
@@ -19,7 +19,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
        "LanguageCode": "en-US", 
        "MediaFormat": "wav", 
        "Media": {
-           "MediaFileUri": "https://S3 endpoint/test-transcribe/answer2.wav"
+           "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
        }
    }
    ```
@@ -41,7 +41,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
            "LanguageCode": "en-US",
            "TranscriptionJobStatus": "IN_PROGRESS",
            "Media": {
-               "MediaFileUri": "https://S3 endpoint/test-transcribe/answer2.wav"
+               "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
            },
            "CreationTime": timestamp,
            "MediaFormat": "wav"

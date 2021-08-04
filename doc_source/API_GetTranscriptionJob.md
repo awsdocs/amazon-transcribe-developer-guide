@@ -44,7 +44,8 @@ Required: Yes
       "LanguageCode": "string",
       "LanguageOptions": [ "string" ],
       "Media": { 
-         "MediaFileUri": "string"
+         "MediaFileUri": "string",
+         "RedactedMediaFileUri": "string"
       },
       "MediaFormat": "string",
       "MediaSampleRateHertz": number,

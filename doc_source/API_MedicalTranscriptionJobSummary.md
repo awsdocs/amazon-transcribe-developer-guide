@@ -9,6 +9,12 @@ A timestamp that shows when the job was completed\.
 Type: Timestamp  
 Required: No
 
+ **ContentIdentificationType**   <a name="transcribe-Type-MedicalTranscriptionJobSummary-ContentIdentificationType"></a>
+Shows the type of information you've configured Amazon Transcribe Medical to identify in a transcription job\. If the value is `PHI`, you've configured the transcription job to identify personal health information \(PHI\)\.  
+Type: String  
+Valid Values:` PHI`   
+Required: No
+
  **CreationTime**   <a name="transcribe-Type-MedicalTranscriptionJobSummary-CreationTime"></a>
 A timestamp that shows when the medical transcription job was created\.  
 Type: Timestamp  

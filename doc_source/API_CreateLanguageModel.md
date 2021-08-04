@@ -39,7 +39,7 @@ Required: Yes
  ** [LanguageCode](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-LanguageCode"></a>
 The language of the input text you're using to train your custom language model\.  
 Type: String  
-Valid Values:` en-US`   
+Valid Values:` en-US | hi-IN | es-US | en-GB | en-AU`   
 Required: Yes
 
  ** [ModelName](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-ModelName"></a>
@@ -83,7 +83,7 @@ Type: [InputDataConfig](API_InputDataConfig.md) object
  ** [LanguageCode](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-LanguageCode"></a>
 The language code of the text you've used to create a custom language model\.  
 Type: String  
-Valid Values:` en-US` 
+Valid Values:` en-US | hi-IN | es-US | en-GB | en-AU` 
 
  ** [ModelName](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-ModelName"></a>
 The name you've chosen for your custom language model\.  

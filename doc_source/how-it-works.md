@@ -52,24 +52,13 @@ You can transcribe speech in any of the following languages:
 + Telugu \(te\-IN\)
 + Turkish \(tr\-TR\)
 
-You can use streaming transcription for the following languages:
-+ Australian English \(en\-AU\)
-+ British English \(en\-GB\)
-+ US English \(en\-US\)
-+ French \(fr\-FR\)
-+ Canadian French \(fr\-CA\)
-+ German \(de\-DE\)
-+ Italian \(it\-IT\)
-+ Japanese \(ja\-JP\)
-+ Korean \(ko\-KR\)
-+ Brazilian Portuguese \(pt\-BR\)
-+ US Spanish \(es\-US\)
+For information on the languages available for streaming audio transcription, see [What is Amazon Transcribe?](transcribe-whatis.md)\.
 
 Amazon Transcribe has the capability to transcribe accented speech of individuals who are non\-native speakers of a language\. For example, Amazon Transcribe enables you to transcribe US English \(en\-US\) audio spoken with a German \(de\-DE\) accent\.
 
 **Topics**
 + [Speech input](input.md)
-+ [Transcribing numbers](how-numbers.md)
++ [Transcribing numbers and punctuation](how-numbers.md)
 + [Alternative transcriptions](how-alternatives.md)
 + [Transcribing streaming audio](how-streaming-transcription.md)
 + [Custom vocabularies](how-vocabulary.md)

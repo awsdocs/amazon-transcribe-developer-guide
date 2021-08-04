@@ -6,9 +6,11 @@ Starts a batch job to transcribe medical speech to text\.
 
 ```
 {
+   "ContentIdentificationType": "string",
    "LanguageCode": "string",
    "Media": { 
-      "MediaFileUri": "string"
+      "MediaFileUri": "string",
+      "RedactedMediaFileUri": "string"
    },
    "MediaFormat": "string",
    "MediaSampleRateHertz": number,
@@ -34,6 +36,12 @@ Starts a batch job to transcribe medical speech to text\.
 For information about the parameters that are common to all actions, see [Common Parameters](CommonParameters.md)\.
 
 The request accepts the following data in JSON format\.
+
+ ** [ContentIdentificationType](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-ContentIdentificationType"></a>
+You can configure Amazon Transcribe Medical to label content in the transcription output\. If you specify `PHI`, Amazon Transcribe Medical labels the personal health information \(PHI\) that it identifies in the transcription output\.  
+Type: String  
+Valid Values:` PHI`   
+Required: No
 
  ** [LanguageCode](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-LanguageCode"></a>
 The language code for the language spoken in the input media file\. US English \(en\-US\) is the valid value for medical transcription jobs\. Any other value you enter for language code results in a `BadRequestException` error\.  
@@ -123,11 +131,13 @@ Required: Yes
 {
    "MedicalTranscriptionJob": { 
       "CompletionTime": number,
+      "ContentIdentificationType": "string",
       "CreationTime": number,
       "FailureReason": "string",
       "LanguageCode": "string",
       "Media": { 
-         "MediaFileUri": "string"
+         "MediaFileUri": "string",
+         "RedactedMediaFileUri": "string"
       },
       "MediaFormat": "string",
       "MediaSampleRateHertz": number,

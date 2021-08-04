@@ -29,11 +29,13 @@ Required: Yes
 {
    "MedicalTranscriptionJob": { 
       "CompletionTime": number,
+      "ContentIdentificationType": "string",
       "CreationTime": number,
       "FailureReason": "string",
       "LanguageCode": "string",
       "Media": { 
-         "MediaFileUri": "string"
+         "MediaFileUri": "string",
+         "RedactedMediaFileUri": "string"
       },
       "MediaFormat": "string",
       "MediaSampleRateHertz": number,

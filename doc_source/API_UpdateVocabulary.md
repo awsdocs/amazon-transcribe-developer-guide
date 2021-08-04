@@ -20,7 +20,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [LanguageCode](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-LanguageCode"></a>
-The language code of the vocabulary entries\. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](what-is-transcribe.md)\.  
+The language code of the vocabulary entries\. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](transcribe-whatis.md)\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
 Required: Yes
@@ -37,8 +37,8 @@ The S3 location of the text file that contains the definition of the custom voca
  ` https://s3.<aws-region>.amazonaws.com/<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey> `   
 For example:  
  `https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt`   
-For more information about S3 object names, see [Object Keys](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
-For more information about custom vocabularies, see [Custom Vocabularies](http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
+For more information about S3 object names, see [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) in the *Amazon S3 Developer Guide*\.  
+For more information about custom vocabularies, see [Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
 Pattern: `(s3://|http(s*)://).+`   

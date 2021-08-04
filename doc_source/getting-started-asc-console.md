@@ -18,7 +18,7 @@ Use the Amazon Transcribe console to create a transcription job for your audio f
    + **Media sampling rate \(Hz\)**—Optional\. The bit sampling rate of the audio file\. Amazon Transcribe accepts sample rates between 8000 Hz and 48000 Hz\. For best results, you should use 8000 Hz for low\-fidelity audio and 16000 for high\-fidelity audio\.
 
    The following shows the **Create Transcription Job** filled out for a sample job\.  
-![\[The Create Transcription Job form filled out for a sample job\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-10.png)
+![\[The Create Transcription Job form filled out for a sample job.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-10.png)![\[The Create Transcription Job form filled out for a sample job.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 1. Choose **Create** to submit the job for processing\.
 
@@ -38,7 +38,7 @@ The **Output** section contains the transcription of the audio submitted to Amaz
 
 The **Code samples** section contains the JSON input for the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation and the output from the [GetTranscriptionJob](API_GetTranscriptionJob.md) operation\.
 
-![\[The code samples section of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-40.png)
+![\[The code samples section of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-40.png)![\[The code samples section of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 **Next step**  
 [Step 4: Getting started using the API](getting-started-asc-api.md)

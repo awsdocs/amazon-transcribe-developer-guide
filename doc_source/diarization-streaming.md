@@ -44,9 +44,9 @@ The following is the syntax for the parameters of an HTTP/2 request\.
     }
 ```
 
-To identify speakers in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) and specify the following:
-+ For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file\.
-+ For `MediaSampleHertz`, specify the sample rate of the audio\.
+To identify speakers in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and specify the following:
++ `LanguageCode` – the language code that corresponds to the language spoken in the stream\.
++ `MediaSampleHertz` – the sample rate of the audio\.
 + `ShowSpeakerLabel` – `true`\.
 
 ## WebSocket streaming<a name="diarization-websocket"></a>

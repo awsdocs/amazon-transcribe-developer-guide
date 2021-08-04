@@ -8,7 +8,7 @@ Use automatic language identification to:
 + Label media content with the language automatically identified by Amazon Transcribe\.
 + Identify incorrectly labeled audio and video content for media content operations\. For example, you can identify videos and podcasts labeled with the incorrect language\. 
 
-Media files are transcribed in a single language, even if they contain speech in two or more languages\. Amazon Transcribe transcribes the audio according to the primary language found in the file\. Amazon Transcribe can automatically identify any language that can be used for batch transcription with the API or the Amazon Transcribe console\. For a list of languages, see [What is Amazon Transcribe?](what-is-transcribe.md)\.
+Media files are transcribed in a single language, even if they contain speech in two or more languages\. Amazon Transcribe transcribes the audio according to the primary language found in the file\. Amazon Transcribe can automatically identify any language that can be used for batch transcription with the API or the Amazon Transcribe console\. For a list of languages, see [What is Amazon Transcribe?](transcribe-whatis.md)\.
 
 To identify the language with greater accuracy, you can specify a list of languages that you think are present in your collection of media files\. From that list, Amazon Transcribe chooses the language with the greatest confidence score to transcribe your audio\. A score with a larger value indicates that Amazon Transcribe is more confident that it identified the language correctly\. For best results, if you are certain of the language spoken in each of the audio files, specify a language code\. For more information, see the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
 

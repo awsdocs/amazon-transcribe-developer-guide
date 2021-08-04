@@ -39,7 +39,7 @@ To use the console to enable channel identification in your batch transcription 
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
-  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file\. For available languages and corresponding language codes, see [What is Amazon Transcribe?](what-is-transcribe.md)\. 
+  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file\. For available languages and corresponding language codes, see [What is Amazon Transcribe?](transcribe-whatis.md)\. 
 
   1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the media file that you want to transcribe\.
 

@@ -10,7 +10,7 @@ Amazon Transcribe can transcribe speech as either a media file or a real\-time s
 
 When you transcribe an audio file or video file using the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation or the Amazon Transcribe console, make sure that the file is:
 + In FLAC, MP3, MP4, Ogg, WebM, AMR, or WAV file format
-+ Less than 4 hours in length or less than 2 GB of audio data
++ Less than 4 hours in length and less than 2 GB in size \(500 MB for call analytics jobs\)
 
 **Note**  
 For AMR, Amazon Transcribe supports both Adaptive Multi\-Rate Wideband \(AMR\-WB\) and Adaptive Multi\-Rate Narrowband \(AMR\-NB\) codecs\.  
