@@ -1,6 +1,6 @@
 # Identifying speakers and labeling their speech in audio files<a name="conversation-diarization-batch-med"></a>
 
-You can enable speaker identification in a batch transcription job using either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation or the Amazon Transcribe Medical console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
+You can enable speaker identification in a batch transcription job using either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
 
 ## Console<a name="conversation-diarization-batch-med-console"></a>
 
@@ -8,7 +8,7 @@ You can enable speaker identification in a batch transcription job using either 
 
 To use the console to enable speaker diarization in your transcription job, you enable audio identification and then speaker identification\.
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe Medical console at [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -29,13 +29,13 @@ To use the console to enable speaker diarization in your transcription job, you 
 ## API<a name="conversation-diarization-batch-med-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+  In the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation, specify the following\.
++ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in the audio file\.
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
+  1. For the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
 
   1. For `Specialty`, specify the medical specialty of the clinician speaking in the audio file\.
 

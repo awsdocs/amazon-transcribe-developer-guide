@@ -10,7 +10,7 @@ To use the Amazon Transcribe Medical console to transcribe the speech picked up 
 
 **To identify PHI in a dictation using the Amazon Transcribe Medical console**
 
-1. Sign into the AWS Management Console and open the Amazon Transcribe Medical console at [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Real\-time transcription**\.
 
@@ -24,7 +24,7 @@ To use the Amazon Transcribe Medical console to transcribe the speech picked up 
 
 ## Identifying PHI in an HTTP/2 stream<a name="http2-stream-phi"></a>
 
-To start an HTTP/2 stream with PHI Identification activated, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation and specify the following:
+To start an HTTP/2 stream with PHI Identification activated, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
 + For `LanguageCode`, specify the language code for the language spoken in the stream\. For US English, specify `en-US`\.
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + For `content-identification-type`, specify `PHI`\.

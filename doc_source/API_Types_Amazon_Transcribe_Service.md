@@ -23,6 +23,7 @@ The following data types are supported by Amazon Transcribe Service:
 +  [Rule](API_Rule.md) 
 +  [SentimentFilter](API_SentimentFilter.md) 
 +  [Settings](API_Settings.md) 
++  [Tag](API_Tag.md) 
 +  [Transcript](API_Transcript.md) 
 +  [TranscriptFilter](API_TranscriptFilter.md) 
 +  [TranscriptionJob](API_TranscriptionJob.md) 

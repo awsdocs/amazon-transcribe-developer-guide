@@ -39,6 +39,12 @@ Starts an asynchronous job to transcribe speech to text\.
       "VocabularyFilterName": "string",
       "VocabularyName": "string"
    },
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ],
    "TranscriptionJobName": "string"
 }
 ```
@@ -66,17 +72,17 @@ Required: No
 
  ** [LanguageCode](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>
 The language code for the language used in the input media file\.  
-To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16000 Hz or higher\.  
+To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16,000 Hz or higher\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
  ** [LanguageOptions](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageOptions"></a>
 An object containing a list of languages that might be present in your collection of audio files\. Automatic language identification chooses a language that best matches the source audio from that list\.  
-To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16000 Hz or higher\.  
+To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16,000 Hz or higher\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\.  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
  ** [Media](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Media"></a>
@@ -120,7 +126,7 @@ You can use either of the following to identify a KMS key in the current account
 You can use either of the following to identify a KMS key in the current account or another account:  
 + Amazon Resource Name \(ARN\) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd\-12ab\-34cd\-56ef\-1234567890ab"
 + ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"
-If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.   
+If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.  
 If you specify a KMS key to encrypt your output, you must also specify an output location in the `OutputBucketName` parameter\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
@@ -140,6 +146,12 @@ Required: No
  ** [Settings](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Settings"></a>
 A `Settings` object that provides optional settings for a transcription job\.  
 Type: [Settings](API_Settings.md) object  
+Required: No
+
+ ** [Tags](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Tags"></a>
+Add tags to an Amazon Transcribe transcription job\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
 Required: No
 
  ** [TranscriptionJobName](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-TranscriptionJobName"></a>
@@ -189,6 +201,12 @@ Required: Yes
          "VocabularyName": "string"
       },
       "StartTime": number,
+      "Tags": [ 
+         { 
+            "Key": "string",
+            "Value": "string"
+         }
+      ],
       "Transcript": { 
          "RedactedTranscriptFileUri": "string",
          "TranscriptFileUri": "string"
@@ -232,12 +250,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_StartTranscriptionJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/StartTranscriptionJob) 

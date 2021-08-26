@@ -8,10 +8,10 @@ Amazon Transcribe Medical can transcribe speech as either an audio file or a rea
 
 ## Containers and formats for batch transcription<a name="file-format"></a>
 
-When you transcribe an audio file using the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation or the Amazon Transcribe Medical console, make sure that the file is:
+When you transcribe an audio file using the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console, make sure that the file is:
 + In FLAC, MP3, MP4, Ogg, WebM, AMR, or WAV file format
 + Less than 4 hours in length and less than 2 GB in size
-+ Encoded at a sample rate of 16000 Hz or higher
++ Encoded at a sample rate of 16,000 Hz or higher
 
 **Note**  
 For AMR, Amazon Transcribe Medical supports both Adaptive Multi\-Rate Wideband \(AMR\-WB\) and Adaptive Multi\-Rate Narrowband \(AMR\-NB\) codecs\.  
@@ -22,12 +22,12 @@ For best results:
 
 ## Audio containers and formats for streaming transcription<a name="streaming-format"></a>
 
-When you transcribe a real\-time stream using the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation or a WebSocket request, make sure that your stream is encoded in:
+When you transcribe a real\-time stream using the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API or a WebSocket request, make sure that your stream is encoded in:
 + PCM 16\-bit signed little endian
 + FLAC
 + OPUS encoded audio in the Ogg container
 
-Your stream must use a sample rate of 16000 Hz or higher\.
+Your stream must use a sample rate of 16,000 Hz or higher\.
 
 For best results:
 + Use a lossless format, such as FLAC or PCM encoding\.

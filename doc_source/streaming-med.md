@@ -7,7 +7,7 @@ The following table shows which languages are available for streaming transcript
 
 | Language | Sample rate | Available in | 
 | --- | --- | --- | 
-| US English \(en\-US\) | 16 kHz, 8 kHz | [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/), [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation, and WebSocket request | 
+| US English \(en\-US\) | 16 kHz, 8 kHz | [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/), [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API, and WebSocket request | 
 
 If you are using HTTP/2, we provide an HTTP/2 streaming client that handles retrying the connection when there are transient problems on the network\. You can use this client as a starting point for your own applications\. To use Amazon Transcribe Medical streaming with the WebSocket protocol, you can create your own client\.
 

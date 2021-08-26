@@ -9,7 +9,7 @@ When Amazon Transcribe Medical uses the [HTTP/2 protocol](https://http2.github.i
 
 ## Streaming request<a name="streaming-med-request"></a>
 
-To make a streaming request, you use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation\. 
+To make a streaming request, you use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\. 
 
 ### Header frame<a name="streaming-med-header"></a>
 
@@ -38,7 +38,7 @@ In the request, use the following values for the `host`, `authorization`, and `x
 + **`authorization`**: The Signature Version 4 signature for the request\. For more information about creating a signature, see [ Signing AWS Requests with Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html) in the *Amazon Web Services General Reference*\.
 + **`x-amz-date`**: Generate a date and time for the request following the instructions in [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html) in the *Amazon Web Services General Reference*\.
 
-For more information about the headers specific to Amazon Transcribe Medical, see the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation\.
+For more information about the headers specific to Amazon Transcribe Medical, see the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\.
 
 ### Data frames<a name="streaming-med-data"></a>
 
@@ -109,7 +109,7 @@ To indicate that the audio stream is complete, send an end frame to Amazon Trans
 
 ## Streaming response<a name="streaming-med-response"></a>
 
-Responses from Amazon Transcribe Medical are also sent using event stream encoding\. Use this information to decode a response from the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation\.
+Responses from Amazon Transcribe Medical are also sent using event stream encoding\. Use this information to decode a response from the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\.
 
 ### Transcription response<a name="transcription-response"></a>
 

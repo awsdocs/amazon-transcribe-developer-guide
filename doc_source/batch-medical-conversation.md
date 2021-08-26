@@ -1,8 +1,8 @@
 # Transcribing an audio file of a medical conversation<a name="batch-medical-conversation"></a>
 
-Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation or the Amazon Transcribe Medical console\.
+Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
 
-When you start a medical transcription job with the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
+When you start a medical transcription job with the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
 
 ## Console<a name="batch-med-conversation-console"></a>
 
@@ -10,7 +10,7 @@ When you start a medical transcription job with the [StartMedicalTranscriptionJo
 
 To use the console to transcribe a clinician\-patient dialogue, create a transcription job and choose **Conversation** for **Audio input type**\.
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe Medical console at [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -31,13 +31,13 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
 ## API<a name="batch-med-conversation-api"></a>
 
 **To transcribe a medical conversation using a batch transcription job \(API\)**
-+  In the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation, specify the following\.
++ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name unique in your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file and the language of your vocabulary filter\.
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
+  1. For the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
 
   1. For `Specialty`, specify the medical specialty of the clinician speaking in the audio file as `PRIMARYCARE`\.
 

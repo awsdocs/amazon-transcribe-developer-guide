@@ -4,7 +4,7 @@ When you use Amazon Transcribe Medical, you get the transcription that has the h
 
 Use alternative transcriptions to see different interpretations of the transcribed audio\. For example, in an application that enables a person to review the transcription, you can present the alternative transcriptions for the person to choose from\.
 
-You can generate alternative transcriptions with the Amazon Transcribe Medical console or the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation\.
+You can generate alternative transcriptions with the Amazon Transcribe Medical console or the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API\.
 
 ## Console<a name="alternative-med-transcriptions-console"></a>
 
@@ -12,7 +12,7 @@ You can generate alternative transcriptions with the Amazon Transcribe Medical c
 
 To use the console to generate alternative transcriptions, you enable alternative results when you configure your job\.
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe Medical console at [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -31,13 +31,13 @@ To use the console to generate alternative transcriptions, you enable alternativ
 ## API<a name="alternative-med-transcriptions-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+  In the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation, specify the following\.
++ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file and the language of your vocabulary filter\.
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
+  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file you want to transcribe\.
 
   1. For `Specialty`, specify the medical specialty of the clinician speaking in the audio file\.
 
@@ -49,7 +49,7 @@ To use the console to generate alternative transcriptions, you enable alternativ
 
      1. `ShowAlternatives` – `true`\.
 
-     1. `MaxAlternatives` \- An integer between 2 and 10 to indicate the number of alternative transcriptions that you want in the transcription output\.
+     1. `MaxAlternatives` \- An integer between 2 and 10 to indicate the number of alternative transcriptions you want in the transcription output\.
 
 The following request uses the AWS SDK for Python \(Boto3\) to start a transcription job that generates up to two alternative transcriptions\.
 

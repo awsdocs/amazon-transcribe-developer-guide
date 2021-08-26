@@ -1,25 +1,8 @@
 # Transcribing numbers and punctuation<a name="how-numbers"></a>
 
-Amazon Transcribe automatically adds punctuation to all the languages that it supports\. It also capitalizes words appropriately for languages that use case distinction in their writing systems\.
+Amazon Transcribe automatically adds punctuation to all the languages that it supports\. It also capitalizes words appropriately for languages that use case distinction in their writing systems\. For example, the spoken number "one thousand two hundred forty\-two" is transcribed as "1242" in supported languages\. For all other languages, numbers are transcribed into their word forms\.
 
-When using the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, numbers are transcribed as digits instead of words for the following languages:
-+ Australian English \(en\-AU\)
-+ British English \(en\-GB\)
-+ Indian English \(en\-IN\)
-+ Irish English \(en\-IE\)
-+ Scottish English \(en\-AB\)
-+ US English \(en\-US\)
-+ Welsh English \(en\-WL\)
-+ German \(de\-DE\)
-+ Swiss German \(de\-CH\)
-
-For streaming transcription, numbers are transcribed as digits for the following languages:
-+ Australian English \(en\-AU\)
-+ British English \(en\-GB\)
-+ US English \(en\-US\)
-+ German \(de\-DE\)
-
-For the preceding languages, the spoken number "one thousand two hundred forty\-two" is transcribed as 1242\. For all other languages, numbers are transcribed into their word forms\.
+For a list of supported languages, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
 
 ## Rules for transcribing numbers in English<a name="rules-english"></a>
 

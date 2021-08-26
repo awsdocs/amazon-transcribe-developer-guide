@@ -1,16 +1,16 @@
-# Set up an AWS account and create an administrator user<a name="setting-up-ascm-med"></a>
+# Set up an AWS account and create an administrator user<a name="setting-up-med"></a>
 
 Before you use Amazon Transcribe Medical for the first time, complete the following tasks:
 
-1. [Sign up for AWS](#setting-up-ascm-signup-med)
+1. [Sign up for AWS](#setting-up-signup-med)
 
-1. [Create an IAM user](#setting-up-ascm-iam-med)
+1. [Create an IAM user](#setting-up-iam-med)
 
-## Sign up for AWS<a name="setting-up-ascm-signup-med"></a>
+## Sign up for AWS<a name="setting-up-signup-med"></a>
 
 When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all AWS services, including Amazon Transcribe Medical\. You are charged only for the services that you use\.
 
-With Amazon Transcribe Medical, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe Medical for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
+With Amazon Transcribe Medical, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe Medical for free\. For more information, see [AWS Free Usage Tier](http://aws.amazon.com/free/)\.
 
 If you already have an AWS account, skip to the next section\. 
 
@@ -24,7 +24,7 @@ If you already have an AWS account, skip to the next section\.
 
 Record your AWS account ID because you'll need it for the next task\.
 
-## Create an IAM user<a name="setting-up-ascm-iam-med"></a>
+## Create an IAM user<a name="setting-up-iam-med"></a>
 
 Services in AWS, such as Amazon Transcribe Medical, require that you provide credentials when you access them\. This allows the service to determine whether you have permissions to access the service's resources\. 
 
@@ -43,6 +43,6 @@ For more information about IAM, see the following:
 + [Getting started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
 + [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
 
-## Next step<a name="setting-up-ascm-next-step-2-med"></a>
+## Next step<a name="setting-up-next-step-2-med"></a>
 
 To get started with medical transcription using the console, see [Getting Started \(Console\)](getting-started-med-console.md)\.

@@ -1,16 +1,19 @@
-# Improving domain\-specific transcription accuracy with custom language models<a name="custom-language-models"></a>
+# Improving transcription accuracy with custom language models<a name="custom-language-models"></a>
 
 Use *custom language models* to train and develop language models that are domain\-specific\. For example, you can use custom language models to improve transcription performance for domains such as legal, hospitality, finance, and insurance\. Although the general model provided by Amazon Transcribe works well in most instances, custom language models might produce even more accurate results\.
 
-To train a custom language model, you must upload text data from your specific use case to Amazon Simple Storage Service \(Amazon S3\), provide Amazon Transcribe with permission to access that data, and choose a *base model*\. A base model is a general speech recognition model, which you customize with your text data\.
+To train a custom language model, you must upload text data from your specific use case to Amazon Simple Storage Service \(Amazon S3\), provide Amazon Transcribe with permission to access the data, and choose a *base model*\. A base model is a general speech recognition model, which you customize with your text data\.
 
 Custom language models use your text data to improve transcription accuracy for your use case\. Your text data can include domain\-specific text or audio transcripts\. Domain\-specific text data includes website content, instruction manuals, and technical documentation\. Audio transcript data consists of ground\-truth audio transcripts\. Ground\-truth audio transcripts have been processed with very high accuracy and are the ideal representation of the source audio\.
 
-You must provide text data that represents the audio that you want to transcribe\. The domain\-specific data that you provide must be related to your use case, and the audio transcript data that you provide should be similar to the audio that you want to transcribe\. Any potential improvement in transcription accuracy depends on how closely your text data represents your audio and how much text data you provide\. The quality of your text data is much more important than its quantity in creating custom language models that generate accurate transcriptions\.
+**Note**  
+Custom language models are not available with all Amazon Transcribe\-supported languages; see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
 
-You upload your text data to Amazon Simple Storage Service \(Amazon S3\) and then give Amazon Transcribe access to the S3 buckets that contain that data\. After uploading your data to Amazon S3, you choose a *base model*\. A base model is a general speech recognition model that you customize with your text data\.
+You must provide text data that represents the audio you want to transcribe\. The domain\-specific data you provide must be related to your use case, and the audio transcript data you provide should be similar to the audio you want to transcribe\. Any potential improvement in transcription accuracy depends on how closely your text data represents your audio and how much text data you provide\. The quality of your text data is much more important than its quantity in creating custom language models that generate accurate transcriptions\.
 
-There are two ways that you can upload your text data to create a custom language model:
+You upload your text data to Amazon Simple Storage Service \(Amazon S3\) and then give Amazon Transcribe access to the S3 buckets that contain the data\. After uploading your data to Amazon S3, you choose a *base model*\. A base model is a general speech recognition model that you customize with your text data\.
+
+There are two ways you can upload your text data to create a custom language model:
 
 1. Upload your text as *training data*\. You use training data to train your custom language model for your specific use case\.
 
@@ -31,13 +34,6 @@ You can provide up to 2 GB of training data and 200 MB of tuning data\.
 If you have enough text that represents the audio you want to transcribe, training custom language models can produce significant improvements in accuracy over using [Custom vocabularies](how-vocabulary.md)\. Custom vocabularies improve the ability of Amazon Transcribe to recognize terms without using the context in which they're spoken\. Custom language models not only recognize individual terms, but additionally use each term's context to transcribe your audio\. 
 
 Custom language models can also add words to their recognition vocabularies automatically, eliminating the need for you to manually input new words\. For the highest possible transcription accuracy, you can use custom vocabularies with your custom language model\.
-
-Custom language models are available in the following languages:
-+ Australian English \(en\-AU\)
-+ British English \(en\-GB\)
-+ US English \(en\-US\)
-+ Indian Hindi \(hi\-IN\)
-+ US Spanish \(es\-US\)
 
 You can't use AWS Key Management Service \(AWS KMS\) to encrypt your training data,  but you can use AWS KMS condition keys to encrypt your transcription output\. For information about condition keys, see [Key management](key-management.md)\.
 

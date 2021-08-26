@@ -102,6 +102,9 @@ Create a string that includes information from your request in a standardized fo
    ```
 
 1. Create the canonical headers and signed headers\. Note the trailing `"\n"` in the canonical headers\.
+   + Append the lowercase header name followed by a colon\.
+   + Append a comma\-separated list of values for that header\. Do not sort the values in headers that have multiple values\.
+   + Append a new line \(`\n`\)\.
 
    ```
    canonical_headers = "host:" + host + "\n"
@@ -117,16 +120,18 @@ Create a string that includes information from your request in a standardized fo
 1. Create the credential scope, which scopes the derived key to the date, AWS Region, and service to which the request is made\.
 
    ```
-   credential_scope = datestamp + "%2f" + region + "%2f" + service + "%2f" + "aws4_request"
+   credential_scope = datestamp + "/" + region + "/" + service + "/" + "aws4_request"
    ```
 
-   `"%2f"` is the url\-encoded value of `"/"`\.
-
-1. Create the canonical query string\. Query string values must be URL\-encoded and sorted by name\.
+1. Create the canonical query string\. Query string values must be URI\-encoded and sorted by name\.
+   + Sort the parameter names by character code point in ascending order\. Parameters with duplicate names should be sorted by value\. For example, a parameter name that begins with the uppercase letter F precedes a parameter name that begins with a lowercase letter b\.
+   + Do not URI\-encode any of the unreserved characters that [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986) defines: A\-Z, a\-z, 0\-9, hyphen \( \- \), underscore \( \_ \), period \( \. \), and tilde \( \~ \)\.
+   + Percent\-encode all other characters with %XY, where X and Y are hexadecimal characters \(0\-9 and uppercase A\-F\)\. For example, the space character must be encoded as %20 \(not using '\+', as some encoding schemes do\) and extended UTF\-8 characters must be in the form %XY%ZA%BC\.
+   + Double\-encode any equals \( = \) characters in parameter values\.
 
    ```
    canonical_querystring  = "X-Amz-Algorithm=" + algorithm
-   canonical_querystring += "&X-Amz-Credential="+ access key + "%2f" + credential_scope
+   canonical_querystring += "&X-Amz-Credential="+ URI-encode(access key + "/" + credential_scope)
    canonical_querystring += "&X-Amz-Date=" + amz_date 
    canonical_querystring += "&X-Amz-Expires=300"
    canonical_querystring += "&X-Amz-Security-Token=" + token
@@ -202,7 +207,7 @@ You use the request URL with your WebSocket library to make the request to the A
 
 ### Including WebSocket request headers<a name="websocket-headers-med"></a>
 
-The request to Amazon Transcribe Medical must include the following headers\. Typically thesemed headers are managed by your WebSocket client library\.
+The request to Amazon Transcribe Medical must include the following headers\. Typically these med headers are managed by your WebSocket client library\.
 
 ```
 Host: transcribestreaming.region.amazonaws.com:8443
@@ -227,7 +232,7 @@ When Amazon Transcribe Medical receives your WebSocket request, it responds with
 The following is the response from Amazon Transcribe Medical\. Line breaks have been added to the `websocket-location` header for readability\.
 
 ```
-HTTP/1.1 101 Web Socket Protocol Handshake
+HTTP/1.1 101 WebSocket Protocol Handshake
 
 Connection: upgrade
 Upgrade: websocket
@@ -242,7 +247,7 @@ websocket-location: transcribestreaming.region.amazonaws.com:8443/stream-transcr
                    &media-encoding=media encoding
                    &sample-rate=media sample rate
                    &type=dictation or conversation
-                &specialty=medical specialty- must be Primary Care
+                   &specialty=medical specialty (must be Primary Care)
                    &X-Amz-Signature=signature
 x-amzn-RequestId: RequestId
 x-amzn-SessionId: SessionId

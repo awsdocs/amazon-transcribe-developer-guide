@@ -22,9 +22,9 @@ Identity\-based policies are very powerful\. They determine whether someone can 
 
 ## Using the Amazon Transcribe console<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the Amazon Transcribe console, you must have a minimum set of permissions for the console\. These permissions must allow you to list and view details about the Amazon Transcribe resources in your AWS account\. If you create an identity\-based policy that applies permissions that are more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
+To access the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), you must have a minimum set of permissions for the console\. These permissions must allow you to list and view details about the Amazon Transcribe resources in your AWS account\. If you create an identity\-based policy that applies permissions that are more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
 
-To ensure that those entities can use the Amazon Transcribe console, attach the following AWS managed policy to them\. 
+To ensure that those entities can use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), attach the following AWS managed policy to them\.
 
 ```
 {
@@ -47,7 +47,7 @@ For more information, see [Adding Permissions to a User](https://docs.aws.amazon
 
 ## AWS managed \(predefined\) policies for Amazon Transcribe<a name="auth-managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These policies are called AWS managed policies\. Managed policies make it easier for you to assign appropriate permissions to users, groups, and roles than if you had to write the policies yourself\.\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These policies are called AWS managed policies\. Managed policies make it easier for you to assign appropriate permissions to users, groups, and roles than if you had to write the policies yourself\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users, roles, and groups in your account, are specific to Amazon Transcribe:
 + **ReadOnly** – Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.

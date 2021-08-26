@@ -1,16 +1,16 @@
-# Step 1: Set up an AWS account and create an administrator user<a name="setting-up-asc"></a>
+# Step 1: Set up an AWS account and create an administrator user<a name="setting-up"></a>
 
 Before you use Amazon Transcribe for the first time, complete the following tasks:
 
-1. [Sign up for AWS](#setting-up-asc-signup)
+1. [Sign up for AWS](#setting-up-signup)
 
-1. [Create an IAM user](#setting-up-asc-iam)
+1. [Create an IAM user](#setting-up-iam)
 
-## Sign up for AWS<a name="setting-up-asc-signup"></a>
+## Sign up for AWS<a name="setting-up-signup"></a>
 
 When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all AWS services, including Amazon Transcribe\. You are charged only for the services that you use\.
 
-With Amazon Transcribe, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
+With Amazon Transcribe, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe for free\. For more information, see [AWS Free Usage Tier](http://aws.amazon.com/free/)\.
 
 If you already have an AWS account, skip to the next section\. 
 
@@ -24,7 +24,7 @@ If you already have an AWS account, skip to the next section\.
 
 Record your AWS account ID because you'll need it for the next task\.
 
-## Create an IAM user<a name="setting-up-asc-iam"></a>
+## Create an IAM user<a name="setting-up-iam"></a>
 
 Services in AWS, such as Amazon Transcribe, require that you provide credentials when you access them\. This allows the service to determine whether you have permissions to access the service's resources\. 
 
@@ -43,6 +43,6 @@ For more information about IAM, see the following:
 + [Getting started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
 + [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
 
-## Next step<a name="setting-up-asc-next-step-2"></a>
+## Next step<a name="setting-up-next-step-2"></a>
 
-[Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)
+[Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)

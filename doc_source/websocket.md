@@ -55,7 +55,7 @@ GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-web
 Use the following values for the URL parameters:
 + **language\-code** – The language code for the input audio\. Valid values are `en-AU, en-GB, en-US, es-US, fr-CA, fr-FR, de-DE, ja-JP, ko-KR, pt-BR, zh-CN` and `it-IT`\.
 + **media\-encoding** – The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
-+ **sample\-rate** – The sample rate of the input audio in Hertz\. We suggest that you use 8000 Hz for low\-quality audio and 16000 Hz for high\-quality audio\. The sample rate must match the sample rate in the audio file\.
++ **sample\-rate** – The sample rate of the input audio in Hertz\. We suggest that you use 8,000 Hz for low\-quality audio and 16,000 Hz for high\-quality audio\. The sample rate must match the sample rate in the audio file\.
 + **sessionId** – Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.
 + **vocabulary\-name** – Optional\. The name of the vocabulary to use when processing the transcription job, if any\.
 
@@ -99,7 +99,10 @@ Create a string that includes information from your request in a standardized fo
    canonical_uri = "/stream-transcription-websocket"
    ```
 
-1. Create the canonical headers and signed headers\. Note the trailing `"\n"` in the canonical headers\.
+1. Create the canonical headers and signed headers\. Note the trailing `\n` in the canonical headers\.
+   + Append the lowercase header name followed by a colon\.
+   + Append a comma\-separated list of values for that header\. Do not sort the values in headers that have multiple values\.
+   + Append a new line \(`\n`\)\.
 
    ```
    canonical_headers = "host:" + host + "\n"
@@ -115,16 +118,18 @@ Create a string that includes information from your request in a standardized fo
 1. Create the credential scope, which scopes the derived key to the date, Region, and service to which the request is made\.
 
    ```
-   credential_scope = datestamp + "%2f" + region + "%2f" + service + "%2f" + "aws4_request"
+   credential_scope = datestamp + "/" + region + "/" + service + "/" + "aws4_request"
    ```
 
-   `"%2f"` is the url\-encoded value of `"/"`\.
-
-1. Create the canonical query string\. Query string values must be URL\-encoded and sorted by name\.
+1. Create the canonical query string\. Query string values must be URI\-encoded and sorted by name\.
+   + Sort the parameter names by character code point in ascending order\. Parameters with duplicate names should be sorted by value\. For example, a parameter name that begins with the uppercase letter F precedes a parameter name that begins with a lowercase letter b\.
+   + Do not URI\-encode any of the unreserved characters that [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986) defines: A\-Z, a\-z, 0\-9, hyphen \( \- \), underscore \( \_ \), period \( \. \), and tilde \( \~ \)\.
+   + Percent\-encode all other characters with %XY, where X and Y are hexadecimal characters \(0\-9 and uppercase A\-F\)\. For example, the space character must be encoded as %20 \(not using '\+', as some encoding schemes do\) and extended UTF\-8 characters must be in the form %XY%ZA%BC\.
+   + Double\-encode any equals \( = \) characters in parameter values\.
 
    ```
    canonical_querystring  = "X-Amz-Algorithm=" + algorithm
-   canonical_querystring += "&X-Amz-Credential="+ access key + "%2f" + credential_scope
+   canonical_querystring += "&X-Amz-Credential="+ URI-encode(access key + "/" + credential_scope)
    canonical_querystring += "&X-Amz-Date=" + amz_date 
    canonical_querystring += "&X-Amz-Expires=300"
    canonical_querystring += "&X-Amz-Security-Token=" + token
@@ -223,7 +228,7 @@ When Amazon Transcribe receives your WebSocket request, it responds with a WebSo
 The following is the response from Amazon Transcribe\. Line breaks have been added to the `websocket-location` header for readability\.
 
 ```
-HTTP/1.1 101 Web Socket Protocol Handshake
+HTTP/1.1 101 WebSocket Protocol Handshake
 
 Connection: upgrade
 Upgrade: websocket

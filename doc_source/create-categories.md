@@ -1,12 +1,12 @@
 # Using categories and rules<a name="create-categories"></a>
 
-You can use call analytics categories to flag particular conversational characteristics in your analytics job\. For each category you create, you must create between 1 and 20 rules\. Each rule contains one *filter* to identify criteria applicable to a category\. You can create filters for the following:
+You can use call analytics categories to flag particular conversational characteristics in your call analytics job\. For each category you create, you must create between 1 and 20 rules\. Each rule contains one *filter* to identify criteria applicable to a category\. You can create filters for the following:
 + Non\-talk time: When neither the customer nor the agent is talking\.
 + Interruptions: When either the customer or the agent is interrupting the other person\.
 + Customer or agent sentiment: How either the customer or the agent is feeling during a specified time period\. If at least 50 percent of the conversation turns \(the back\-and\-forth between two speakers\) in a specified time period match the specified sentiment, Amazon Transcribe will consider the sentiment a match\.
 + Call categorization: Matches part of the transcription based on an exact phrase\. For example, if you filter for the customer saying "I want to speak to the manager", Amazon Transcribe filters for that exact phrase\.
 
-To create a category, you can use either the Amazon Transcribe console or the API\.
+To create a category, you can use either the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the API\.
 
 ## Console<a name="create-category-console"></a>
 
@@ -14,7 +14,7 @@ To create a category, you define one or more rules\. Each rule can have one filt
 
 **To transcribe a multi\-channel audio file \(console\)**
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe, choose **Amazon Transcribe Call Analytics**\.
 
@@ -33,7 +33,7 @@ To create a category, you define one or more rules\. Each rule can have one filt
 ## API<a name="create-category-api"></a>
 
 **To create a category \(API\)**
-+ In the [CreateCallAnalyticsCategory](API_CreateCallAnalyticsCategory.md) operation, specify the following:
++ For the [CreateCallAnalyticsCategory](API_CreateCallAnalyticsCategory.md) API, specify the following:
 
   1. `CallAnalyticsCategoryName` – specify a name for the category that is unique to your AWS account\.
 
@@ -70,7 +70,6 @@ print(result)
   + The words "welcome" or "hello" were used in the first 10,000 milliseconds of the call\.
 
   ```
-                      
   aws transcribe create-call-analytics-category \
   --cli-input-json file://example-start-command.json
   ```

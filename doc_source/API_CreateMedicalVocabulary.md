@@ -1,12 +1,18 @@
 # CreateMedicalVocabulary<a name="API_CreateMedicalVocabulary"></a>
 
-Creates a new custom vocabulary that you can use to change how Amazon Transcribe Medical transcribes your audio file\.
+Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes your audio file\.
 
 ## Request Syntax<a name="API_CreateMedicalVocabulary_RequestSyntax"></a>
 
 ```
 {
    "LanguageCode": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ],
    "VocabularyFileUri": "string",
    "VocabularyName": "string"
 }
@@ -21,8 +27,14 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-LanguageCode"></a>
 The language code for the language used for the entries in your custom vocabulary\. The language code of your custom vocabulary must match the language code of your transcription job\. US English \(en\-US\) is the only language code available for Amazon Transcribe Medical\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: Yes
+
+ ** [Tags](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-Tags"></a>
+Adds one or more tags, each in the form of a key:value pair, to a new medical vocabulary at the time you create this new vocabulary\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
+Required: No
 
  ** [VocabularyFileUri](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-VocabularyFileUri"></a>
 The location in Amazon S3 of the text file you use to define your custom vocabulary\. The URI must be in the same AWS Region as the resource that you're calling\. Enter information about your `VocabularyFileUri` in the following format:  
@@ -68,7 +80,7 @@ Type: String
  ** [LanguageCode](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LanguageCode"></a>
 The language code for the entries in your custom vocabulary\. US English \(en\-US\) is the only valid language code for Amazon Transcribe Medical\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
  ** [LastModifiedTime](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LastModifiedTime"></a>
 The date and time that you created the vocabulary\.  
@@ -108,12 +120,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateMedicalVocabulary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateMedicalVocabulary) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateMedicalVocabulary) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CreateMedicalVocabulary) 

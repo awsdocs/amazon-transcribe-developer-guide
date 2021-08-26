@@ -27,6 +27,12 @@ Starts a batch job to transcribe medical speech to text\.
       "VocabularyName": "string"
    },
    "Specialty": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ],
    "Type": "string"
 }
 ```
@@ -46,7 +52,7 @@ Required: No
  ** [LanguageCode](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-LanguageCode"></a>
 The language code for the language spoken in the input media file\. US English \(en\-US\) is the valid value for medical transcription jobs\. Any other value you enter for language code results in a `BadRequestException` error\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: Yes
 
  ** [Media](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-Media"></a>
@@ -119,8 +125,14 @@ Type: String
 Valid Values:` PRIMARYCARE`   
 Required: Yes
 
+ ** [Tags](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-Tags"></a>
+Add tags to an Amazon Transcribe medical transcription job\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
+Required: No
+
  ** [Type](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-Type"></a>
-The type of speech in the input audio\. `CONVERSATION` refers to conversations between two or more speakers, e\.g\., a conversations between doctors and patients\. `DICTATION` refers to single\-speaker dictated speech, e\.g\., for clinical notes\.  
+The type of speech in the input audio\. `CONVERSATION` refers to conversations between two or more speakers, e\.g\., a conversations between doctors and patients\. `DICTATION` refers to single\-speaker dictated speech, such as clinical notes\.  
 Type: String  
 Valid Values:` CONVERSATION | DICTATION`   
 Required: Yes
@@ -152,6 +164,12 @@ Required: Yes
       },
       "Specialty": "string",
       "StartTime": number,
+      "Tags": [ 
+         { 
+            "Key": "string",
+            "Value": "string"
+         }
+      ],
       "Transcript": { 
          "TranscriptFileUri": "string"
       },
@@ -194,12 +212,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_StartMedicalTranscriptionJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) 

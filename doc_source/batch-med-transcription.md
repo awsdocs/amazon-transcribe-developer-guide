@@ -2,13 +2,13 @@
 
 Amazon Transcribe Medical batch transcription is available in US English\. It has the ability to transcribe accented English from non\-native speakers\. It supports the transcription of individual audio files\. You start a transcription job with either the console or by direct API call\.
 
-You interact with Amazon Transcribe Medical using four main API resources\. To start a medical transcription job, use the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation\. To retrieve information on a medical transcription job, use [GetMedicalTranscriptionJob](API_GetMedicalTranscriptionJob.md)\. You list medical transcription jobs with [ListMedicalTranscriptionJobs](API_ListMedicalTranscriptionJobs.md)\. You delete a medical transcription job with [DeleteMedicalTranscriptionJob](API_DeleteMedicalTranscriptionJob.md)\.
+You interact with Amazon Transcribe Medical using four main API resources\. To start a medical transcription job, use the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API\. To retrieve information on a medical transcription job, use [GetMedicalTranscriptionJob](API_GetMedicalTranscriptionJob.md)\. You list medical transcription jobs with [ListMedicalTranscriptionJobs](API_ListMedicalTranscriptionJobs.md)\. You delete a medical transcription job with [DeleteMedicalTranscriptionJob](API_DeleteMedicalTranscriptionJob.md)\.
 
 To transcribe an audio file, you use a transcription job\. You store the file as an object in an Amazon Simple Storage Service \(S3\) bucket\. The input file must: 
 + Be in FLAC, MP3, MP4, or WAV file format\.
 + Use 16\-bit Linear PCM encoding\.
 + Be less than 4 hours in length and less than 2 GB in size
-+ Use a sample rate of at least 16000 Hz\.
++ Use a sample rate of at least 16,000 Hz\.
 
 For best results: 
 + Use a lossless format, such as FLAC or WAV\.

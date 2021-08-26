@@ -7,6 +7,12 @@ Creates a new vocabulary filter that you can use to filter words, such as profan
 ```
 {
    "LanguageCode": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ],
    "VocabularyFilterFileUri": "string",
    "VocabularyFilterName": "string",
    "Words": [ "string" ]
@@ -22,8 +28,14 @@ The request accepts the following data in JSON format\.
  ** [LanguageCode](#API_CreateVocabularyFilter_RequestSyntax) **   <a name="transcribe-CreateVocabularyFilter-request-LanguageCode"></a>
 The language code of the words in the vocabulary filter\. All words in the filter must be in the same language\. The vocabulary filter can only be used with transcription jobs in the specified language\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: Yes
+
+ ** [Tags](#API_CreateVocabularyFilter_RequestSyntax) **   <a name="transcribe-CreateVocabularyFilter-request-Tags"></a>
+Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe vocabulary filter at the time you create this new vocabulary filter\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
+Required: No
 
  ** [VocabularyFilterFileUri](#API_CreateVocabularyFilter_RequestSyntax) **   <a name="transcribe-CreateVocabularyFilter-request-VocabularyFilterFileUri"></a>
 The Amazon S3 location of a text file used as input to create the vocabulary filter\. Only use characters from the character set defined for custom vocabularies\. For a list of character sets, see [Character Sets for Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets)\.  
@@ -68,7 +80,7 @@ The following data is returned in JSON format by the service\.
  ** [LanguageCode](#API_CreateVocabularyFilter_ResponseSyntax) **   <a name="transcribe-CreateVocabularyFilter-response-LanguageCode"></a>
 The language code of the words in the collection\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
  ** [LastModifiedTime](#API_CreateVocabularyFilter_ResponseSyntax) **   <a name="transcribe-CreateVocabularyFilter-response-LastModifiedTime"></a>
 The date and time that the vocabulary filter was modified\.  
@@ -103,12 +115,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateVocabularyFilter_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateVocabularyFilter) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateVocabularyFilter) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CreateVocabularyFilter) 

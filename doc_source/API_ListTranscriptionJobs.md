@@ -27,20 +27,20 @@ Pattern: `^[0-9a-zA-Z._-]+`
 Required: No
 
  ** [MaxResults](#API_ListTranscriptionJobs_RequestSyntax) **   <a name="transcribe-ListTranscriptionJobs-request-MaxResults"></a>
-The maximum number of jobs to return in the response\. If there are fewer results in the list, this response contains only the actual results\.  
+The maximum number of jobs to return in each page of results\. If there are fewer results than the value you specify, only the actual results are returned\. If you do not specify a value, the default of 5 is used\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
  ** [NextToken](#API_ListTranscriptionJobs_RequestSyntax) **   <a name="transcribe-ListTranscriptionJobs-request-NextToken"></a>
-If the result of the previous request to `ListTranscriptionJobs` was truncated, include the `NextToken` to fetch the next set of jobs\.  
+If the result of the previous request to `ListTranscriptionJobs` is truncated, include the `NextToken` to fetch the next set of jobs\.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
 Pattern: `.+`   
 Required: No
 
  ** [Status](#API_ListTranscriptionJobs_RequestSyntax) **   <a name="transcribe-ListTranscriptionJobs-request-Status"></a>
-When specified, returns only transcription jobs with the specified status\. Jobs are ordered by creation date, with the newest jobs returned first\. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date\.   
+When specified, returns only transcription jobs with the specified status\. Jobs are ordered by creation date, with the newest jobs returned first\. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date\.  
 Type: String  
 Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`   
 Required: No
@@ -115,12 +115,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_ListTranscriptionJobs_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/ListTranscriptionJobs) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/ListTranscriptionJobs) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/ListTranscriptionJobs) 

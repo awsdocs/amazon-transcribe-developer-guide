@@ -13,7 +13,13 @@ Creates a new custom language model\. Use Amazon S3 prefixes to provide the loca
       "TuningDataS3Uri": "string"
    },
    "LanguageCode": "string",
-   "ModelName": "string"
+   "ModelName": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ]
 }
 ```
 
@@ -25,8 +31,8 @@ The request accepts the following data in JSON format\.
 
  ** [BaseModelName](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-BaseModelName"></a>
 The Amazon Transcribe standard language model, or base model used to create your custom language model\.  
-If you want to use your custom language model to transcribe audio with a sample rate of 16 kHz or greater, choose `Wideband`\.  
-If you want to use your custom language model to transcribe audio with a sample rate that is less than 16 kHz, choose `Narrowband`\.  
+If you want to use your custom language model to transcribe audio with a sample rate of 16,000 Hz or greater, choose `Wideband`\.  
+If you want to use your custom language model to transcribe audio with a sample rate that is less than 16,000 Hz, choose `Narrowband`\.  
 Type: String  
 Valid Values:` NarrowBand | WideBand`   
 Required: Yes
@@ -48,6 +54,12 @@ Type: String
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: Yes
+
+ ** [Tags](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-Tags"></a>
+Adds one or more tags, each in the form of a key:value pair, to a new language model at the time you create this new model\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
+Required: No
 
 ## Response Syntax<a name="API_CreateLanguageModel_ResponseSyntax"></a>
 
@@ -119,12 +131,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateLanguageModel_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateLanguageModel) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateLanguageModel) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CreateLanguageModel) 

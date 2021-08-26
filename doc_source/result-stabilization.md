@@ -58,7 +58,7 @@ x-amzn-transcribe-partial-results-stability: PartialResultsStability
 Content-type: application/json
 ```
 
-To activate partial result stabilization in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and specify the following:
+To activate partial result stabilization in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API and specify the following:
 + `LanguageCode` – The language code that corresponds to the language spoken in the stream\. For a list of languages available in streaming transcription, see [What is Amazon Transcribe?](transcribe-whatis.md)\.
 + `MediaSampleHertz` – The sample rate of the audio\.
 + `EnablePartialResultsStabilization` – `true`\.

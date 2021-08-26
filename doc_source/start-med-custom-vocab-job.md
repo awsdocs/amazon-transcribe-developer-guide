@@ -8,7 +8,7 @@ Use the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) or t
 
 To use the console to use your custom vocabulary in your transcription job, \.
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe Medical console at [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -27,13 +27,13 @@ To use the console to use your custom vocabulary in your transcription job, \.
 ## API<a name="start-med-custom-vocab-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+  In the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) operation, specify the following\.
++ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file and the language of your vocabulary filter\.
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
+  1. For the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
 
   1. For `Specialty`, specify the medical specialty of the clinician speaking in the audio file\.
 

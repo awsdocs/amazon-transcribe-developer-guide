@@ -58,8 +58,8 @@ Valid Values:` pcm | ogg-opus | flac`
 Required: Yes
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaSampleRateHertz"></a>
-The sample rate for the input audio stream\. Use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
-Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
+The sample rate for the input audio stream\. Use 8,000 Hz for low quality audio and 16,000 Hz for high quality audio\.  
+Valid Range: Minimum value of 8,000\. Maximum value of 48,000\.  
 Required: Yes
 
  ** [NumberOfChannels](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-NumberOfChannels"></a>
@@ -187,8 +187,8 @@ The encoding used for the input audio stream\.
 Valid Values:` pcm | ogg-opus | flac` 
 
  ** [MediaSampleRateHertz](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaSampleRateHertz"></a>
-The sample rate for the input audio stream\. Use 8000 Hz for low quality audio and 16000 Hz for high quality audio\.  
-Valid Range: Minimum value of 8000\. Maximum value of 48000\.
+The sample rate for the input audio stream\. Use 8,000 Hz for low quality audio and 16,000 Hz for high quality audio\.  
+Valid Range: Minimum value of 8,000\. Maximum value of 48,000\.
 
  ** [NumberOfChannels](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-NumberOfChannels"></a>
 The number of channels identified in the stream\.  
@@ -234,7 +234,7 @@ Type: [TranscriptResultStream](API_streaming_TranscriptResultStream.md) object
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
  **BadRequestException**   
-One or more arguments to the `StartStreamTranscription` or `StartMedicalStreamTranscription` operation was invalid\. For example, `MediaEncoding` was not set to a valid encoding, or `LanguageCode` was not set to a valid code\. Check the parameters and try your request again\.  
+One or more arguments to the `StartStreamTranscription` or `StartMedicalStreamTranscription` API was invalid\. For example, `MediaEncoding` was not set to a valid encoding, or `LanguageCode` was not set to a valid code\. Check the parameters and try your request again\.  
 HTTP Status Code: 400
 
  **ConflictException**   

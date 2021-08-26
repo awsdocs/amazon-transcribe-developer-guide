@@ -1,4 +1,4 @@
-# Step 4: Getting started using the API<a name="getting-started-asc-api"></a>
+# Step 4: Getting started using the API<a name="getting-started-api"></a>
 
 This section contains examples the demonstrate using the Amazon Transcribe API\. You can use these samples to learn about the API or as building blocks in your own applications\.
 

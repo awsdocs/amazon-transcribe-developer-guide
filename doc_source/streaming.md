@@ -1,17 +1,16 @@
 # Streaming transcription<a name="streaming"></a>
 
-Use Amazon Transcribe streaming transcription, to send an audio stream and receive a stream of text in real time\. You can use this text stream to add real\-time speech\-to\-text capability to your applications\.
+Use Amazon Transcribe streaming transcription to send an audio stream and receive a stream of text in real time\. You can use this text stream to add real\-time speech\-to\-text capability to your applications\.
 
-You can start a stream using the:
-+ HTTP/2 protocol
-+ WebSocket protocol
-+ Amazon Transcribe console
+Streaming transcription takes a stream of your audio data and transcribes it in real time\. Streaming uses HTTP/2 or WebSocket streams so that the results of the transcription are returned to your application while you send more audio to Amazon Transcribe\. Use streaming transcription when you want to make the results of live audio transcription available immediately, or when you have an audio file that you want to process as it is transcribed\.
 
-If you use the HTTP/2 protocol, you use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation to start a stream\. When you use this operation, the client handles retrying the connection when there are transient problems on the network\. To use Amazon Transcribe streaming with the WebSocket protocol, you create your own client\.
+For a streaming transcription using:
++ HTTP/2 – Use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API to start a stream\. When you use this API, the client handles retrying the connection when there are transient problems on the network\.
++ WebSocket – Create your own client\.
++ [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) – Speak directly into a computer microphone\. You can use the console as a preview to see how your transcription results are returned to your application when using the API\.
 
-You can use the Amazon Transcribe console to see how the transcribe the words that you speak into a microphone\. You can use this to see how the transcription results are returned to your application when you use the API\.
-
-For a list of languages that streaming transcription is available in, see [What is Amazon Transcribe?](transcribe-whatis.md)\.
+**Note**  
+Streaming transcription is not supported in all languages\. See [Supported languages and language\-specific features](how-it-works.md#table-language-matrix) for details\.
 
 You can use Amazon Transcribe streaming transcription for a variety of purposes\. For example:
 + Streaming transcriptions can generate real\-time subtitles for live broadcast media\.

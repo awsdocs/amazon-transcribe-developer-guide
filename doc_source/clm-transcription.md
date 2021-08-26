@@ -1,6 +1,6 @@
 # Step 4: Transcribing with a custom language model<a name="clm-transcription"></a>
 
-You can use a custom language model in transcription jobs with the Amazon Transcribe console, the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, or the AWS CLI\.
+You can use a custom language model in transcription jobs with the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\.
 
 ## Transcribing with a custom language model \(console\)<a name="start-console"></a>
 
@@ -8,7 +8,7 @@ You can use a custom language model in transcription jobs with the Amazon Transc
 
 **To start a transcription job \(console\)**
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Transcription jobs**\.
 
@@ -22,7 +22,7 @@ You can use a custom language model in transcription jobs with the Amazon Transc
 
 1. Choose **Next**\.
 
-1. Enable any of the available features for your transcription job that you want to use\.
+1. Enable any of the available features you want to use for your transcription job\.
 
 1. Choose **Create**\.
 
@@ -31,13 +31,13 @@ You can use a custom language model in transcription jobs with the Amazon Transc
 **To start a transcription job \(API\)**
 
 **To transcribe an audio or video file with a custom language model \(API\)**
-+  In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following\.
++ For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name that is unique to your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio or video file\.
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify Amazon S3 location of the file that you want to transcribe\.
+  1. For the `MediaFileUri` parameter of the `Media` object, specify Amazon S3 location of the file you want to transcribe\.
 
   1. For the `LanguageModelName` parameter of the `ModelSettings` object, specify the name of the custom language model\.
 

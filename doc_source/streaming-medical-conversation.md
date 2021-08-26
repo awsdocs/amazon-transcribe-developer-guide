@@ -1,6 +1,6 @@
 # Transcribing a medical conversation in a real\-time stream<a name="streaming-medical-conversation"></a>
 
-You can transcribe an audio stream of a medical conversation using either the HTTP/2 or [WebSocket ](https://tools.ietf.org/html/rfc6455) protocols\. For information on how to start a stream using the WebSocket protocol, see [Establish a bi\-directional connection using the WebSocket protocol](websocket-med.md)\. To start an HTTP/2 stream, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation\.
+You can transcribe an audio stream of a medical conversation using either the HTTP/2 or [WebSocket ](https://tools.ietf.org/html/rfc6455) protocols\. For information on how to start a stream using the WebSocket protocol, see [Establish a bi\-directional connection using the WebSocket protocol](websocket-med.md)\. To start an HTTP/2 stream, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\.
 
 You can transcribe streaming audio in the following medical specialties:
 + Cardiology
@@ -9,7 +9,7 @@ You can transcribe streaming audio in the following medical specialties:
 + Primary Care
 + Urology
 
-Each medical specialty includes many types of procedures and appointments\. Clinicians therefore dictate many different types of notes\. Use the following examples as guidance to help you specify the value of the `specialty` URL parameter of the WebSocket request, or the `Specialty` parameter of the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation:
+Each medical specialty includes many types of procedures and appointments\. Clinicians therefore dictate many different types of notes\. Use the following examples as guidance to help you specify the value of the `specialty` URL parameter of the WebSocket request, or the `Specialty` parameter of the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API:
 + For electrophysiology or echocardiography consultations, choose `CARDIOLOGY`\.
 + For medical oncology, surgical oncology, or radiation oncology consultations, choose `ONCOLOGY`\.
 + For a physician providing a consultation to a patient who had a stroke, either a transient ischemic attack or a cerebrovascular attack, choose `NEUROLOGY`\.
@@ -24,7 +24,7 @@ Each medical specialty includes many types of procedures and appointments\. Clin
 
 To use the console to transcribe a clinician\-patient dialogue in real\-time stream, choose the option to transcribe a medical conversation, start the stream, and begin speaking into the microphone\.
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe Medical console at [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Real\-time transcription**\.
 
@@ -40,7 +40,7 @@ To use the console to transcribe a clinician\-patient dialogue in real\-time str
 
 The following is the syntax for the parameters of an HTTP/2 request\.
 
-To transcribe an HTTP/2 stream of a medical conversation, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation and specify the following:
+To transcribe an HTTP/2 stream of a medical conversation, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
 + `LanguageCode` – The language code\. The valid value is `en-US`
 + `MediaEncoding` – The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
 + `Specialty` – The specialty of the medical professional\.

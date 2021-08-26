@@ -45,9 +45,9 @@ If the `AnalyticsJobStatus` is `FAILED`, this field contains information about w
 The `FailureReason` field can contain one of the following values:  
 +  `Unsupported media format`: The media format specified in the `MediaFormat` field of the request isn't valid\. See the description of the `MediaFormat` field for a list of valid values\.
 +  `The media format provided does not match the detected media format`: The media format of the audio file doesn't match the format specified in the `MediaFormat` field in the request\. Check the media format of your media file and make sure the two values match\.
-+  `Invalid sample rate for audio file`: The sample rate specified in the `MediaSampleRateHertz` of the request isn't valid\. The sample rate must be between 8000 and 48000 Hertz\.
++  `Invalid sample rate for audio file`: The sample rate specified in the `MediaSampleRateHertz` of the request isn't valid\. The sample rate must be between 8,000 and 48,000 Hertz\.
 +  `The sample rate provided does not match the detected sample rate`: The sample rate in the audio file doesn't match the sample rate specified in the `MediaSampleRateHertz` field in the request\. Check the sample rate of your media file and make sure that the two values match\.
-+  `Invalid file size: file size too large`: The size of your audio file is larger than what Amazon Transcribe Medical can process\. For more information, see *Guidelines and Quotas* in the Amazon Transcribe Medical Guide
++  `Invalid file size: file size too large`: The size of your audio file is larger than what Amazon Transcribe Medical can process\. For more information, see *Guidelines and Quotas* in the Amazon Transcribe Medical Guide\.
 +  `Invalid number of channels: number of channels too large`: Your audio contains more channels than Amazon Transcribe Medical is configured to process\. To request additional channels, see Amazon Transcribe Medical Endpoints and Quotas in the [Amazon Web Services General Reference](https://docs.aws.amazon.com/general/latest/gr/Welcome.html)\.
 Type: String  
 Required: No
@@ -59,31 +59,9 @@ Required: No
 
  **LanguageCode**   <a name="transcribe-Type-CallAnalyticsJob-LanguageCode"></a>
 If you know the language spoken between the customer and the agent, specify a language code for this field\.  
-If you don't know the language, you can leave this field blank, and Amazon Transcribe will use machine learning to automatically identify the language\. To improve the accuracy of language identification, you can provide an array containing the possible language codes for the language spoken in your audio\.  
-The following list shows the supported languages and corresponding language codes for call analytics jobs:  
-+ Gulf Arabic \(ar\-AE\)
-+ Mandarin Chinese, Mainland \(zh\-CN\)
-+ Australian English \(en\-AU\)
-+ British English \(en\-GB\)
-+ Indian English \(en\-IN\)
-+ Irish English \(en\-IE\)
-+ Scottish English \(en\-AB\)
-+ US English \(en\-US\)
-+ Welsh English \(en\-WL\)
-+ Spanish \(es\-ES\)
-+ US Spanish \(es\-US\)
-+ French \(fr\-FR\)
-+ Canadian French \(fr\-CA\)
-+ German \(de\-DE\)
-+ Swiss German \(de\-CH\)
-+ Indian Hindi \(hi\-IN\)
-+ Italian \(it\-IT\)
-+ Japanese \(ja\-JP\)
-+ Korean \(ko\-KR\)
-+ Portuguese \(pt\-PT\)
-+ Brazilian Portuguese \(pt\-BR\)
+If you don't know the language, you can leave this field blank, and Amazon Transcribe will use machine learning to automatically identify the language\. To improve the accuracy of language identification, you can provide an array containing the possible language codes for the language spoken in your audio\. Refer to [Supported languages and language\-specific features](https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html) for additional information\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
  **Media**   <a name="transcribe-Type-CallAnalyticsJob-Media"></a>
@@ -121,7 +99,7 @@ Required: No
 ## See Also<a name="API_CallAnalyticsJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CallAnalyticsJob) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CallAnalyticsJob) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CallAnalyticsJob) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CallAnalyticsJob) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/CallAnalyticsJob) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/CallAnalyticsJob) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/CallAnalyticsJob) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/CallAnalyticsJob) 

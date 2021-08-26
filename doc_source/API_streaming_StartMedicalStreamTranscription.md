@@ -52,7 +52,7 @@ Valid Values:` pcm | ogg-opus | flac`
 Required: Yes
 
  ** [MediaSampleRateHertz](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-MediaSampleRateHertz"></a>
-The sample rate of the input audio in Hertz\. Sample rates of 16000 Hz or higher are accepted\.  
+The sample rate of the input audio in Hertz\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: Yes
 
@@ -185,7 +185,7 @@ The encoding used for the input audio stream\.
 Valid Values:` pcm | ogg-opus | flac` 
 
  ** [MediaSampleRateHertz](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-MediaSampleRateHertz"></a>
-The sample rate of the input audio in Hertz\. Valid value: 16000 Hz\.  
+The sample rate of the input audio in Hertz\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.
 
  ** [NumberOfChannels](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-NumberOfChannels"></a>
@@ -249,12 +249,12 @@ HTTP Status Code: 503
 ## See Also<a name="API_streaming_StartMedicalStreamTranscription_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/StartMedicalStreamTranscription) 

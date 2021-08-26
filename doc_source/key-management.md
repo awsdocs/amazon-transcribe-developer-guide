@@ -1,6 +1,6 @@
 # Key management<a name="key-management"></a>
 
-Amazon Transcribe works with AWS Key Management Service \(KMS\) to provide enhanced encryption for your data\. Amazon S3 already enables you to encrypt your input audio when creating a transcription job\. Integration with KMS enables you to encrypt the output of the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\. 
+Amazon Transcribe works with AWS Key Management Service \(KMS\) to provide enhanced encryption for your data\. Amazon S3 already enables you to encrypt your input audio when creating a transcription job\. Integration with KMS enables you to encrypt the output of the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\. 
 
 If you don't specify a customer master key \(CMK\), the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.
 
@@ -21,7 +21,7 @@ If you don't specify a CMK, the output of the transcription job is encrypted wit
 
 ## KMS encryption with the API<a name="kms-api"></a>
 
-To use output encryption with the API, you set the `OutputEncryptionKMSKeyId` parameter of the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\. You can use a customer managed CMK from the current account, or you can use a key from another account\. The account that you are using to create the job must have `kms:Encrypt` permissions for the KMS key\.
+To use output encryption with the API, you set the `OutputEncryptionKMSKeyId` parameter of the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\. You can use a customer managed CMK from the current account, or you can use a key from another account\. The account that you are using to create the job must have `kms:Encrypt` permissions for the KMS key\.
 
 You can use either of the following to identify a KMS key in the current account:
 + KMS Key ID: "1234abcd\-12ab\-34cd\-56ef\-1234567890ab"

@@ -55,7 +55,7 @@ Type: String
  ** [LanguageCode](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-LanguageCode"></a>
 The valid language code for your vocabulary entries\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN` 
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
  ** [LastModifiedTime](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was last modified with a text file different from the one that was previously used\.  
@@ -68,7 +68,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 200\.
 Pattern: `^[0-9a-zA-Z._-]+` 
 
  ** [VocabularyState](#API_GetMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-GetMedicalVocabulary-response-VocabularyState"></a>
-The processing state of the vocabulary\. If the `VocabularyState` is `READY` then you can use it in the `StartMedicalTranscriptionJob` operation\.   
+The processing state of the vocabulary\. If the `VocabularyState` is `READY` then you can use it in the `StartMedicalTranscriptionJob` operation\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
 
@@ -95,12 +95,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_GetMedicalVocabulary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetMedicalVocabulary) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetMedicalVocabulary) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/GetMedicalVocabulary) 

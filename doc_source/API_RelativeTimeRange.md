@@ -29,7 +29,7 @@ Required: No
 A value that indicates the percentage of the beginning of the time range\. To set a relative time range, you must specify a start percentage and an end percentage\. For example, if you specify the following values:  
 + StartPercentage \- 10
 + EndPercentage \- 50
-This looks at the time range starting from 10% of the way into the call to 50% of the way through the call\. For a call that lasts 100,000 milliseconds, this example range would apply from the 10,000 millisecond mark to the 50,000 millisecond mark\.   
+This looks at the time range starting from 10% of the way into the call to 50% of the way through the call\. For a call that lasts 100,000 milliseconds, this example range would apply from the 10,000 millisecond mark to the 50,000 millisecond mark\.  
 Type: Integer  
 Valid Range: Minimum value of 0\. Maximum value of 100\.  
 Required: No
@@ -37,7 +37,7 @@ Required: No
 ## See Also<a name="API_RelativeTimeRange_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/RelativeTimeRange) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/RelativeTimeRange) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/RelativeTimeRange) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/RelativeTimeRange) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/RelativeTimeRange) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/RelativeTimeRange) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/RelativeTimeRange) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/RelativeTimeRange) 

@@ -9,7 +9,7 @@ When Amazon Transcribe uses the [HTTP/2 protocol](https://http2.github.io/) for 
 
 ## Streaming request<a name="streaming-request"></a>
 
-To make a streaming request, you use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation\. 
+To make a streaming request, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API\. 
 
 ### Header frame<a name="streaming-header"></a>
 
@@ -38,7 +38,7 @@ In the request, use the following values for the `host`, `authorization`, and `x
 + **`authorization`**: The Signature Version 4 signature for the request\. For more information about creating a signature, see [ Signing AWS Requests with Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html) in the *Amazon Web Services General Reference*\.
 + **`x-amz-date`**: Generate a date and time for the request following the instructions in [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html) in the *Amazon Web Services General Reference*\.
 
-For more information about the headers specific to Amazon Transcribe, see the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation\.
+For more information about the headers specific to Amazon Transcribe, see the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API\.
 
 ### Data frames<a name="streaming-data"></a>
 
@@ -109,7 +109,7 @@ To indicate that the audio stream is complete, send an end frame to Amazon Trans
 
 ## Streaming response<a name="streaming-response"></a>
 
-Responses from Amazon Transcribe are also sent using event stream encoding\. Use this information to decode a response from the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation\.
+Responses from Amazon Transcribe are also sent using event stream encoding\. Use this information to decode a response from the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API\.
 
 ### Transcription response<a name="transcription-response"></a>
 

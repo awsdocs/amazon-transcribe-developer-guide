@@ -1,6 +1,6 @@
 # Using a text file to create a medical custom vocabulary<a name="create-med-custom-vocabulary"></a>
 
-To create a custom vocabulary, you must have prepared a text file that contains a collection a words or phrases\. Amazon Transcribe Medical uses this text file to create a custom vocabulary that you can use to improve the transcription accuracy of those words or phrases\. You can create a custom vocabulary using the [CreateMedicalVocabulary](API_CreateMedicalVocabulary.md) operation or the Amazon Transcribe Medical console\.
+To create a custom vocabulary, you must have prepared a text file that contains a collection a words or phrases\. Amazon Transcribe Medical uses this text file to create a custom vocabulary that you can use to improve the transcription accuracy of those words or phrases\. You can create a custom vocabulary using the [CreateMedicalVocabulary](API_CreateMedicalVocabulary.md) API or the Amazon Transcribe Medical console\.
 
 ## Console<a name="create-med-custom-vocab-console"></a>
 
@@ -25,7 +25,7 @@ You can see the processing status of your custom vocabulary in the console\.
 ## API<a name="create-med-custom-vocab-api"></a>
 
 **To create a medical custom vocabulary \(API\)**
-+  In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following\.
++ For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, specify the following\.
 
   1. For `LanguageCode`, specify `en-US`\.
 
@@ -33,7 +33,7 @@ You can see the processing status of your custom vocabulary in the console\.
 
   1. For `VocabularyName`, specify a name for your custom vocabulary\. The name you specify must be unique within your AWS account\.
 
-To see the processing status of your custom vocabulary, use the [GetMedicalVocabulary](API_GetMedicalVocabulary.md) operation\.
+To see the processing status of your custom vocabulary, use the [GetMedicalVocabulary](API_GetMedicalVocabulary.md) API\.
 
 The following is an example request using the AWS SDK for Python \(Boto3\) to create a custom vocabulary\.
 

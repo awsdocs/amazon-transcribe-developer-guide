@@ -18,7 +18,7 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 Include actions in a policy to grant permissions to perform the associated operation\.
 
-Policy actions in Amazon Transcribe use the following prefix before the action: `transcribe:`\. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon Transcribe `StartTranscriptionJob` API operation, you include the `transcribe:StartTranscriptionJob` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Transcribe defines actions that describe tasks that you can perform with this service\.
+Policy actions in Amazon Transcribe use the following prefix before the action: `transcribe:`\. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon Transcribe [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you include the `transcribe:StartTranscriptionJob` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Transcribe defines actions that describe tasks that you can perform with this service\.
 
 To specify multiple actions in a single statement, separate them with commas as follows\.
 
@@ -37,6 +37,9 @@ You can specify multiple actions using wildcards \(\*\)\. For example, to specif
 
 
 To see a list of Amazon Transcribe actions, see [Actions Defined by Amazon Transcribe](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazontranscribe.html#amazontranscribe-actions-as-permissions) in the *IAM User Guide*\.
+
+**Note**  
+You can also control access to your resources using tags\. For information on tag\-based access control, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)\.
 
 ### Resources<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
@@ -63,7 +66,7 @@ The following table lists the Amazon Transcribe condition keys that apply to Ama
 
 For examples of how you can use condition keys to control access to the resources of Amazon Transcribe, see the following\.
 
-If you want your users to always use a specific output bucket when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, you can use the following policy\.
+If you want your users to always use a specific output bucket when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you can use the following policy\.
 
 ```
 {
@@ -86,7 +89,7 @@ If you want your users to always use a specific output bucket when they use the 
 }
 ```
 
-If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, you can use the following policy\.
+If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you can use the following policy\.
 
 ```
 {
@@ -111,7 +114,7 @@ If you want users to always use a AWS Key Management Service \(KMS\) key when th
 
 For information on AWS KMS keys, see [Key management](key-management.md)\.
 
-If you want your users to always use a specific output key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, you can use the following policy\.
+If you want your users to always use a specific output key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you can use the following policy\.
 
 ```
 {
@@ -134,7 +137,7 @@ If you want your users to always use a specific output key when they use the [St
 }
 ```
 
-For more information, see the `OutputKey` parameter description of the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
+For more information, see the `OutputKey` parameter description of the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\.
 
 #### Examples<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
@@ -154,7 +157,7 @@ An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is
 
 ### Using temporary credentials with Amazon Transcribe<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
-You can use temporary credentials to sign in with federation, to assume an IAM role, or to assume a cross\-account role\. You obtain temporary security credentials by calling AWS Security Token Service \(AWS STS\) API operations, such as [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [GetFederationToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html)\. 
+You can use temporary credentials to sign in with federation, to assume an IAM role, or to assume a cross\-account role\. You obtain temporary security credentials by calling AWS Security Token Service \(AWS STS\) APIs, such as [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [GetFederationToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html)\. 
 
 Amazon Transcribe supports using temporary credentials\. 
 

@@ -50,7 +50,7 @@ To create a custom language model, you need to give Amazon Transcribe access to 
 
      1. From **Policy actions**, choose **Attach policy**
 
-     1. Choose the IAM role that you want to attach the policy to\.
+     1. Choose the IAM role you want to attach the policy to\.
    + Choose **Create policy**\.
 
      1. Choose **JSON**\.

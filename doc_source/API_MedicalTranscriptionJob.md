@@ -25,7 +25,7 @@ If the `TranscriptionJobStatus` field is `FAILED`, this field contains informati
 The `FailureReason` field contains one of the following values:  
 +  `Unsupported media format`\- The media format specified in the `MediaFormat` field of the request isn't valid\. See the description of the `MediaFormat` field for a list of valid values\.
 +  `The media format provided does not match the detected media format`\- The media format of the audio file doesn't match the format specified in the `MediaFormat` field in the request\. Check the media format of your media file and make sure the two values match\.
-+  `Invalid sample rate for audio file`\- The sample rate specified in the `MediaSampleRateHertz` of the request isn't valid\. The sample rate must be between 8000 and 48000 Hertz\.
++  `Invalid sample rate for audio file`\- The sample rate specified in the `MediaSampleRateHertz` of the request isn't valid\. The sample rate must be between 8,000 and 48,000 Hertz\.
 +  `The sample rate provided does not match the detected sample rate`\- The sample rate in the audio file doesn't match the sample rate specified in the `MediaSampleRateHertz` field in the request\. Check the sample rate of your media file and make sure that the two values match\.
 +  `Invalid file size: file size too large`\- The size of your audio file is larger than what Amazon Transcribe Medical can process\. For more information, see [Guidelines and Quotas](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits) in the *Amazon Transcribe Medical Guide* 
 +  `Invalid number of channels: number of channels too large`\- Your audio contains more channels than Amazon Transcribe Medical is configured to process\. To request additional channels, see [Amazon Transcribe Medical Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html) in the *Amazon Web Services General Reference* 
@@ -35,7 +35,7 @@ Required: No
  **LanguageCode**   <a name="transcribe-Type-MedicalTranscriptionJob-LanguageCode"></a>
 The language code for the language spoken in the source audio file\. US English \(en\-US\) is the only supported language for medical transcriptions\. Any other value you enter for language code results in a `BadRequestException` error\.  
 Type: String  
-Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN`   
+Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
  **Media**   <a name="transcribe-Type-MedicalTranscriptionJob-Media"></a>
@@ -69,8 +69,7 @@ Type: [MedicalTranscriptionSetting](API_MedicalTranscriptionSetting.md) object
 Required: No
 
  **Specialty**   <a name="transcribe-Type-MedicalTranscriptionJob-Specialty"></a>
-The medical specialty of any clinicians providing a dictation or having a conversation\. `PRIMARYCARE` is the only available setting for this object\. This specialty enables you to generate transcriptions for the following medical fields:  
-+ Family Medicine
+The medical specialty of any clinicians providing a dictation or having a conversation\. Refer to [Transcribing a medical conversation](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html)for a list of supported specialties\.  
 Type: String  
 Valid Values:` PRIMARYCARE`   
 Required: No
@@ -78,6 +77,12 @@ Required: No
  **StartTime**   <a name="transcribe-Type-MedicalTranscriptionJob-StartTime"></a>
 A timestamp that shows when the job started processing\.  
 Type: Timestamp  
+Required: No
+
+ **Tags**   <a name="transcribe-Type-MedicalTranscriptionJob-Tags"></a>
+A key:value pair assigned to a given medical transcription job\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
 Required: No
 
  **Transcript**   <a name="transcribe-Type-MedicalTranscriptionJob-Transcript"></a>
@@ -100,7 +105,7 @@ Required: No
 ## See Also<a name="API_MedicalTranscriptionJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/MedicalTranscriptionJob) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/MedicalTranscriptionJob) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/MedicalTranscriptionJob) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/MedicalTranscriptionJob) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-2017-10-26/MedicalTranscriptionJob) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-2017-10-26/MedicalTranscriptionJob) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/MedicalTranscriptionJob) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-2017-10-26/MedicalTranscriptionJob) 

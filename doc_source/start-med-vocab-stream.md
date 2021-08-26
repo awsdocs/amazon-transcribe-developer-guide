@@ -1,6 +1,6 @@
 # Transcribing a real\-time stream using a medical custom vocabulary<a name="start-med-vocab-stream"></a>
 
-To improve transcription accuracy in a real\-time stream, you can use a custom vocabulary using either HTTP/2 or WebSocket streams\. To start an HTTP/2 request, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation\. You can use a custom vocabulary in real\-time using either the Amazon Transcribe Medical console, the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) operation, or by using the WebSocket protocol\.
+To improve transcription accuracy in a real\-time stream, you can use a custom vocabulary using either HTTP/2 or WebSocket streams\. To start an HTTP/2 request, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\. You can use a custom vocabulary in real\-time using either the Amazon Transcribe Medical console, the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API, or by using the WebSocket protocol\.
 
 ## Transcribing a dictation that is spoken into your Microphone \(Console\)<a name="streaming-medical-vocabulary-console"></a>
 
@@ -50,7 +50,7 @@ Content-type: application/json
 }
 ```
 
-To use a custom vocabulary in an HTTP/2 stream, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) and specify the following: 
+To use a custom vocabulary in an HTTP/2 stream, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API and specify the following: 
 + For `LanguageCode`, specify the language code that corresponds to the language in the stream\. The valid value is `en-US`\.
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + For `Specialty`, specify the medical specialty of the provider\.

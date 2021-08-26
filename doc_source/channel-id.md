@@ -1,14 +1,14 @@
-# Transcribing multi\-channel audio<a name="channel-id"></a>
+# Channel identification<a name="channel-id"></a>
 
 If you have an audio file or stream that has multiple channels, you can use *channel identification* to transcribe the speech from each of those channels\. Amazon Transcribe identifies the speech from each channel and transcribes that speech in separate transcriptions\. It combines those transcriptions into a single transcription output\.
 
  You can enable channel identification for both batch processing and real\-time streaming\. The following list describes how to enable it for each method\.
-+ Batch transcription \- Console and [StartTranscriptionJob](API_StartTranscriptionJob.md) operation
-+ Streaming transcription \- WebSocket streaming and [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation
++ Batch transcription \- [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) and [StartTranscriptionJob](API_StartTranscriptionJob.md) API
++ Streaming transcription \- WebSocket streaming and [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API
 
 ## Transcribing multi\-channel audio files<a name="channel-id-batch"></a>
 
-To transcribe multi\-channel audio in a batch transcription job, use the Amazon Transcribe console or the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\.
+To transcribe multi\-channel audio in a batch transcription job, use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\.
 
 ### Console<a name="channel-id-batch-console"></a>
 
@@ -16,7 +16,7 @@ To use the console to enable channel identification in your batch transcription 
 
 **To transcribe a multi\-channel audio file \(console\)**
 
-1. Sign in to AWS Management Console and open the Amazon Transcribe console at [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe, choose **Transcription jobs**\.
 
@@ -35,13 +35,13 @@ To use the console to enable channel identification in your batch transcription 
 ### API<a name="channel-id-batch-api"></a>
 
 **To transcribe a multi\-channel audio file \(API\)**
-+  In the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation, specify the following\.
++ For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file\. For available languages and corresponding language codes, see [What is Amazon Transcribe?](transcribe-whatis.md)\. 
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the media file that you want to transcribe\.
+  1. For the `MediaFileUri` parameter of the `Media` object, specify the name of the media file you want to transcribe\.
 
   1. For the `Settings` object, set `ChannelIdentification` to `true`\.
 
@@ -232,13 +232,13 @@ By default, you can transcribe audio files with two channels\. You can request a
 
 ## Transcribing multi\-channel audio streams<a name="channel-id-stream"></a>
 
-You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation
+You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API\.
 
 By default, you can transcribe streams with two channels\. You can request a quota increase if you need to transcribe streams that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
 ### Transcribing multi\-channel audio in an HTTP/2 stream<a name="channel-id-http2"></a>
 
-To transcribe multi\-channel audio in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) operation and specify the following:
+To transcribe multi\-channel audio in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API and specify the following:
 + `LanguageCode` \- The language code of the audio\.
 + `MediaEncoding` \- The encoding of the audio\.
 + `EnableChannelIdentification` \- `true`

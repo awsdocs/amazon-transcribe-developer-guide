@@ -2,7 +2,7 @@
 
 In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to transcribe speech into text\. To complete this exercise, you need to: 
 + Have a text editor\.
-+ Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-asc-awscli.md)\.
++ Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)\.
 + Have a speech file in WAV or MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Permissions required for IAM user roles](security_iam_id-based-policy-examples.md#auth-role-iam-user)\.
 
 To transcribe text, you have to provide the input parameters in a JSON file\.
@@ -11,7 +11,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
 
 1. Copy your input speech to an S3 bucket\. The location must be in the same region as the endpoint that you are calling\.
 
-1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [StartTranscriptionJob](API_StartTranscriptionJob.md) operation\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
+1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
 
    ```
    {
