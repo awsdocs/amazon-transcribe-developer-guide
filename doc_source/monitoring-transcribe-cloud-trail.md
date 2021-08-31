@@ -14,7 +14,7 @@ For an ongoing record of events in your AWS account, including events for Amazon
 + [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 + [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-CloudTrail logs all Amazon Transcribe actions, which are documented in the [API Reference](API_Reference.md)\. For example, calls to the [CreateVocabulary](API_CreateVocabulary.md), [GetTranscriptionJob](API_GetTranscriptionJob.md), and [StartTranscriptionJob](API_StartTranscriptionJob.md) APIs generate entries in the CloudTrail log files\.
+CloudTrail logs all Amazon Transcribe actions, which are documented in the [API Reference](API_Reference.md)\. For example, calls to the [ CreateVocabulary ](API_CreateVocabulary.md), [ GetTranscriptionJob ](API_GetTranscriptionJob.md), and [ StartTranscriptionJob ](API_StartTranscriptionJob.md) APIs generate entries in the CloudTrail log files\.
 
 Every event or log entry contains information about who generated the request\. This information helps you determine the following: 
 + Whether the request was made with root or IAM user credentials
@@ -31,7 +31,7 @@ You can also aggregate Amazon Transcribe log files from multiple AWS Regions and
 
 A *trail* is a configuration that enables delivery of events as log files to a specified S3 bucket\. CloudTrail log files contain one or more log entries\. An *event* represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\. 
 
-Calls to the [StartTranscriptionJob](API_StartTranscriptionJob.md) and [GetTranscriptionJob](API_GetTranscriptionJob.md) APIs create the following entry\.
+Calls to the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ GetTranscriptionJob ](API_GetTranscriptionJob.md) APIs create the following entry\.
 
 ```
 {

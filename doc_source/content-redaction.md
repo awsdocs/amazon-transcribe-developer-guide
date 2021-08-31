@@ -27,7 +27,7 @@ Both redacted and unredacted transcripts are stored in the same output S3 bucket
 
 To enable content redaction, use the console or the API\. In the console, you enable **Automatic content redaction** in the **Content removal** section\.
 
- To enable content redaction using the API, complete the request parameters of the `ContentRedaction` object in the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\. To see if content redaction has been enabled for a particular transcription job, use [GetTranscriptionJob](API_GetTranscriptionJob.md)\. To see which jobs have content redaction enabled, use [ListTranscriptionJobs](API_ListTranscriptionJobs.md)\.
+ To enable content redaction using the API, complete the request parameters of the `ContentRedaction` object in the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\. To see if content redaction has been enabled for a particular transcription job, use [ GetTranscriptionJob ](API_GetTranscriptionJob.md)\. To see which jobs have content redaction enabled, use [ ListTranscriptionJobs ](API_ListTranscriptionJobs.md)\.
 
 A redacted transcript has sensitive PII replaced with the `[PII]` tag, shown in the first truncated JSON output on this page\. Because Amazon Transcribe has redacted this transcript, the `isRedacted` field of this JSON output is `true`\. Each JSON output of a transcription job has a `results` section that contains the transcription results\. Every word, number, punctuation mark, or redaction has a confidence value\.
 

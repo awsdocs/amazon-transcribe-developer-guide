@@ -19,7 +19,7 @@ For example, the following error occurs when an IAM user named `mateojackson` IA
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: transcribe:GetTranscriptionJob
 ```
 
-Mateo must ask his administrator to update his policies to allow him to access the [GetTranscriptionJob](API_GetTranscriptionJob.md) API using the `transcribe:GetTrascriptionJob` action\.
+Mateo must ask his administrator to update his policies to allow him to access the [ GetTranscriptionJob ](API_GetTranscriptionJob.md) API using the `transcribe:GetTrascriptionJob` action\.
 
 ## I am not authorized to perform iam:PassRole<a name="security_iam_troubleshoot-passrole"></a>
 

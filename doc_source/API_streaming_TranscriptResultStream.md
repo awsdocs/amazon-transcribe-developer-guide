@@ -4,34 +4,34 @@ Represents the transcription result stream from Amazon Transcribe to your applic
 
 ## Contents<a name="API_streaming_TranscriptResultStream_Contents"></a>
 
- **BadRequestException**   <a name="transcribe-Type-streaming_TranscriptResultStream-BadRequestException"></a>
+ ** BadRequestException **   <a name="transcribe-Type-streaming_TranscriptResultStream-BadRequestException"></a>
 A client error occurred when the stream was created\. Check the parameters of the request and try your request again\.  
 Type: Exception  
 Required: No
 
- **ConflictException**   <a name="transcribe-Type-streaming_TranscriptResultStream-ConflictException"></a>
+ ** ConflictException **   <a name="transcribe-Type-streaming_TranscriptResultStream-ConflictException"></a>
 A new stream started with the same session ID\. The current stream has been terminated\.  
 Type: Exception  
 Required: No
 
- **InternalFailureException**   <a name="transcribe-Type-streaming_TranscriptResultStream-InternalFailureException"></a>
+ ** InternalFailureException **   <a name="transcribe-Type-streaming_TranscriptResultStream-InternalFailureException"></a>
 A problem occurred while processing the audio\. Amazon Transcribe terminated processing\.  
 Type: Exception  
 Required: No
 
- **LimitExceededException**   <a name="transcribe-Type-streaming_TranscriptResultStream-LimitExceededException"></a>
+ ** LimitExceededException **   <a name="transcribe-Type-streaming_TranscriptResultStream-LimitExceededException"></a>
 Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length\. Break your audio stream into smaller chunks and try your request again\.  
 Type: Exception  
 Required: No
 
- **ServiceUnavailableException**   <a name="transcribe-Type-streaming_TranscriptResultStream-ServiceUnavailableException"></a>
+ ** ServiceUnavailableException **   <a name="transcribe-Type-streaming_TranscriptResultStream-ServiceUnavailableException"></a>
 Service is currently unavailable\. Try your request later\.  
 Type: Exception  
 Required: No
 
- **TranscriptEvent**   <a name="transcribe-Type-streaming_TranscriptResultStream-TranscriptEvent"></a>
+ ** TranscriptEvent **   <a name="transcribe-Type-streaming_TranscriptResultStream-TranscriptEvent"></a>
 A portion of the transcription of the audio stream\. Events are sent periodically from Amazon Transcribe to your application\. The event can be a partial transcription of a section of the audio stream, or it can be the entire transcription of that portion of the audio stream\.   
-Type: [TranscriptEvent](API_streaming_TranscriptEvent.md) object  
+Type: [ TranscriptEvent ](API_streaming_TranscriptEvent.md) object  
 Required: No
 
 ## See Also<a name="API_streaming_TranscriptResultStream_SeeAlso"></a>

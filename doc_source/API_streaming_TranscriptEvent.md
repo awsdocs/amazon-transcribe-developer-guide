@@ -4,9 +4,9 @@ Represents a set of transcription results from the server to the client\. It con
 
 ## Contents<a name="API_streaming_TranscriptEvent_Contents"></a>
 
- **Transcript**   <a name="transcribe-Type-streaming_TranscriptEvent-Transcript"></a>
+ ** Transcript **   <a name="transcribe-Type-streaming_TranscriptEvent-Transcript"></a>
 The transcription of the audio stream\. The transcription is composed of all of the items in the results list\.  
-Type: [Transcript](API_streaming_Transcript.md) object  
+Type: [ Transcript ](API_streaming_Transcript.md) object  
 Required: No
 
 ## See Also<a name="API_streaming_TranscriptEvent_SeeAlso"></a>

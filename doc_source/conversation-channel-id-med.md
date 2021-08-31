@@ -5,8 +5,8 @@ If you have an audio file or stream that has multiple channels, you can use *cha
 Use channel identification to identify the separate channels in your audio and transcribe the speech from each of those channels\. Enable this in situations such as a caller and agent scenario\. Use this to distinguish a caller from an agent in recordings or streams from contact centers that perform drug safety monitoring\.
 
 You can enable channel identification for both batch processing and real\-time streaming\. The following list describes how to enable it for each method\.
-+ Batch transcription – Console and [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API
-+ Streaming transcription – WebSocket streaming and [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API
++ Batch transcription – Console and [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API
++ Streaming transcription – WebSocket streaming and [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API
 
 ## Transcribing multi\-channel audio files<a name="conversation-channel-id-med-batch"></a>
 
@@ -14,7 +14,7 @@ When you transcribe an audio file, Amazon Transcribe Medical returns a list of *
 
 By default, you can transcribe audio files with two channels\. You can request a quota increase if you need to transcribe files that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
-To transcribe multi\-channel audio in a batch transcription job, use the Amazon Transcribe Medical console or the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API\.
+To transcribe multi\-channel audio in a batch transcription job, use the Amazon Transcribe Medical console or the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API\.
 
 ### Console<a name="channel-id-batch-med-console"></a>
 
@@ -41,7 +41,7 @@ To use the console to enable channel identification in your batch transcription 
 ### API<a name="channel-id-batch-med-api"></a>
 
 **To transcribe a multi\-channel audio file \(API\)**
-+ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
@@ -231,13 +231,13 @@ The following code shows the transcription output for an audio file that has a c
 
 ## Transcribing multi\-channel audio streams<a name="conversation-channel-id-med-stream"></a>
 
-You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\.
+You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API\.
 
 By default, you can transcribe streams with two channels\. You can request a quota increase if you need to transcribe streams that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
 ### Transcribing multi\-channel audio in an HTTP/2 stream<a name="conversation-channel-id-http2"></a>
 
-To transcribe multi\-channel audio in an HTTP/2 stream, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
+To transcribe multi\-channel audio in an HTTP/2 stream, use the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
 + `LanguageCode` – The language code of the audio\. The valid value is `en-US`\.
 + `MediaEncoding` – The encoding of the audio\. Valid values are `ogg-opus`, `flac`, and `pcm`\.
 + `EnableChannelIdentification` – `true`

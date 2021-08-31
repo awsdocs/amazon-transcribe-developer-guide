@@ -36,7 +36,7 @@ The **Output** section contains the transcription of the audio submitted to Amaz
 
 ![\[The first two sections of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-30.png)
 
-The **Code samples** section contains the JSON input for the [StartTranscriptionJob](API_StartTranscriptionJob.md)API and the output from the [GetTranscriptionJob](API_GetTranscriptionJob.md) API\.
+The **Code samples** section contains the JSON input for the [ StartTranscriptionJob ](API_StartTranscriptionJob.md)API and the output from the [ GetTranscriptionJob ](API_GetTranscriptionJob.md) API\.
 
 ![\[The code samples section of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-40.png)![\[The code samples section of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 

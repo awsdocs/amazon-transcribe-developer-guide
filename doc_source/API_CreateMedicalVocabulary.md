@@ -24,19 +24,19 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [LanguageCode](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-LanguageCode"></a>
+ ** [ LanguageCode ](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-LanguageCode"></a>
 The language code for the language used for the entries in your custom vocabulary\. The language code of your custom vocabulary must match the language code of your transcription job\. US English \(en\-US\) is the only language code available for Amazon Transcribe Medical\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: Yes
 
- ** [Tags](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-Tags"></a>
+ ** [ Tags ](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-Tags"></a>
 Adds one or more tags, each in the form of a key:value pair, to a new medical vocabulary at the time you create this new vocabulary\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
 Required: No
 
- ** [VocabularyFileUri](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-VocabularyFileUri"></a>
+ ** [ VocabularyFileUri ](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-VocabularyFileUri"></a>
 The location in Amazon S3 of the text file you use to define your custom vocabulary\. The URI must be in the same AWS Region as the resource that you're calling\. Enter information about your `VocabularyFileUri` in the following format:  
  ` https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
 The following is an example URI for a vocabulary file that is stored in Amazon S3:  
@@ -48,7 +48,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2000\.
 Pattern: `(s3://|http(s*)://).+`   
 Required: Yes
 
- ** [VocabularyName](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-VocabularyName"></a>
+ ** [ VocabularyName ](#API_CreateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-CreateMedicalVocabulary-request-VocabularyName"></a>
 The name of the custom vocabulary\. This case\-sensitive name must be unique within an AWS account\. If you try to create a vocabulary with the same name as a previous vocabulary, you get a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -73,26 +73,26 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [FailureReason](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-FailureReason"></a>
+ ** [ FailureReason ](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-FailureReason"></a>
 If the `VocabularyState` field is `FAILED`, this field contains information about why the job failed\.  
 Type: String
 
- ** [LanguageCode](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LanguageCode"></a>
 The language code for the entries in your custom vocabulary\. US English \(en\-US\) is the only valid language code for Amazon Transcribe Medical\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
- ** [LastModifiedTime](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LastModifiedTime"></a>
+ ** [ LastModifiedTime ](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-LastModifiedTime"></a>
 The date and time that you created the vocabulary\.  
 Type: Timestamp
 
- ** [VocabularyName](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-VocabularyName"></a>
+ ** [ VocabularyName ](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-VocabularyName"></a>
 The name of the vocabulary\. The name must be unique within an AWS account and is case sensitive\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
- ** [VocabularyState](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-VocabularyState"></a>
+ ** [ VocabularyState ](#API_CreateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-CreateMedicalVocabulary-response-VocabularyState"></a>
 The processing state of your custom vocabulary in Amazon Transcribe Medical\. If the state is `READY`, you can use the vocabulary in a `StartMedicalTranscriptionJob` request\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
@@ -101,19 +101,19 @@ Valid Values:` PENDING | READY | FAILED`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
 There is already a resource with that name\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 

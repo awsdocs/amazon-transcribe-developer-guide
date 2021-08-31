@@ -35,7 +35,7 @@ The following is an example of an EventBridge rule for Amazon Transcribe\. It's 
 The rule contains the following fields:
 + `source` –The source of the event\. For Amazon Transcribe, this is always `aws.transcribe`\.
 + `detail-type` – An identifier for the details of the event\. For Amazon Transcribe, this is always `Transcribe Job State Change`\.
-+ `detail` – The new job status of the transcription job\. In this example, the rule triggers an event when the job status changes to `COMPLETED` or `FAILED`\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) API\.
++ `detail` – The new job status of the transcription job\. In this example, the rule triggers an event when the job status changes to `COMPLETED` or `FAILED`\. For a list of status values, see the `TranscriptionJobStatus` field of the [ TranscriptionJob ](API_TranscriptionJob.md) API\.
 
 ## Amazon Transcribe events<a name="events"></a>
 
@@ -119,5 +119,5 @@ Descriptions for the fields listed above:
   + `JobName` – The unique name that you gave the transcription job\. 
   + `JobStatus` – The status of your call analytics transcription job\. It can be either `COMPLETED` or `FAILED`\.
   + `TranscriptionJobName` – The unique name that you gave the job\.
-  + `TranscriptionJobStatus ` – The new status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [TranscriptionJob](API_TranscriptionJob.md) API\.
+  + `TranscriptionJobStatus ` – The new status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [ TranscriptionJob ](API_TranscriptionJob.md) API\.
   + `LanguageIdentificationStatus` – The status of language identification in a transcription job\. It can be either `COMPLETED` or `FAILED`\.

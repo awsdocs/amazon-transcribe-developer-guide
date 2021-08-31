@@ -4,7 +4,7 @@ To create a custom language model, you must provide your text data using an Amaz
 + `NarrowBand` \- For audio with a sample rate of less than 16 kHz\. You typically use this type of model for telephone conversations recorded at 8 kHz\.
 + `WideBand` \- For audio with a sample rate of 16 kHz or greater\. This includes audio from media sources\.
 
-You can create a custom language model using the base model and training data in the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), and the [CreateLanguageModel](API_CreateLanguageModel.md) API\.
+You can create a custom language model using the base model and training data in the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), and the [ CreateLanguageModel ](API_CreateLanguageModel.md) API\.
 
 ## Using prefixes in Amazon Simple Storage Service to retrieve your data<a name="prefix-get-data"></a>
 
@@ -27,7 +27,7 @@ For example, the key `myfiles/2020/may/file.txt` has the following prefixes:
 
 You can use any of the preceding prefixes to access `file.txt`\. For more information on prefixes, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html)\. 
 
-When you use the [CreateLanguageModel](API_CreateLanguageModel.md) API, you specify prefixes for your text data in the following fields: 
+When you use the [ CreateLanguageModel ](API_CreateLanguageModel.md) API, you specify prefixes for your text data in the following fields: 
 + `S3Uri` for the training data
 + Optional: `TuningDataS3Uri` for the tuning data
 
@@ -64,7 +64,7 @@ To use the console to create a custom language model with the console, you must 
 ## AWS SDK<a name="create-api"></a>
 
 **To create a custom language model using the AWS SDK**
-+ In an [CreateLanguageModel](API_CreateLanguageModel.md) request, specify the following:
++ In an [ CreateLanguageModel ](API_CreateLanguageModel.md) request, specify the following:
   + `BaseModelName` \- The type of base model you want to use for your custom language model
   + `InputDataConfig` \- Specify the Amazon S3 object location and the IAM data access role for your training data:
 

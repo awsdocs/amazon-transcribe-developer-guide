@@ -28,7 +28,7 @@ You can request a quota increase for the following resources:
 | Number of concurrent batch transcription jobs \(call analytics\) | 100 | 
 | Job queue bandwidth ratio | 0\.9 | 
 | Number of concurrent HTTP/2 streams for streaming transcription | 25 | 
-| Number of [StartStreamTranscription](API_streaming_StartStreamTranscription.md)WebSocket requests | 25 | 
+| Number of [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md)WebSocket requests | 25 | 
 | Total number of vocabularies per account | 100 | 
 | Number of pending vocabularies | 10 | 
 | Number of concurrently training custom language models | 3 | 
@@ -42,25 +42,25 @@ The below operations limits can also be increased upon request:
 
 | Operation | Transactions per second | 
 | --- | --- | 
-| [StartTranscriptionJob](API_StartTranscriptionJob.md) | 25 | 
-| [StartStreamTranscription](API_streaming_StartStreamTranscription.md) | 25 | 
-| [GetTranscriptionJob](API_GetTranscriptionJob.md) | 30 | 
-| [DeleteTranscriptionJob](API_DeleteTranscriptionJob.md) | 5 | 
-| [ListTranscriptionJobs](API_ListTranscriptionJobs.md) | 5 | 
-| [CreateVocabulary](API_CreateVocabulary.md) | 10 | 
-| [UpdateVocabulary](API_UpdateVocabulary.md) | 10 | 
-| [DeleteVocabulary](API_DeleteVocabulary.md) | 5 | 
-| [GetVocabulary](API_GetVocabulary.md) | 20 | 
-| [ListVocabularies](API_ListVocabularies.md) | 5 | 
-| [StartCallAnalyticsJob](API_StartCallAnalyticsJob.md) | 10 | 
-| [GetCallAnalyticsJob](API_GetCallAnalyticsJob.md) | 20 | 
-| [ListCallAnalyticsJobs](API_ListCallAnalyticsJobs.md) | 5 | 
-| [DeleteCallAnalyticsJob](API_DeleteCallAnalyticsJob.md) | 5 | 
-| [CreateCallAnalyticsCategory](API_CreateCallAnalyticsCategory.md) | 10 | 
-| [UpdateCallAnalyticsCategory](API_UpdateCallAnalyticsCategory.md) | 10 | 
-| [DeleteCallAnalyticsCategory](API_DeleteCallAnalyticsCategory.md) | 5 | 
-| [GetCallAnalyticsCategory](API_GetCallAnalyticsCategory.md) | 20 | 
-| [ListCallAnalyticsCategories](API_ListCallAnalyticsCategories.md) | 5 | 
+| [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 25 | 
+| [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) | 25 | 
+| [ GetTranscriptionJob ](API_GetTranscriptionJob.md) | 30 | 
+| [ DeleteTranscriptionJob ](API_DeleteTranscriptionJob.md) | 5 | 
+| [ ListTranscriptionJobs ](API_ListTranscriptionJobs.md) | 5 | 
+| [ CreateVocabulary ](API_CreateVocabulary.md) | 10 | 
+| [ UpdateVocabulary ](API_UpdateVocabulary.md) | 10 | 
+| [ DeleteVocabulary ](API_DeleteVocabulary.md) | 5 | 
+| [ GetVocabulary ](API_GetVocabulary.md) | 20 | 
+| [ ListVocabularies ](API_ListVocabularies.md) | 5 | 
+| [ StartCallAnalyticsJob ](API_StartCallAnalyticsJob.md) | 10 | 
+| [ GetCallAnalyticsJob ](API_GetCallAnalyticsJob.md) | 20 | 
+| [ ListCallAnalyticsJobs ](API_ListCallAnalyticsJobs.md) | 5 | 
+| [ DeleteCallAnalyticsJob ](API_DeleteCallAnalyticsJob.md) | 5 | 
+| [ CreateCallAnalyticsCategory ](API_CreateCallAnalyticsCategory.md) | 10 | 
+| [ UpdateCallAnalyticsCategory ](API_UpdateCallAnalyticsCategory.md) | 10 | 
+| [ DeleteCallAnalyticsCategory ](API_DeleteCallAnalyticsCategory.md) | 5 | 
+| [ GetCallAnalyticsCategory ](API_GetCallAnalyticsCategory.md) | 20 | 
+| [ ListCallAnalyticsCategories ](API_ListCallAnalyticsCategories.md) | 5 | 
 
 **Note**  
 For information about requesting a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.

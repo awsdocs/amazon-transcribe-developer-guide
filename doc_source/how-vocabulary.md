@@ -20,9 +20,9 @@ Custom vocabulary basics:
 
 The table format gives you more options for—and more control over—the input and output of words within your custom vocabulary\. The console, API, and CLI all use custom vocabulary tables in the same way; lists are used differently for each method and may require additional formatting\-related steps for successful use between the console, API, and CLI\.
 
-To create a custom vocabulary, use the [CreateVocabulary](API_CreateVocabulary.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. After you submit the [CreateVocabulary](API_CreateVocabulary.md) request, Amazon Transcribe processes the vocabulary\. To see the processing status of the vocabulary, use the console or the [GetVocabulary](API_GetVocabulary.md) API\.
+To create a custom vocabulary, use the [ CreateVocabulary ](API_CreateVocabulary.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. After you submit the [ CreateVocabulary ](API_CreateVocabulary.md) request, Amazon Transcribe processes the vocabulary\. To see the processing status of the vocabulary, use the console or the [ GetVocabulary ](API_GetVocabulary.md) API\.
 
-To use the custom vocabulary, set the `VocabularyName` field of the `Settings` field when you call the [StartTranscriptionJob](API_StartTranscriptionJob.md) API or choose the vocabulary in the console when you create the transcription job\. 
+To use the custom vocabulary, set the `VocabularyName` field of the `Settings` field when you call the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API or choose the vocabulary in the console when you create the transcription job\. 
 
 ## Using acronyms in your custom vocabulary<a name="create-vocabulary-acronym"></a>
 

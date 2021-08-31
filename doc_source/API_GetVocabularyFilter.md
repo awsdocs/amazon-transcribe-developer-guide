@@ -16,7 +16,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [VocabularyFilterName](#API_GetVocabularyFilter_RequestSyntax) **   <a name="transcribe-GetVocabularyFilter-request-VocabularyFilterName"></a>
+ ** [ VocabularyFilterName ](#API_GetVocabularyFilter_RequestSyntax) **   <a name="transcribe-GetVocabularyFilter-request-VocabularyFilterName"></a>
 The name of the vocabulary filter for which to return information\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -40,22 +40,22 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [DownloadUri](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-DownloadUri"></a>
+ ** [ DownloadUri ](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-DownloadUri"></a>
 The URI of the list of words in the vocabulary filter\. You can use this URI to get the list of words\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
 Pattern: `(s3://|http(s*)://).+` 
 
- ** [LanguageCode](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-LanguageCode"></a>
 The language code of the words in the vocabulary filter\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
- ** [LastModifiedTime](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-LastModifiedTime"></a>
+ ** [ LastModifiedTime ](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-LastModifiedTime"></a>
 The date and time that the contents of the vocabulary filter were updated\.  
 Type: Timestamp
 
- ** [VocabularyFilterName](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-VocabularyFilterName"></a>
+ ** [ VocabularyFilterName ](#API_GetVocabularyFilter_ResponseSyntax) **   <a name="transcribe-GetVocabularyFilter-response-VocabularyFilterName"></a>
 The name of the vocabulary filter\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -65,19 +65,19 @@ Pattern: `^[0-9a-zA-Z._-]+`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

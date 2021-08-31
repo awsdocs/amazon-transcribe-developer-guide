@@ -19,20 +19,20 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [LanguageCode](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-LanguageCode"></a>
+ ** [ LanguageCode ](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-LanguageCode"></a>
 The language code of the vocabulary entries\. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](transcribe-whatis.md)\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: Yes
 
- ** [Phrases](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-Phrases"></a>
+ ** [ Phrases ](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-Phrases"></a>
 An array of strings containing the vocabulary entries\.  
 Type: Array of strings  
 Length Constraints: Minimum length of 0\. Maximum length of 256\.  
 Pattern: `.+`   
 Required: No
 
- ** [VocabularyFileUri](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-VocabularyFileUri"></a>
+ ** [ VocabularyFileUri ](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-VocabularyFileUri"></a>
 The S3 location of the text file that contains the definition of the custom vocabulary\. The URI must be in the same region as the API endpoint that you are calling\. The general form is   
  ` https://s3.<aws-region>.amazonaws.com/<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey> `   
 For example:  
@@ -44,7 +44,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2000\.
 Pattern: `(s3://|http(s*)://).+`   
 Required: No
 
- ** [VocabularyName](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-VocabularyName"></a>
+ ** [ VocabularyName ](#API_UpdateVocabulary_RequestSyntax) **   <a name="transcribe-UpdateVocabulary-request-VocabularyName"></a>
 The name of the vocabulary to update\. The name is case sensitive\. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -68,22 +68,22 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [LanguageCode](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
- ** [LastModifiedTime](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LastModifiedTime"></a>
+ ** [ LastModifiedTime ](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was updated\.  
 Type: Timestamp
 
- ** [VocabularyName](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-VocabularyName"></a>
+ ** [ VocabularyName ](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-VocabularyName"></a>
 The name of the vocabulary that was updated\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
- ** [VocabularyState](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-VocabularyState"></a>
+ ** [ VocabularyState ](#API_UpdateVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateVocabulary-response-VocabularyState"></a>
 The processing state of the vocabulary\. When the `VocabularyState` field contains `READY` the vocabulary is ready to be used in a `StartTranscriptionJob` request\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
@@ -92,23 +92,23 @@ Valid Values:` PENDING | READY | FAILED`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
 There is already a resource with that name\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

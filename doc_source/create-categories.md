@@ -33,7 +33,7 @@ To create a category, you define one or more rules\. Each rule can have one filt
 ## API<a name="create-category-api"></a>
 
 **To create a category \(API\)**
-+ For the [CreateCallAnalyticsCategory](API_CreateCallAnalyticsCategory.md) API, specify the following:
++ For the [ CreateCallAnalyticsCategory ](API_CreateCallAnalyticsCategory.md) API, specify the following:
 
   1. `CallAnalyticsCategoryName` – specify a name for the category that is unique to your AWS account\.
 

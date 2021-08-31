@@ -18,13 +18,13 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [LanguageCode](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-LanguageCode"></a>
+ ** [ LanguageCode ](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-LanguageCode"></a>
 The language code of the language used for the entries in the updated vocabulary\. US English \(en\-US\) is the only valid language code in Amazon Transcribe Medical\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: Yes
 
- ** [VocabularyFileUri](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-VocabularyFileUri"></a>
+ ** [ VocabularyFileUri ](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-VocabularyFileUri"></a>
 The location in Amazon S3 of the text file that contains your custom vocabulary\. The URI must be in the same AWS Region as the resource that you are calling\. The following is the format for a URI:  
  ` https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> `   
 For example:  
@@ -36,7 +36,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2000\.
 Pattern: `(s3://|http(s*)://).+`   
 Required: No
 
- ** [VocabularyName](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-VocabularyName"></a>
+ ** [ VocabularyName ](#API_UpdateMedicalVocabulary_RequestSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-request-VocabularyName"></a>
 The name of the vocabulary to update\. The name is case sensitive\. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a `ConflictException` error\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -60,22 +60,22 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [LanguageCode](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-LanguageCode"></a>
 The language code for the language of the text file used to update the custom vocabulary\. US English \(en\-US\) is the only language supported in Amazon Transcribe Medical\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
- ** [LastModifiedTime](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-LastModifiedTime"></a>
+ ** [ LastModifiedTime ](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was updated\.  
 Type: Timestamp
 
- ** [VocabularyName](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-VocabularyName"></a>
+ ** [ VocabularyName ](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-VocabularyName"></a>
 The name of the updated vocabulary\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
- ** [VocabularyState](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-VocabularyState"></a>
+ ** [ VocabularyState ](#API_UpdateMedicalVocabulary_ResponseSyntax) **   <a name="transcribe-UpdateMedicalVocabulary-response-VocabularyState"></a>
 The processing state of the update to the vocabulary\. When the `VocabularyState` field is `READY`, the vocabulary is ready to be used in a `StartMedicalTranscriptionJob` request\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
@@ -84,23 +84,23 @@ Valid Values:` PENDING | READY | FAILED`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
 There is already a resource with that name\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

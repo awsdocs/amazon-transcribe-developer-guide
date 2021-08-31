@@ -4,7 +4,7 @@ Amazon Transcribe can transcribe speech as either a media file or a real\-time s
 
 ## Containers and formats for batch transcription<a name="batch-format"></a>
 
-When you transcribe an audio file or video file using the [StartTranscriptionJob](API_StartTranscriptionJob.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), make sure that the file is:
+When you transcribe an audio file or video file using the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), make sure that the file is:
 + In FLAC, MP3, MP4, Ogg, WebM, AMR, or WAV file format
 + Less than 4 hours in length and less than 2 GB in size \(500 MB for call analytics jobs\)
 
@@ -18,7 +18,7 @@ For best results:
 
 ## Audio containers and formats for streaming transcription<a name="streaming-format"></a>
 
-When you transcribe a real\-time stream using the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API or a WebSocket request, make sure that your stream is encoded in:
+When you transcribe a real\-time stream using the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API or a WebSocket request, make sure that your stream is encoded in:
 + PCM 16\-bit signed little endian
 + FLAC
 + OPUS encoded audio in the Ogg container

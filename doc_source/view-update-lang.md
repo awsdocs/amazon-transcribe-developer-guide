@@ -4,7 +4,7 @@ The speech recognition capabilities of Amazon Transcribe are constantly improvin
 
 To see if you're running the latest base model in your custom language model:
 
-1. Use the [DescribeLanguageModel](API_DescribeLanguageModel.md) API and check the `UpgradeAvailability` field\.
+1. Use the [ DescribeLanguageModel ](API_DescribeLanguageModel.md) API and check the `UpgradeAvailability` field\.
 
 1. If `UpgradeAvailability` is `true`, you're not running the latest version of the base model in your custom language model\.
 

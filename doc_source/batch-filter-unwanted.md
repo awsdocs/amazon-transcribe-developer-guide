@@ -1,6 +1,6 @@
 # Filtering batch transcriptions<a name="batch-filter-unwanted"></a>
 
-Use a vocabulary filter to filter unwanted words from a batch transcription job with either the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\.
+Use a vocabulary filter to filter unwanted words from a batch transcription job with either the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\.
 
 The following code shows the parameters and data types\.
 
@@ -68,7 +68,7 @@ To use the console to start a batch transcription job with vocabulary filtering,
 ## API<a name="batch-filter-api"></a>
 
 **To filter a batch transcription \(API\)**
-+ For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, specify the following:
++ For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, specify the following:
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
@@ -88,7 +88,7 @@ To use the console to start a batch transcription job with vocabulary filtering,
 
 ## Tailoring transcripts to different audiences with tagging<a name="batch-tailor-transcripts"></a>
 
-You can generate multiple transcriptions tailored to different audiences from a single audio file\. For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, use the `tag` method to mark the words in the transcription that match the words in your vocabulary filter\. You can present the results of the transcription job to the audience that can see the complete transcription, including the words listed in your vocabulary filter\. You can then copy your transcription results, remove the words tagged by your vocabulary filter, and show those results to the audience that shouldn't see the unwanted words\. 
+You can generate multiple transcriptions tailored to different audiences from a single audio file\. For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, use the `tag` method to mark the words in the transcription that match the words in your vocabulary filter\. You can present the results of the transcription job to the audience that can see the complete transcription, including the words listed in your vocabulary filter\. You can then copy your transcription results, remove the words tagged by your vocabulary filter, and show those results to the audience that shouldn't see the unwanted words\. 
 
 With tagging, you aren't limited to generating transcriptions for two different audiences\. You can generate multiple transcriptions for many audiences from the same audio file\. You can choose to remove some words caught by the vocabulary filter in one transcript and leave them in other transcripts\.
 

@@ -6,7 +6,7 @@ For information on audio encoding in Amazon Transcribe, see [Speech input](https
 
 ## Contents<a name="API_streaming_AudioEvent_Contents"></a>
 
- **AudioChunk**   <a name="transcribe-Type-streaming_AudioEvent-AudioChunk"></a>
+ ** AudioChunk **   <a name="transcribe-Type-streaming_AudioEvent-AudioChunk"></a>
 An audio blob that contains the next part of the audio that you want to transcribe\. The maximum audio chunk size is 32 KB\.  
 Type: Base64\-encoded binary data object  
 Required: No

@@ -4,26 +4,26 @@ An object that contains the rules and additional information about a call analyt
 
 ## Contents<a name="API_CategoryProperties_Contents"></a>
 
- **CategoryName**   <a name="transcribe-Type-CategoryProperties-CategoryName"></a>
+ ** CategoryName **   <a name="transcribe-Type-CategoryProperties-CategoryName"></a>
 The name of the call analytics category\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
- **CreateTime**   <a name="transcribe-Type-CategoryProperties-CreateTime"></a>
+ ** CreateTime **   <a name="transcribe-Type-CategoryProperties-CreateTime"></a>
 A timestamp that shows when the call analytics category was created\.  
 Type: Timestamp  
 Required: No
 
- **LastUpdateTime**   <a name="transcribe-Type-CategoryProperties-LastUpdateTime"></a>
+ ** LastUpdateTime **   <a name="transcribe-Type-CategoryProperties-LastUpdateTime"></a>
 A timestamp that shows when the call analytics category was most recently updated\.  
 Type: Timestamp  
 Required: No
 
- **Rules**   <a name="transcribe-Type-CategoryProperties-Rules"></a>
+ ** Rules **   <a name="transcribe-Type-CategoryProperties-Rules"></a>
 The rules used to create a call analytics category\.  
-Type: Array of [Rule](API_Rule.md) objects  
+Type: Array of [ Rule ](API_Rule.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
 Required: No
 

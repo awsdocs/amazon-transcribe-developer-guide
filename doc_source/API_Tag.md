@@ -4,13 +4,13 @@ A key:value pair that adds metadata to a resource used by Amazon Transcribe\. Fo
 
 ## Contents<a name="API_Tag_Contents"></a>
 
- **Key**   <a name="transcribe-Type-Tag-Key"></a>
+ ** Key **   <a name="transcribe-Type-Tag-Key"></a>
 The first part of a key:value pair that forms a tag associated with a given resource\. For example, in the tag ‘Department’:’Sales’, the key is 'Department'\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Required: Yes
 
- **Value**   <a name="transcribe-Type-Tag-Value"></a>
+ ** Value **   <a name="transcribe-Type-Tag-Value"></a>
 The second part of a key:value pair that forms a tag associated with a given resource\. For example, in the tag ‘Department’:’Sales’, the value is 'Sales'\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 256\.  

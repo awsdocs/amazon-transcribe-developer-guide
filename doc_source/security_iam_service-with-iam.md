@@ -18,7 +18,7 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 Include actions in a policy to grant permissions to perform the associated operation\.
 
-Policy actions in Amazon Transcribe use the following prefix before the action: `transcribe:`\. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon Transcribe [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you include the `transcribe:StartTranscriptionJob` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Transcribe defines actions that describe tasks that you can perform with this service\.
+Policy actions in Amazon Transcribe use the following prefix before the action: `transcribe:`\. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon Transcribe [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you include the `transcribe:StartTranscriptionJob` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Transcribe defines actions that describe tasks that you can perform with this service\.
 
 To specify multiple actions in a single statement, separate them with commas as follows\.
 
@@ -60,13 +60,13 @@ The following table lists the Amazon Transcribe condition keys that apply to Ama
 
 | Amazon Transcribe condition key | Description | Value type | Action | 
 | --- | --- | --- | --- | 
-| transcribe:OutputBucketName | Filters access by the output bucket used to start a transcription job\. | String | [StartTranscriptionJob](API_StartTranscriptionJob.md) | 
-| transcribe:OutputEncryptionKMSKeyId | Filters access by the KMS key used to start a transcription job\. | String | [StartTranscriptionJob](API_StartTranscriptionJob.md) | 
-| transcribe:Outputkey | Filters access by the output key used to start a transcription job\. | String | [StartTranscriptionJob](API_StartTranscriptionJob.md) | 
+| transcribe:OutputBucketName | Filters access by the output bucket used to start a transcription job\. | String | [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 
+| transcribe:OutputEncryptionKMSKeyId | Filters access by the KMS key used to start a transcription job\. | String | [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 
+| transcribe:Outputkey | Filters access by the output key used to start a transcription job\. | String | [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 
 
 For examples of how you can use condition keys to control access to the resources of Amazon Transcribe, see the following\.
 
-If you want your users to always use a specific output bucket when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you can use the following policy\.
+If you want your users to always use a specific output bucket when they use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you can use the following policy\.
 
 ```
 {
@@ -89,7 +89,7 @@ If you want your users to always use a specific output bucket when they use the 
 }
 ```
 
-If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you can use the following policy\.
+If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you can use the following policy\.
 
 ```
 {
@@ -114,7 +114,7 @@ If you want users to always use a AWS Key Management Service \(KMS\) key when th
 
 For information on AWS KMS keys, see [Key management](key-management.md)\.
 
-If you want your users to always use a specific output key when they use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you can use the following policy\.
+If you want your users to always use a specific output key when they use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you can use the following policy\.
 
 ```
 {
@@ -137,7 +137,7 @@ If you want your users to always use a specific output key when they use the [St
 }
 ```
 
-For more information, see the `OutputKey` parameter description of the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\.
+For more information, see the `OutputKey` parameter description of the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\.
 
 #### Examples<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 

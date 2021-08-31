@@ -10,7 +10,7 @@ Use a WebSocket stream to transcribe a medical dictation as an audio stream\. Yo
 + Radiology
 + Urology
 
-Each medical specialty includes many types of procedures and appointments\. Clinicians therefore dictate many different types of notes\. Use the following examples as guidance to help you specify the value of the `specialty` URL parameter of the WebSocket request, or the `Specialty` parameter of the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API:
+Each medical specialty includes many types of procedures and appointments\. Clinicians therefore dictate many different types of notes\. Use the following examples as guidance to help you specify the value of the `specialty` URL parameter of the WebSocket request, or the `Specialty` parameter of the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API:
 + For a dictation after electrophysiology or echocardiogram procedure, choose `CARDIOLOGY`\.
 + For a dictation after a surgical oncology or radiation oncology procedure, choose `ONCOLOGY`\.
 + For a physician dictating notes indicating a diagnosis of encephalitis, choose `NEUROLOGY`\.
@@ -41,7 +41,7 @@ To use the console to transcribe streaming audio of a medical dictation, choose 
 
 ## Transcribing a dictation in an HTTP/2 stream<a name="http2-med-dictation-streaming"></a>
 
-To transcribe an HTTP/2 stream of a medical dictation, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
+To transcribe an HTTP/2 stream of a medical dictation, use the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
 + `LanguageCode` – The language code\. The valid value is `en-US`
 + `MediaEncoding` – The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
 + `Specialty` – The specialty of the medical professional\.

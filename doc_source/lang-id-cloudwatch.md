@@ -1,5 +1,0 @@
-# Getting notifications using Automatic language identification<a name="lang-id-cloudwatch"></a>
-
-Amazon Transcribe can notify you if it successfully identifies the language of your media file before the transcription job finishes\. To receive a notification, enable a rule for an Amazon CloudWatch event\. CloudWatch is a service you can use to monitor your AWS resources and applications in real time\. For more information see [What Is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)\.
-
-For more information about the CloudWatch events that show whether the language has been identified successfully in your audio, see [Language identification events](cloud-watch-events.md#lang-id-event)\. For general information about CloudWatch events in Amazon Transcribe, see [Using Amazon EventBridge with Amazon Transcribe](cloud-watch-events.md)\. 

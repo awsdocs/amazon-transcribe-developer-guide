@@ -16,7 +16,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [CallAnalyticsJobName](#API_GetCallAnalyticsJob_RequestSyntax) **   <a name="transcribe-GetCallAnalyticsJob-request-CallAnalyticsJobName"></a>
+ ** [ CallAnalyticsJobName ](#API_GetCallAnalyticsJob_RequestSyntax) **   <a name="transcribe-GetCallAnalyticsJob-request-CallAnalyticsJobName"></a>
 The name of the analytics job you want information about\. This value is case sensitive\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -74,27 +74,27 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [CallAnalyticsJob](#API_GetCallAnalyticsJob_ResponseSyntax) **   <a name="transcribe-GetCallAnalyticsJob-response-CallAnalyticsJob"></a>
+ ** [ CallAnalyticsJob ](#API_GetCallAnalyticsJob_ResponseSyntax) **   <a name="transcribe-GetCallAnalyticsJob-response-CallAnalyticsJob"></a>
 An object that contains the results of your call analytics job\.  
-Type: [CallAnalyticsJob](API_CallAnalyticsJob.md) object
+Type: [ CallAnalyticsJob ](API_CallAnalyticsJob.md) object
 
 ## Errors<a name="API_GetCallAnalyticsJob_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

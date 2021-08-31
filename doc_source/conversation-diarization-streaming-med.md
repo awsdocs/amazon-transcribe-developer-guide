@@ -2,7 +2,7 @@
 
 To identify speakers and label their speech in a real\-time stream, use the Amazon Transcribe Medical console or a streaming request\. Speaker identification works best for identifying between two and five speakers in a stream\. Although Amazon Transcribe Medical can identify more than five speakers in a stream, the accuracy of speaker identification decreases if you exceed that number\.
 
-To start an HTTP/2 request, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API\. To start a WebSocket request, use a pre\-signed URL\. The URL contains the information required to set up bi\-directional communication between your application and Amazon Transcribe Medical\.
+To start an HTTP/2 request, use the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API\. To start a WebSocket request, use a pre\-signed URL\. The URL contains the information required to set up bi\-directional communication between your application and Amazon Transcribe Medical\.
 
 ## Identifying speakers in audio that is spoken into your microphone \(console\)<a name="conversation-diarization-console"></a>
 
@@ -24,7 +24,7 @@ You can use the Amazon Transcribe Medical console to start a real\-time stream o
 
 ## Identifying speakers in an HTTP/2 stream<a name="conversation-diarization-med-http2"></a>
 
-To identify speakers in an HTTP/2 stream of a medical conversation, use the [StartMedicalStreamTranscription](API_streaming_StartMedicalStreamTranscription.md) API and specify the following: 
+To identify speakers in an HTTP/2 stream of a medical conversation, use the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API and specify the following: 
 + For `LanguageCode`, specify the language code that corresponds to the language in the stream\. The valid value is `en-US`\.
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + For `Specialty`, specify the medical specialty of the provider\.

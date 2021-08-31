@@ -4,7 +4,7 @@ Identifies the location of a transcription\.
 
 ## Contents<a name="API_Transcript_Contents"></a>
 
- **RedactedTranscriptFileUri**   <a name="transcribe-Type-Transcript-RedactedTranscriptFileUri"></a>
+ ** RedactedTranscriptFileUri **   <a name="transcribe-Type-Transcript-RedactedTranscriptFileUri"></a>
 The S3 object location of the redacted transcript\.  
 Use this URI to access the redacted transcript\. If you specified an S3 bucket in the `OutputBucketName` field when you created the job, this is the URI of that bucket\. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location\.  
 Type: String  
@@ -12,7 +12,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2000\.
 Pattern: `(s3://|http(s*)://).+`   
 Required: No
 
- **TranscriptFileUri**   <a name="transcribe-Type-Transcript-TranscriptFileUri"></a>
+ ** TranscriptFileUri **   <a name="transcribe-Type-Transcript-TranscriptFileUri"></a>
 The S3 object location of the transcript\.  
 Use this URI to access the transcript\. If you specified an S3 bucket in the `OutputBucketName` field when you created the job, this is the URI of that bucket\. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location\.  
 Type: String  

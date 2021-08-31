@@ -32,53 +32,53 @@ Content-type: application/json
 
 The request uses the following URI parameters\.
 
- ** [ContentIdentificationType](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-ContentIdentificationType"></a>
+ ** [ ContentIdentificationType ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-ContentIdentificationType"></a>
 Set this field to `PHI` to identify personal health information in the transcription output\.  
 Valid Values:` PHI` 
 
- ** [EnableChannelIdentification](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-EnableChannelIdentification"></a>
+ ** [ EnableChannelIdentification ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-EnableChannelIdentification"></a>
 When `true`, instructs Amazon Transcribe Medical to process each audio channel separately and then merge the transcription output of each channel into a single transcription\.  
 Amazon Transcribe Medical also produces a transcription of each item\. An item includes the start time, end time, and any alternative transcriptions\.  
 You can't set both `ShowSpeakerLabel` and `EnableChannelIdentification` in the same request\. If you set both, your request returns a `BadRequestException`\.
 
- ** [LanguageCode](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-LanguageCode"></a>
+ ** [ LanguageCode ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-LanguageCode"></a>
  Indicates the source language used in the input audio stream\. For Amazon Transcribe Medical, this is US English \(en\-US\)\.   
 Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN`   
 Required: Yes
 
- ** [MediaEncoding](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-MediaEncoding"></a>
+ ** [ MediaEncoding ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.  
 Valid Values:` pcm | ogg-opus | flac`   
 Required: Yes
 
- ** [MediaSampleRateHertz](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-MediaSampleRateHertz"></a>
+ ** [ MediaSampleRateHertz ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-MediaSampleRateHertz"></a>
 The sample rate of the input audio in Hertz\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: Yes
 
- ** [NumberOfChannels](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-NumberOfChannels"></a>
+ ** [ NumberOfChannels ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-NumberOfChannels"></a>
 The number of channels that are in your audio stream\.  
 Valid Range: Minimum value of 2\.
 
- ** [SessionId](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-SessionId"></a>
+ ** [ SessionId ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-SessionId"></a>
  Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.   
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
 
- ** [ShowSpeakerLabel](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-ShowSpeakerLabel"></a>
+ ** [ ShowSpeakerLabel ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-ShowSpeakerLabel"></a>
 When `true`, enables speaker identification in your real\-time stream\.
 
- ** [Specialty](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-Specialty"></a>
+ ** [ Specialty ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-Specialty"></a>
 The medical specialty of the clinician or provider\.  
 Valid Values:` PRIMARYCARE | CARDIOLOGY | NEUROLOGY | ONCOLOGY | RADIOLOGY | UROLOGY`   
 Required: Yes
 
- ** [Type](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-Type"></a>
+ ** [ Type ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-Type"></a>
 The type of input audio\. Choose `DICTATION` for a provider dictating patient notes\. Choose `CONVERSATION` for a dialogue between a patient and one or more medical professionanls\.  
 Valid Values:` CONVERSATION | DICTATION`   
 Required: Yes
 
- ** [VocabularyName](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-VocabularyName"></a>
+ ** [ VocabularyName ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-VocabularyName"></a>
 The name of the medical custom vocabulary to use when processing the real\-time stream\.  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
@@ -87,9 +87,9 @@ Pattern: `^[0-9a-zA-Z._-]+`
 
 The request accepts the following data in JSON format\.
 
- ** [AudioStream](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-AudioStream"></a>
+ ** [ AudioStream ](#API_streaming_StartMedicalStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-request-AudioStream"></a>
 Represents the audio stream from your application to Amazon Transcribe\.  
-Type: [AudioStream](API_streaming_AudioStream.md) object  
+Type: [ AudioStream ](API_streaming_AudioStream.md) object  
 Required: Yes
 
 ## Response Syntax<a name="API_streaming_StartMedicalStreamTranscription_ResponseSyntax"></a>
@@ -169,80 +169,80 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The response returns the following HTTP headers\.
 
- ** [ContentIdentificationType](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-ContentIdentificationType"></a>
+ ** [ ContentIdentificationType ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-ContentIdentificationType"></a>
 If the value is `PHI`, indicates that you've configured your stream to identify personal health information\.  
 Valid Values:` PHI` 
 
- ** [EnableChannelIdentification](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-EnableChannelIdentification"></a>
+ ** [ EnableChannelIdentification ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-EnableChannelIdentification"></a>
 Shows whether channel identification has been enabled in the stream\.
 
- ** [LanguageCode](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-LanguageCode"></a>
 The language code for the response transcript\. For Amazon Transcribe Medical, this is US English \(en\-US\)\.  
 Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN` 
 
- ** [MediaEncoding](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-MediaEncoding"></a>
+ ** [ MediaEncoding ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
 Valid Values:` pcm | ogg-opus | flac` 
 
- ** [MediaSampleRateHertz](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-MediaSampleRateHertz"></a>
+ ** [ MediaSampleRateHertz ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-MediaSampleRateHertz"></a>
 The sample rate of the input audio in Hertz\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.
 
- ** [NumberOfChannels](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-NumberOfChannels"></a>
+ ** [ NumberOfChannels ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-NumberOfChannels"></a>
 The number of channels identified in the stream\.  
 Valid Range: Minimum value of 2\.
 
- ** [RequestId](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-RequestId"></a>
+ ** [ RequestId ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-RequestId"></a>
 An identifier for the streaming transcription\.
 
- ** [SessionId](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-SessionId"></a>
+ ** [ SessionId ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-SessionId"></a>
 Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
 
- ** [ShowSpeakerLabel](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-ShowSpeakerLabel"></a>
+ ** [ ShowSpeakerLabel ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-ShowSpeakerLabel"></a>
 Shows whether speaker identification was enabled in the stream\.
 
- ** [Specialty](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-Specialty"></a>
+ ** [ Specialty ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-Specialty"></a>
 The specialty in the medical domain\.  
 Valid Values:` PRIMARYCARE | CARDIOLOGY | NEUROLOGY | ONCOLOGY | RADIOLOGY | UROLOGY` 
 
- ** [Type](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-Type"></a>
+ ** [ Type ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-Type"></a>
 The type of audio that was transcribed\.   
 Valid Values:` CONVERSATION | DICTATION` 
 
- ** [VocabularyName](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-VocabularyName"></a>
+ ** [ VocabularyName ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-VocabularyName"></a>
 The name of the vocabulary used when processing the stream\.  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
 The following data is returned in JSON format by the service\.
 
- ** [TranscriptResultStream](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-TranscriptResultStream"></a>
+ ** [ TranscriptResultStream ](#API_streaming_StartMedicalStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartMedicalStreamTranscription-response-TranscriptResultStream"></a>
 Represents the stream of transcription events from Amazon Transcribe Medical to your application\.   
-Type: [MedicalTranscriptResultStream](API_streaming_MedicalTranscriptResultStream.md) object
+Type: [ MedicalTranscriptResultStream ](API_streaming_MedicalTranscriptResultStream.md) object
 
 ## Errors<a name="API_streaming_StartMedicalStreamTranscription_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 One or more arguments to the `StartStreamTranscription` or `StartMedicalStreamTranscription` operation was invalid\. For example, `MediaEncoding` was not set to a valid encoding, or `LanguageCode` was not set to a valid code\. Check the parameters and try your request again\.  
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
 A new stream started with the same session ID\. The current stream has been terminated\.  
 HTTP Status Code: 409
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 A problem occurred while processing the audio\. Amazon Transcribe or Amazon Transcribe Medical terminated processing\. Try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 You have exceeded the maximum number of concurrent transcription streams, are starting transcription streams too quickly, or the maximum audio length of 4 hours\. Wait until a stream has finished processing, or break your audio stream into smaller chunks and try your request again\.  
 HTTP Status Code: 429
 
- **ServiceUnavailableException**   
+ ** ServiceUnavailableException **   
 Service is currently unavailable\. Try your request later\.  
 HTTP Status Code: 503
 

@@ -4,13 +4,13 @@ For a call analytics job, an object that indicates the audio channel that belong
 
 ## Contents<a name="API_ChannelDefinition_Contents"></a>
 
- **ChannelId**   <a name="transcribe-Type-ChannelDefinition-ChannelId"></a>
+ ** ChannelId **   <a name="transcribe-Type-ChannelDefinition-ChannelId"></a>
 A value that indicates the audio channel\.  
 Type: Integer  
 Valid Range: Minimum value of 0\. Maximum value of 1\.  
 Required: No
 
- **ParticipantRole**   <a name="transcribe-Type-ChannelDefinition-ParticipantRole"></a>
+ ** ParticipantRole **   <a name="transcribe-Type-ChannelDefinition-ParticipantRole"></a>
 Indicates whether the person speaking on the audio channel is the agent or customer\.  
 Type: String  
 Valid Values:` AGENT | CUSTOMER`   

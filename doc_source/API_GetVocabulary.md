@@ -16,7 +16,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [VocabularyName](#API_GetVocabulary_RequestSyntax) **   <a name="transcribe-GetVocabulary-request-VocabularyName"></a>
+ ** [ VocabularyName ](#API_GetVocabulary_RequestSyntax) **   <a name="transcribe-GetVocabulary-request-VocabularyName"></a>
 The name of the vocabulary to return information about\. The name is case sensitive\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -42,32 +42,32 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [DownloadUri](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-DownloadUri"></a>
+ ** [ DownloadUri ](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-DownloadUri"></a>
 The S3 location where the vocabulary is stored\. Use this URI to get the contents of the vocabulary\. The URI is available for a limited time\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
 Pattern: `(s3://|http(s*)://).+` 
 
- ** [FailureReason](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-FailureReason"></a>
+ ** [ FailureReason ](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-FailureReason"></a>
 If the `VocabularyState` field is `FAILED`, this field contains information about why the job failed\.  
 Type: String
 
- ** [LanguageCode](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LanguageCode"></a>
 The language code of the vocabulary entries\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ` 
 
- ** [LastModifiedTime](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LastModifiedTime"></a>
+ ** [ LastModifiedTime ](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-LastModifiedTime"></a>
 The date and time that the vocabulary was last modified\.  
 Type: Timestamp
 
- ** [VocabularyName](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-VocabularyName"></a>
+ ** [ VocabularyName ](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-VocabularyName"></a>
 The name of the vocabulary to return\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
- ** [VocabularyState](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-VocabularyState"></a>
+ ** [ VocabularyState ](#API_GetVocabulary_ResponseSyntax) **   <a name="transcribe-GetVocabulary-response-VocabularyState"></a>
 The processing state of the vocabulary\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
@@ -76,19 +76,19 @@ Valid Values:` PENDING | READY | FAILED`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

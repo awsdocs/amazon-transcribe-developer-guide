@@ -4,23 +4,23 @@ The data structure that contains the information for a medical transcription job
 
 ## Contents<a name="API_MedicalTranscriptionJob_Contents"></a>
 
- **CompletionTime**   <a name="transcribe-Type-MedicalTranscriptionJob-CompletionTime"></a>
+ ** CompletionTime **   <a name="transcribe-Type-MedicalTranscriptionJob-CompletionTime"></a>
 A timestamp that shows when the job was completed\.  
 Type: Timestamp  
 Required: No
 
- **ContentIdentificationType**   <a name="transcribe-Type-MedicalTranscriptionJob-ContentIdentificationType"></a>
+ ** ContentIdentificationType **   <a name="transcribe-Type-MedicalTranscriptionJob-ContentIdentificationType"></a>
 Shows the type of content that you've configured Amazon Transcribe Medical to identify in a transcription job\. If the value is `PHI`, you've configured the job to identify personal health information \(PHI\) in the transcription output\.  
 Type: String  
 Valid Values:` PHI`   
 Required: No
 
- **CreationTime**   <a name="transcribe-Type-MedicalTranscriptionJob-CreationTime"></a>
+ ** CreationTime **   <a name="transcribe-Type-MedicalTranscriptionJob-CreationTime"></a>
 A timestamp that shows when the job was created\.  
 Type: Timestamp  
 Required: No
 
- **FailureReason**   <a name="transcribe-Type-MedicalTranscriptionJob-FailureReason"></a>
+ ** FailureReason **   <a name="transcribe-Type-MedicalTranscriptionJob-FailureReason"></a>
 If the `TranscriptionJobStatus` field is `FAILED`, this field contains information about why the job failed\.  
 The `FailureReason` field contains one of the following values:  
 +  `Unsupported media format`\- The media format specified in the `MediaFormat` field of the request isn't valid\. See the description of the `MediaFormat` field for a list of valid values\.
@@ -32,71 +32,71 @@ The `FailureReason` field contains one of the following values:
 Type: String  
 Required: No
 
- **LanguageCode**   <a name="transcribe-Type-MedicalTranscriptionJob-LanguageCode"></a>
+ ** LanguageCode **   <a name="transcribe-Type-MedicalTranscriptionJob-LanguageCode"></a>
 The language code for the language spoken in the source audio file\. US English \(en\-US\) is the only supported language for medical transcriptions\. Any other value you enter for language code results in a `BadRequestException` error\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
- **Media**   <a name="transcribe-Type-MedicalTranscriptionJob-Media"></a>
+ ** Media **   <a name="transcribe-Type-MedicalTranscriptionJob-Media"></a>
 Describes the input media file in a transcription request\.  
-Type: [Media](API_Media.md) object  
+Type: [ Media ](API_Media.md) object  
 Required: No
 
- **MediaFormat**   <a name="transcribe-Type-MedicalTranscriptionJob-MediaFormat"></a>
+ ** MediaFormat **   <a name="transcribe-Type-MedicalTranscriptionJob-MediaFormat"></a>
 The format of the input media file\.  
 Type: String  
 Valid Values:` mp3 | mp4 | wav | flac | ogg | amr | webm`   
 Required: No
 
- **MediaSampleRateHertz**   <a name="transcribe-Type-MedicalTranscriptionJob-MediaSampleRateHertz"></a>
+ ** MediaSampleRateHertz **   <a name="transcribe-Type-MedicalTranscriptionJob-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the source audio containing medical information\.  
 If you don't specify the sample rate, Amazon Transcribe Medical determines it for you\. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical\. In most cases, you should leave the `MedicalMediaSampleHertz` blank and let Amazon Transcribe Medical determine the sample rate\.  
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No
 
- **MedicalTranscriptionJobName**   <a name="transcribe-Type-MedicalTranscriptionJob-MedicalTranscriptionJobName"></a>
+ ** MedicalTranscriptionJobName **   <a name="transcribe-Type-MedicalTranscriptionJob-MedicalTranscriptionJobName"></a>
 The name for a given medical transcription job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
- **Settings**   <a name="transcribe-Type-MedicalTranscriptionJob-Settings"></a>
-Object that contains [MedicalTranscriptionSetting](API_MedicalTranscriptionSetting.md) object\.  
-Type: [MedicalTranscriptionSetting](API_MedicalTranscriptionSetting.md) object  
+ ** Settings **   <a name="transcribe-Type-MedicalTranscriptionJob-Settings"></a>
+Object that contains [ MedicalTranscriptionSetting ](API_MedicalTranscriptionSetting.md) object\.  
+Type: [ MedicalTranscriptionSetting ](API_MedicalTranscriptionSetting.md) object  
 Required: No
 
- **Specialty**   <a name="transcribe-Type-MedicalTranscriptionJob-Specialty"></a>
+ ** Specialty **   <a name="transcribe-Type-MedicalTranscriptionJob-Specialty"></a>
 The medical specialty of any clinicians providing a dictation or having a conversation\. Refer to [Transcribing a medical conversation](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html)for a list of supported specialties\.  
 Type: String  
 Valid Values:` PRIMARYCARE`   
 Required: No
 
- **StartTime**   <a name="transcribe-Type-MedicalTranscriptionJob-StartTime"></a>
+ ** StartTime **   <a name="transcribe-Type-MedicalTranscriptionJob-StartTime"></a>
 A timestamp that shows when the job started processing\.  
 Type: Timestamp  
 Required: No
 
- **Tags**   <a name="transcribe-Type-MedicalTranscriptionJob-Tags"></a>
+ ** Tags **   <a name="transcribe-Type-MedicalTranscriptionJob-Tags"></a>
 A key:value pair assigned to a given medical transcription job\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
 Required: No
 
- **Transcript**   <a name="transcribe-Type-MedicalTranscriptionJob-Transcript"></a>
+ ** Transcript **   <a name="transcribe-Type-MedicalTranscriptionJob-Transcript"></a>
 An object that contains the `MedicalTranscript`\. The `MedicalTranscript` contains the `TranscriptFileUri`\.  
-Type: [MedicalTranscript](API_MedicalTranscript.md) object  
+Type: [ MedicalTranscript ](API_MedicalTranscript.md) object  
 Required: No
 
- **TranscriptionJobStatus**   <a name="transcribe-Type-MedicalTranscriptionJob-TranscriptionJobStatus"></a>
+ ** TranscriptionJobStatus **   <a name="transcribe-Type-MedicalTranscriptionJob-TranscriptionJobStatus"></a>
 The completion status of a medical transcription job\.  
 Type: String  
 Valid Values:` QUEUED | IN_PROGRESS | FAILED | COMPLETED`   
 Required: No
 
- **Type**   <a name="transcribe-Type-MedicalTranscriptionJob-Type"></a>
+ ** Type **   <a name="transcribe-Type-MedicalTranscriptionJob-Type"></a>
 The type of speech in the transcription job\. `CONVERSATION` is generally used for patient\-physician dialogues\. `DICTATION` is the setting for physicians speaking their notes after seeing a patient\. For more information, see [What is Amazon Transcribe Medical?](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe-med.html)\.  
 Type: String  
 Valid Values:` CONVERSATION | DICTATION`   

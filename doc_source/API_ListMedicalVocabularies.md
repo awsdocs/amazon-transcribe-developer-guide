@@ -19,27 +19,27 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [MaxResults](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-MaxResults"></a>
+ ** [ MaxResults ](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-MaxResults"></a>
 The maximum number of vocabularies to return in each page of results\. If there are fewer results than the value you specify, only the actual results are returned\. If you do not specify a value, the default of 5 is used\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [NameContains](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-NameContains"></a>
+ ** [ NameContains ](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-NameContains"></a>
 Returns vocabularies whose names contain the specified string\. The search is not case sensitive\. `ListMedicalVocabularies` returns both "`vocabularyname`" and "`VocabularyName`"\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
- ** [NextToken](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-NextToken"></a>
+ ** [ NextToken ](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-NextToken"></a>
 If the result of your previous request to `ListMedicalVocabularies` was truncated, include the `NextToken` to fetch the next set of vocabularies\.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
 Pattern: `.+`   
 Required: No
 
- ** [StateEquals](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-StateEquals"></a>
+ ** [ StateEquals ](#API_ListMedicalVocabularies_RequestSyntax) **   <a name="transcribe-ListMedicalVocabularies-request-StateEquals"></a>
 When specified, returns only vocabularies with the `VocabularyState` equal to the specified vocabulary state\. Use this field to see which vocabularies are ready for your medical transcription jobs\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED`   
@@ -68,34 +68,34 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [NextToken](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-NextToken"></a>
+ ** [ NextToken ](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-NextToken"></a>
 The `ListMedicalVocabularies` operation returns a page of vocabularies at a time\. You set the maximum number of vocabularies to return on a page with the `MaxResults` parameter\. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the `NextPage` token\. To return the next page of vocabularies, include the token in the next request to the `ListMedicalVocabularies` operation \.  
 Type: String  
 Length Constraints: Maximum length of 8192\.  
 Pattern: `.+` 
 
- ** [Status](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-Status"></a>
+ ** [ Status ](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-Status"></a>
 The requested vocabulary state\.  
 Type: String  
 Valid Values:` PENDING | READY | FAILED` 
 
- ** [Vocabularies](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-Vocabularies"></a>
+ ** [ Vocabularies ](#API_ListMedicalVocabularies_ResponseSyntax) **   <a name="transcribe-ListMedicalVocabularies-response-Vocabularies"></a>
 A list of objects that describe the vocabularies that match your search criteria\.  
-Type: Array of [VocabularyInfo](API_VocabularyInfo.md) objects
+Type: Array of [ VocabularyInfo ](API_VocabularyInfo.md) objects
 
 ## Errors<a name="API_ListMedicalVocabularies_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 

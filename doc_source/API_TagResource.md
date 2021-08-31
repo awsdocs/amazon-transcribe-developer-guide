@@ -22,16 +22,16 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ResourceArn](#API_TagResource_RequestSyntax) **   <a name="transcribe-TagResource-request-ResourceArn"></a>
+ ** [ ResourceArn ](#API_TagResource_RequestSyntax) **   <a name="transcribe-TagResource-request-ResourceArn"></a>
 The Amazon Resource Name \(ARN\) of the Amazon Transcribe resource you want to tag\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Pattern: `arn:aws(-[^:]+)?:transcribe:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z-]*/[0-9a-zA-Z._-]+`   
 Required: Yes
 
- ** [Tags](#API_TagResource_RequestSyntax) **   <a name="transcribe-TagResource-request-Tags"></a>
+ ** [ Tags ](#API_TagResource_RequestSyntax) **   <a name="transcribe-TagResource-request-Tags"></a>
 The tags you are assigning to a given Amazon Transcribe resource\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
 Required: Yes
 
@@ -43,23 +43,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
 There is already a resource with that name\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

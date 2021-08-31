@@ -15,7 +15,7 @@ In Amazon Transcribe, you can tag the following resources:
 + Vocabulary filter
 + Custom language model
 
-Tag keys can be up to 128 characters in length and tag values can be up to 256 characters in length; both are case sensitive\. For more information, see [TagResource](API_TagResource.md) in the Amazon Transcribe [API Reference](API_Reference.md)\.
+Tag keys can be up to 128 characters in length and tag values can be up to 256 characters in length; both are case sensitive\. For more information, see [ TagResource ](API_TagResource.md) in the Amazon Transcribe [API Reference](API_Reference.md)\.
 
 Amazon Transcribe supports up to 50 tags per resource\. For a given resource, each tag key must be unique with only one value\.
 
@@ -46,7 +46,7 @@ You can add, modify or delete tags using the **Amazon Transcribe Console**, **AW
 
 1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
-1. In the navigation pane, choose **Transcription jobs**, then select the **Create job** button \(top right\)\. This will open the **Specify job details** page\.
+1. In the navigation pane, choose **Transcription jobs**, then select the **Create job** button \(top right\)\. This opens the **Specify job details** page\.
 
 1. Scroll to the bottom of the **Specify job details** page to find the **Tags \- *optional*** box and click the **Add new tag** button\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/add-new-tag.png)
@@ -54,7 +54,9 @@ You can add, modify or delete tags using the **Amazon Transcribe Console**, **AW
 1. Enter information for the **Key** field and, optionally, the **Value** field\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/add-new-tag-color.png)
 
-1. Click the **Next** button to run your transcription job\. 
+1. Fill in any other fields you wish to include on the **Specify job details** page, then click the **Next** button\. This takes you to the **Configure job \- *optional* page\.**
+
+   Click the **Create job** button to run your transcription job\. 
 
 1. You can view the tags associated with a transcription job by navigating to the **Transcription jobs** page, selecting a transcription job, and scrolling to the bottom of that job's information page\. If you wish to edit your tags, you can do so by clicking the **Manage tags** button\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/view-tags.png)
@@ -68,8 +70,8 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "job name"
-job_uri = "s3://DOC-EXAMPLE-BUCKET/key-prefix/your-filename.file-extension"
+job_name = "my-job-name"
+job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
     Media={'MediaFileUri': job_uri},
@@ -88,7 +90,16 @@ print(status)
 
 ### AWS CLI<a name="tagging-howto-cli"></a>
 
-The following AWS CLI command starts a transcription job, and the request body adds tags to that job\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Tags` parameter\.
+
+```
+aws transcribe start-transcription-job \
+--media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
+--tags Key=color,Value=blue \
+--transcription-job-name my-job-name
+```
+
+Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that adds tags to that job\.
 
 ```
 aws transcribe start-transcription-job \
@@ -99,9 +110,11 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "string",
-  "LanguageCode": "string",
-   ...                 
+  "TranscriptionJobName": "my-job-name",
+  "LanguageCode": "en-US",
+  "Media": {
+        "MediaFileUri": "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
+    },
   "Tags": [ {"Key": "string","Value": "string"} ]
 }
 ```

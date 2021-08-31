@@ -4,7 +4,7 @@ Settings for content redaction within a transcription job\.
 
 ## Contents<a name="API_ContentRedaction_Contents"></a>
 
- **RedactionOutput**   <a name="transcribe-Type-ContentRedaction-RedactionOutput"></a>
+ ** RedactionOutput **   <a name="transcribe-Type-ContentRedaction-RedactionOutput"></a>
 The output transcript file stored in either the default S3 bucket or in a bucket you specify\.  
 When you choose `redacted` Amazon Transcribe outputs only the redacted transcript\.  
 When you choose `redacted_and_unredacted` Amazon Transcribe outputs both the redacted and unredacted transcripts\.  
@@ -12,7 +12,7 @@ Type: String
 Valid Values:` redacted | redacted_and_unredacted`   
 Required: Yes
 
- **RedactionType**   <a name="transcribe-Type-ContentRedaction-RedactionType"></a>
+ ** RedactionType **   <a name="transcribe-Type-ContentRedaction-RedactionType"></a>
 Request parameter that defines the entities to be redacted\. The only accepted value is `PII`\.  
 Type: String  
 Valid Values:` PII`   

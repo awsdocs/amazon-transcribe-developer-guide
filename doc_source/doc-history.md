@@ -5,6 +5,8 @@ The following table describes important changes in each release of Amazon Transc
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New languages](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html) | Amazon Transcribe now supports Afrikaans, Danish, Mandarin Chinese \(Traditional\), Thai, New Zealand English, and South African English\. | August 26, 2021 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html) | Amazon Transcribe now supports resource tagging\. | August 24, 2021 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html) | Amazon Transcribe now supports call analytics for batch transcription jobs\. | August 4, 2021 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/phi-id-batch.html) | Amazon Transcribe Medical now supports personal health information \(PHI\) identification in batch transcription jobs\. | May 14, 2021 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) | Amazon Transcribe now supports using custom vocabularies with batch custom language models\. | May 12, 2021 | 

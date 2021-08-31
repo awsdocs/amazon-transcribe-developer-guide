@@ -4,7 +4,7 @@ Identifies the location of a medical transcript\.
 
 ## Contents<a name="API_MedicalTranscript_Contents"></a>
 
- **TranscriptFileUri**   <a name="transcribe-Type-MedicalTranscript-TranscriptFileUri"></a>
+ ** TranscriptFileUri **   <a name="transcribe-Type-MedicalTranscript-TranscriptFileUri"></a>
 The S3 object location of the medical transcript\.  
 Use this URI to access the medical transcript\. This URI points to the S3 bucket you created to store the medical transcript\.  
 Type: String  

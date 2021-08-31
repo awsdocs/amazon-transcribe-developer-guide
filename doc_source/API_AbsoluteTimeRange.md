@@ -4,7 +4,7 @@ A time range, set in seconds, between two points in the call\.
 
 ## Contents<a name="API_AbsoluteTimeRange_Contents"></a>
 
- **EndTime**   <a name="transcribe-Type-AbsoluteTimeRange-EndTime"></a>
+ ** EndTime **   <a name="transcribe-Type-AbsoluteTimeRange-EndTime"></a>
 A value that indicates the end of the time range in milliseconds\. To set absolute time range, you must specify a start time and an end time\. For example, if you specify the following values:  
 + StartTime \- 10000
 + Endtime \- 50000
@@ -13,19 +13,19 @@ Type: Long
 Valid Range: Minimum value of 0\. Maximum value of 14400000\.  
 Required: No
 
- **First**   <a name="transcribe-Type-AbsoluteTimeRange-First"></a>
+ ** First **   <a name="transcribe-Type-AbsoluteTimeRange-First"></a>
 A time range from the beginning of the call to the value that you've specified\. For example, if you specify 100000, the time range is set to the first 100,000 milliseconds of the call\.  
 Type: Long  
 Valid Range: Minimum value of 0\. Maximum value of 14400000\.  
 Required: No
 
- **Last**   <a name="transcribe-Type-AbsoluteTimeRange-Last"></a>
+ ** Last **   <a name="transcribe-Type-AbsoluteTimeRange-Last"></a>
 A time range from the value that you've specified to the end of the call\. For example, if you specify 100000, the time range is set to the last 100,000 milliseconds of the call\.  
 Type: Long  
 Valid Range: Minimum value of 0\. Maximum value of 14400000\.  
 Required: No
 
- **StartTime**   <a name="transcribe-Type-AbsoluteTimeRange-StartTime"></a>
+ ** StartTime **   <a name="transcribe-Type-AbsoluteTimeRange-StartTime"></a>
 A value that indicates the beginning of the time range in seconds\. To set absolute time range, you must specify a start time and an end time\. For example, if you specify the following values:  
 + StartTime \- 10000
 + Endtime \- 50000

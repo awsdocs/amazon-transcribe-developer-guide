@@ -26,7 +26,7 @@ A call analytics job only uses the categories you've previously created\. Any ne
 
 For call analytics quotas, refer to [Guidelines and quotas](limits-guidelines.md)\.
 
-To use call analytics in your transcription job, use [StartCallAnalyticsJob](API_StartCallAnalyticsJob.md) or **call analytics job** in th econsole\. Call analytics output is similar to that of a standard transcription job, but contains additional data based on the analytics categories you create\. To learn how to set up a call analytics job, see [Setting up call analytics transcription jobs](start-call-analytics.md)\. For example output, see [Sample call analytics output](analyze-output.md)\.
+To use call analytics in your transcription job, use [ StartCallAnalyticsJob ](API_StartCallAnalyticsJob.md) or **call analytics job** in th econsole\. Call analytics output is similar to that of a standard transcription job, but contains additional data based on the analytics categories you create\. To learn how to set up a call analytics job, see [Setting up call analytics transcription jobs](start-call-analytics.md)\. For example output, see [Sample call analytics output](analyze-output.md)\.
 
 **Tip**  
 To view sample call analytics output and features, check out our [GitHub demo](https://github.com/aws-samples/amazon-transcribe-output-word-document)\.

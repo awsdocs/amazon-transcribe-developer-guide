@@ -1,6 +1,6 @@
 # Transcribing an audio file using a medical custom vocabulary<a name="start-med-custom-vocab-job"></a>
 
-Use the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) or the Amazon Transcribe Medical console to start a transcription job that uses a custom vocabulary to improve transcription accuracy\.
+Use the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) or the Amazon Transcribe Medical console to start a transcription job that uses a custom vocabulary to improve transcription accuracy\.
 
 ## Console<a name="start-med-custom-vocab-job-console"></a>
 
@@ -27,7 +27,7 @@ To use the console to use your custom vocabulary in your transcription job, \.
 ## API<a name="start-med-custom-vocab-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 

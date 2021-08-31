@@ -2,9 +2,12 @@
 
 To identify different speakers in Amazon Transcribe, use *speaker diarization*\. When you enable speaker diarization, Amazon Transcribe labels each speaker utterance\. You enable speaker diarization by using the batch transcription or real\-time streaming APIs, or the Amazon Transcribe console\.
 
+**Note**  
+Speaker diarization is supported for all languages with batch transcription jobs, but is only supported for US English \(en\-US\) with streaming transcriptions\.
+
 ## Identifying speakers in audio files<a name="diarization-batch"></a>
 
-You can enable speaker diarization in a batch transcription job using either the [StartTranscriptionJob](API_StartTranscriptionJob.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+You can enable speaker diarization in a batch transcription job using either the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
 ### Console<a name="diarization-batch-console"></a>
 
@@ -33,7 +36,7 @@ To use the console to enable speaker diarization in your transcription job, you 
 ### API<a name="diarization-batch-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, specify the following\.
++ For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
@@ -201,7 +204,7 @@ The following code shows an example output of a transcription job with speaker i
 
 ## Identifying speakers in real\-time streams<a name="diarization-streaming"></a>
 
-You can identify different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API\. To start a Websocket request, you use a pre\-signed URL, a URL that contains the information needed to start your stream\. To use the console to transcribe speech spoken into your microphone, use the following procedure\.
+You can identify different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API\. To start a Websocket request, you use a pre\-signed URL, a URL that contains the information needed to start your stream\. To use the console to transcribe speech spoken into your microphone, use the following procedure\.
 
 You can identify speakers in real\-time streams that are in US English \(en\-US\)\.
 
@@ -245,7 +248,7 @@ The following is the syntax for the parameters of an HTTP/2 request\.
     }
 ```
 
-To identify speakers in an HTTP/2 stream, use the [StartStreamTranscription](API_streaming_StartStreamTranscription.md) API and specify the following:
+To identify speakers in an HTTP/2 stream, use the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API and specify the following:
 + `LanguageCode` – the language code that corresponds to the language spoken in the stream\.
 + `MediaSampleHertz` – the sample rate of the audio\.
 + `ShowSpeakerLabel` – `true`\.

@@ -4,7 +4,7 @@ The object used to call your custom language model to your transcription job\.
 
 ## Contents<a name="API_ModelSettings_Contents"></a>
 
- **LanguageModelName**   <a name="transcribe-Type-ModelSettings-LanguageModelName"></a>
+ ** LanguageModelName **   <a name="transcribe-Type-ModelSettings-LanguageModelName"></a>
 The name of your custom language model\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  

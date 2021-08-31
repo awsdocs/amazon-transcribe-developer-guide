@@ -43,7 +43,7 @@ Use the following procedure to start a call analytics job\. The calls that match
 The following shows the request parameters to start a call analytics job\. The calls that match all of the rules defined in a category are labeled with that category\.
 
 **To start a call analytics job \(API\)**
-+ For the [StartCallAnalyticsJob](API_StartCallAnalyticsJob.md) API, specify the following\.
++ For the [ StartCallAnalyticsJob ](API_StartCallAnalyticsJob.md) API, specify the following\.
 
   1. `CallAnalyticsJobName` – Specify a name unique to your AWS account\.
 

@@ -4,16 +4,16 @@ By default, Amazon Transcribe stores and uses voice inputs that it has processed
 
 Opting out has the following effect:
 + Amazon Transcribe deletes all of the transcripts stored in service\-managed buckets that were generated before you opted out\.
-+ When you use the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, you must specify where you want to store output with the `OutputBucketName` parameter\. Otherwise, you get a `BadRequestException` error\.
-+ If the transcripts were stored in a service\-managed bucket, the [GetTranscriptionJob](API_GetTranscriptionJob.md) API returns `null` as the value of the `TranscriptFileUri` or `RedactedTranscriptFileUri` parameters\.
++ When you use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you must specify where you want to store output with the `OutputBucketName` parameter\. Otherwise, you get a `BadRequestException` error\.
++ If the transcripts were stored in a service\-managed bucket, the [ GetTranscriptionJob ](API_GetTranscriptionJob.md) API returns `null` as the value of the `TranscriptFileUri` or `RedactedTranscriptFileUri` parameters\.
 
-If you store transcripts in service\-managed buckets, we highly recommend backing them up\. To back up your transcripts, store them in an S3 bucket that you manage before you opt out\. To see which of your transcription jobs uses Amazon Transcribe to store its outputs, see the `OutputLocationType` response parameter of the [ListTranscriptionJobs](API_ListTranscriptionJobs.md) API\.
+If you store transcripts in service\-managed buckets, we highly recommend backing them up\. To back up your transcripts, store them in an S3 bucket that you manage before you opt out\. To see which of your transcription jobs uses Amazon Transcribe to store its outputs, see the `OutputLocationType` response parameter of the [ ListTranscriptionJobs ](API_ListTranscriptionJobs.md) API\.
 
 **To move transcripts to your own S3 buckets**
 
 
 
-1.  In the `TranscriptionJobName` parameter of the [GetTranscriptionJob](API_GetTranscriptionJob.md) API, specify the name of the transcription job whose output you want to back up\.
+1.  In the `TranscriptionJobName` parameter of the [ GetTranscriptionJob ](API_GetTranscriptionJob.md) API, specify the name of the transcription job whose output you want to back up\.
 
 1. Use the link provided in the `TranscriptFileUri` or `RedactedTranscriptFileUri` response parameters to download your transcript\.
 

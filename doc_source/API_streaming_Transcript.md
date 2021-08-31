@@ -1,12 +1,12 @@
 # Transcript<a name="API_streaming_Transcript"></a>
 
-The transcription in a [TranscriptEvent](API_streaming_TranscriptEvent.md)\.
+The transcription in a [ TranscriptEvent ](API_streaming_TranscriptEvent.md)\.
 
 ## Contents<a name="API_streaming_Transcript_Contents"></a>
 
- **Results**   <a name="transcribe-Type-streaming_Transcript-Results"></a>
- [Result](API_streaming_Result.md) objects that contain the results of transcribing a portion of the input audio stream\. The array can be empty\.  
-Type: Array of [Result](API_streaming_Result.md) objects  
+ ** Results **   <a name="transcribe-Type-streaming_Transcript-Results"></a>
+ [ Result ](API_streaming_Result.md) objects that contain the results of transcribing a portion of the input audio stream\. The array can be empty\.  
+Type: Array of [ Result ](API_streaming_Result.md) objects  
 Required: No
 
 ## See Also<a name="API_streaming_Transcript_SeeAlso"></a>

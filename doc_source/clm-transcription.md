@@ -1,6 +1,6 @@
 # Step 4: Transcribing with a custom language model<a name="clm-transcription"></a>
 
-You can use a custom language model in transcription jobs with the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\.
+You can use a custom language model in transcription jobs with the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\.
 
 ## Transcribing with a custom language model \(console\)<a name="start-console"></a>
 
@@ -31,7 +31,7 @@ You can use a custom language model in transcription jobs with the [Amazon Trans
 **To start a transcription job \(API\)**
 
 **To transcribe an audio or video file with a custom language model \(API\)**
-+ For the [StartTranscriptionJob](API_StartTranscriptionJob.md) API, specify the following\.
++ For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name that is unique to your AWS account\.
 

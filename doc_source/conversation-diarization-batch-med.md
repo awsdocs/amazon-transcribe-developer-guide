@@ -1,6 +1,6 @@
 # Identifying speakers and labeling their speech in audio files<a name="conversation-diarization-batch-med"></a>
 
-You can enable speaker identification in a batch transcription job using either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
+You can enable speaker identification in a batch transcription job using either the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
 
 ## Console<a name="conversation-diarization-batch-med-console"></a>
 
@@ -29,7 +29,7 @@ To use the console to enable speaker diarization in your transcription job, you 
 ## API<a name="conversation-diarization-batch-med-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 

@@ -29,7 +29,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [BaseModelName](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-BaseModelName"></a>
+ ** [ BaseModelName ](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-BaseModelName"></a>
 The Amazon Transcribe standard language model, or base model used to create your custom language model\.  
 If you want to use your custom language model to transcribe audio with a sample rate of 16,000 Hz or greater, choose `Wideband`\.  
 If you want to use your custom language model to transcribe audio with a sample rate that is less than 16,000 Hz, choose `Narrowband`\.  
@@ -37,27 +37,27 @@ Type: String
 Valid Values:` NarrowBand | WideBand`   
 Required: Yes
 
- ** [InputDataConfig](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-InputDataConfig"></a>
+ ** [ InputDataConfig ](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-InputDataConfig"></a>
 Contains the data access role and the Amazon S3 prefixes to read the required input files to create a custom language model\.  
-Type: [InputDataConfig](API_InputDataConfig.md) object  
+Type: [ InputDataConfig ](API_InputDataConfig.md) object  
 Required: Yes
 
- ** [LanguageCode](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-LanguageCode"></a>
+ ** [ LanguageCode ](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-LanguageCode"></a>
 The language of the input text you're using to train your custom language model\.  
 Type: String  
 Valid Values:` en-US | hi-IN | es-US | en-GB | en-AU`   
 Required: Yes
 
- ** [ModelName](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-ModelName"></a>
+ ** [ ModelName ](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-ModelName"></a>
 The name you choose for your custom language model when you create it\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: Yes
 
- ** [Tags](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-Tags"></a>
+ ** [ Tags ](#API_CreateLanguageModel_RequestSyntax) **   <a name="transcribe-CreateLanguageModel-request-Tags"></a>
 Adds one or more tags, each in the form of a key:value pair, to a new language model at the time you create this new model\.  
-Type: Array of [Tag](API_Tag.md) objects  
+Type: Array of [ Tag ](API_Tag.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
 Required: No
 
@@ -83,27 +83,27 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [BaseModelName](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-BaseModelName"></a>
+ ** [ BaseModelName ](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-BaseModelName"></a>
 The Amazon Transcribe standard language model, or base model you've used to create a custom language model\.  
 Type: String  
 Valid Values:` NarrowBand | WideBand` 
 
- ** [InputDataConfig](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-InputDataConfig"></a>
+ ** [ InputDataConfig ](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-InputDataConfig"></a>
 The data access role and Amazon S3 prefixes you've chosen to create your custom language model\.  
-Type: [InputDataConfig](API_InputDataConfig.md) object
+Type: [ InputDataConfig ](API_InputDataConfig.md) object
 
- ** [LanguageCode](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-LanguageCode"></a>
+ ** [ LanguageCode ](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-LanguageCode"></a>
 The language code of the text you've used to create a custom language model\.  
 Type: String  
 Valid Values:` en-US | hi-IN | es-US | en-GB | en-AU` 
 
- ** [ModelName](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-ModelName"></a>
+ ** [ ModelName ](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-ModelName"></a>
 The name you've chosen for your custom language model\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
- ** [ModelStatus](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-ModelStatus"></a>
+ ** [ ModelStatus ](#API_CreateLanguageModel_ResponseSyntax) **   <a name="transcribe-CreateLanguageModel-response-ModelStatus"></a>
 The status of the custom language model\. When the status is `COMPLETED` the model is ready to use\.  
 Type: String  
 Valid Values:` IN_PROGRESS | FAILED | COMPLETED` 
@@ -112,19 +112,19 @@ Valid Values:` IN_PROGRESS | FAILED | COMPLETED`
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **ConflictException**   
+ ** ConflictException **   
 There is already a resource with that name\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 

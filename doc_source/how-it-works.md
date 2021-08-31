@@ -7,21 +7,21 @@ Each language has its own *language code* that you can use to specify the langua
 You can transcribe an uploaded file or live\-stream audio\. Procesing an uploaded file is referred to as a **batch transcription job**, while using live audio is referred to as a **streaming transcription**\. For information on supported file containers and formats for both batch and streaming options, see [Speech input](input.md)\.
 
 To transcribe an audio file, Amazon Transcribe uses three APIs:
-+ [StartTranscriptionJob](API_StartTranscriptionJob.md) – Starts a batch job to transcribe the speech in an audio file to text\.
-+ [ListTranscriptionJobs](API_ListTranscriptionJobs.md) – Returns a list of transcription jobs that have been started\. You can specify the status of the jobs that you want the API to return\. For example, you can get a list of all pending jobs, or a list of completed jobs\.
-+ [GetTranscriptionJob](API_GetTranscriptionJob.md) – Returns the result of a transcription job\. The response contains a link to a JSON file containing the results\.
++ [ StartTranscriptionJob ](API_StartTranscriptionJob.md) – Starts a batch job to transcribe the speech in an audio file to text\.
++ [ ListTranscriptionJobs ](API_ListTranscriptionJobs.md) – Returns a list of transcription jobs that have been started\. You can specify the status of the jobs that you want the API to return\. For example, you can get a list of all pending jobs, or a list of completed jobs\.
++ [ GetTranscriptionJob ](API_GetTranscriptionJob.md) – Returns the result of a transcription job\. The response contains a link to a JSON file containing the results\.
 
 To transcribe streaming audio to text, Amazon Transcribe uses one API:
-+ [StartStreamTranscription](API_streaming_StartStreamTranscription.md) – Starts a bi\-directional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
++ [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) – Starts a bi\-directional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application\.
 
 You can also start a WebSocket protocol stream to send audio the Amazon Transcribe\. For more information, see [Using Amazon Transcribe streaming with WebSockets](websocket.md)\.
 
 You can use Amazon Transcribe to create and manage custom vocabularies for your solution\. A custom vocabulary gives Amazon Transcribe more information about how to process speech in an audio clip\.
-+ [CreateVocabulary](API_CreateVocabulary.md) – Creates a custom vocabulary that you can use in your transcription jobs\.
-+ [DeleteVocabulary](API_DeleteVocabulary.md) – Deletes a custom vocabulary from your account\.
-+ [GetVocabulary](API_GetVocabulary.md) – Gets information about a custom vocabulary and a URL that you can use to download the contents of a vocabulary\.
-+ [ListVocabularies](API_ListVocabularies.md) – Gets a list of custom vocabularies in your account\.
-+ [UpdateVocabulary](API_UpdateVocabulary.md) – Updates an existing vocabulary\.
++ [ CreateVocabulary ](API_CreateVocabulary.md) – Creates a custom vocabulary that you can use in your transcription jobs\.
++ [ DeleteVocabulary ](API_DeleteVocabulary.md) – Deletes a custom vocabulary from your account\.
++ [ GetVocabulary ](API_GetVocabulary.md) – Gets information about a custom vocabulary and a URL that you can use to download the contents of a vocabulary\.
++ [ ListVocabularies ](API_ListVocabularies.md) – Gets a list of custom vocabularies in your account\.
++ [ UpdateVocabulary ](API_UpdateVocabulary.md) – Updates an existing vocabulary\.
 
 
 **Supported languages and language\-specific features**  

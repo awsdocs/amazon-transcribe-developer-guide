@@ -1,8 +1,8 @@
 # Transcribing an audio file of a medical dictation<a name="batch-medical-dictation"></a>
 
-Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
+Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
 
-When you start a medical transcription job with the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
+When you start a medical transcription job with the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
 
 ## Console<a name="batch-med-dictation-console"></a>
 
@@ -31,7 +31,7 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
 ## API<a name="batch-med-dictation-api"></a>
 
 **To transcribe a medical conversation using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name unique in your AWS account\.
 

@@ -4,7 +4,7 @@ Describes the input media file in a transcription request\.
 
 ## Contents<a name="API_Media_Contents"></a>
 
- **MediaFileUri**   <a name="transcribe-Type-Media-MediaFileUri"></a>
+ ** MediaFileUri **   <a name="transcribe-Type-Media-MediaFileUri"></a>
 The S3 object location of the input media file\. The URI must be in the same region as the API endpoint that you are calling\. The general form is:  
  ` s3://<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey> `   
 For example:  
@@ -16,7 +16,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 2000\.
 Pattern: `(s3://|http(s*)://).+`   
 Required: No
 
- **RedactedMediaFileUri**   <a name="transcribe-Type-Media-RedactedMediaFileUri"></a>
+ ** RedactedMediaFileUri **   <a name="transcribe-Type-Media-RedactedMediaFileUri"></a>
  The S3 object location for your redacted output media file\. This is only supported for call analytics jobs\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2000\.  

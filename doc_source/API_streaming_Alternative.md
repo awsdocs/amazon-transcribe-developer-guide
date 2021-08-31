@@ -4,17 +4,12 @@ A list of possible transcriptions for the audio\.
 
 ## Contents<a name="API_streaming_Alternative_Contents"></a>
 
- **Entities**   <a name="transcribe-Type-streaming_Alternative-Entities"></a>
-Contains the entities identified as personally identifiable information \(PII\) in the transcription output\.  
-Type: Array of [Entity](API_streaming_Entity.md) objects  
-Required: No
-
- **Items**   <a name="transcribe-Type-streaming_Alternative-Items"></a>
+ ** Items **   <a name="transcribe-Type-streaming_Alternative-Items"></a>
 One or more alternative interpretations of the input audio\.   
-Type: Array of [Item](API_streaming_Item.md) objects  
+Type: Array of [ Item ](API_streaming_Item.md) objects  
 Required: No
 
- **Transcript**   <a name="transcribe-Type-streaming_Alternative-Transcript"></a>
+ ** Transcript **   <a name="transcribe-Type-streaming_Alternative-Transcript"></a>
 The text that was transcribed from the audio\.  
 Type: String  
 Required: No

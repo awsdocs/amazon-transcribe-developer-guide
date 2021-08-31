@@ -16,7 +16,7 @@ For information about the parameters that are common to all actions, see [Common
 
 The request accepts the following data in JSON format\.
 
- ** [ModelName](#API_DescribeLanguageModel_RequestSyntax) **   <a name="transcribe-DescribeLanguageModel-request-ModelName"></a>
+ ** [ ModelName ](#API_DescribeLanguageModel_RequestSyntax) **   <a name="transcribe-DescribeLanguageModel-request-ModelName"></a>
 The name of the custom language model you submit to get more information\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
@@ -51,27 +51,27 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [LanguageModel](#API_DescribeLanguageModel_ResponseSyntax) **   <a name="transcribe-DescribeLanguageModel-response-LanguageModel"></a>
+ ** [ LanguageModel ](#API_DescribeLanguageModel_ResponseSyntax) **   <a name="transcribe-DescribeLanguageModel-response-LanguageModel"></a>
 The name of the custom language model you requested more information about\.  
-Type: [LanguageModel](API_LanguageModel.md) object
+Type: [ LanguageModel ](API_LanguageModel.md) object
 
 ## Errors<a name="API_DescribeLanguageModel_Errors"></a>
 
 For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md)\.
 
- **BadRequestException**   
+ ** BadRequestException **   
 Your request didn't pass one or more validation tests\. For example, if the entity that you're trying to delete doesn't exist or if it is in a non\-terminal state \(for example, it's "in progress"\)\. See the exception `Message` field for more information\.  
 HTTP Status Code: 400
 
- **InternalFailureException**   
+ ** InternalFailureException **   
 There was an internal error\. Check the error message and try your request again\.  
 HTTP Status Code: 500
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Either you have sent too many requests or your input file is too long\. Wait before you resend your request, or use a smaller file and resend the request\.  
 HTTP Status Code: 400
 
- **NotFoundException**   
+ ** NotFoundException **   
 We can't find the requested resource\. Check the name and try your request again\.  
 HTTP Status Code: 400
 

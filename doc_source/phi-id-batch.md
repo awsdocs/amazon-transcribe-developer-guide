@@ -2,7 +2,7 @@
 
 Use a batch transcription job to transcribe audio files and identify the personal health information \(PHI\) within them\. When you activate Personal Health Information \(PHI\) Identification, Amazon Transcribe Medical labels the PHI that it identified in the transcription results\. For information about the PHI that Amazon Transcribe Medical can identify, see [Identifying personal health information \(PHI\) in a transcription](phi-id.md)\.
 
-You can start a batch transcription job using either the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
+You can start a batch transcription job using either the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
 
 ## Console<a name="batch-med-phi-console"></a>
 
@@ -33,7 +33,7 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
 ## API<a name="batch-med-phi-api"></a>
 
 **To transcribe an audio file and identify its PHI using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique to your AWS account\.
 

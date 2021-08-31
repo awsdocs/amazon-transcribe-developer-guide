@@ -50,11 +50,11 @@ For more information, see [Adding Permissions to a User](https://docs.aws.amazon
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These policies are called AWS managed policies\. Managed policies make it easier for you to assign appropriate permissions to users, groups, and roles than if you had to write the policies yourself\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users, roles, and groups in your account, are specific to Amazon Transcribe:
-+ **ReadOnly** – Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.
-+ **FullAccess** – Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon Simple Storage Service \(Amazon S3\) buckets with `transcribe` in the bucket name\.
++ **AmazonTranscribeReadOnly** – Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.
++ **AmazonTranscribeFullAccess** – Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon Simple Storage Service \(Amazon S3\) buckets with `transcribe` in the bucket name\.
 
 **Note**  
-You can review the managed permission policies by signing in to the IAM console and searching by policy name\.
+You can review the managed permission policies by signing in to the IAM console and searching by policy name\. A search for "transcribe" returns both policies listed above \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
 
 You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the IAM users, roles, or groups that require those permissions\.
 

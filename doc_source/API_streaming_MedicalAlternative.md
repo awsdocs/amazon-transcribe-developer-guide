@@ -4,17 +4,17 @@ A list of possible transcriptions for the audio\.
 
 ## Contents<a name="API_streaming_MedicalAlternative_Contents"></a>
 
- **Entities**   <a name="transcribe-Type-streaming_MedicalAlternative-Entities"></a>
+ ** Entities **   <a name="transcribe-Type-streaming_MedicalAlternative-Entities"></a>
 Contains the medical entities identified as personal health information in the transcription output\.  
-Type: Array of [MedicalEntity](API_streaming_MedicalEntity.md) objects  
+Type: Array of [ MedicalEntity ](API_streaming_MedicalEntity.md) objects  
 Required: No
 
- **Items**   <a name="transcribe-Type-streaming_MedicalAlternative-Items"></a>
+ ** Items **   <a name="transcribe-Type-streaming_MedicalAlternative-Items"></a>
 A list of objects that contains words and punctuation marks that represents one or more interpretations of the input audio\.  
-Type: Array of [MedicalItem](API_streaming_MedicalItem.md) objects  
+Type: Array of [ MedicalItem ](API_streaming_MedicalItem.md) objects  
 Required: No
 
- **Transcript**   <a name="transcribe-Type-streaming_MedicalAlternative-Transcript"></a>
+ ** Transcript **   <a name="transcribe-Type-streaming_MedicalAlternative-Transcript"></a>
 The text that was transcribed from the audio\.  
 Type: String  
 Required: No

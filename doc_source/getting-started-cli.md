@@ -11,7 +11,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
 
 1. Copy your input speech to an S3 bucket\. The location must be in the same region as the endpoint that you are calling\.
 
-1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [StartTranscriptionJob](API_StartTranscriptionJob.md) API\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
+1. Create a JSON file named `test-start-command.json` that contains the input parameters for the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
 
    ```
    {

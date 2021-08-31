@@ -4,7 +4,7 @@ An object that allows percentages to specify the proportion of the call where yo
 
 ## Contents<a name="API_RelativeTimeRange_Contents"></a>
 
- **EndPercentage**   <a name="transcribe-Type-RelativeTimeRange-EndPercentage"></a>
+ ** EndPercentage **   <a name="transcribe-Type-RelativeTimeRange-EndPercentage"></a>
 A value that indicates the percentage of the end of the time range\. To set a relative time range, you must specify a start percentage and an end percentage\. For example, if you specify the following values:  
 + StartPercentage \- 10
 + EndPercentage \- 50
@@ -13,19 +13,19 @@ Type: Integer
 Valid Range: Minimum value of 0\. Maximum value of 100\.  
 Required: No
 
- **First**   <a name="transcribe-Type-RelativeTimeRange-First"></a>
+ ** First **   <a name="transcribe-Type-RelativeTimeRange-First"></a>
 A range that takes the portion of the call up to the time in milliseconds set by the value that you've specified\. For example, if you specify `120000`, the time range is set for the first 120,000 milliseconds of the call\.  
 Type: Integer  
 Valid Range: Minimum value of 0\. Maximum value of 100\.  
 Required: No
 
- **Last**   <a name="transcribe-Type-RelativeTimeRange-Last"></a>
+ ** Last **   <a name="transcribe-Type-RelativeTimeRange-Last"></a>
 A range that takes the portion of the call from the time in milliseconds set by the value that you've specified to the end of the call\. For example, if you specify `120000`, the time range is set for the last 120,000 milliseconds of the call\.  
 Type: Integer  
 Valid Range: Minimum value of 0\. Maximum value of 100\.  
 Required: No
 
- **StartPercentage**   <a name="transcribe-Type-RelativeTimeRange-StartPercentage"></a>
+ ** StartPercentage **   <a name="transcribe-Type-RelativeTimeRange-StartPercentage"></a>
 A value that indicates the percentage of the beginning of the time range\. To set a relative time range, you must specify a start percentage and an end percentage\. For example, if you specify the following values:  
 + StartPercentage \- 10
 + EndPercentage \- 50
