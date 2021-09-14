@@ -285,7 +285,7 @@ The response contains event\-stream\-encoded raw bytes in the payload\. It conta
 | 11 | :event\-type | 7 | 15 | TranscriptEvent | 
 | 13 | :message\-type | 7 | 5 | event | 
 
-When you decode the binary response, you end up with a JSON structure with the results of the transcription\. For an example of the JSON response, see [Streaming transcription](streaming.md)\.
+When you decode the binary response, you end up with a JSON structure with the results of the transcription\. For an example of the JSON response, see [Transcribing streaming audio](streaming.md)\.
 
 ## Handling WebSocket streaming errors<a name="websocket-errors"></a>
 

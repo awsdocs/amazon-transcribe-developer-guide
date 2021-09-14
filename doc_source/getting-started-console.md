@@ -24,13 +24,13 @@ Use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) 
 
 ## View a transcription job<a name="console-view-job"></a>
 
-Completed transcription jobs are displayed in a list that contains a brief description of the job\. The **Availability** column shows the remaining time that the job results will be kept on the server\. Jobs are kept for 90 days and then deleted from the system\.
+Completed transcription jobs are displayed in a list that contains a brief description of the job\. The **Availability** column shows the remaining time that the job results are kept on the server\. Jobs are kept for 90 days and then deleted from the system\.
 
 ![\[A list of transcription jobs.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-20.png)
 
 Choose a job in the list to see information about the job\.
 
-The information page about the transcription job has three sections\. The **Detail** section provides details about the transcription job, including the name, information about when the job will be deleted from the server, and the input and output URLs\. Use the output URL to download the output from your transcription job\.
+The information page about the transcription job has three sections\. The **Detail** section provides details about the transcription job, including the name, information about when the job is deleted from the server, and the input and output URLs\. Use the output URL to download the output from your transcription job\.
 
 The **Output** section contains the transcription of the audio submitted to Amazon Transcribe\. You can download the transcription by choosing the **Download transcription** button\.
 

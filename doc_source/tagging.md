@@ -70,7 +70,7 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "my-job-name"
+job_name = "your-job-name"
 job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
@@ -94,23 +94,24 @@ This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v
 
 ```
 aws transcribe start-transcription-job \
+--transcription-job-name your-job-name
 --media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
---tags Key=color,Value=blue \
---transcription-job-name my-job-name
+--language-code en-US \
+--tags Key=color,Value=blue
 ```
 
 Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that adds tags to that job\.
 
 ```
 aws transcribe start-transcription-job \
---cli-input-json file://example-start-command.json
+--cli-input-json file://filepath/example-start-command.json
 ```
 
 The file *example\-start\-command\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "my-job-name",
+  "TranscriptionJobName": "your-job-name",
   "LanguageCode": "en-US",
   "Media": {
         "MediaFileUri": "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"

@@ -29,7 +29,7 @@ To transcribe text, you have to provide the input parameters in a JSON file\.
    ```
    aws transcribe start-transcription-job \
         --region region \
-        --cli-input-json file://test-start-command.json
+        --cli-input-json file://filepath/example-start-command.json
    ```
 
    Amazon Transcribe responds with the following:

@@ -80,7 +80,7 @@ The following is an example request using the AWS SDK for Python \(Boto3\)\.
   ```
                       
   aws transcribe start-transcription-job \
-  --cli-input-json file://example-start-command.json
+  --cli-input-json file://filepath/example-start-command.json
   ```
 
   The following is the code of `example-start-command.json`\.

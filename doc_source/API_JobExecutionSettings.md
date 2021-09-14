@@ -6,6 +6,7 @@ Provides information about when a transcription job should be executed\.
 
  ** AllowDeferredExecution **   <a name="transcribe-Type-JobExecutionSettings-AllowDeferredExecution"></a>
 Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded\. When the `AllowDeferredExecution` field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit\. If the field is false, Amazon Transcribe returns a `LimitExceededException` exception\.  
+Note that job queuing is enabled by default for call analytics jobs\.  
 If you specify the `AllowDeferredExecution` field, you must specify the `DataAccessRoleArn` field\.  
 Type: Boolean  
 Required: No

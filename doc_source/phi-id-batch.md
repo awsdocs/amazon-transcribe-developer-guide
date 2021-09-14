@@ -37,7 +37,7 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique to your AWS account\.
 
-  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file and the language of your vocabulary filter\.
+  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file\.
 
   1. For the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file that you want to transcribe\.
 
@@ -153,7 +153,7 @@ The following example code shows the transcription results with patient PHI iden
   aws transcribe start-medical-transcription-job \
   --medical-transcription-job-name job-name\
   --language-code en-US \
-  --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension \
+  --media MediaFileUri="s3://your-S3-bucket/S3-prefix/your-filename.file-extension" \
   --output-bucket-name DOC-EXAMPLE-BUCKET2 \
   --specialty PRIMARYCARE \
   --type type \ # Choose CONVERSATION to transcribe a medical conversation. Choose DICTATION to transcribe a medical dictation.

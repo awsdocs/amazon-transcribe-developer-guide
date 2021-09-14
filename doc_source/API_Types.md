@@ -35,6 +35,7 @@ The following data types are supported by Amazon Transcribe Streaming Service:
 +  [ Alternative ](API_streaming_Alternative.md) 
 +  [ AudioEvent ](API_streaming_AudioEvent.md) 
 +  [ AudioStream ](API_streaming_AudioStream.md) 
++  [ Entity ](API_streaming_Entity.md) 
 +  [ Item ](API_streaming_Item.md) 
 +  [ MedicalAlternative ](API_streaming_MedicalAlternative.md) 
 +  [ MedicalEntity ](API_streaming_MedicalEntity.md) 

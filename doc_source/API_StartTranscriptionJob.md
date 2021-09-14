@@ -15,6 +15,9 @@ Starts an asynchronous job to transcribe speech to text\.
       "AllowDeferredExecution": boolean,
       "DataAccessRoleArn": "string"
    },
+   "KMSEncryptionContext": { 
+      "string" : "string" 
+   },
    "LanguageCode": "string",
    "LanguageOptions": [ "string" ],
    "Media": { 
@@ -68,6 +71,16 @@ Required: No
  ** [ JobExecutionSettings ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-JobExecutionSettings"></a>
 Provides information about how a transcription job is executed\. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job\.  
 Type: [ JobExecutionSettings ](API_JobExecutionSettings.md) object  
+Required: No
+
+ ** [ KMSEncryptionContext ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-KMSEncryptionContext"></a>
+A map of plain text, non\-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data\.  
+Type: String to string map  
+Map Entries: Maximum number of 10 items\.  
+Key Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Key Pattern: `.*\S.*`   
+Value Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Value Pattern: `.*\S.*`   
 Required: No
 
  ** [ LanguageCode ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageCode"></a>

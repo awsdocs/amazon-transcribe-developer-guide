@@ -71,7 +71,7 @@ print(status)
 ## Transcribing with a custom language model \(AWS CLI\)<a name="start-custom-cli"></a>
 
 **To transcribe with a custom language model \(AWS CLI\)**
-+ Run the following code\.
++ Run the following commands\.
 
   ```
   aws transcribe start-transcription-job \ 

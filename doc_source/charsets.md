@@ -712,25 +712,8 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 
 ## Japanese character set<a name="char-japanese"></a>
 
-For Japanese custom vocabularies, the `Phrase` and `DisplayAs` fields can use any of the characters listed in the following file on GitHub\.
+For Japanese custom vocabularies, the `Phrase` and `SoundsLike` fields can use any of the characters listed in the following file on GitHub\.
 + [ ja\-jp\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/ja-jp-character-set.txt) 
-
-Amazon Transcribe supports Romaji characters in the `SoundsLike` field\. You can use the following lower\-case characters:
-+ a \- k
-+ m \- p
-+ r \- w
-+ y \- z
-
-Represent long vowels by doubling the vowel:
-
-
-| Vowel | Representation | 
-| --- | --- | 
-| ā | aa | 
-| ē | ee | 
-| ī | ii | 
-| ō | oo | 
-| ū | uu | 
 
 You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
 

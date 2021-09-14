@@ -7,6 +7,9 @@ Starts a batch job to transcribe medical speech to text\.
 ```
 {
    "ContentIdentificationType": "string",
+   "KMSEncryptionContext": { 
+      "string" : "string" 
+   },
    "LanguageCode": "string",
    "Media": { 
       "MediaFileUri": "string",
@@ -47,6 +50,16 @@ The request accepts the following data in JSON format\.
 You can configure Amazon Transcribe Medical to label content in the transcription output\. If you specify `PHI`, Amazon Transcribe Medical labels the personal health information \(PHI\) that it identifies in the transcription output\.  
 Type: String  
 Valid Values:` PHI`   
+Required: No
+
+ ** [ KMSEncryptionContext ](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-KMSEncryptionContext"></a>
+A map of plain text, non\-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data\.  
+Type: String to string map  
+Map Entries: Maximum number of 10 items\.  
+Key Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Key Pattern: `.*\S.*`   
+Value Length Constraints: Minimum length of 1\. Maximum length of 2000\.  
+Value Pattern: `.*\S.*`   
 Required: No
 
  ** [ LanguageCode ](#API_StartMedicalTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartMedicalTranscriptionJob-request-LanguageCode"></a>

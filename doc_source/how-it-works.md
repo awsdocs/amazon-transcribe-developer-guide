@@ -26,7 +26,7 @@ You can use Amazon Transcribe to create and manage custom vocabularies for your 
 
 **Supported languages and language\-specific features**  
 
-| Language | Language Code | [Speech input](input.md) | [Transcribing digits](how-numbers.md) | [Acronyms](how-vocabulary.md#create-vocabulary-acronym) | [Custom language models](custom-language-models.md) | [Content redaction](content-redaction.md) | [Call analytics](call-analytics.md) | 
+| Language | Language Code | [Speech input](input.md) | [Transcribing digits](how-numbers.md) | [Acronyms](how-vocabulary.md#create-vocabulary-acronym) | [Custom language models](custom-language-models.md) | [Redaction](pii-redaction.md) | [Call analytics](call-analytics.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
 | [Afrikaans](charsets.md#char-afrikaans) | af\-ZA | batch only | no | yes | no | no | no | 
 | [Arabic](charsets.md#char-arabic), Gulf | ar\-AE | batch only | no | no | no | no | yes | 

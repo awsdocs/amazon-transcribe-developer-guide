@@ -88,7 +88,7 @@ print(status)
   ```
                       
   aws transcribe start-transcription-job \
-  --cli-input-json file://example-start-command.json
+  --cli-input-json file://filepath/example-start-command.json
   ```
 
   The following code shows the contents of `example-start-command.json`\.

@@ -30,3 +30,47 @@ You can use either of the following to identify a KMS key in the current account
 You can use either of the following to identify a AWS KMS key in the current account or another account:
 + Amazon Resource Name \(ARN\) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd\-12ab\-34cd\-56ef\-1234567890ab"
 + ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"
+
+## KMS encryption context<a name="kms-context"></a>
+
+AWS KMS encryption context is a map of plain text, non\-secret key:value pairs\. This map represents additional authenticated data, known as encryption context pairs, which provide an added layer of security for your data\. Amazon Transcribe requires a symmetric key to encrypt transcription output into a customer\-specified S3 bucket\. To learn more, see [Using symmetric and asymmetric keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)\.
+
+When creating your encryption context pairs, **do not** use sensitive information\. Encryption context is not secret—it is visible in plain text within your CloudTrail logs \(so you can use it to identify and categorize your cryptographic operations\)\.
+
+Your encryption context pair can include special characters, such as underscores \(\_\), dashes \(\-\), slashes \(/, \\\) and colons \(:\)\.
+
+**Tip**  
+It can be useful to relate the values in your encryption context pair to the data being encrypted\. Although not required, we recommned you use non\-sensitive metadata related to your encrypted content, such as file names, header values, or unencrypted database fields\.
+
+To use output encryption with the API, set the `KMSEncryptionContext` parameter in the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) operation\. In order to provide encryption context for the output encryption operation, the `OutputEncryptionKMSKeyId` parameter must reference a symmetric KMS key ID\.
+
+You can use [AWS KMS condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) with IAM policies to control access to a symmetric KMS key based on the encryption context that was used in the request for a [cryptographic operation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations)\. For example, the below policy grants the IAM role “ExampleRole” permission to use the KMS *Decrypt* and *Encrypt* operations for this particular KMS key\. This policy works **only** for requests with at least one encryption context pair, in this case "color:indig0Blu3”\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::Account-number:role/ExampleRole"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:DescribeKey",
+                "kms:Encrypt",
+                "kms:GenerateDataKey*",
+                "kms:ReEncrypt"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "kms:EncryptionContext:color":"indig0Blu3"
+                }
+             }
+          }
+     ]
+}
+```
+
+Using encryption context is optional, but recommended\. For more information, see [ Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context)\.

@@ -1,8 +1,10 @@
-# Streaming transcription<a name="streaming"></a>
+# Transcribing streaming audio<a name="streaming"></a>
 
 Use Amazon Transcribe streaming transcription to send an audio stream and receive a stream of text in real time\. You can use this text stream to add real\-time speech\-to\-text capability to your applications\.
 
 Streaming transcription takes a stream of your audio data and transcribes it in real time\. Streaming uses HTTP/2 or WebSocket streams so that the results of the transcription are returned to your application while you send more audio to Amazon Transcribe\. Use streaming transcription when you want to make the results of live audio transcription available immediately, or when you have an audio file that you want to process as it is transcribed\.
+
+To see which languages support streaming audio transcription, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
 
 For a streaming transcription using:
 + HTTP/2 – Use the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API to start a stream\. When you use this API, the client handles retrying the connection when there are transient problems on the network\.

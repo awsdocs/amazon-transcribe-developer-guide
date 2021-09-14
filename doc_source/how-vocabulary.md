@@ -91,4 +91,4 @@ Make sure your text file is in `LF` format\. If you use any other format, such a
 
 You can create a custom vocabulary using a list of words or phrases in a text file\. You can place each word on its own line, or you can put multiple words on a single line, separating the words or phrases from each other with a comma\.
 
-The list format can be uploaded as a text file when using the [ Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. If using a list with the API or CLI, you must include the list of words in the API/CLI call\. You can only use a vocabulary list stored in an S3 bucket if you are using the console\.
+The list format can be uploaded as a text file when using the [ Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. If using a list with the API or CLI, you must include the list of words within the API/CLI call\.

@@ -7,6 +7,9 @@ When Amazon Transcribe uses the [HTTP/2 protocol](https://http2.github.io/) for 
 + One or more message frames in event stream encoding\. The frame contains metadata and the raw audio bytes\.
 + An end frame\. This is a signed message in event stream encoding with an empty body\.
 
+**Note**  
+Amazon Transcribe only supports one stream per HTTP/2 session\. If you attempt to use multiple streams, your transcription request will fail\.
+
 ## Streaming request<a name="streaming-request"></a>
 
 To make a streaming request, use the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API\. 

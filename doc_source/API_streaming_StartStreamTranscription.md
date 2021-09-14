@@ -26,6 +26,9 @@ x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
 x-amzn-transcribe-number-of-channels: NumberOfChannels
 x-amzn-transcribe-enable-partial-results-stabilization: EnablePartialResultsStabilization
 x-amzn-transcribe-partial-results-stability: PartialResultsStability
+x-amzn-transcribe-content-identification-type: ContentIdentificationType
+x-amzn-transcribe-content-redaction-type: ContentRedactionType
+x-amzn-transcribe-pii-entity-types: PiiEntityTypes
 Content-type: application/json
 
 {
@@ -40,6 +43,16 @@ Content-type: application/json
 ## URI Request Parameters<a name="API_streaming_StartStreamTranscription_RequestParameters"></a>
 
 The request uses the following URI parameters\.
+
+ ** [ ContentIdentificationType ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-ContentIdentificationType"></a>
+Set this field to PII to identify personally identifiable information \(PII\) in the transcription output\. Content identification is performed only upon complete transcription of the audio segments\.  
+You can’t set both `ContentIdentificationType` and `ContentRedactionType` in the same request\. If you set both, your request returns a `BadRequestException`\.  
+Valid Values:` PII` 
+
+ ** [ ContentRedactionType ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-ContentRedactionType"></a>
+Set this field to PII to redact personally identifiable information \(PII\) in the transcription output\. Content redaction is performed only upon complete transcription of the audio segments\.  
+You can’t set both `ContentRedactionType` and `ContentIdentificationType` in the same request\. If you set both, your request returns a `BadRequestException`\.  
+Valid Values:` PII` 
 
  ** [ EnableChannelIdentification ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-EnableChannelIdentification"></a>
 When `true`, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription\.  
@@ -71,6 +84,13 @@ Valid Range: Minimum value of 2\.
  ** [ PartialResultsStability ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-PartialResultsStability"></a>
 You can use this field to set the stability level of the transcription results\. A higher stability level means that the transcription results are less likely to change\. Higher stability levels can come with lower overall transcription accuracy\.  
 Valid Values:` high | medium | low` 
+
+ ** [ PiiEntityTypes ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-PiiEntityTypes"></a>
+List the PII entity types you want to identify or redact\. In order to specify entity types, you must have either `ContentIdentificationType` or `ContentRedactionType` enabled\.  
+ `PIIEntityTypes` must be comma\-separated; the available values are: `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_NUMBER`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY`, `PIN`, `EMAIL`, `ADDRESS`, `NAME`, `PHONE`, `SSN`, and `ALL`\.  
+ `PiiEntityTypes` is an optional parameter with a default value of `ALL`\.  
+Length Constraints: Minimum length of 1\. Maximum length of 300\.  
+Pattern: `^[A-Z_, ]+` 
 
  ** [ SessionId ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-SessionId"></a>
 A identifier for the transcription session\. Use this parameter when you want to retry a session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.  
@@ -120,6 +140,9 @@ x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
 x-amzn-transcribe-number-of-channels: NumberOfChannels
 x-amzn-transcribe-enable-partial-results-stabilization: EnablePartialResultsStabilization
 x-amzn-transcribe-partial-results-stability: PartialResultsStability
+x-amzn-transcribe-content-identification-type: ContentIdentificationType
+x-amzn-transcribe-content-redaction-type: ContentRedactionType
+x-amzn-transcribe-pii-entity-types: PiiEntityTypes
 Content-type: application/json
 
 {
@@ -140,6 +163,16 @@ Content-type: application/json
                { 
                   "Alternatives": [ 
                      { 
+                        "Entities": [ 
+                           { 
+                              "Category": "string",
+                              "Confidence": number,
+                              "Content": "string",
+                              "EndTime": number,
+                              "StartTime": number,
+                              "Type": "string"
+                           }
+                        ],
                         "Items": [ 
                            { 
                               "Confidence": number,
@@ -174,6 +207,14 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The response returns the following HTTP headers\.
 
+ ** [ ContentIdentificationType ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-ContentIdentificationType"></a>
+Shows whether content identification was enabled in this stream\.  
+Valid Values:` PII` 
+
+ ** [ ContentRedactionType ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-ContentRedactionType"></a>
+Shows whether content redaction was enabled in this stream\.  
+Valid Values:` PII` 
+
  ** [ EnableChannelIdentification ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-EnableChannelIdentification"></a>
 Shows whether channel identification has been enabled in the stream\.
 
@@ -199,6 +240,11 @@ Valid Range: Minimum value of 2\.
  ** [ PartialResultsStability ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-PartialResultsStability"></a>
 If partial results stabilization has been enabled in the stream, shows the stability level\.  
 Valid Values:` high | medium | low` 
+
+ ** [ PiiEntityTypes ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-PiiEntityTypes"></a>
+Lists the PII entity types you specified in your request\.  
+Length Constraints: Minimum length of 1\. Maximum length of 300\.  
+Pattern: `^[A-Z_, ]+` 
 
  ** [ RequestId ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-RequestId"></a>
 An identifier for the streaming transcription\.

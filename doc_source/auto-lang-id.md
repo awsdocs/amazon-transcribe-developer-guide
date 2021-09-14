@@ -1,13 +1,13 @@
-# Identifying the language of your media files<a name="auto-lang-id"></a>
+# Identifying the dominant language in your media files<a name="auto-lang-id"></a>
 
-Amazon Transcribe is able to automatically identify the predominant language in a media file without you having to specify a language code\. Automatic language identification can be used for any batch transcription with the API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. For a list of languages, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+Amazon Transcribe is able to automatically identify the predominant language in a media file without you having to specify a language code\. Automatic language identification can be used for any batch transcription job, and all supported languages can be identified\. Streaming transcriptions are not supported\. For a complete list of languages available with Amazon Transcribe, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
 
 To identify the language with greater accuracy, you can specify a list of languages you think are present in your collection of media files\. From that list, Amazon Transcribe chooses the language with the greatest confidence score to transcribe your audio\. A score with a larger value indicates that Amazon Transcribe is more confident it identified the language correctly\. For best results, if you are certain of the language spoken in each of the audio files, specify a language code\.
 
 **Note**  
 Media files are transcribed in a single language, even if they contain speech in two or more languages\. Amazon Transcribe transcribes the audio according to the predominant language identified in the file\.
 
-Some Amazon Transcribe features require you to specify a language code\. Automatic language identification is not supported with the following features enabled:
+Because some Amazon Transcribe features require you to specify a language code, automatic language identification is not supported with all features\. You cannot use automatic language identification if the following features are enabled:
 + Custom language models
 + Custom vocabularies
 + Vocabulary filtering
@@ -15,7 +15,7 @@ Some Amazon Transcribe features require you to specify a language code\. Automat
 
 To increase the chance of identifying the language successfully, media files should have at least 30 seconds of speech\.
 
-You can use automatic language identification in a batch transcription job with either the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\.
+You can use automatic language identification in a batch transcription job using the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see below for instructions:
 
 ## Console<a name="autolang-howto-console"></a>
 
@@ -40,7 +40,7 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "my-job-name"
+job_name = "your-job-name"
 job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
@@ -63,23 +63,23 @@ This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v
 
 ```
 aws transcribe start-transcription-job \
---media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
---identify-language \
---transcription-job-name my-job-name
+--transcription-job-name your-job-name \
+--media  MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
+--identify-language
 ```
 
 Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that identifies the language\.
 
 ```
 aws transcribe start-transcription-job \
---cli-input-json file://example-start-command.json
+--cli-input-json file://filepath/example-start-command.json
 ```
 
 The file *example\-start\-command\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "my-job-name",  
+  "TranscriptionJobName": "your-job-name",  
   "Media": {
         "MediaFileUri": "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
     },

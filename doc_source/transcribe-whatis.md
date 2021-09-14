@@ -8,7 +8,7 @@ The following list highlights the Amazon Transcribe features that are available 
 + **[Custom vocabularies](how-vocabulary.md)**: Use a list of specific words you want Amazon Transcribe to recognize in your audio input\. Custom vocabularies are often used for domain\-specific terms or proper nouns that Amazon Transcribe isn't rendering correctly in your transcription output\.
 
   Use custom vocabularies to:
-  + Represent industry\-specific terms
+  + Recognize industry\-specific terms
   + Display acronyms correctly
   + Improve the accuracy of your transcription output
 
@@ -29,10 +29,6 @@ The following list highlights the Amazon Transcribe features that are available 
   + Identify the speaker and questioners in a recorded press conference or lecture
 + **[Channel identification](channel-id.md)**: Create a transcript for each audio channel or single stream of recorded sound in an audio file\. For example, a phone conversation between two people consists of two separate audio channels\. With channel identification, Amazon Transcribe returns two or more transcriptions: a combined transcription of all of the audio channels, and a transcription of each audio channel\.
 
-  Use channel identification when your audio is on multiple channels; for example:
-  + When your recording has a customer service representative on one channel and a customer on another
-  + When you transcribe a podcast where the host is recorded on one channel and the guest on another
-
 **Important**  
 Not all Amazon Transcribe features are available in all languages; please review the [Supported languages and language\-specific features](how-it-works.md#table-language-matrix) table before getting started\.
 
@@ -41,4 +37,4 @@ Not all Amazon Transcribe features are available in all languages; please review
 You can use Amazon Transcribe with other AWS services to create applications\. For example, you can: 
 + Translate your audio into another language\. Use Amazon Transcribe to convert voice to text, Amazon Translate to translate your text into another language, and Amazon Polly to generate audio from the translated text\.
 + Use Amazon Transcribe to transcribe recordings of customer service calls for analysis\. After transcribing a recording, send the transcription to Amazon Comprehend to identify keywords, topics, or sentiments\.
-+ Use Amazon Transcribe to transcribe live broadcasts such as television to provide real\-time subtitles\. Amazon Transcribe might require additional customization—such as using a custom language model or manual transcript correction—for broadcast\-grade applications\.
++ Use Amazon Transcribe to transcribe live broadcasts, such as television, to provide real\-time subtitles\. Amazon Transcribe might require additional customization—such as using a custom language model or manual transcript correction—for broadcast\-grade applications\.
