@@ -17,7 +17,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [ ResourceArn ](#API_ListTagsForResource_RequestSyntax) **   <a name="transcribe-ListTagsForResource-request-ResourceArn"></a>
-Lists all tags associated with a given Amazon Resource Name \(ARN\)\.  
+Lists all tags associated with a given Amazon Resource Name \(ARN\)\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id` \(for example, `arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name`\)\. Valid values for `resource-type` are: `transcription-job`, `medical-transcription-job`, `vocabulary`, `medical-vocabulary`, `vocabulary-filter`, and `language-model`\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Pattern: `arn:aws(-[^:]+)?:transcribe:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z-]*/[0-9a-zA-Z._-]+`   
@@ -44,7 +44,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [ ResourceArn ](#API_ListTagsForResource_ResponseSyntax) **   <a name="transcribe-ListTagsForResource-response-ResourceArn"></a>
-Lists all tags associated with the given Amazon Resource Name \(ARN\)\.  
+Lists all tags associated with the given Amazon Resource Name \(ARN\)\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Pattern: `arn:aws(-[^:]+)?:transcribe:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z-]*/[0-9a-zA-Z._-]+` 

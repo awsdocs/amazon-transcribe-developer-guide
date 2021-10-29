@@ -9,6 +9,13 @@ Settings for content redaction within a transcription job\.
 Type: [ ContentRedaction ](API_ContentRedaction.md) object  
 Required: No
 
+ ** LanguageIdSettings **   <a name="transcribe-Type-CallAnalyticsJobSettings-LanguageIdSettings"></a>
+The language identification settings associated with your call analytics job\. These settings include `VocabularyName`, `VocabularyFilterName`, and `LanguageModelName`\.  
+Type: String to [ LanguageIdSettings ](API_LanguageIdSettings.md) object map  
+Map Entries: Maximum number of 5 items\.  
+Valid Keys:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
+Required: No
+
  ** LanguageModelName **   <a name="transcribe-Type-CallAnalyticsJobSettings-LanguageModelName"></a>
 The structure used to describe a custom language model\.  
 Type: String  

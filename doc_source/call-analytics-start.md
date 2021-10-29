@@ -1,24 +1,13 @@
-# Setting up call analytics transcription jobs<a name="start-call-analytics"></a>
+# Start a call analytics transcription job<a name="call-analytics-start"></a>
 
-To get analytics data, you must run call analytics jobs\. Call analytics jobs not only transcribe the audio of the recordings between your agents and customers, but they provide meaningful information \(in the form of *analytics*\) about these conversations\. If you choose not to create any categories before running a call analytics job, the output only includes the following information:
-+ Detected customer issues
-+ Sentiment of the agent and the customer
-+ Non\-talk time
-+ Interruptions
-+ Speaking volume
-
-If you create categories, you can flag your analytics job based on the conversational characteristics you define\. These conversational characteristics can include:
-+ Customer or agent sentiment during specific periods of time
-+ Matching a portion of the transcript to a phrase you've specified
-+ The customer or agent interrupting the other person
-+ Neither the customer nor the agent spoke for a defined period of time
-
-Once you create categories, Amazon Transcribe flags your call analytics jobs with a label indicating that the call matches all the rules you've defined in a given category\. For more information on creating categories, see [Using categories and rules](create-categories.md)\.
+Before running a call analytics transcription job, you must create all the categories you want Amazon Transcribe to match in your audio file\.
 
 **Note**  
-Call analytics jobs can't be classified retroactively with categories\. Only the categories you created *before* running a call analytics job can be applied to that job\.
+Call analytics jobs can't be classified retroactively with categories\. Only the categories you create *before* running a call analytics job can be applied to that job\.
 
-To start a call analytics job, you can use the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see below for instructions:
+If you've created one or more categories, and your audio file matches all the rules within one or more categories, Amazon Transcribe flags your output with the matching category\. If you choose not to use categories, or if your audio doesn't match the rules specified in your categories, your transcript isn't flagged\.
+
+To start a call analytics job, you can use the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see the following for instructions:
 
 ## Console<a name="analytics-start-console"></a>
 
@@ -77,7 +66,7 @@ This example uses the [start\-call\-analytics\-job](https://awscli.amazonaws.com
 
 ```
 aws transcribe start-call-analytics-job \
---call-analytics-job-name your-job-name \
+--call-analytics-job-name job-name \
 --media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
 --language-code en-US \
 --data-access-role-arn "arn:aws:iam::accountId:role/your-IAM-role" \

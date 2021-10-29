@@ -9,7 +9,7 @@ To learn how to create an IAM identity\-based policy using these example JSON po
 + [Using the Amazon Transcribe console](#security_iam_id-based-policy-examples-console)
 + [AWS managed \(predefined\) policies for Amazon Transcribe](#auth-managed-policies)
 + [Permissions required for IAM user roles](#auth-role-iam-user)
-+ [Permissions required for Amazon S3 encryption keys](#auth-role-cmk)
++ [Permissions required for Amazon S3 encryption keys](#auth-role-kms-key)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 
 ## Policy best practices<a name="security_iam_service-with-iam-policy-best-practices"></a>
@@ -72,7 +72,7 @@ The user must have the following IAM policy for decrypt permissions on the KMS A
             "Action": [
                 "kms:Decrypt"
             ],
-            "Resource": "KMS key ARN",
+            "Resource": "arn:aws:kms:us-west-2:111122223333:key/KMS-Example-KeyId",
             "Effect": "Allow"
         }
     ]
@@ -90,31 +90,35 @@ The user's IAM policy must have Amazon S3 permissions to access the S3 bucket wh
             "Action": [
                         "s3:GetObject"
              ],
-            "Resource": "S3 bucket location"
+            "Resource": "arn:aws:s3:::your-s3-bucket/"
         }
     ]
 }
 ```
 
-## Permissions required for Amazon S3 encryption keys<a name="auth-role-cmk"></a>
+## Permissions required for Amazon S3 encryption keys<a name="auth-role-kms-key"></a>
 
 If you are using an AWS KMS key to encrypt an Amazon S3 bucket, include the following in the AWS KMS key policy\. This gives Amazon Transcribe access to the contents of the bucket\. 
 
 ```
 {
-   "Sid": "Allow-Transcribe",
-   "Effect": "Allow",
-   "Principal": {
-     "AWS": "arn:aws:iam::account id:root",
-   },
-   "Action": [
-     "kms:Decrypt"
-   ],
-   "Resource": "KMS key ARN"
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+      },
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "arn:aws:kms:us-west-2:111122223333:key/KMS-Example-KeyId"
+    }
+  ]
 }
 ```
 
-For more information about allowing access to customer master keys, see [ Allowing external AWS Accounts to access a CMK](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS developer guide*\.
+For more information about allowing access to AWS KMS keys, see [ Allowing external AWS Accounts to access an AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS developer guide*\.
 
 ## Allow users to view their own permissions<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 

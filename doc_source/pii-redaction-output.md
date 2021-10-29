@@ -1,8 +1,10 @@
-# Example PII redaction and identification output<a name="redaction-output"></a>
+# Example PII redaction and identification output<a name="pii-redaction-output"></a>
 
-The following examples show PII\-redacted output from batch and streaming jobs, and PII identification from a streaming job\.
+The following examples show redacted output from batch and streaming jobs, and PII identification from a streaming job\.
 
-## Example redacted batch output<a name="redaction-output-batch"></a>
+Transcription jobs using content redaction generate two types of `confidence` values\. The Automatic Speech Recognition \(ASR\) confidence indicates the items that have the `type` of `pronunciation` or `punctuation` is a specific utterance\. In the transcript output below, the word `Good` has a `confidence` of `1.0`\. This confidence value indicates that Amazon Transcribe is 100 percent confident that the word uttered in this transcript is 'Good'\. The `confidence` value for a `[PII]` tag is the confidence that the speech it flagged for redaction is truly PII\. In the following transcript output, the `confidence` of `0.9999` indicates that Amazon Transcribe is 99\.99 percent confident that the entity it redacted in the transcript is PII\.
+
+## Example redacted batch output<a name="pii-redaction-output-batch"></a>
 
 ```
 {
@@ -60,7 +62,7 @@ Here's the unredacted transcript for comparison:
 {
     "jobName": "job id",
     "accountId": "account id",
-    "isRedacted": true,
+    "isRedacted": false,
     "results": {
         "transcripts": [
             {
@@ -89,13 +91,9 @@ Here's the unredacted transcript for comparison:
                 "end_time": "6.25",
                 "alternatives": [
                     {
+                        "confidence": "0.9999",
                         "content": "Mike",
-                        "redactions": [
-                            {
-                                "confidence": "0.9999"
-                            }
-                        ]
-                    }
+                     {                        
                 ],
                 "type": "pronunciation"
             },
@@ -106,7 +104,7 @@ Here's the unredacted transcript for comparison:
 }
 ```
 
-## Example redacted streaming output<a name="redaction-output-streaming"></a>
+## Example redacted streaming output<a name="pii-redaction-output-stream"></a>
 
 ```
 {
@@ -168,7 +166,7 @@ Here's the unredacted transcript for comparison:
 }
 ```
 
-## Example PII identification output<a name="redaction-output-pii-id"></a>
+## Example PII identification output<a name="pii-redaction-output-id"></a>
 
 PII identification is an additional feature that you can use with your streaming transcription job\.
 

@@ -56,7 +56,7 @@ When a job's state changes from `IN_PROGRESS` to either `COMPLETED` or `FAILED`,
    "region": "region",
    "resources": [],
    "detail": {
-     "TranscriptionJobName": "unique job name",
+     "TranscriptionJobName": "job-name",
      "TranscriptionJobStatus": "status"
    }   
  }
@@ -75,10 +75,10 @@ When you enable automatic language identification, Amazon Transcribe generates a
   "account": "account ID",
   "time": "timestamp",
   "region": "region",
-  "resources": [],
+  "resources": [ ],
   "detail": {
     "JobType": "TranscriptionJob",
-    "JobName": "unique job name",
+    "JobName": "job-name",
     "LanguageIdentificationStatus": "status" 
   }
 }
@@ -99,8 +99,8 @@ When a call analytics job's state changes from `IN_PROGRESS` to either `COMPLETE
   "region": "region",
   "resources": [],
   "detail": {
-    "JobName": "unique job name",
-    "JobStatus": "status" 
+    "JobName": "job-name",
+    "JobStatus": "status"
   }
 }
 ```

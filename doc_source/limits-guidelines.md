@@ -10,7 +10,7 @@ For a list of AWS Regions where Amazon Transcribe is available, see [Amazon Tran
 
 For best results:
 + Use a lossless format, such as FLAC or WAV, with PCM 16\-bit encoding\.
-+ Use a sample rate of 8,000 Hz for low\-fidelity audio and 16,000 Hz for high\-fidelity audio\.
++ Use a sample rate of 8,000 Hz for low\-fidelity audio and 16,000 Hz \(or higher\) for high\-fidelity audio\.
 
 **Note**  
 Amazon Transcribe may temporarily store your content to continuously improve the quality of its analysis models\. See the [Amazon Transcribe FAQ](http://aws.amazon.com/transcribe/faqs/) to learn more\. To request that we delete content that may have been stored by Amazon Transcribe, open a case with [AWS Support](http://aws.amazon.com/contact-us/)\.
@@ -33,7 +33,6 @@ You can request a quota increase for the following resources:
 | Number of pending vocabularies | 10 | 
 | Number of concurrently training custom language models | 3 | 
 | Total number of custom language models per account | 10 | 
-| Number of channels for channel identification | 2 | 
 | Number of categories per account \(call analytics\) | 200 | 
 | Number of rules per category \(call analytics\) | 20 | 
 
@@ -77,5 +76,6 @@ The following quotas **cannot** be changed:
 | Length of a custom vocabulary phrase | 256 characters | 
 | Size of a vocabulary filter | 50 KB | 
 | Number of vocabulary filters | 100 | 
+| Number of channels for channel identification | 2 | 
 | Number of days job records are retained | 90 | 
 | Minimum audio file duration | 500 milliseconds \(ms\) | 

@@ -55,7 +55,7 @@ Calls to the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ GetTr
             "requestParameters": {
                 "mediaFormat": "flac | mp3 | mp4 | wav",
                 "languageCode": "en-US | es-US",
-                "transcriptionJobName": "unique job name",
+                "transcriptionJobName": "job-name",
                 "media": {
                     "mediaFileUri": ""
                 }
@@ -65,7 +65,7 @@ Calls to the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ GetTr
                     "transcriptionJobStatus": "IN_PROGRESS",
                     "mediaFormat": "flac | mp3 | mp4 | wav",
                     "creationTime": "timestamp",
-                    "transcriptionJobName": "unique job name",
+                    "transcriptionJobName": "job-name",
                     "languageCode": "en-US | es-US",
                     "media": {
                         "mediaFileUri": ""
@@ -94,7 +94,7 @@ Calls to the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ GetTr
             "sourceIPAddress": "source IP address",
             "userAgent": "user agent",
             "requestParameters": {
-                "transcriptionJobName": "unique job name"
+                "transcriptionJobName": "job-name"
             },
             "responseElements": {
                 "transcriptionJob": {
@@ -104,7 +104,7 @@ Calls to the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ GetTr
                     "transcriptionJobStatus": "COMPLETED | FAILED | IN_PROGRESS",
                     "mediaFormat": "flac | mp3 | mp4 | wav",
                     "creationTime": "timestamp",
-                    "transcriptionJobName": "unique job name",
+                    "transcriptionJobName": "job-name",
                     "languageCode": "en-US | es-US",
                     "media": {
                         "mediaFileUri": ""

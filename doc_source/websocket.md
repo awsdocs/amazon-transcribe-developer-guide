@@ -55,7 +55,7 @@ GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-web
 Use the following values for the URL parameters:
 + **language\-code** – The language code for the input audio\. Valid values are `en-AU, en-GB, en-US, es-US, fr-CA, fr-FR, de-DE, ja-JP, ko-KR, pt-BR, zh-CN` and `it-IT`\.
 + **media\-encoding** – The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
-+ **sample\-rate** – The sample rate of the input audio in Hertz\. We suggest that you use 8,000 Hz for low\-quality audio and 16,000 Hz for high\-quality audio\. The sample rate must match the sample rate in the audio file\.
++ **sample\-rate** – The sample rate of the input audio in Hertz\. We suggest that you use 8,000 Hz for low\-quality audio and 16,000 Hz \(or higher\) for high\-quality audio\. The sample rate must match the sample rate in the audio file\.
 + **sessionId** – Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.
 + **vocabulary\-name** – Optional\. The name of the vocabulary to use when processing the transcription job, if any\.
 
@@ -266,7 +266,7 @@ After the WebSocket connection is established, the client can start sending a se
 Each data frame contains three headers combined with a chunk of raw audio bytes\. The following table lists and describes the headers\. 
 
 
-| Header name byte length | Header name \(string\) | Header value type | Value Ssring byte length | Value string \(UTF\-8\) | 
+| Header name byte length | Header name \(string\) | Header value type | Value String byte length | Value string \(UTF\-8\) | 
 | --- | --- | --- | --- | --- | 
 | 13 | :content\-type | 7 | 24 | application/octet\-stream | 
 | 11 | :event\-type | 7 | 10 | AudioEvent | 

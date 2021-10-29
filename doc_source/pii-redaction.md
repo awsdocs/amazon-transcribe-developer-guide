@@ -1,17 +1,11 @@
 # Redacting or identifying personally identifiable information<a name="pii-redaction"></a>
 
-Use *content redaction* to omit sensitive personally identifiable information \(PII\) from your transcription results\. Use *content identification* to flag PII in your transcript without redacting it\.
-
-**Important**  
-The redaction feature is designed to identify and remove sensitive data\. However, due to the predictive nature of machine learning, Amazon Transcribe may not identify and remove all instances of sensitive data in your transcript\. We strongly recommend that you review any redacted output to ensure it meets your needs\.  
-The redaction feature does not meet the requirements for de\-identification under medical privacy laws, such as the U\.S\. Health Insurance Portability and Accountability Act of 1996 \(HIPAA\)\.
-
-PII redaction can be performed on batch transcription jobs and streaming transcriptions, whereas PII identification can only be performed on streaming transcriptions\. With batch transcription jobs, you can choose to have both a redacted and an unredacted transcript\.
-
-Amazon Transcribe can identify the following types of PII:
+Redaction is used to mask or remove sensitive content, in the form of personally identifiable information \(PII\), from your transcripts\. Amazon Transcribe can redact information with batch jobs and streaming transcriptions\. Additionally, if you're performing a streaming transcription, you also have the option to flag PII without redacting it; see [Example PII identification output](pii-redaction-output.md#pii-redaction-output-id) for an example\.
 
 
-| PII entity | Definition | 
+**Types of PII Amazon Transcribe can recognize**  
+
+| PII type | Description | 
 | --- | --- | 
 | Bank Account Number | A number that uniquely identifies a bank account\. | 
 | Bank Routing Number | A number that identifies the location of a bank account\. | 
@@ -26,7 +20,14 @@ Amazon Transcribe can identify the following types of PII:
 | Social Security Number | A 9\-digit number \(or the last 4 digits of that number\)\. Issued to U\.S\. citizens, permanent residents, and temporary residents with employment\. | 
 | All PII | Redact or identify all PII types listed in this table\. | 
 
-**Topics**
-+ [Redacting or identifying PII in an audio file](pii-redaction-batch.md)
-+ [Redacting or identifying PII in a real\-time stream](pii-redaction-stream.md)
-+ [Example PII redaction and identification output](redaction-output.md)
+When redaction is enabled, you have the option to generate only a redacted transcript or both a redacted transcript and an unredacted transcript\. If you choose to generate only a redacted transcript, note that your media file is the only place where the complete conversation is stored\. If you delete it, there is no record of the unredacted PII\. Because of this, it may be prudent to generate an unredacted transcript in addition to a redacted one\.
+
+To learn more about PII redaction with an audio file, refer to: [Redacting PII in your batch job](pii-redaction-batch.md)\.
+
+To learn more about PII redaction or identification with a media stream, refer to: [Redacting or identifying PII in a real\-time stream](pii-redaction-stream.md)\.
+
+**Important**  
+The redaction feature is designed to identify and remove sensitive data\. However, due to the predictive nature of machine learning, Amazon Transcribe may not identify and remove all instances of sensitive data in your transcript\. We strongly recommend that you review any redacted output to ensure it meets your needs\.  
+The redaction feature does not meet the requirements for de\-identification under medical privacy laws, such as the U\.S\. Health Insurance Portability and Accountability Act of 1996 \(HIPAA\)\.
+
+Redaction is supported with U\.S\. English \(en\-US\) only\.

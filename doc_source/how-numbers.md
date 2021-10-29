@@ -2,7 +2,7 @@
 
 Amazon Transcribe automatically adds punctuation to all the languages that it supports\. It also capitalizes words appropriately for languages that use case distinction in their writing systems\. For example, the spoken number "one thousand two hundred forty\-two" is transcribed as "1242" in supported languages\. For all other languages, numbers are transcribed into their word forms\.
 
-For a list of supported languages, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+For a list of supported languages, see [Supported languages and language\-specific features](supported-languages.md#table-language-matrix)\.
 
 ## Rules for transcribing numbers in English<a name="rules-english"></a>
 

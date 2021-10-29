@@ -12,10 +12,10 @@ Use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) 
 
 1. Provide the following information:
    + **Transcription job name**—A name for the job\. The name must be unique within your AWS account\.
-   + **Amazon S3 input URL**—The Amazon S3 location of your input audio file\. The location must be in the same region as the endpoint that you are calling\. 
+   + **Amazon S3 input URL**—The Amazon S3 location of your input audio file\. The location must be in the same Region as the endpoint that you are calling\. 
    + **Language**—Choose the language of your input file\.
    + **Format**—The format of the audio file\. For best results you should use a lossless format such as FLAC or WAV with PCM 16\-bit encoding\.
-   + **Media sampling rate \(Hz\)**—Optional\. The bit sampling rate of the audio file\. Amazon Transcribe accepts sample rates between 8,000 Hz and 48,000 Hz\. For best results, you should use 8,000 Hz for low\-fidelity audio and 16,000 for high\-fidelity audio\.
+   + **Media sampling rate \(Hz\)**—Optional\. The bit sampling rate of the audio file\. Amazon Transcribe accepts sample rates between 8,000 Hz and 48,000 Hz\. For best results, you should use 8,000 Hz for low\-fidelity audio and 16,000 \(or higher\) for high\-fidelity audio\.
 
    The following shows the **Create Transcription Job** filled out for a sample job\.  
 ![\[The Create Transcription Job form filled out for a sample job.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-10.png)![\[The Create Transcription Job form filled out for a sample job.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)

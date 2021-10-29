@@ -5,7 +5,7 @@ The object that contains the Amazon S3 object location and access role required 
 ## Contents<a name="API_InputDataConfig_Contents"></a>
 
  ** DataAccessRoleArn **   <a name="transcribe-Type-InputDataConfig-DataAccessRoleArn"></a>
-The Amazon Resource Name \(ARN\) that uniquely identifies the permissions you've given Amazon Transcribe to access your Amazon S3 buckets containing your media files or text data\.  
+The Amazon Resource Name \(ARN\) that uniquely identifies the permissions you've given Amazon Transcribe to access your Amazon S3 buckets containing your media files or text data\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id`\.  
 Type: String  
 Length Constraints: Minimum length of 20\. Maximum length of 2048\.  
 Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso-{0,1}[a-z]{0,1}):iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1024}$`   

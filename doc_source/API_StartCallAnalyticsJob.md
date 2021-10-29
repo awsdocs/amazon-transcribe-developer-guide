@@ -25,6 +25,13 @@ Starts an asynchronous analytics job that not only transcribes the audio recordi
          "RedactionOutput": "string",
          "RedactionType": "string"
       },
+      "LanguageIdSettings": { 
+         "string" : { 
+            "LanguageModelName": "string",
+            "VocabularyFilterName": "string",
+            "VocabularyName": "string"
+         }
+      },
       "LanguageModelName": "string",
       "LanguageOptions": [ "string" ],
       "VocabularyFilterMethod": "string",
@@ -133,6 +140,13 @@ Required: No
          "ContentRedaction": { 
             "RedactionOutput": "string",
             "RedactionType": "string"
+         },
+         "LanguageIdSettings": { 
+            "string" : { 
+               "LanguageModelName": "string",
+               "VocabularyFilterName": "string",
+               "VocabularyName": "string"
+            }
          },
          "LanguageModelName": "string",
          "LanguageOptions": [ "string" ],

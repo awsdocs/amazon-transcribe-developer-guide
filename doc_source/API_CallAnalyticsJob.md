@@ -34,7 +34,7 @@ Type: Timestamp
 Required: No
 
  ** DataAccessRoleArn **   <a name="transcribe-Type-CallAnalyticsJob-DataAccessRoleArn"></a>
-The Amazon Resource Number \(ARN\) that you use to get access to the analytics job\.  
+The Amazon Resource Number \(ARN\) that you use to access the analytics job\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id`\.  
 Type: String  
 Length Constraints: Minimum length of 20\. Maximum length of 2048\.  
 Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso-{0,1}[a-z]{0,1}):iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1024}$`   

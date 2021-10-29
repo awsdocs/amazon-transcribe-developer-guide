@@ -1,112 +1,103 @@
 # Step 3: Creating a custom language model<a name="create-custom-language-model"></a>
 
-To create a custom language model, you must provide your text data using an Amazon S3 prefix and specify a *base model*\. There are two base models:
-+ `NarrowBand` \- For audio with a sample rate of less than 16 kHz\. You typically use this type of model for telephone conversations recorded at 8 kHz\.
-+ `WideBand` \- For audio with a sample rate of 16 kHz or greater\. This includes audio from media sources\.
+To create a custom language model, you must specify a base model and provide text data using an Amazon S3 prefix\.
 
-You can create a custom language model using the base model and training data in the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), and the [ CreateLanguageModel ](API_CreateLanguageModel.md) API\.
+There are two base model options:
++ `NarrowBand` \- Use this option for audio with a sample rate of less than 16,000 Hz\. This model type is typically used for telephone conversations recorded at 8,000 Hz\.
++ `WideBand` \- Use this option for audio with a sample rate greater than or equal to 16,000 Hz\.
 
-## Using prefixes in Amazon Simple Storage Service to retrieve your data<a name="prefix-get-data"></a>
+You use prefixes in Amazon Simple Storage Service to specify training data and, optionally, tuning data\. Here are some Amazon S3 concepts to be aware of before proceeding:
++ Object – The entity stored in your S3 bucket\. In this case, the object is your training or tuning text file\.
++ Bucket – A container where you store your objects\.
++ Key – The unique identifier for an object within a bucket; for example, a file path including the file name and extension\.
++ Prefix – Any portion of the key preceeding the filename\. You use prefixes to organize your data and specify objects in your S3 bucket\.
 
-To create a custom language model, you use prefixes in Amazon Simple Storage Service to specify the training and the optional tuning data\. To understand how to use prefixes, you need to be familiar with the following Amazon S3 concepts:
-+ Bucket – A container to store your objects\.
-+ Object – The entity stored in the S3 bucket\. In this case, it's your training or tuning text files\.
-+ Key – The unique identifier for an object within a bucket\. 
-+ Prefix – Any portion of the key up to the final delimiter\. You use prefixes to organize your data and specify objects in the S3 bucket\.
+So, a key might look like this: s3://your\-S3\-bucket/clm/creation\-date/clm\-files/your\-filename\.txt\. The prefixes for this key could be any of: s3://your\-S3\-bucket/clm/, s3://your\-S3\-bucket/clm/creation\-date/, or s3://your\-S3\-bucket/clm/creation\-date/clm\-files/\. For more information on prefixes, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html)\.
 
-You store an object, your text file, in a bucket with a key that uniquely identifies the file\.
+You specify prefixes for your text data in the following fields:
++ `S3Uri` for your training data
++ `TuningDataS3Uri` for your tuning data—this field is optional
 
-For example, the key `s3://DOC-EXAMPLE-BUCKET1/myfiles/2020/may/file.txt` uniquely identifies a text file in an S3 bucket\.
+Amazon Transcribe uses any object whose key matches one of the prefixes you specify in your CLM request\. Amazon Transcribe returns an error for any file that matches a prefix and is not a plain text file\.
 
-The prefix can be any part of the key that comes before its final delimiter\.
+The following examples show how to create a CLM\.
 
-For example, the key `myfiles/2020/may/file.txt` has the following prefixes:
-+ s3://*DOC\-EXAMPLE\-BUCKET1*/myfiles/2020/may/
-+ s3://*DOC\-EXAMPLE\-BUCKET1*/myfiles/2020/
-+ s3://*DOC\-EXAMPLE\-BUCKET1*/myfiles/
-
-You can use any of the preceding prefixes to access `file.txt`\. For more information on prefixes, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html)\. 
-
-When you use the [ CreateLanguageModel ](API_CreateLanguageModel.md) API, you specify prefixes for your text data in the following fields: 
-+ `S3Uri` for the training data
-+ Optional: `TuningDataS3Uri` for the tuning data
-
-Amazon Transcribe uses any object whose key matches one of the prefixes you specify in a custom language model\. Amazon Transcribe returns an error for any file that matches a prefix and is not a plain text file\.
-
-You create a custom language model by providing prefixes to train a base model using either the console or the API\.
-
-## Console<a name="create-console"></a>
-
-**To create a custom language model using the console**
-
-To use the console to create a custom language model with the console, you must have your training data stored in an Amazon S3 bucket\.
+## Console<a name="clm-create-howto-console"></a>
 
 1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
 
-1. In the navigation pane, choose **Custom language models**\.
+1. In the navigation pane, choose **Custom language model**\. This opens the **Custom language models** page where you can view existing language models or train a new model\.
 
-1. Choose **Train model**\.
+1. To train a new model, select the **Train model** button\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-create-console.png)
 
-1. For **Name**, enter a name for your custom language model that is unique within your AWS account\.
+   This takes you to the **Train model** page where you can add specifications for your model, such as name, base model, training data, and IAM permissions\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-train-console.png)
 
-1. For **Language**, choose the language of your custom language model\.
+1. Once you have all fields completed, click the **Train model** button at the bottom of the page\.
 
-1. For **Base model**, choose **Narrow band** or **Wide band**, as appropriate for the sample rate of the audio you want to transcribe\.
+## AWS SDK for Python \(Boto3\)<a name="clm-create-howto-sdk"></a>
 
-1. Under **Training data**, for **Training data location on S3**, specify the S3 prefix that accesses only your training data\.
-
-1. Optional: Under **Tuning data \- *optional***, for **Tuning data location on S3** , specify the S3 prefix for the bucket where your tuning data is stored\.
-
-1. For **Access permissions**, use or create an IAM data access role that provides Amazon Transcribe with the `ListBucket` and `GetObject` permissions\.
-
-1. Choose **Train model**\.
-
-## AWS SDK<a name="create-api"></a>
-
-**To create a custom language model using the AWS SDK**
-+ In an [ CreateLanguageModel ](API_CreateLanguageModel.md) request, specify the following:
-  + `BaseModelName` \- The type of base model you want to use for your custom language model
-  + `InputDataConfig` \- Specify the Amazon S3 object location and the IAM data access role for your training data:
-
-    `DataAccessRoleARN` \- The Amazon Resource Name \(ARN\) that identifies the permissions to your Amazon S3 bucket\.
-
-    `S3Uri` \- The prefix of the keys to your training data\.
-
-    \(Optional\) `TuningDataS3URI` \- The prefix of the keys to your tuning data\.
-  + `LanguageCode` \- The language code for the language of your training data\.
-  + `ModelName` \- The name of your custom language model\.
-
-The following is an example request using the AWS SDK for Python \(Boto3\)\.
+The following example uses the AWS SDK for Python \(Boto3\) to create a CLM using the [create\_language\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model) method:
 
 ```
 from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-model_name = "example-language-model"
+model_name = 'my-model-name',
 transcribe.create_language_model(
-    LanguageCode = 'language-code',
-    BaseModelName = 'base-model-name',
+    LanguageCode='en-US', 
+    BaseModelName = 'NarrowBand',
     ModelName = model_name,
-    InputDataConfig = {'S3Uri': 's3://DOC-EXAMPLE-BUCKET/clm-training/',
-        'TuningDataS3Uri': 's3://DOC-EXAMPLE-BUCKET/clm-tuning',
-        'DataAccessRoleArn':'arn:aws:iam::AWS-account-number:role/IAM role'
+    InputDataConfig = {
+        'S3Uri': 's3://your-S3-bucket/clm-training-data',
+        'TuningDataS3Uri': 's3://your-S3-bucket/clm-tuning-data',
+        'DataAccessRoleArn':'arn:aws:iam::AWS-account-number:role/IAM-role'
          }
-         )
+)
+while True:
+    status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+    if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
+        break
+    print("Not ready yet...")
+    time.sleep(5)
+print(status)
 ```
 
-## AWS CLI<a name="create-cli"></a>
+## AWS CLI<a name="clm-create-howto-cli"></a>
 
-**To create a custom language model using AWS CLI**
-+ Run the following code\.
+This example uses the [create\-language\-model](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-language-model.html) command\.
 
-  ```
-  aws transcribe create-language-model \ 
-  --language-code language-code \ 
-  --base-model-name base-model-name \ 
-  --model-name example-model-name \ 
-  --input-data-config S3Uri="s3://example-bucket",DataAccessRoleArn="arn:aws:iam::aws-account-number:role/IAM role"
-  ```
+```
+aws transcribe create-language-model \ 
+--language-code en-US \ 
+--base-model-name NarrowBand \ 
+--model-name my-language-model-name \ 
+--input-data-config S3Uri=s3://your-S3-bucket,TuningDataS3Uri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension,DataAccessRoleArn=arn:aws:iam::aws-account-number:role/IAM role
+```
+
+Here's another example using the [create\-language\-model](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that creates your CLM\.
+
+```
+aws transcribe create-language-model \
+--cli-input-json file://example-start-command.json
+```
+
+The file *example\-start\-command\.json* contains the following request body\.
+
+```
+{
+  "LanguageCode": "en-US",
+  "BaseModelName": "my-base-model-name",
+  "ModelName": "my-language-model-name",
+  "InputDataConfig": {
+         "S3Uri": "s3://your-S3-bucket",
+         "TuningDataS3Uri"="s3://your-S3-bucket/S3-prefix/your-filename.file-extension",
+         "DataAccessRoleArn": "arn:aws:iam::aws-account-number:role/IAM role"
+    }
+}
+```
 
 **Next step**  
 [Step 4: Transcribing with a custom language model](clm-transcription.md)

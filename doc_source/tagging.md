@@ -7,20 +7,19 @@ A *tag key* typically represents a larger category, while a *tag value* represen
 **Tip**  
 AWS Billing can use tags to separate your bills into dynamic categories\. For example, if you add tags to represent different departments within your company, such as `Department:Sales` or `Department:Legal`, AWS can provide you with your cost distribution per department\.
 
-In Amazon Transcribe, you can tag the following resources: 
-+ Transcription job
-+ Medical transcription job
-+ Vocabulary
-+ Medical vocabulary
-+ Vocabulary filter
-+ Custom language model
+In Amazon Transcribe, you can tag the following resources:
++ Transcription jobs
++ Medical transcription jobs
++ Vocabularies
++ Medical vocabularies
++ Vocabulary filters
++ Custom language models
 
-Tag keys can be up to 128 characters in length and tag values can be up to 256 characters in length; both are case sensitive\. For more information, see [ TagResource ](API_TagResource.md) in the Amazon Transcribe [API Reference](API_Reference.md)\.
+Tag keys can be up to 128 characters in length and tag values can be up to 256 characters in length; both are case sensitive\. Amazon Transcribe supports up to 50 tags per resource\. For a given resource, each tag key must be unique with only one value\. Note that your tags cannot begin with `aws:` because AWS reserves this prefix for system\-generated tags\. You cannot add, modify, or delete `aws:*` tags, and they don't count against your tags\-per\-resource limit\.
 
-Amazon Transcribe supports up to 50 tags per resource\. For a given resource, each tag key must be unique with only one value\.
-
-**Note**  
-Your tags cannot begin with `aws:` because AWS reserves this prefix for system\-generated tags\. You cannot add, modify, or delete `aws:*` tags, and they don't count against your tags\-per\-resource limit\.
+**API operations specific to resource tagging**  
+ [ListTagsForResource](https://docs.aws.amazon.com/transcribe/latest/dg/API_ListTagsForResource.html), [TagResource](https://docs.aws.amazon.com/transcribe/latest/dg/API_TagResource.html), [UntagResource](https://docs.aws.amazon.com/transcribe/latest/dg/API_UntagResource.html)   
+To use the tagging APIs, you need to include an Amazon Resource Name \(ARN\) with your request\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id`\. For example, the ARN associated with a transcription job may look like: `arn:aws:transcribe:us-east-1:account-id:transcription-job/job-name`\.
 
 To learn more about tagging, including best practices, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)\.
 
@@ -61,40 +60,13 @@ You can add, modify or delete tags using the **Amazon Transcribe Console**, **AW
 1. You can view the tags associated with a transcription job by navigating to the **Transcription jobs** page, selecting a transcription job, and scrolling to the bottom of that job's information page\. If you wish to edit your tags, you can do so by clicking the **Manage tags** button\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/view-tags.png)
 
-### AWS SDK for Python \(Boto3\)<a name="tagging-howto-sdk"></a>
-
-The following example uses the AWS SDK for Python \(Boto3\) to add a tag by using the `Tags` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
-
-```
-from __future__ import print_function
-import time
-import boto3
-transcribe = boto3.client('transcribe')
-job_name = "your-job-name"
-job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
-transcribe.start_transcription_job(
-    TranscriptionJobName=job_name,
-    Media={'MediaFileUri': job_uri},
-    MediaFormat='wav',
-    LanguageCode='en-US', 
-    Tags=[{'Key':'string', 'Value':'string'}]
-)
-while True:
-    status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
-    if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
-        break
-    print("Not ready yet...")
-    time.sleep(5)
-print(status)
-```
-
 ### AWS CLI<a name="tagging-howto-cli"></a>
 
 This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Tags` parameter\.
 
 ```
 aws transcribe start-transcription-job \
---transcription-job-name your-job-name
+--transcription-job-name job-name
 --media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
 --language-code en-US \
 --tags Key=color,Value=blue
@@ -111,11 +83,38 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "your-job-name",
+  "TranscriptionJobName": "job-name",
   "LanguageCode": "en-US",
   "Media": {
         "MediaFileUri": "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
     },
   "Tags": [ {"Key": "string","Value": "string"} ]
 }
+```
+
+### AWS SDK for Python \(Boto3\)<a name="tagging-howto-sdk"></a>
+
+The following example uses the AWS SDK for Python \(Boto3\) to add a tag by using the `Tags` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
+
+```
+from __future__ import print_function
+import time
+import boto3
+transcribe = boto3.client('transcribe')
+job_name = "job-name"
+job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
+transcribe.start_transcription_job(
+    TranscriptionJobName=job_name,
+    Media={'MediaFileUri': job_uri},
+    MediaFormat='wav',
+    LanguageCode='en-US', 
+    Tags=[{'Key':'string', 'Value':'string'}]
+)
+while True:
+    status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+    if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
+        break
+    print("Not ready yet...")
+    time.sleep(5)
+print(status)
 ```

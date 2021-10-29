@@ -1,19 +1,16 @@
 # Identifying the dominant language in your media files<a name="auto-lang-id"></a>
 
-Amazon Transcribe is able to automatically identify the predominant language in a media file without you having to specify a language code\. Automatic language identification can be used for any batch transcription job, and all supported languages can be identified\. Streaming transcriptions are not supported\. For a complete list of languages available with Amazon Transcribe, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+Amazon Transcribe is able to automatically identify the predominant language in a media file without you having to specify a language code\. Automatic language identification can be used for any batch transcription job, and all supported languages can be identified\. Streaming transcriptions are not supported\. For a complete list of languages available with Amazon Transcribe, see [Supported languages and language\-specific features](supported-languages.md#table-language-matrix)\.
 
-To identify the language with greater accuracy, you can specify a list of languages you think are present in your collection of media files\. From that list, Amazon Transcribe chooses the language with the greatest confidence score to transcribe your audio\. A score with a larger value indicates that Amazon Transcribe is more confident it identified the language correctly\. For best results, if you are certain of the language spoken in each of the audio files, specify a language code\.
+To identify the language with greater accuracy, you can specify a list of languages you think are present in your collection of media files\. From that list, Amazon Transcribe chooses the language with the greatest confidence score to transcribe your audio\. A score with a larger value indicates that Amazon Transcribe is more confident it identified the language correctly\. For best results, specify a language code; however, if the language codes you select are not present in your file, your transcription job could fail or produce an inaccurate transcript\.
 
 **Note**  
-Media files are transcribed in a single language, even if they contain speech in two or more languages\. Amazon Transcribe transcribes the audio according to the predominant language identified in the file\.
-
-Because some Amazon Transcribe features require you to specify a language code, automatic language identification is not supported with all features\. You cannot use automatic language identification if the following features are enabled:
-+ Custom language models
-+ Custom vocabularies
-+ Vocabulary filtering
-+ Content redaction
+Media files are transcribed in a single language, even if they contain speech in multiple languages\. Amazon Transcribe transcribes the audio according to the predominant language identified in the file\.
 
 To increase the chance of identifying the language successfully, media files should have at least 30 seconds of speech\.
+
+**Important**  
+If you're using automatic language identification with content redaction enabled, make sure that the language of your media file is [supported with redaction](supported-languages.md#table-language-matrix)\. If the language in your file is not supported, your transcript is **not** redacted and there are no warnings or job failures\.
 
 You can use automatic language identification in a batch transcription job using the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see below for instructions:
 
@@ -33,14 +30,14 @@ You can use automatic language identification in a batch transcription job using
 
 ## AWS SDK for Python \(Boto3\)<a name="autolang-howto-sdk"></a>
 
-The following example uses the AWS SDK for Python \(Boto3\) to add a tag by using the `IdentifyLanguage` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
+The following example uses the AWS SDK for Python \(Boto3\) to identify your file's language using the `IdentifyLanguage` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
 
 ```
 from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "your-job-name"
+job_name = "job-name"
 job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
@@ -63,7 +60,7 @@ This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v
 
 ```
 aws transcribe start-transcription-job \
---transcription-job-name your-job-name \
+--transcription-job-name job-name \
 --media  MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
 --identify-language
 ```
@@ -79,7 +76,7 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "your-job-name",  
+  "TranscriptionJobName": "job-name",  
   "Media": {
         "MediaFileUri": "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
     },
@@ -87,8 +84,8 @@ The file *example\-start\-command\.json* contains the following request body\.
 }
 ```
 
-## Getting notifications using Automatic language identification<a name="lang-id-cloudwatch"></a>
+## Getting notifications when Amazon Transcribe identifies the language in your media file<a name="lang-id-cloudwatch"></a>
 
-Amazon Transcribe can notify you if it successfully identifies the language of your media file before the transcription job finishes\. To receive a notification, enable a rule for an Amazon CloudWatch event\. CloudWatch is a service you can use to monitor your AWS resources and applications in real time\. For more information see [What Is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)\.
+Amazon Transcribe can notify you before your transcription job finishes if it successfully identifies the language of your media file\. To receive a notification, enable a rule for an Amazon CloudWatch event\. CloudWatch is a service you can use to monitor your AWS resources and applications in real time\. For more information see [What Is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)\.
 
-For more information about the CloudWatch events that show whether the language has been identified successfully in your audio, see [Language identification events](cloud-watch-events.md#lang-id-event)\. For general information about CloudWatch events in Amazon Transcribe, see [Using Amazon EventBridge with Amazon Transcribe](cloud-watch-events.md)\. 
+For more information about CloudWatch and automatic language identification events, see [Language identification events](cloud-watch-events.md#lang-id-event)\. For general information about CloudWatch events in Amazon Transcribe, see [Using Amazon EventBridge with Amazon Transcribe](cloud-watch-events.md)\. 

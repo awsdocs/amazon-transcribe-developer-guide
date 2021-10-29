@@ -42,6 +42,13 @@ Required: Yes
          "DataAccessRoleArn": "string"
       },
       "LanguageCode": "string",
+      "LanguageIdSettings": { 
+         "string" : { 
+            "LanguageModelName": "string",
+            "VocabularyFilterName": "string",
+            "VocabularyName": "string"
+         }
+      },
       "LanguageOptions": [ "string" ],
       "Media": { 
          "MediaFileUri": "string",
@@ -63,6 +70,10 @@ Required: Yes
          "VocabularyName": "string"
       },
       "StartTime": number,
+      "Subtitles": { 
+         "Formats": [ "string" ],
+         "SubtitleFileUris": [ "string" ]
+      },
       "Tags": [ 
          { 
             "Key": "string",

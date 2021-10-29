@@ -8,7 +8,7 @@ To transcribe an audio file, you use a transcription job\. You store the file as
 + Be in FLAC, MP3, MP4, or WAV file format\.
 + Use 16\-bit Linear PCM encoding\.
 + Be less than 4 hours in length and less than 2 GB in size
-+ Use a sample rate of at least 16,000 Hz\.
++ Use a sample rate of 16,000 Hz or higher
 
 For best results: 
 + Use a lossless format, such as FLAC or WAV\.
@@ -27,7 +27,7 @@ The following are the minimum number of request parameters to enter in the sampl
 
 ```
 {
-   "MedicalTranscriptionJobName": “job name",
+   "MedicalTranscriptionJobName": "job-name",
    "LanguageCode": "en-US",
    "Media": {
        "MediaFileUri": "s3://path to your audio file"

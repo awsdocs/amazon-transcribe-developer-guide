@@ -18,7 +18,7 @@ You can submit up to 10,000 jobs to the queue\. If you exceed 10,000 jobs, you g
 
 To use job queuing, you must provide Amazon Transcribe with a data access role that permits access to your audio file to be transcribed\. You can choose the data access role using the console, or you use the `DataAccessRoleArn` field of the `JobExecutionSettings` parameter of the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API to specify the role to use\.
 
-The role policies that you use depend on where you are storing your input files, where you are storing your output files, and whether you are encrypting the output with an AWS KMS customer master key \(CMK\)\. The IAM policies in this section are required for the role\. The policies enable Amazon Transcribe to work on your behalf, allow access to the input and output locations for your jobs, and enable Amazon Transcribe to use a AWS KMS CMK to encrypt your transcriptions\.
+The role policies that you use depend on where you are storing your input files, where you are storing your output files, and whether you are encrypting the output with an AWS KMS key\. The IAM policies in this section are required for the role\. The policies enable Amazon Transcribe to work on your behalf, allow access to the input and output locations for your jobs, and enable Amazon Transcribe to use a KMS key to encrypt your transcriptions\.
 
 ### Trust policy<a name="job-queuing-trust-policy"></a>
 
@@ -95,7 +95,7 @@ If you have encrypted your input files, the data access role needs permission to
             "kms:Decrypt"
         ],
         "Resource": [
-            "arn:aws:kms:::input-bucket-cmk-name"
+            "arn:aws:kms:us-west-2:111122223333:key/input-bucket-key-id" 
         ]
     }
 }
@@ -114,7 +114,7 @@ To encrypt your output transcriptions, the data access role needs permission to 
             "kms:GenerateDataKey*"
         ],
         "Resource": [
-            "arn:aws:kms:::output-bucket-cmk-name"
+            "arn:aws:kms:us-west-2:111122223333:key/output-bucket-key-id" 
         ]
     }
 }

@@ -9,7 +9,7 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "job name"
+job_name = "job-name"
 job_uri = "s3://DOC-EXAMPLE-BUCKET1/key-prefix/file.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,

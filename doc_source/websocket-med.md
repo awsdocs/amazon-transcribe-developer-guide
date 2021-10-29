@@ -56,7 +56,7 @@ For TYPE, it is best to select CONVERSATION if your use case involves multiple s
 Use the following values for the URL parameters:
 + **language\-code** – The language code for the input audio\. The valid value is `en-US`\.
 + **media\-encoding** – The encoding used for the input audio\. The valid value is `pcm`\.
-+ **sample\-rate** – The sample rate of the input audio in hertz\. 16,000 Hz or higher sample rates are accepted\. 
++ **sample\-rate** – The sample rate of the input audio in hertz; sample rates of 16,000 Hz or higher are accepted\. 
 + **sessionId** – Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe Medical generates one for you and returns it in the response\.
 + **specialty** – The specialty of the medical domain\. Valid values are `PRIMARYCARE`, `CARDIOLOGY`, `NEUROLOGY`, `ONCOLOGY`, `RADIOLOGY`, and `UROLOGY`\.
 + **type** – The type of audio\. Must be `DICTATION` or `CONVERSATION`\.

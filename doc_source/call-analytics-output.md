@@ -1,6 +1,6 @@
-# Sample call analytics output<a name="analyze-output"></a>
+# Sample call analytics output<a name="call-analytics-output"></a>
 
-Below is an example of redacted JSON output from a call analytics job between a customer and an agent\. Note that in addition to redacted content \(shown as \[PII\]\), there are loudness scores and sentiment values \(negative, positive, or neutral\) associated with each segment of the dialogue\.
+Here's an example of redacted JSON output from a call analytics job\. Note that in addition to redacted content \(which is replaced with \[PII\] and an associated timestamp\), there are loudness scores, detected issues, sentiment values, and conversation characteristics associated with the dialogue\.
 
 ```
 {

@@ -170,5 +170,3 @@ Amazon Transcribe doesn't support service\-linked roles\.
 ### Service roles<a name="security_iam_service-with-iam-roles-service"></a>
 
 You can allow a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles appear in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, doing so might prevent the service from functioning as expected\.
-
-Amazon Transcribe doesn't support service roles\. 

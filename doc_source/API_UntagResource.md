@@ -18,7 +18,7 @@ For information about the parameters that are common to all actions, see [Common
 The request accepts the following data in JSON format\.
 
  ** [ ResourceArn ](#API_UntagResource_RequestSyntax) **   <a name="transcribe-UntagResource-request-ResourceArn"></a>
-The Amazon Resource Name \(ARN\) of the Amazon Transcribe resource you want to remove tags from\.  
+The Amazon Resource Name \(ARN\) of the Amazon Transcribe resource you want to remove tags from\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id` \(for example, `arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name`\)\. Valid values for `resource-type` are: `transcription-job`, `medical-transcription-job`, `vocabulary`, `medical-vocabulary`, `vocabulary-filter`, and `language-model`\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1011\.  
 Pattern: `arn:aws(-[^:]+)?:transcribe:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z-]*/[0-9a-zA-Z._-]+`   

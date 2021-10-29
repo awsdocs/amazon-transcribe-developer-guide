@@ -5,4 +5,3 @@ Monitoring is an important part of maintaining the reliability, availability, an
 **Topics**
 + [Monitoring Amazon Transcribe API calls with AWS CloudTrail](monitoring-transcribe-cloud-trail.md)
 + [Using Amazon EventBridge with Amazon Transcribe](cloud-watch-events.md)
-+ [Using Amazon CloudWatch metrics and dimensions with Amazon Transcribe](monitoring-cwmetrics.md)

@@ -52,6 +52,13 @@ Type: String
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
+ ** LanguageIdSettings **   <a name="transcribe-Type-TranscriptionJob-LanguageIdSettings"></a>
+Language\-specific settings that can be specified when language identification is enabled for your transcription job\. These settings include `VocabularyName`, `VocabularyFilterName`, and `LanguageModelName`LanguageModelName\.  
+Type: String to [ LanguageIdSettings ](API_LanguageIdSettings.md) object map  
+Map Entries: Maximum number of 5 items\.  
+Valid Keys:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
+Required: No
+
  ** LanguageOptions **   <a name="transcribe-Type-TranscriptionJob-LanguageOptions"></a>
 An object that shows the optional array of languages inputted for transcription jobs with automatic language identification enabled\.  
 Type: Array of strings  
@@ -89,6 +96,11 @@ Required: No
  ** StartTime **   <a name="transcribe-Type-TranscriptionJob-StartTime"></a>
 A timestamp that shows when the job started processing\.  
 Type: Timestamp  
+Required: No
+
+ ** Subtitles **   <a name="transcribe-Type-TranscriptionJob-Subtitles"></a>
+Generate subtitles for your batch transcription job\.  
+Type: [ SubtitlesOutput ](API_SubtitlesOutput.md) object  
 Required: No
 
  ** Tags **   <a name="transcribe-Type-TranscriptionJob-Tags"></a>

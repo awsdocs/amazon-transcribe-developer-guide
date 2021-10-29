@@ -1,4 +1,4 @@
-# Step 1: Preparing the data<a name="prepare-training-data"></a>
+# Step 1: Preparing your data<a name="prepare-training-data"></a>
 
 Create a custom language model by providing training data in plain text format and by choosing a base model\. You can also provide additional tuning data, also in plain text format, for optimization\.
 
@@ -9,10 +9,10 @@ To prepare your text data:
    + Is in plain text \(it's not a file such as a Microsoft Word document, comma\-separated value file, or PDF\)\.
    + Is encoded in UTF\-8\.
    + Doesn't contain any formatting characters, such as HTML tags\.
-   + Is less than 2 GB in size if you intend to use the file as training data\. You can provide a maximum of 2 GB of training data\.
+   + Is less than 2 GB in size if you intend to use the file as training data\. Amazon Transcribe only accepts a maximum of 2 GB of training data\.
    + Is less than 200 MB in size if you intend to use the file as tuning data\. You can provide a maximum of 200 MB of optional tuning data\.
 **Note**  
-Although not a requirement, it is best practice to have only one sentence per line within your text file\. 
+Although not a requirement, it is best practice to have only one sentence per line within your text file\.
 
 1. Upload those files to Amazon Simple Storage Service \(Amazon S3\)\. If you intend to tune the model, store your tuning data in a separate S3 bucket from the one you use for your training data\.
 

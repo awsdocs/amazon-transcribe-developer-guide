@@ -1,6 +1,6 @@
 # Speech input<a name="input"></a>
 
-Amazon Transcribe can transcribe speech as either a media file or a real\-time stream\. Your input audio must use the encodings and formats described in the following sections\. For a list of supported languages, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+Amazon Transcribe can transcribe speech as either a media file or a real\-time stream\. Your input audio must use the encodings and formats described in the following sections\. For a list of supported languages, see [Supported languages and language\-specific features](supported-languages.md#table-language-matrix)\.
 
 ## Containers and formats for batch transcription<a name="batch-format"></a>
 
@@ -29,4 +29,4 @@ For best results:
 
 For more information on using a WebSocket request to transcribe your streaming audio, see [Using Amazon Transcribe streaming with WebSockets](websocket.md)\.
 
-For a list of supported languages, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+For a list of supported languages, see [Supported languages and language\-specific features](supported-languages.md#table-language-matrix)\.

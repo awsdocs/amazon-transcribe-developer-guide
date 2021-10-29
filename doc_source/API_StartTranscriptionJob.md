@@ -19,6 +19,13 @@ Starts an asynchronous job to transcribe speech to text\.
       "string" : "string" 
    },
    "LanguageCode": "string",
+   "LanguageIdSettings": { 
+      "string" : { 
+         "LanguageModelName": "string",
+         "VocabularyFilterName": "string",
+         "VocabularyName": "string"
+      }
+   },
    "LanguageOptions": [ "string" ],
    "Media": { 
       "MediaFileUri": "string",
@@ -41,6 +48,9 @@ Starts an asynchronous job to transcribe speech to text\.
       "VocabularyFilterMethod": "string",
       "VocabularyFilterName": "string",
       "VocabularyName": "string"
+   },
+   "Subtitles": { 
+      "Formats": [ "string" ]
    },
    "Tags": [ 
       { 
@@ -88,6 +98,13 @@ The language code for the language used in the input media file\.
 To transcribe speech in Modern Standard Arabic \(ar\-SA\), your audio or video file must be encoded at a sample rate of 16,000 Hz or higher\.  
 Type: String  
 Valid Values:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
+Required: No
+
+ ** [ LanguageIdSettings ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageIdSettings"></a>
+The language identification settings associated with your transcription job\. These settings include `VocabularyName`, `VocabularyFilterName`, and `LanguageModelName`\.  
+Type: String to [ LanguageIdSettings ](API_LanguageIdSettings.md) object map  
+Map Entries: Maximum number of 5 items\.  
+Valid Keys:` af-ZA | ar-AE | ar-SA | cy-GB | da-DK | de-CH | de-DE | en-AB | en-AU | en-GB | en-IE | en-IN | en-US | en-WL | es-ES | es-US | fa-IR | fr-CA | fr-FR | ga-IE | gd-GB | he-IL | hi-IN | id-ID | it-IT | ja-JP | ko-KR | ms-MY | nl-NL | pt-BR | pt-PT | ru-RU | ta-IN | te-IN | tr-TR | zh-CN | zh-TW | th-TH | en-ZA | en-NZ`   
 Required: No
 
  ** [ LanguageOptions ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-LanguageOptions"></a>
@@ -138,7 +155,7 @@ You can use either of the following to identify a KMS key in the current account
 + KMS Key Alias: "alias/ExampleAlias"
 You can use either of the following to identify a KMS key in the current account or another account:  
 + Amazon Resource Name \(ARN\) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd\-12ab\-34cd\-56ef\-1234567890ab"
-+ ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"
++ ARN of a KMS Key Alias: "arn:aws:kms:region:account\-ID:alias/ExampleAlias"
 If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.  
 If you specify a KMS key to encrypt your output, you must also specify an output location in the `OutputBucketName` parameter\.  
 Type: String  
@@ -159,6 +176,11 @@ Required: No
  ** [ Settings ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Settings"></a>
 A `Settings` object that provides optional settings for a transcription job\.  
 Type: [ Settings ](API_Settings.md) object  
+Required: No
+
+ ** [ Subtitles ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Subtitles"></a>
+Add subtitles to your batch transcription job\.  
+Type: [ Subtitles ](API_Subtitles.md) object  
 Required: No
 
  ** [ Tags ](#API_StartTranscriptionJob_RequestSyntax) **   <a name="transcribe-StartTranscriptionJob-request-Tags"></a>
@@ -193,6 +215,13 @@ Required: Yes
          "DataAccessRoleArn": "string"
       },
       "LanguageCode": "string",
+      "LanguageIdSettings": { 
+         "string" : { 
+            "LanguageModelName": "string",
+            "VocabularyFilterName": "string",
+            "VocabularyName": "string"
+         }
+      },
       "LanguageOptions": [ "string" ],
       "Media": { 
          "MediaFileUri": "string",
@@ -214,6 +243,10 @@ Required: Yes
          "VocabularyName": "string"
       },
       "StartTime": number,
+      "Subtitles": { 
+         "Formats": [ "string" ],
+         "SubtitleFileUris": [ "string" ]
+      },
       "Tags": [ 
          { 
             "Key": "string",

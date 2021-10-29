@@ -53,6 +53,13 @@ Required: Yes
             "RedactionOutput": "string",
             "RedactionType": "string"
          },
+         "LanguageIdSettings": { 
+            "string" : { 
+               "LanguageModelName": "string",
+               "VocabularyFilterName": "string",
+               "VocabularyName": "string"
+            }
+         },
          "LanguageModelName": "string",
          "LanguageOptions": [ "string" ],
          "VocabularyFilterMethod": "string",

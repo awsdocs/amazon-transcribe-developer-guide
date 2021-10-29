@@ -8,7 +8,7 @@ The following are encoded as HTTP/2 headers:
 + x\-amzn\-transcribe\-sample\-rate
 + x\-amzn\-transcribe\-session\-id
 
-See the [ SDK for Go API Reference](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription) for more detail\.
+See the [ SDK for Go API Reference](https://alpha-docs-aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription) for more detail\.
 
 ## Request Syntax<a name="API_streaming_StartStreamTranscription_RequestSyntax"></a>
 
@@ -21,6 +21,7 @@ x-amzn-transcribe-vocabulary-name: VocabularyName
 x-amzn-transcribe-session-id: SessionId
 x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
 x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
+x-amzn-transcribe-language-model-name: LanguageModelName
 x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
 x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
 x-amzn-transcribe-number-of-channels: NumberOfChannels
@@ -67,13 +68,18 @@ Indicates the source language used in the input audio stream\.
 Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN`   
 Required: Yes
 
+ ** [ LanguageModelName ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageModelName"></a>
+The name of the language model you want to use\.  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[0-9a-zA-Z._-]+` 
+
  ** [ MediaEncoding ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.  
 Valid Values:` pcm | ogg-opus | flac`   
 Required: Yes
 
  ** [ MediaSampleRateHertz ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaSampleRateHertz"></a>
-The sample rate, in Hertz, of the input audio\. We suggest that you use 8,000 Hz for low quality audio and 16,000 Hz for high quality audio\.  
+The sample rate, in Hertz, of the input audio\. We suggest that you use 8,000 Hz for low quality audio and 16,000 Hz or higher for high quality audio\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: Yes
 
@@ -230,7 +236,7 @@ The encoding used for the input audio stream\.
 Valid Values:` pcm | ogg-opus | flac` 
 
  ** [ MediaSampleRateHertz ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaSampleRateHertz"></a>
-The sample rate for the input audio stream\. Use 8,000 Hz for low quality audio and 16,000 Hz for high quality audio\.  
+The sample rate for the input audio stream\. Use 8,000 Hz for low quality audio and 16,000 Hz or higher for high quality audio\.  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.
 
  ** [ NumberOfChannels ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-NumberOfChannels"></a>
@@ -304,6 +310,12 @@ HTTP Status Code: 503
 ## See Also<a name="API_streaming_StartStreamTranscription_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_transcribe_streaming_service.html) 
-+  [AWS SDK for Java](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/transcribestreaming/package-summary.html) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeStreamingService/Client.html) 
++  [ AWS Command Line Interface](https://alpha-docs-aws.amazon.com/goto/aws-cli/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for \.NET](https://alpha-docs-aws.amazon.com/goto/DotNetSDKV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for C\+\+](https://alpha-docs-aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Go](https://alpha-docs-aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Java V2](https://alpha-docs-aws.amazon.com/goto/SdkForJavaV2/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for JavaScript](https://alpha-docs-aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for PHP V3](https://alpha-docs-aws.amazon.com/goto/SdkForPHPV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Python](https://alpha-docs-aws.amazon.com/goto/boto3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Ruby V3](https://alpha-docs-aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 

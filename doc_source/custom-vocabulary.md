@@ -1,4 +1,4 @@
-# Custom vocabularies<a name="how-vocabulary"></a>
+# Custom vocabularies<a name="custom-vocabulary"></a>
 
 You can give Amazon Transcribe more information about how to process speech in your input file by creating a custom vocabulary in text file format\. A *custom vocabulary* is a list of specific words that you want Amazon Transcribe to recognize in your audio input\. These are generally domain\-specific words and phrases, words that Amazon Transcribe isn't recognizing, or proper nouns\.
 
@@ -18,15 +18,18 @@ Custom vocabulary basics:
 
 **Why use a table instead of a list for your custom vocabulary?**
 
-The table format gives you more options for—and more control over—the input and output of words within your custom vocabulary\. The console, API, and CLI all use custom vocabulary tables in the same way; lists are used differently for each method and may require additional formatting\-related steps for successful use between the console, API, and CLI\.
+The table format gives you more options for—and more control over—the input and output of words within your custom vocabulary\. The console, SDK, and CLI all use custom vocabulary tables in the same way; lists are used differently for each method and may require additional formatting for successful use between the console, SDK, and CLI\.
 
-To create a custom vocabulary, use the [ CreateVocabulary ](API_CreateVocabulary.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. After you submit the [ CreateVocabulary ](API_CreateVocabulary.md) request, Amazon Transcribe processes the vocabulary\. To see the processing status of the vocabulary, use the console or the [ GetVocabulary ](API_GetVocabulary.md) API\.
+**API operations specific to custom vocabularies**  
+ [CreateVocabulary](https://docs.aws.amazon.com/transcribe/latest/dg/API_CreateVocabulary.html), [DeleteVocabulary](https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteVocabulary.html), [GetVocabulary](https://docs.aws.amazon.com/transcribe/latest/dg/API_GetVocabulary.html), [ListVocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/API_ListVocabularies.html), [UpdateVocabulary](https://docs.aws.amazon.com/transcribe/latest/dg/API_UpdateVocabulary.html) 
 
-To use the custom vocabulary, set the `VocabularyName` field of the `Settings` field when you call the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API or choose the vocabulary in the console when you create the transcription job\. 
+To create a custom vocabulary, use the [ CreateVocabulary ](API_CreateVocabulary.md) operation or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\. After you submit the [ CreateVocabulary ](API_CreateVocabulary.md) request, Amazon Transcribe processes the vocabulary\. To see the processing status of the vocabulary, use the console or the [ GetVocabulary ](API_GetVocabulary.md) API\.
+
+To use a custom vocabulary, set the `VocabularyName` field of the `Settings` field when you call the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) operation or choose the vocabulary in the console when you create the transcription job\. 
 
 ## Using acronyms in your custom vocabulary<a name="create-vocabulary-acronym"></a>
 
-Enter acronyms, or other words whose letters should be pronounced individually, as single letters separated by periods; for example: **A\.B\.C\.**, **F\.B\.I\.**, **A\.W\.S\.**\. To enter the plural form of an acronym, such as "ABCs", separate the "s" from the acronym with a hyphen: **A\.B\.C\.\-s**\. You can use upper or lower case letters to define an acronym\. Acronyms are not supported in all languages; refer to [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+Enter acronyms, or other words whose letters should be pronounced individually, as single letters separated by periods; for example: **A\.B\.C\.**, **F\.B\.I\.**, **A\.W\.S\.**\. To enter the plural form of an acronym, such as "ABCs", separate the "s" from the acronym with a hyphen: **A\.B\.C\.\-s**\. You can use upper or lower case letters to define an acronym\. Acronyms are not supported in all languages; refer to [Supported languages and language\-specific features](supported-languages.md#table-language-matrix)\.
 
 ## Create a custom vocabulary using a table<a name="create-vocabulary-table"></a>
 
@@ -35,7 +38,7 @@ You can create a custom vocabulary by creating a four\-column table in a text fi
 
   If the entry is a phrase, separate the words with a hyphen \(\-\)\. For example, you type **Los Angeles** as **Los\-Angeles**\.
 
-  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\. For a list of languages that support acronyms, see [Supported languages and language\-specific features](how-it-works.md#table-language-matrix)\.
+  Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such **A\.B\.C\.** or **F\.B\.I\.**\. To enter the plural form of an acronym, such as "ABCs," separate the "s" from the acronym with a hyphen: "**A\.B\.C\.\-s**"\. You can use either upper\- or lower\-case letters to enter an acronym\. For a list of languages that support acronyms, see [Supported languages and language\-specific features](supported-languages.md#table-language-matrix)\.
 
   The `Phrase` field is required\. You can use any of the allowed characters for the input language\. For the list of allowed characters, see the individual languages\. If you do not specify the `DisplayAs` field, Amazon Transcribe uses the contents of the `Phrase` field in the output file\.
 + **IPA** – The pronunciation of your word or phrase using IPA characters\.
@@ -61,28 +64,31 @@ Phrase[TAB]IPA[TAB]SoundsLike[TAB]DisplayAs
 Los-Angeles[TAB][TAB][TAB]Los Angeles
 F.B.I.[TAB]ɛ f b i aɪ[TAB][TAB]FBI
 Etienne[TAB][TAB]eh-tee-en[TAB]
+Amazon-dot-com[TAB][TAB]Am-ah-zon-dot-com[TAB]Amazon.com
 ```
 
 **Important**  
 In a given row, you cannot have content for both `IPA` and `SoundsLike` fields\. You must choose one or the other, or leave both fields blank; `DisplayAs` is the only required field\.
 
-Columns can be entered in any order, as shown in the following examples\. Note that these examples use spaces to align the columns for visual clarity; however, your input files **must only** use TAB characters to separate column entries\. If you copy these examples, remove the extra spaces between columns and replace **\[TAB\]** with a TAB character\.
+Columns can be entered in any order, as shown in the following examples\. Note that these examples use spaces to align the columns for visual clarity; however, your input files **must only** use **one** TAB character between column entries\. If you copy these examples, remove the extra spaces between columns and replace **\[TAB\]** with a TAB character\. Your table will likely have visually misaligned columns, like in the above example\.
 
 ```
-Phrase     [TAB]SoundsLike [TAB]IPA        [TAB]DisplayAs   
-Los-Angeles[TAB]           [TAB]           [TAB]Los Angeles   
-F.B.I      [TAB]           [TAB]ɛ f b i aɪ [TAB]FBI   
-Etienne    [TAB]eh-tee-en  [TAB]           [TAB]
+Phrase        [TAB]SoundsLike       [TAB]IPA        [TAB]DisplayAs   
+Los-Angeles   [TAB]                 [TAB]           [TAB]Los Angeles   
+F.B.I.        [TAB]                 [TAB]ɛ f b i aɪ [TAB]FBI   
+Etienne       [TAB]eh-tee-en        [TAB]           [TAB]
+Amazon-dot-com[TAB]Am-ah-zon-dot-com[TAB]           [TAB]Amazon.com
 ```
 
 ```
-DisplayAs  [TAB]SoundsLike [TAB]IPA        [TAB]Phrase   
-Los Angeles[TAB]           [TAB]           [TAB]Los-Angeles   
-FBI        [TAB]           [TAB]ɛ f b i aɪ [TAB]F.B.I.   
-           [TAB]eh-tee-en  [TAB]           [TAB]Etienne
+DisplayAs  [TAB]SoundsLike       [TAB]IPA        [TAB]Phrase   
+Los Angeles[TAB]                 [TAB]           [TAB]Los-Angeles   
+FBI        [TAB]                 [TAB]ɛ f b i aɪ [TAB]F.B.I.   
+           [TAB]eh-tee-en        [TAB]           [TAB]Etienne
+Amazon.com [TAB]Am-ah-zon-dot-com[TAB]           [TAB]Amazon-dot-com
 ```
 
-Save your custom vocabulary file with the extension `.txt` in an S3 bucket in the same region where you are calling the API\. 
+Save your custom vocabulary file with the extension `.txt` in an S3 bucket in the same Region where you are calling the API\. 
 
 **Tip**  
 Make sure your text file is in `LF` format\. If you use any other format, such as `CRLF`, your custom vocabulary is not accepted by Amazon Transcribe\.

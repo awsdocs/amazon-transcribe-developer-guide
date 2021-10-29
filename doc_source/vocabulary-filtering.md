@@ -15,11 +15,7 @@ To filter unwanted words, you:
 
 1. Create a vocabulary filter\.
 
-1. Start your real\-time stream or transcription job and specify your vocabulary filter and method\. The method \(mask, remove, or tag\) indicates how you want to filter words from your transcript\.
+1. Start your real\-time stream or transcription job and specify your vocabulary filter and method\. The method \(mask, remove, or tag\) indicates how you want your transcription output to display filtered words in your transcript\.
 
-You can filter unwanted words with the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the API\. 
-
-**Topics**
-+ [Step 1: Creating a list of unwanted words](create-filter-file.md)
-+ [Step 2: Creating a vocabulary filter](create-filter.md)
-+ [Step 3: Filtering transcriptions](filter-transcriptions.md)
+**API operations specific to vocabulary filtering**  
+ [CreateVocabularyFilter](https://docs.aws.amazon.com/transcribe/latest/dg/API_CreateVocabularyFilter.html), [DeleteVocabularyFilter](https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteVocabularyFilter.html), [GetVocabularyFilter](https://docs.aws.amazon.com/transcribe/latest/dg/API_GetVocabularyFilter.html), [ListVocabularyFilters](https://docs.aws.amazon.com/transcribe/latest/dg/API_ListVocabularyFilters.html), [UpdateVocabularyFilter](https://docs.aws.amazon.com/transcribe/latest/dg/API_UpdateVocabularyFilter.html) 

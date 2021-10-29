@@ -1,26 +1,54 @@
-# Using categories and rules<a name="create-categories"></a>
+# Call categorization<a name="call-analytics-categorization"></a>
 
-You can use call analytics categories to flag particular conversational characteristics in your call analytics job\. For each category you create, you must create between 1 and 20 rules\. Each rule contains one *filter* to identify criteria applicable to a category\. You can create filters for the following:
-+ Non\-talk time: When neither the customer nor the agent is talking\.
-+ Interruptions: When either the customer or the agent is interrupting the other person\.
-+ Customer or agent sentiment: How either the customer or the agent is feeling during a specified time period\. If at least 50 percent of the conversation turns \(the back\-and\-forth between two speakers\) in a specified time period match the specified sentiment, Amazon Transcribe will consider the sentiment a match\.
-+ Call categorization: Matches part of the transcription based on an exact phrase\. For example, if you filter for the customer saying "I want to speak to the manager", Amazon Transcribe filters for that exact phrase\.
+Use call categorization to flag custom keywords or phrases spoken during the call\. You can also set your categories to flag other call analytics metrics, including sentiment, non\-talk time, and interruptions\.
 
-To create a category, you can use the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see below for instructions:
+Call categorization can help you triage escalations, such as negative\-sentiment calls with many interruptions, or organize calls into specific categories, such as company departments\.
 
-## Console<a name="analytics-category-console"></a>
+Here's what a category match looks like in your transcription output:
+
+```
+        "Categories": {
+        "MatchedDetails": {
+            "matchedCategoryA": {
+                "PointsOfInterest": [{
+                    "BeginOffsetMillis": 440,
+                    "EndOffsetMillis": 4960
+                }]
+            }
+        },
+        "MatchedCategories": ["matchedCategoryA"]
+        }
+```
+
+To sort your transcript by category, you must first create one or more categories, each with at least one rule\. See [Using categories and rules](#create-categories) to learn more\.
+
+## Using categories and rules<a name="create-categories"></a>
+
+For each category you create, you must create between 1 and 20 rules\. Each rule contains one *filter* to identify criteria applicable to a category\. You can create filters for the following:
++ **Non\-talk time**: Periods of time when neither the customer nor the agent is talking\.
++ **Interruptions**: When either the customer or the agent is interrupting the other person\.
++ **Customer or agent sentiment**: How either the customer or the agent is feeling during a specified time period\. If at least 50 percent of the conversation turns \(the back\-and\-forth between two speakers\) in a specified time period match the specified sentiment, Amazon Transcribe considers the sentiment a match\.
++ **Key words or phrases**: Matches part of the transcription based on an exact phrase\. For example, if you set a filter for the phrase "I want to speak to the manager", Amazon Transcribe filters for that *exact* phrase\.
+
+If you run a call analytics job and its characteristics match the rules you've specified in a category, Amazon Transcribe automatically labels your job with that category\.
+
+You can create as many categories as you'd like to cover a range of different situations\. Using a variety of categories can help you determine how your rules and categories correlate\. For example, you might hypothesize that an agent not using a greeting is correlated with negative customer sentiment\. To test this hypothesis, you can create two separate categories\. Category 1 has a rule for an agent not using a specific greeting\. Category 2 has a rule that the customer sentiment is negative during the last five minutes of the call\. When you run your analytics jobs, you can then see how these categories correlate, if at all\.
+
+To create a category, you can use the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see the following for instructions:
+
+### Console<a name="analytics-category-console"></a>
 
 1. In the navigation pane, under Amazon Transcribe, choose **Amazon Transcribe Call Analytics**\.
 
 1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Click the **Create category** button\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories.png)
 
-1. You're now on the **Create category page**\. Enter a name for the category, then choose whether you're going to use a template to create a category\.  
+1. You're now on the **Create category page**\. Enter a name for the category, then choose if you're going to use a template to create a category or make one from scratch\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-settings.png)
 
 1. Choose **Create category**\.
 
-## AWS SDK for Python \(Boto3\)<a name="analytics-category-sdk"></a>
+### AWS SDK for Python \(Boto3\)<a name="analytics-category-sdk"></a>
 
 The following example uses the AWS SDK for Python \(Boto3\) to create a category by using the `CategoryName` and `Rules` arguments for the [create\_call\_analytics\_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category) method:
 
@@ -41,7 +69,7 @@ print(result)
 
 This example creates a category that filters for a negative agent sentiment\.
 
-## AWS CLI<a name="analytics-category-cli"></a>
+### AWS CLI<a name="analytics-category-cli"></a>
 
 This example uses the [create\-call\-analytics\-category](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-call-analytics-category.html) command\.
 

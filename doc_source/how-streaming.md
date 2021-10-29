@@ -8,7 +8,7 @@ When Amazon Transcribe uses the [HTTP/2 protocol](https://http2.github.io/) for 
 + An end frame\. This is a signed message in event stream encoding with an empty body\.
 
 **Note**  
-Amazon Transcribe only supports one stream per HTTP/2 session\. If you attempt to use multiple streams, your transcription request will fail\.
+Amazon Transcribe only supports one stream per HTTP/2 session\. If you attempt to use multiple streams, your transcription request fails\.
 
 ## Streaming request<a name="streaming-request"></a>
 
