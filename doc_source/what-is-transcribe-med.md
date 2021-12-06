@@ -1,6 +1,6 @@
 # What is Amazon Transcribe Medical?<a name="what-is-transcribe-med"></a>
 
-Amazon Transcribe Medical is an automatic speech recognition \(ASR\) service designed for medical professionals who wish to to transcribe medical\-related speech, such as physician\-dictated notes, drug safety monitoring, telemedicine appointments, or physician\-patient conversations\. Amazon Transcribe Medical is available through either real\-time streaming \(via microphone\) or transcription of an uploaded file \(batch\)\.
+Amazon Transcribe Medical is an automatic speech recognition \(ASR\) service designed for medical professionals who wish to transcribe medical\-related speech, such as physician\-dictated notes, drug safety monitoring, telemedicine appointments, or physician\-patient conversations\. Amazon Transcribe Medical is available through either real\-time streaming \(via microphone\) or transcription of an uploaded file \(batch\)\.
 
 **Important**  
 Amazon Transcribe Medical is not a substitute for professional medical advice, diagnosis, or treatment\. Identify the right confidence threshold for your use case, and use high confidence thresholds in situations that require high accuracy\. For certain use cases, results should be reviewed and verified by appropriately trained human reviewers\. Amazon Transcribe Medical transcriptions should only be used in patient care scenarios after review for accuracy and sound medical judgment by trained medical professionals\.

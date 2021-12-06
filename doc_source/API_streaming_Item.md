@@ -5,7 +5,7 @@ A word, phrase, or punctuation mark that is transcribed from the input audio\.
 ## Contents<a name="API_streaming_Item_Contents"></a>
 
  ** Confidence **   <a name="transcribe-Type-streaming_Item-Confidence"></a>
-A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to each word or phrase that it transcribes\.  
+A value between zero and one for an item that is a confidence score that Amazon Transcribe assigns to each word or phrase that it transcribes\.  
 Type: Double  
 Required: No
 
@@ -20,7 +20,7 @@ Type: Double
 Required: No
 
  ** Speaker **   <a name="transcribe-Type-streaming_Item-Speaker"></a>
-If speaker identification is enabled, shows the speakers identified in the real\-time stream\.  
+If speaker identification is enabled, shows the speakers identified in the media stream\.  
 Type: String  
 Required: No
 
@@ -41,7 +41,7 @@ Valid Values:` pronunciation | punctuation`
 Required: No
 
  ** VocabularyFilterMatch **   <a name="transcribe-Type-streaming_Item-VocabularyFilterMatch"></a>
-Indicates whether a word in the item matches a word in the vocabulary filter you've chosen for your real\-time stream\. If `true` then a word in the item matches your vocabulary filter\.  
+Indicates whether a word in the item matches a word in the vocabulary filter you've chosen for your media stream\. If `true` then a word in the item matches your vocabulary filter\.  
 Type: Boolean  
 Required: No
 

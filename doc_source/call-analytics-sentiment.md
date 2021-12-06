@@ -68,3 +68,5 @@ Here's what sentiment analysis looks like in your transcription output:
       }
   }
   ```
+
+When you're ready to set up a call analytics job, see [Start a call analytics transcription job](call-analytics-start.md)\.

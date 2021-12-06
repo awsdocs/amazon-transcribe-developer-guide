@@ -257,7 +257,7 @@ public class StreamTranscriptionBehaviorImpl implements StreamTranscriptionBehav
 
     @Override
     public void onStream(TranscriptResultStream e) {
-        // EventResultStream has other fields related to the the timestamp of the transcripts in it.
+        // EventResultStream has other fields related to the timestamp of the transcripts in it.
         // Please refer to the javadoc of TranscriptResultStream for more details
         List<Result> results = ((TranscriptEvent) e).transcript().results();
         if (results.size() > 0) {

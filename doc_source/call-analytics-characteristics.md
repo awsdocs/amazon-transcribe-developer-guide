@@ -4,7 +4,7 @@ The call characteristics feature measures the quality of agent\-customer interac
 + **Talk time**—Measures the amount of time \(in milliseconds\) each participant spoke during the call\. Use this metric to help identify if one participant is dominating the call or if the dialogue is balanced\.
 + **Non\-talk time**—Measures periods of time that do not contain speech\. Use this metric to see if there are long periods of silence, such as an agent keeping a customer on hold for an excessive amount of time\.
 + **Loudness**—Measures the volume at which each participant is speaking\. Use this metric to see if either the caller or the agent is speaking loudly or yelling, which is often indicative of being upset\. This metric is represented as a normalized value \(speech level per second of speech in a given segment\) on a scale from 0 to 100, where a higher value indicates a louder voice\.
-+ **Interruption**—Measures if and when one participant cuts off the other participant midsentence\. Frequent interruptions may be associated with rudeness or anger, and could correlate to negative sentiment for one or both participants\.
++ **Interruption**—Measures if and when one participant cuts off the other participant mid\-sentence\. Frequent interruptions may be associated with rudeness or anger, and could correlate to negative sentiment for one or both participants\.
 + **Talk speed**—Measures the speed at which both participants are speaking\. Comprehension can be affected if one participant speaks too quickly\. This metric is measured in words per minute\.
 
 Here's what talk time, non\-talk time, loudness scores, interruptions, and talk speed look like in your transcription output:
@@ -83,3 +83,5 @@ Here's what talk time, non\-talk time, loudness scores, interruptions, and talk 
             }
         },
 ```
+
+When you're ready to set up a call analytics job, see [Start a call analytics transcription job](call-analytics-start.md)\.

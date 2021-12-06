@@ -5,21 +5,21 @@ Language\-specific settings that can be specified when language identification i
 ## Contents<a name="API_LanguageIdSettings_Contents"></a>
 
  ** LanguageModelName **   <a name="transcribe-Type-LanguageIdSettings-LanguageModelName"></a>
-The name of the language model you want to use when transcribing your audio\. The model you specify must have the same language code as the transcription job; if the languages don't match, the language model won't be applied\.  
+The name of the language model you want to use when transcribing your audio\. The model you specify must have the same language codes as the transcription job; if the languages don't match, the language model isn't be applied\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
  ** VocabularyFilterName **   <a name="transcribe-Type-LanguageIdSettings-VocabularyFilterName"></a>
-The name of the vocabulary filter you want to use when transcribing your audio\. The filter you specify must have the same language code as the transcription job; if the languages don't match, the vocabulary filter won't be applied\.  
+The name of the vocabulary filter you want to use when transcribing your audio\. The filter you specify must have the same language codes as the transcription job; if the languages don't match, the vocabulary filter isn't be applied\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   
 Required: No
 
  ** VocabularyName **   <a name="transcribe-Type-LanguageIdSettings-VocabularyName"></a>
-The name of the vocabulary you want to use when processing your transcription job\. The vocabulary you specify must have the same language code as the transcription job; if the languages don't match, the vocabulary won't be applied\.  
+The name of the vocabulary you want to use when processing your transcription job\. The vocabulary you specify must have the same language codes as the transcription job; if the languages don't match, the vocabulary isn't applied\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+`   

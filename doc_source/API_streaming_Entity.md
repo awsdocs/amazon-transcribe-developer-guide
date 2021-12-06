@@ -5,7 +5,7 @@ The entity identified as personally identifiable information \(PII\)\.
 ## Contents<a name="API_streaming_Entity_Contents"></a>
 
  ** Category **   <a name="transcribe-Type-streaming_Entity-Category"></a>
-The category of of information identified in this entity; for example, PII\.  
+The category of information identified in this entity; for example, PII\.  
 Type: String  
 Required: No
 

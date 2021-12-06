@@ -14,8 +14,8 @@ The languages supported by Amazon Transcribe are listed in the following table; 
 | [Chinese, Traditional](charsets.md#char-chinese-man-tw) | zh\-TW | batch only | no | no | no | no | no | 
 | [Danish](charsets.md#char-danish) | da\-DK | batch only | no | yes | no | no | no | 
 | [Dutch](charsets.md#char-dutch) | nl\-NL | batch only | no | yes | no | no | no | 
-| [English](charsets.md#char-english), Australian | en\-AU | batch, streaming | yes | yes | yes | no | yes \(batch only\) | 
-| [English](charsets.md#char-english), British | en\-GB | batch, streaming | yes | yes | yes | no | yes \(batch only\) | 
+| [English](charsets.md#char-english), Australian | en\-AU | batch, streaming | yes | yes | yes \(batch only\) | no | yes \(batch only\) | 
+| [English](charsets.md#char-english), British | en\-GB | batch, streaming | yes | yes | yes \(batch only\) | no | yes \(batch only\) | 
 | [English](charsets.md#char-english), Indian | en\-IN | batch only | yes | yes | no | no | yes | 
 | [English](charsets.md#char-english), Irish | en\-IE | batch only | yes | yes | no | no | yes | 
 | [English](charsets.md#char-english), New Zealand | en\-NZ | batch only | yes | yes | no | no | no | 
@@ -29,7 +29,7 @@ The languages supported by Amazon Transcribe are listed in the following table; 
 | [German](charsets.md#char-german) | de\-DE | batch, streaming | yes | yes | no | no | yes \(batch only\) | 
 | [German](charsets.md#char-german), Swiss | de\-CH | batch only | yes | yes | no | no | yes | 
 | [Hebrew](charsets.md#char-hebrew) | he\-IL | batch only | no | no | no | no | no | 
-| [Hindi](charsets.md#char-hindi), Indian | hi\-IN | batch only | no | yes | yes | no | yes | 
+| [Hindi](charsets.md#char-hindi), Indian | hi\-IN | batch only | no | yes | yes \(batch only\) | no | yes | 
 | [Indonesian](charsets.md#char-indonesian) | id\-ID | batch only | no | yes | no | no | no | 
 | [Italian](charsets.md#char-italian) | it\-IT | batch, streaming | no | yes | no | no | yes \(batch only\) | 
 | [Japanese](charsets.md#char-japanese) | ja\-JP | batch, streaming | no | no | no | no | yes \(batch only\) | 
@@ -39,7 +39,7 @@ The languages supported by Amazon Transcribe are listed in the following table; 
 | [Portuguese](charsets.md#char-portuguese), Brazilian | pt\-BR | batch, streaming | no | yes | no | no | yes \(batch only\) | 
 | [Russian](charsets.md#char-russian) | ru\-RU | batch only | no | no | no | no | no | 
 | [Spanish](charsets.md#char-spanish) | es\-ES | batch only | no | yes | no | no | yes | 
-| [Spanish](charsets.md#char-spanish), US | es\-US | batch, streaming | no | yes | yes | no | yes \(batch only\) | 
+| [Spanish](charsets.md#char-spanish), US | es\-US | batch, streaming | no | yes | yes \(batch only\) | no | yes \(batch only\) | 
 | [Tamil](charsets.md#char-tamil) | ta\-IN | batch only | no | no | no | no | no | 
 | [Telugu](charsets.md#char-telugu) | te\-IN | batch only | no | no | no | no | no | 
 | [Thai](charsets.md#char-thai) | th\-TH | batch only | no | yes | no | no | no | 

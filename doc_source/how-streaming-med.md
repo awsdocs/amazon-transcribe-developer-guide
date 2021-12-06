@@ -137,7 +137,7 @@ If there is an error in processing your transcription stream, Amazon Transcribe 
 
 The response contains the standard prelude and the following headers\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-error-headers.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-error-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 When the exception response is decoded, it contains the following information\.
 

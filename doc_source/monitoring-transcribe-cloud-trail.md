@@ -1,6 +1,6 @@
 # Monitoring Amazon Transcribe API calls with AWS CloudTrail<a name="monitoring-transcribe-cloud-trail"></a>
 
-Amazon Transcribe is integrated with AWS CloudTrail, a service that provides a record of actions taken in Amazon Transcribe by an AWS Identity and Access Management \(IAM\) user or role, or by an AWS service\. CloudTrail captures all API calls for Amazon Transcribe, including calls from the Amazon Transcribe console and from code calls to the Amazon Transcribe APIs, as events\. By creating a trail, you can enable continuous delivery of CloudTrail events, including events for Amazon Transcribe, to an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you don't create a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can see each request that was made to Amazon Transcribe, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
+Amazon Transcribe is integrated with AWS CloudTrail, a service that provides a record of actions taken in Amazon Transcribe by an AWS Identity and Access Management \(IAM\) user or role, or by an AWS service\. CloudTrail captures all API calls for Amazon Transcribe, including calls from the Amazon Transcribe console and from code calls to the Amazon Transcribe APIs, as events\. By creating a trail, you can enable continuous delivery of CloudTrail events, including events for Amazon Transcribe, to an Amazon Simple Storage Service \(Amazon S3\) bucket\. If you don't create a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can see each request that is made to Amazon Transcribe, the IP address from which the request is made, who made the request, when it is made, and additional details\.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
@@ -17,9 +17,9 @@ For an ongoing record of events in your AWS account, including events for Amazon
 CloudTrail logs all Amazon Transcribe actions, which are documented in the [API Reference](API_Reference.md)\. For example, calls to the [ CreateVocabulary ](API_CreateVocabulary.md), [ GetTranscriptionJob ](API_GetTranscriptionJob.md), and [ StartTranscriptionJob ](API_StartTranscriptionJob.md) APIs generate entries in the CloudTrail log files\.
 
 Every event or log entry contains information about who generated the request\. This information helps you determine the following: 
-+ Whether the request was made with root or IAM user credentials
-+ Whether the request was made with temporary security credentials for an IAM role or federated user
-+ Whether the request was made by another AWS service
++ Whether the request is made with root or IAM user credentials
++ Whether the request is made with temporary security credentials for an IAM role or federated user
++ Whether the request is made by another AWS service
 
 For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
 

@@ -1,6 +1,6 @@
 # Guidelines and quotas<a name="limits-guidelines"></a>
 
-Amazon Transcribe has several guidelines to follow in order to achieve optimal results\. There are also quotas that may impact your transcriptions; some of these can be increased\. Refer to the below sections for details\.
+Amazon Transcribe has several guidelines to follow in order to achieve optimal results\. There are also quotas that may impact your transcriptions; some of these can be increased\. Refer to the following sections for details\.
 
 ## Supported Regions<a name="transcribe-regions"></a>
 
@@ -36,7 +36,7 @@ You can request a quota increase for the following resources:
 | Number of categories per account \(call analytics\) | 200 | 
 | Number of rules per category \(call analytics\) | 20 | 
 
-The below operations limits can also be increased upon request:
+The following operations limits can also be increased upon request:
 
 
 | Operation | Transactions per second | 

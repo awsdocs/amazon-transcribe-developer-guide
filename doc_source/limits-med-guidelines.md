@@ -20,11 +20,11 @@ You can request a quota increase for the following resources\.
 | Resource | Default | 
 | --- | --- | 
 | Number of concurrent batch transcription jobs | 250 | 
-| Number of [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) or Websocket requests | 25 | 
+| Number of [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) or WebSocket requests | 25 | 
 | Total number of medical vocabularies per account | 100 | 
 | Number of pending medical vocabularies | 10 | 
 
-The below API limits can also be increased upon request:
+The following API limits can also be increased upon request:
 
 
 | API | Maximum transactions per second | 

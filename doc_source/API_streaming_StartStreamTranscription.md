@@ -8,7 +8,7 @@ The following are encoded as HTTP/2 headers:
 + x\-amzn\-transcribe\-sample\-rate
 + x\-amzn\-transcribe\-session\-id
 
-See the [ SDK for Go API Reference](https://alpha-docs-aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription) for more detail\.
+See the [ SDK for Go API Reference](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription) for more detail\.
 
 ## Request Syntax<a name="API_streaming_StartStreamTranscription_RequestSyntax"></a>
 
@@ -21,7 +21,6 @@ x-amzn-transcribe-vocabulary-name: VocabularyName
 x-amzn-transcribe-session-id: SessionId
 x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
 x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
-x-amzn-transcribe-language-model-name: LanguageModelName
 x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
 x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
 x-amzn-transcribe-number-of-channels: NumberOfChannels
@@ -30,6 +29,10 @@ x-amzn-transcribe-partial-results-stability: PartialResultsStability
 x-amzn-transcribe-content-identification-type: ContentIdentificationType
 x-amzn-transcribe-content-redaction-type: ContentRedactionType
 x-amzn-transcribe-pii-entity-types: PiiEntityTypes
+x-amzn-transcribe-language-model-name: LanguageModelName
+x-amzn-transcribe-identify-language: IdentifyLanguage
+x-amzn-transcribe-language-options: LanguageOptions
+x-amzn-transcribe-preferred-language: PreferredLanguage
 Content-type: application/json
 
 {
@@ -56,22 +59,31 @@ You can’t set both `ContentRedactionType` and `ContentIdentificationType` in t
 Valid Values:` PII` 
 
  ** [ EnableChannelIdentification ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-EnableChannelIdentification"></a>
-When `true`, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription\.  
+When `true`, instructs Amazon Transcribe to process each audio channel separately, then merges the transcription output of each channel into a single transcription\.  
 Amazon Transcribe also produces a transcription of each item\. An item includes the start time, end time, and any alternative transcriptions\.  
 You can't set both `ShowSpeakerLabel` and `EnableChannelIdentification` in the same request\. If you set both, your request returns a `BadRequestException`\.
 
  ** [ EnablePartialResultsStabilization ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-EnablePartialResultsStabilization"></a>
 When `true`, instructs Amazon Transcribe to present transcription results that have the partial results stabilized\. Normally, any word or phrase from one partial result can change in a subsequent partial result\. With partial results stabilization enabled, only the last few words of one partial result can change in another partial result\.
 
+ ** [ IdentifyLanguage ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-IdentifyLanguage"></a>
+Optional\. Set this value to `true` to enable language identification for your media stream\.
+
  ** [ LanguageCode ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageCode"></a>
-Indicates the source language used in the input audio stream\.  
-Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN`   
-Required: Yes
+The language code of the input audio stream\.  
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN` 
 
  ** [ LanguageModelName ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageModelName"></a>
 The name of the language model you want to use\.  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
+
+ ** [ LanguageOptions ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-LanguageOptions"></a>
+An object containing a list of languages that might be present in your audio\.  
+You must provide two or more language codes to help Amazon Transcribe identify the correct language of your media stream with the highest possible accuracy\. You can only select one variant per language; for example, you can't include both `en-US` and `en-UK` in the same request\.  
+You can only use this parameter if you've set `IdentifyLanguage` to `true`in your request\.  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[a-zA-Z-,]+` 
 
  ** [ MediaEncoding ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-MediaEncoding"></a>
 The encoding used for the input audio\.  
@@ -98,16 +110,21 @@ List the PII entity types you want to identify or redact\. In order to specify e
 Length Constraints: Minimum length of 1\. Maximum length of 300\.  
 Pattern: `^[A-Z_, ]+` 
 
+ ** [ PreferredLanguage ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-PreferredLanguage"></a>
+Optional\. From the subset of languages codes you provided for `LanguageOptions`, you can select one preferred language for your transcription\.  
+You can only use this parameter if you've set `IdentifyLanguage` to `true`in your request\.  
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN` 
+
  ** [ SessionId ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-SessionId"></a>
 A identifier for the transcription session\. Use this parameter when you want to retry a session\. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in the response\.  
 Length Constraints: Fixed length of 36\.  
 Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}` 
 
  ** [ ShowSpeakerLabel ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-ShowSpeakerLabel"></a>
-When `true`, enables speaker identification in your real\-time stream\.
+When `true`, enables speaker identification in your media stream\.
 
  ** [ VocabularyFilterMethod ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterMethod"></a>
-The manner in which you use your vocabulary filter to filter words in your transcript\. `Remove` removes filtered words from your transcription results\. `Mask` masks filtered words with a `***` in your transcription results\. `Tag` keeps the filtered words in your transcription results and tags them\. The tag appears as `VocabularyFilterMatch` equal to `True`   
+The manner in which you use your vocabulary filter to filter words in your transcript\. `Remove` removes filtered words from your transcription results\. `Mask` masks filtered words with a `***` in your transcription results\. `Tag` keeps the filtered words in your transcription results and tags them\. The tag appears as `VocabularyFilterMatch` equal to `True`\.  
 Valid Values:` remove | mask | tag` 
 
  ** [ VocabularyFilterName ](#API_streaming_StartStreamTranscription_RequestSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-request-VocabularyFilterName"></a>
@@ -149,6 +166,10 @@ x-amzn-transcribe-partial-results-stability: PartialResultsStability
 x-amzn-transcribe-content-identification-type: ContentIdentificationType
 x-amzn-transcribe-content-redaction-type: ContentRedactionType
 x-amzn-transcribe-pii-entity-types: PiiEntityTypes
+x-amzn-transcribe-language-model-name: LanguageModelName
+x-amzn-transcribe-identify-language: IdentifyLanguage
+x-amzn-transcribe-language-options: LanguageOptions
+x-amzn-transcribe-preferred-language: PreferredLanguage
 Content-type: application/json
 
 {
@@ -197,6 +218,13 @@ Content-type: application/json
                   "ChannelId": "string",
                   "EndTime": number,
                   "IsPartial": boolean,
+                  "LanguageCode": "string",
+                  "LanguageIdentification": [ 
+                     { 
+                        "LanguageCode": "string",
+                        "Score": number
+                     }
+                  ],
                   "ResultId": "string",
                   "StartTime": number
                }
@@ -227,9 +255,22 @@ Shows whether channel identification has been enabled in the stream\.
  ** [ EnablePartialResultsStabilization ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-EnablePartialResultsStabilization"></a>
 Shows whether partial results stabilization has been enabled in the stream\.
 
+ ** [ IdentifyLanguage ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-IdentifyLanguage"></a>
+The language code of the language identified in your media stream\.
+
  ** [ LanguageCode ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageCode"></a>
-The language code for the input audio stream\.  
+The language code of the input audio stream\.  
 Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN` 
+
+ ** [ LanguageModelName ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageModelName"></a>
+The name of the language model used in your media stream\.  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[0-9a-zA-Z._-]+` 
+
+ ** [ LanguageOptions ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-LanguageOptions"></a>
+The language codes used in the identification of your media stream's predominant language\.  
+Length Constraints: Minimum length of 1\. Maximum length of 200\.  
+Pattern: `^[a-zA-Z-,]+` 
 
  ** [ MediaEncoding ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-MediaEncoding"></a>
 The encoding used for the input audio stream\.  
@@ -252,6 +293,10 @@ Lists the PII entity types you specified in your request\.
 Length Constraints: Minimum length of 1\. Maximum length of 300\.  
 Pattern: `^[A-Z_, ]+` 
 
+ ** [ PreferredLanguage ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-PreferredLanguage"></a>
+The preferred language you specified in your request\.  
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN` 
+
  ** [ RequestId ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-RequestId"></a>
 An identifier for the streaming transcription\.
 
@@ -264,11 +309,11 @@ Pattern: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9
 Shows whether speaker identification was enabled in the stream\.
 
  ** [ VocabularyFilterMethod ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterMethod"></a>
-The vocabulary filtering method used in the real\-time stream\.  
+The vocabulary filtering method used in the media stream\.  
 Valid Values:` remove | mask | tag` 
 
  ** [ VocabularyFilterName ](#API_streaming_StartStreamTranscription_ResponseSyntax) **   <a name="transcribe-streaming_StartStreamTranscription-response-VocabularyFilterName"></a>
-The name of the vocabulary filter used in your real\-time stream\.  
+The name of the vocabulary filter used in your media stream\.  
 Length Constraints: Minimum length of 1\. Maximum length of 200\.  
 Pattern: `^[0-9a-zA-Z._-]+` 
 
@@ -310,12 +355,7 @@ HTTP Status Code: 503
 ## See Also<a name="API_streaming_StartStreamTranscription_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://alpha-docs-aws.amazon.com/goto/aws-cli/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for \.NET](https://alpha-docs-aws.amazon.com/goto/DotNetSDKV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for C\+\+](https://alpha-docs-aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for Go](https://alpha-docs-aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for Java V2](https://alpha-docs-aws.amazon.com/goto/SdkForJavaV2/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for JavaScript](https://alpha-docs-aws.amazon.com/goto/AWSJavaScriptSDK/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for PHP V3](https://alpha-docs-aws.amazon.com/goto/SdkForPHPV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for Python](https://alpha-docs-aws.amazon.com/goto/boto3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
-+  [ AWS SDK for Ruby V3](https://alpha-docs-aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-streaming-2017-10-26/StartStreamTranscription) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/transcribe-streaming-2017-10-26/StartStreamTranscription) 

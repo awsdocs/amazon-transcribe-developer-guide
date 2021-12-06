@@ -18,4 +18,6 @@ Here's what issue detection looks like in your transcription output:
             ],
 ```
 
-In this output, the issue is identified in the text between characters 27 and 63 in the preceeding text: "*lost my debit card or it was stolen*"\.
+In this output, the issue is identified in the text between characters 27 and 63 in the preceding text: "*lost my debit card or it was stolen*"\.
+
+When you're ready to set up a call analytics job, see [Start a call analytics transcription job](call-analytics-start.md)\.

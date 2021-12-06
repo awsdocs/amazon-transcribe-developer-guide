@@ -39,7 +39,7 @@ For more detailed information on tag\-based access control, see [Controlling acc
 
 You can add tags before or after you run your Amazon Transcribe job\. The existing **Create\*** and **Start\*** APIs allow you to add tags with your transcription job\.
 
-You can add, modify or delete tags using the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see below for instructions:
+You can add, modify or delete tags using the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
 
 ### Console<a name="tagging-howto-console"></a>
 
@@ -62,7 +62,7 @@ You can add, modify or delete tags using the **Amazon Transcribe Console**, **AW
 
 ### AWS CLI<a name="tagging-howto-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Tags` parameter\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Tags` parameter\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ Tag ](API_Tag.md)\.
 
 ```
 aws transcribe start-transcription-job \
@@ -94,7 +94,7 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ### AWS SDK for Python \(Boto3\)<a name="tagging-howto-sdk"></a>
 
-The following example uses the AWS SDK for Python \(Boto3\) to add a tag by using the `Tags` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
+The following example uses the AWS SDK for Python \(Boto3\) to add a tag by using the `Tags` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ Tag ](API_Tag.md)\.
 
 ```
 from __future__ import print_function

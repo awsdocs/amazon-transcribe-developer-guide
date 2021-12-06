@@ -13,7 +13,7 @@ Features supported with subtitles:
 
 ## Adding subtitles to your Amazon Transcribe video files<a name="subtitles-how-to"></a>
 
-You can add subtitles using the **console**, **SDK**, or **AWS CLI**; see below for instructions:
+You can add subtitles using the **console**, **SDK**, or **AWS CLI**; see the following for examples:
 
 ### Console<a name="subtitles-howto-console"></a>
 
@@ -28,7 +28,7 @@ You can add subtitles using the **console**, **SDK**, or **AWS CLI**; see below 
 
 ### AWS CLI<a name="subtitles-howto-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Subtitles` parameter\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Subtitles` parameter\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ Subtitles ](API_Subtitles.md)\.
 
 ```
 aws transcribe start-transcription-job \
@@ -60,7 +60,7 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ### AWS SDK for Python \(Boto3\)<a name="subtitles-howto-sdk"></a>
 
-The following example uses the AWS SDK for Python \(Boto3\) to add subtitles using the `Subtitles` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
+This example uses the AWS SDK for Python \(Boto3\) to add subtitles using the `Subtitles` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ Subtitles ](API_Subtitles.md)\.
 
 ```
 from __future__ import print_function

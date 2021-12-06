@@ -78,7 +78,7 @@ Valid Values:` mp3 | mp4 | wav | flac | ogg | amr | webm`
 Required: No
 
  ** MediaSampleRateHertz **   <a name="transcribe-Type-TranscriptionJob-MediaSampleRateHertz"></a>
-The sample rate, in Hertz, of the audio track in the input media file\.   
+The sample rate, in Hertz \(Hz\), of the audio track in the input media file\.   
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No

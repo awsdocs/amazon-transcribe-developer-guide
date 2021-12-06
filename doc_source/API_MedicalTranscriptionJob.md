@@ -51,7 +51,7 @@ Required: No
 
  ** MediaSampleRateHertz **   <a name="transcribe-Type-MedicalTranscriptionJob-MediaSampleRateHertz"></a>
 The sample rate, in Hertz, of the source audio containing medical information\.  
-If you don't specify the sample rate, Amazon Transcribe Medical determines it for you\. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical\. In most cases, you should leave the `MedicalMediaSampleHertz` blank and let Amazon Transcribe Medical determine the sample rate\.  
+If you don't specify the sample rate, Amazon Transcribe Medical determines it for you\. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical\.  
 Type: Integer  
 Valid Range: Minimum value of 8000\. Maximum value of 48000\.  
 Required: No

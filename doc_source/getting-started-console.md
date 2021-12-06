@@ -26,7 +26,7 @@ Use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) 
 
 Completed transcription jobs are displayed in a list that contains a brief description of the job\. The **Availability** column shows the remaining time that the job results are kept on the server\. Jobs are kept for 90 days and then deleted from the system\.
 
-![\[A list of transcription jobs.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-20.png)
+![\[A list of transcription jobs.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-20.png)![\[A list of transcription jobs.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 Choose a job in the list to see information about the job\.
 
@@ -34,7 +34,7 @@ The information page about the transcription job has three sections\. The **Deta
 
 The **Output** section contains the transcription of the audio submitted to Amazon Transcribe\. You can download the transcription by choosing the **Download transcription** button\.
 
-![\[The first two sections of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-30.png)
+![\[The first two sections of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/gs-30.png)![\[The first two sections of the job description page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 The **Code samples** section contains the JSON input for the [ StartTranscriptionJob ](API_StartTranscriptionJob.md)API and the output from the [ GetTranscriptionJob ](API_GetTranscriptionJob.md) API\.
 

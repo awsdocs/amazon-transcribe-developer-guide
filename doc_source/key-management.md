@@ -15,7 +15,7 @@ If you don't specify a KMS key, the output of the transcription job is encrypted
 **To enable output result encryption**
 
 1. Under **Output data** choose **Encryption**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/output-encryption.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/output-encryption.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 1. Choose whether the KMS key is from the account you're currently using or from a different account\. If you want to use a key from the current account, choose the key from **KMS key ID**\. If you're using a key from a different account, you need to enter the key ARN\. To use a key from a different account, the caller must have `kms:Encrypt` permissions for the KMS key\.
 
@@ -40,11 +40,11 @@ When creating your encryption context pairs, **do not** use sensitive informatio
 Your encryption context pair can include special characters, such as underscores \(\_\), dashes \(\-\), slashes \(/, \\\) and colons \(:\)\.
 
 **Tip**  
-It can be useful to relate the values in your encryption context pair to the data being encrypted\. Although not required, we recommned you use non\-sensitive metadata related to your encrypted content, such as file names, header values, or unencrypted database fields\.
+It can be useful to relate the values in your encryption context pair to the data being encrypted\. Although not required, we recommend you use non\-sensitive metadata related to your encrypted content, such as file names, header values, or unencrypted database fields\.
 
 To use output encryption with the API, set the `KMSEncryptionContext` parameter in the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) operation\. In order to provide encryption context for the output encryption operation, the `OutputEncryptionKMSKeyId` parameter must reference a symmetric KMS key ID\.
 
-You can use [AWS KMS condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) with IAM policies to control access to a symmetric KMS key based on the encryption context that was used in the request for a [cryptographic operation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations)\. For example, the below policy grants the IAM role “ExampleRole” permission to use the KMS *Decrypt* and *Encrypt* operations for this particular KMS key\. This policy works **only** for requests with at least one encryption context pair, in this case "color:indig0Blu3”\.
+You can use [AWS KMS condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) with IAM policies to control access to a symmetric KMS key based on the encryption context that was used in the request for a [cryptographic operation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations)\. For example, the following policy grants the IAM role “ExampleRole” permission to use the KMS *Decrypt* and *Encrypt* operations for this particular KMS key\. This policy works **only** for requests with at least one encryption context pair, in this case "color:indig0Blu3”\.
 
 ```
 {

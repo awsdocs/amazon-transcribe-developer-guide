@@ -77,7 +77,7 @@ ALL[TAB][TAB]eɪ ɛ l ɛ l[TAB]A.L.L.
 [TAB]ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia[TAB][TAB]atrioventricular-nodal-reentrant-tachycardia
 ```
 
-For reading ease, the following tables show the preceding examples more clearly in html format\. They are meant only to illustrate the examples above\.
+For reading ease, the following tables show the preceding examples more clearly in html format\. They are meant only to illustrate the examples\.
 
 
 | Phrase | IPA | SoundsLike | DisplayAs | 

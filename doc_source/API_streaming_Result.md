@@ -26,6 +26,17 @@ The `IsPartial` field is `true` to indicate that Amazon Transcribe has additiona
 Type: Boolean  
 Required: No
 
+ ** LanguageCode **   <a name="transcribe-Type-streaming_Result-LanguageCode"></a>
+The language code of the identified language in your media stream\.  
+Type: String  
+Valid Values:` en-US | en-GB | es-US | fr-CA | fr-FR | en-AU | it-IT | de-DE | pt-BR | ja-JP | ko-KR | zh-CN`   
+Required: No
+
+ ** LanguageIdentification **   <a name="transcribe-Type-streaming_Result-LanguageIdentification"></a>
+The language code of the dominant language identified in your media\.  
+Type: Array of [ LanguageWithScore ](API_streaming_LanguageWithScore.md) objects  
+Required: No
+
  ** ResultId **   <a name="transcribe-Type-streaming_Result-ResultId"></a>
 A unique identifier for the result\.   
 Type: String  

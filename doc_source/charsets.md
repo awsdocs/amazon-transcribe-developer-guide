@@ -639,7 +639,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | au | 0061 0075 | t | 0074 | 
 | b | 0062 | tʃ | 0074 0283 | 
 | d | 0064 | u | 0075 | 
-| dʒ | 0064 0292 | v | 0076 | 
+| d​ʒ | 0064 0292 | v | 0076 | 
 | e | 0065 | w | 0077 | 
 | f | 0066 | x | 0078 | 
 | h | 0068 | y | 0079 | 

@@ -1,11 +1,11 @@
 # Document history for Amazon Transcribe and Amazon Transcribe Medical<a name="doc-history"></a>
-+ **Latest documentation update:** 26 October 2021
++ **Latest documentation update:** 29 October 2021
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/auto-lang-id.html) | Language identification can now be used with custom language models, custom vocabularies, vocabulary filtering, and content redaction\. | October 26, 2021 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/auto-lang-id.html) | Language identification can now be used with custom language models, custom vocabularies, vocabulary filtering, and content redaction\. | October 29, 2021 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/clm-transcription.html) | Amazon Transcribe now supports custom language models with streaming transcriptions\. | October 20, 2021 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/subtitles.html) | Amazon Transcribe can now generate subtitles for your video files\. | September 16, 2021 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html) | Amazon Transcribe now supports PII redaction and identification for streaming\. | September 14, 2021 | 

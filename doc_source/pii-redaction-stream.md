@@ -6,7 +6,7 @@ An additional option available for streaming audio is *PII identification*\. Whe
 
 PII identification and redaction for streaming jobs is performed only upon complete transcription of the audio segments\.
 
-You can start a streaming transcription using the Amazon Transcribe console, Websocket, or HTTP/2\.
+You can start a streaming transcription using the Amazon Transcribe console, WebSocket, or HTTP/2\.
 
 ## Console<a name="redaction-howto-console-stream"></a>
 
@@ -26,11 +26,10 @@ To use the Amazon Transcribe console to transcribe and redact PII from live spee
 
 ## WebSocket stream<a name="redaction-howto-websocket"></a>
 
- To a start a WebSocket stream with PII Identification or PII redaction activated, use the following format to create a pre\-signed URL\.
+This example creates a pre\-signed URL that uses wither PII Identification or PII redaction in a WebSocket stream\. For more information on using WebSocket streams with Amazon Transcribe, see [Using Amazon Transcribe streaming with WebSockets](websocket.md)\. For more detail on parameters, see [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md)\.
 
 ```
-wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket?
-language-code=en-US 
+GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket?language-code=en-US 
 &X-Amz-Algorithm=AWS4-HMAC-SHA256 
 &X-Amz-Credential=Signature Version 4 credential scope 
 &X-Amz-Date=date
@@ -39,53 +38,73 @@ language-code=en-US
 &X-Amz-Signature=Signature Version 4 signature 
 &X-Amz-SignedHeaders=host 
 &media-encoding=mediaEncoding 
-&sample-rate=mediaSampleRateHertz 
+&sample-rate=16000 
 &session-id=sessionId
-&enable-channel-identification=boolean
+&enable-channel-identification=true
+&number-of-channels=2
+&show-speaker-label=true    
 &pii-entity-types=NAME,ADDRESS
 &content-redaction-type=PII (or &content-identification-type=PII)
 ```
 
 **Important**  
-In the above code example, you can only have one of `&content-redaction-type=PII` or `&content-identification-type=PII`, not both\.
+In the preceding code example, you can only have one of `&content-redaction-type=PII` or `&content-identification-type=PII`, not both\.
 
-To start a stream with PII Identification or PII redaction turned on, you must provide the following values:
-+ For `LanguageCode`, specify the language code for the language spoken in the stream\. For US English, specify `en-US`; language codes are listed on the [What is Amazon Transcribe?](transcribe-whatis.md) page\.
-+ For `MediaSampleHertz`, specify the sample rate of the audio\.
-+ For `content-identification-type`, specify `PII`\.
-+ For `pii-entity-types`, specify the types of PII that you want to identify\. You can specify one or more values\. Note that `pii-entity-types` is an optional parameter with a default of `ALL`; if you don't specify which entities you want to redact \(or identify\), all PII entity types are redacted \(or identified\)\.
-+ The available values for `pii-entity-types` are: `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_NUMBER`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY`, `PIN`, `EMAIL`, `ADDRESS`, `NAME`, `PHONE`, `SSN`, or `ALL`
+URL parameters:
++ **region**: The AWS Region where you are calling Amazon Transcribe\. For a list of valid Regions, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region)\.
++ **language\-code**: The language code for the input audio\. Refer to [Supported languages and language\-specific features](supported-languages.md#table-language-matrix) for supported languages\.
++ **media\-encoding**: The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
++ **sample\-rate**: The sample rate of the input audio \(in Hertz\)\. We recommend using 8,000 Hz for low\-quality audio and 16,000 Hz \(or higher\) for high\-quality audio\. The sample rate you specify must match that in the audio file\.
++ **session\-id**: Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.
++ **enable\-channel\-identification**: Identify speakers on multiple audio channels; valid values are `true` and `false`\.
++ **number\-of\-channels**: Add the number of audio channels in your stream\. Use this field only if you set `enable-channel-identification` to `true`\.
++ **show\-speaker\-label**: When set to `true`, your speakers are distinguished in your transcript\.
++ **content\-redaction\-type**: Optional\. The value must be `PII`\. Include this field to redact PII in your transcription results\. You can only use this parameter if you **are not** using `content-identification-type`\.
++ **content\-identification\-type**: Optional\. The value must be `PII`\. Include this field to identify PII in your transcription results\. You can only use this parameter if you **are not** using `content-redaction-type`\.
++ **pii\-entity\-types**: Specify the types of PII that you want to identify\. You can specify one or more values\. Note that `pii-entity-types` is an optional parameter with a default of `ALL`; if you don't specify which entities you want to redact \(or identify\), all PII entity types are redacted \(or identified\)\.
+
+  The available values for `pii-entity-types` are: `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_NUMBER`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY`, `PIN`, `EMAIL`, `ADDRESS`, `NAME`, `PHONE`, `SSN`, or `ALL`
+
+Signature Version 4 parameters:
++ **X\-Amz\-Algorithm**: The algorithm to use in the signing process; this must be `AWS4-HMAC-SHA256`\.
++ **X\-Amz\-Credential**: A string, separated by slashes \("/"\), formed by concatenating your access key ID and your credential scope components\. Credential scope includes the date \(YYYYMMDD\), AWS Region, service name, and a special termination string \(aws4\_request\)\.
++ **X\-Amz\-Date**: The date and time your signature is created in the form YYYYMMDD'T'HHMMSS'Z'\.
++ **X\-Amz\-Expires**: The length of time \(in seconds\) until the credentials expire\. The maximum value is 300 seconds\.
++ **X\-Amz\-Security\-Token**: Optional\. A Signature Version 4 token for temporary credentials\. If you specify this parameter, include it in the canonical request\. For more information, see [Requesting temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)\.
++ **X\-Amz\-Signature**: The Signature Version 4 signature you generated for your request\.
++ **X\-Amz\-SignedHeaders**: The headers that are signed when creating the signature for your request; this must be `host`\.
+
+For additional details on Signature Version 4 elements, refer to the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/sigv4_elements.html)\.
 
 ## HTTP/2 stream<a name="redaction-howto-http2"></a>
 
-The following is the syntax for the parameters of an HTTP/2 request with PII identification or PII redaction activated\.
+This example creates an HTTP/2 request with PII identification or PII redaction enabled\. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Using Amazon Transcribe streaming With HTTP/2](how-streaming.md)\. For more detail on parameters and headers specific to Amazon Transcribe, see [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md)\.
 
 ```
 POST /stream-transcription HTTP/2
 x-amzn-transcribe-language-code: en-US
-x-amzn-transcribe-sample-rate: MediaSampleRateHertz
 x-amzn-transcribe-media-encoding: MediaEncoding
-x-amzn-transcribe-vocabulary-name: VocabularyName
+x-amzn-transcribe-sample-rate: 16000
 x-amzn-transcribe-session-id: SessionId
-x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
-x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
-x-amzn-transcribe-language-model-name: LanguageModelName
-x-amzn-transcribe-enable-channel-identification: EnableChannelIdentification
-x-amzn-transcribe-number-of-channels: NumberOfChannels
-x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
-x-amzn-transcribe-enable-partial-results-stabilization: EnablePartialResultsStabilization
-x-amzn-transcribe-partial-results-stability: PartialResultsStability
-x-amzn-transcribe-content-identification-type: ContentIdentificationType (or x-amzn-transcribe-content-redaction-type: ContentRedactionType)
-x-amzn-transcribe-pii-entity-types: PiiEntityTypes
+x-amzn-transcribe-enable-channel-identification: true
+x-amzn-transcribe-number-of-channels: 2
+x-amzn-transcribe-show-speaker-label: true
+x-amzn-transcribe-content-identification-type: PII (or x-amzn-transcribe-content-redaction-type: PII)
+x-amzn-transcribe-pii-entity-types: NAME,ADDRESS
 Content-type: application/json
 ```
 
-To start an HTTP/2 stream with PII identification or PII redaction activated, use the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) operation and specify the following:
-+ For `LanguageCode`, specify the language code for the language spoken in the stream\. For US English, specify `en-US`\.
-+ For `MediaSampleHertz`, specify the sample rate of the audio\.
-+ For `ContentIdentificationType`, specify `PII`\. Specify this field if you're identifying PII in the transcription results\. You can only use this parameter if you **are not** using `content-redaction-type`\.
-+ For `ContentRedactionType`, specify `PII`\. Specify this field if you're redacting PII in the transcription results\. You can only use this parameter if you **are not** using `content-identification-type`\.
-+ For `PiiEntityTypes`, specify the types of PII you want to identify\. You can specify one or more values\. `pii-entity-types` is an optional parameter with a default of `ALL`; if you don't specify which entities you want to redact \(or identify\), all PII entity types are redacted \(or identified\)\.
+Use the following values in your request:
++ **language\-code**: The language code for the language spoken in the stream\. For US English, specify `en-US`\.
++ **media\-encoding**: The encoding used for the input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
++ **sample\-rate**: The sample rate of the audio in Hz\.
++ **session\-id**: Optional\. An identifier for the transcription session\. If you don't provide a session ID, Amazon Transcribe generates one for you and returns it in the response\.
++ **enable\-channel\-identification**: Identify speakers on multiple audio channels; valid values are `true` and `false`\.
++ **number\-of\-channels**: Add the number of audio channels in your stream\. Use this field only if you set `enable-channel-identification` to `true`\.
++ **show\-speaker\-label**: When set to `true`, your speakers are distinguished in your transcript\.
++ **content\-redaction\-type**: Optional\. The value must be `PII`\. Include this field to redact PII in your transcription results\. You can only use this parameter if you **are not** using `content-identification-type`\.
++ **content\-identification\-type**: Optional\. The value must be `PII`\. Include this field to identify PII in your transcription results\. You can only use this parameter if you **are not** using `content-redaction-type`\.
++ **pii\-entity\-types**, specify the types of PII you want to identify\. You can specify one or more values\. `pii-entity-types` is an optional parameter with a default of `ALL`; if you don't specify which entities you want to redact \(or identify\), all PII entity types are redacted \(or identified\)\.
 
   The available values for `PiiEntityTypes` are: `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_NUMBER`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY`, `PIN`, `EMAIL`, `ADDRESS`, `NAME`, `PHONE`, `SSN`, and `ALL`\. `PiiEntityTypes` is an optional parameter with a default value of `ALL`\.
 

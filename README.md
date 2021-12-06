@@ -1,6 +1,6 @@
 ## Transcribe Developer Guide
 
-The open source version of the Amazon Transcribe docs. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
+Welcome to the open source version of the Amazon Transcribe docs. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
 
 ## License Summary
 

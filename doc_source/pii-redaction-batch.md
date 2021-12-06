@@ -22,11 +22,11 @@ You can start a batch transcription job using the Amazon Transcribe console, AWS
 
 ## AWS CLI<a name="redaction-howto-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `content-redaction` parameter\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `content-redaction` parameter\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ ContentRedaction ](API_ContentRedaction.md)\.
 
 ```
 aws transcribe start-transcription-job \
---transcription-job-name my-job-name \
+--transcription-job-name your-job-name \
 --media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
 --language-code en-US \
 --content-redaction  RedactionType=PII,RedactionOutput=redacted
@@ -43,7 +43,7 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "my-job-name",
+  "TranscriptionJobName": "your-job-name",
   "LanguageCode": "en-US",
   "Media": {
       "MediaFileUri":  "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
@@ -57,14 +57,14 @@ The file *example\-start\-command\.json* contains the following request body\.
 
 ## AWS SDK for Python \(Boto3\)<a name="redaction-howto-sdk"></a>
 
-The following example uses the AWS SDK for Python \(Boto3\) to redact content using the `ContentRedaction` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method:
+This example uses the AWS SDK for Python \(Boto3\) to redact content using the `ContentRedaction` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ ContentRedaction ](API_ContentRedaction.md)\.
 
 ```
 from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "my-job-name"
+job_name = "your-job-name"
 job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,

@@ -22,6 +22,8 @@ Here's what a category match looks like in your transcription output:
 
 To sort your transcript by category, you must first create one or more categories, each with at least one rule\. See [Using categories and rules](#create-categories) to learn more\.
 
+When you're ready to set up a call analytics job, see [Start a call analytics transcription job](call-analytics-start.md)\. 
+
 ## Using categories and rules<a name="create-categories"></a>
 
 For each category you create, you must create between 1 and 20 rules\. Each rule contains one *filter* to identify criteria applicable to a category\. You can create filters for the following:
@@ -34,7 +36,7 @@ If you run a call analytics job and its characteristics match the rules you've s
 
 You can create as many categories as you'd like to cover a range of different situations\. Using a variety of categories can help you determine how your rules and categories correlate\. For example, you might hypothesize that an agent not using a greeting is correlated with negative customer sentiment\. To test this hypothesis, you can create two separate categories\. Category 1 has a rule for an agent not using a specific greeting\. Category 2 has a rule that the customer sentiment is negative during the last five minutes of the call\. When you run your analytics jobs, you can then see how these categories correlate, if at all\.
 
-To create a category, you can use the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see the following for instructions:
+To create a category, you can use the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
 
 ### Console<a name="analytics-category-console"></a>
 
@@ -50,7 +52,7 @@ To create a category, you can use the **Amazon Transcribe Console**, **AWS CLI**
 
 ### AWS SDK for Python \(Boto3\)<a name="analytics-category-sdk"></a>
 
-The following example uses the AWS SDK for Python \(Boto3\) to create a category by using the `CategoryName` and `Rules` arguments for the [create\_call\_analytics\_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category) method:
+This example uses the AWS SDK for Python \(Boto3\) to create a category using the `CategoryName` and `Rules` arguments for the [create\_call\_analytics\_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category) method\. For more information, see [ CreateCallAnalyticsCategory ](API_CreateCallAnalyticsCategory.md), [ CategoryProperties ](API_CategoryProperties.md), and [ Rule ](API_Rule.md)\.
 
 ```
 from __future__ import print_function
@@ -71,7 +73,7 @@ This example creates a category that filters for a negative agent sentiment\.
 
 ### AWS CLI<a name="analytics-category-cli"></a>
 
-This example uses the [create\-call\-analytics\-category](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-call-analytics-category.html) command\.
+This example uses the [create\-call\-analytics\-category](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-call-analytics-category.html) command\. For more information, see [ CreateCallAnalyticsCategory ](API_CreateCallAnalyticsCategory.md), [ CategoryProperties ](API_CategoryProperties.md), and [ Rule ](API_Rule.md)\.
 
 This example creates a category that filters for a negative agent sentiment:
 
@@ -138,7 +140,7 @@ The file *example\-start\-command\.json* contains the following request body\.
 }
 ```
 
-The above example creates a category with the rules:
+The preceding example creates a category with the rules:
 + The customer was not interrupted in the first 60,000 milliseconds\.
 + No one was speaking between 10% into the call through 80% into the call\.
 + The agent had a negative sentiment\.

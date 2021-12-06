@@ -18,9 +18,7 @@ The following list highlights the Amazon Transcribe features that are available 
   + Improve the accuracy of your transcription output
 
   See also: [Custom language models](custom-language-models.md)
-+  **[Language identification](auto-lang-id.md)**: Amazon Transcribe can automatically identify the predominant language in a media file without you having to specify a language code\. You can also select several language codes to help Amazon Transcribe narrow down the predominant language for improved transcription accuracy\.
-
-  Amazon Transcribe also has the ability to transcribe accented speech of individuals who are non\-native speakers of a language\. For example, you can transcribe US English \(en\-US\) audio spoken with a German \(de\-DE\) accent\.
++  **[Language identification](lang-id.md)**: Amazon Transcribe can automatically identify the predominant language in your media\. You also have the option to provide language suggestions in your request to help Amazon Transcribe narrow down the language possibilities, which can improve transcription accuracy\. The number of languages you can select varies between batch and streaming transcriptions\. For more information, refer to [Language identification with batch transcription jobs](lang-id-batch.md) and [Language identification with streaming transcriptions](lang-id-stream.md)\.
 + **[Speaker diarization](diarization.md)**: Identify individual speakers in an audio clip—a technique known as speaker diarization\. When you activate speaker diarization, Amazon Transcribe includes an attribute that identifies each speaker in the audio clip\.
 
   Use speaker diarization to:
@@ -31,7 +29,7 @@ The following list highlights the Amazon Transcribe features that are available 
 
   Use subtitles to:
   + Create closed captions for your video files
-  + Filter out inappropriate content, such as profanity, from your subtitles \(note that filtered or redacted content shows as whitespace, `***`, or `[PII]` in your transcript and subtitle files, but the audio component is not altered\)
+  + Filter out inappropriate content, such as profanity, from your subtitles \(note that filtered or redacted content shows as white space, `***`, or `[PII]` in your transcript and subtitle files, but the audio component is not altered\)
 +  **[Vocabulary filtering](vocabulary-filtering.md)**: Mask, remove, or tag words you don't want to appear in your transcription\. Vocabulary filtering helps you filter for any word you consider profane, obscene, offensive, or otherwise unsuitable for display in your transcripts\.
 
   Use vocabulary filtering to:

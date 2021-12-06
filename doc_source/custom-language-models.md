@@ -2,7 +2,7 @@
 
 Custom language models use your text data \(training data\) to improve transcription accuracy for your specific use case\. For example, you can provide Amazon Transcribe with industry\-specific terms or acronyms that it might not otherwise recognize\.
 
-In order to produce accurate transcriptions, your text data must be representative of the audio you want to transcribe\. Domain\-specific text data can include website content, instruction manuals, technical documentation, and audio transcripts\. The text data you provide must be related to your use case and, if using transcripts, these must be accurate\. Using innaccurate data to train language models results in inaccurate models, which in turn affects the accuracy of any transcription results that use those models\.
+In order to produce accurate transcriptions, your text data must be representative of the audio you want to transcribe\. Domain\-specific text data can include website content, instruction manuals, technical documentation, and audio transcripts\. The text data you provide must be related to your use case and, if using transcripts, these must be accurate\. Using inaccurate data to train language models results in inaccurate models, which in turn affects the accuracy of any transcription results that use those models\.
 
 The quality of your training data is much more important than the quantity of data when creating a custom language model\. You can provide up to 2 GB of training data and 200 MB of tuning data\.
 
@@ -35,7 +35,7 @@ Not only do custom language models recognize individual terms, but they use each
 
 Custom vocabularies require you to manually input new words\. Custom language models can add words to their recognition vocabularies automatically, adding robustness without any extra work from you\.
 
-To acheive the highest transcription accuracy, use custom vocabularies in conjunction with your custom language model\.
+To achieve the highest transcription accuracy, use custom vocabularies in conjunction with your custom language model\.
 
 **Note**  
 Streaming custom language models do not support custom vocabularies\.

@@ -54,7 +54,7 @@ The following AWS managed policies, which you can attach to users, roles, and gr
 + **AmazonTranscribeFullAccess** – Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon Simple Storage Service \(Amazon S3\) buckets with `transcribe` in the bucket name\.
 
 **Note**  
-You can review the managed permission policies by signing in to the IAM console and searching by policy name\. A search for "transcribe" returns both policies listed above \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
+You can review the managed permission policies by signing in to the IAM console and searching by policy name\. A search for "transcribe" returns both preceding policies \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
 
 You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the IAM users, roles, or groups that require those permissions\.
 
