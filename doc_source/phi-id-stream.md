@@ -6,11 +6,11 @@ You can identify Personally Identifiable Health Information \(PHI\) in either HT
 
 ## Identifying PHI in a dictation that is spoken into your microphone<a name="console-stream-phi"></a>
 
-To use the Amazon Transcribe Medical console to transcribe the speech picked up by your microphone and identify any PHI, choose **Dictation** as the audio input type, start the stream, and begin speaking into the microphone on your computer\.
+To use the AWS Management Console to transcribe the speech picked up by your microphone and identify any PHI, choose **Dictation** as the audio input type, start the stream, and begin speaking into the microphone on your computer\.
 
-**To identify PHI in a dictation using the Amazon Transcribe Medical console**
+**To identify PHI in a dictation using the AWS Management Console**
 
-1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Real\-time transcription**\.
 
@@ -24,7 +24,7 @@ To use the Amazon Transcribe Medical console to transcribe the speech picked up 
 
 ## Identifying PHI in an HTTP/2 stream<a name="http2-stream-phi"></a>
 
-To start an HTTP/2 stream with PHI Identification activated, use the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API and specify the following:
+To start an HTTP/2 stream with PHI Identification activated, use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API and specify the following:
 + For `LanguageCode`, specify the language code for the language spoken in the stream\. For US English, specify `en-US`\.
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + For `content-identification-type`, specify `PHI`\.
@@ -34,27 +34,22 @@ To start an HTTP/2 stream with PHI Identification activated, use the [ StartMedi
  To a start a WebSocket stream with PHI Identification activated, use the following format to create a pre\-signed URL\.
 
 ```
-GET https://transcribestreaming.region.amazonaws.com:8443/medical-stream-transcription-websocket?
-language-code=languageCode 
+GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket?
 &X-Amz-Algorithm=AWS4-HMAC-SHA256 
-&X-Amz-Credential=Signature Version 4 credential scope 
-&X-Amz-Date=date 
-&X-Amz-Expires=time in seconds until expiration 
+&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20220208%2Fus-west-2%2Ftranscribe%2Faws4_request 
+&X-Amz-Date=20220208T235959Z 
+&X-Amz-Expires=250 
 &X-Amz-Security-Token=security-token 
 &X-Amz-Signature=Signature Version 4 signature 
 &X-Amz-SignedHeaders=host 
-&media-encoding=mediaEncoding 
-&sample-rate=mediaSampleRateHertz 
-&session-id=sessionId 
-&enable-channel-identification=boolean
+&language-code=en-US
+&media-encoding=flac 
+&sample-rate=16000 
 &specialty=medical-specialty
 &content-identification-type=PHI
 ```
 
-To start a stream with PHI Identification turned on, you must provide the following values:
-+ For `LanguageCode`, specify the language code for the language spoken in the stream\. For US English, specify `en-US`\.
-+ For `MediaSampleHertz`, specify the sample rate of the audio\.
-+ For `content-identification-type`, specify `PHI`\.
+Parameter definitions can be found in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html); parameters common to all AWS API operations are listed in the [Common Parameters](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonParameters.html) section\.
 
 The following example is an example response to a streaming request with PHI Identification activated\. For brevity, metadata has been removed\.
 

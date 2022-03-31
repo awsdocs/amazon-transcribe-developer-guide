@@ -6,7 +6,7 @@ To learn how to create an IAM identity\-based policy using these example JSON po
 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
-+ [Using the Amazon Transcribe console](#security_iam_id-based-policy-examples-console)
++ [Using the AWS Management Console](#security_iam_id-based-policy-examples-console)
 + [AWS managed \(predefined\) policies for Amazon Transcribe](#auth-managed-policies)
 + [Permissions required for IAM user roles](#auth-role-iam-user)
 + [Permissions required for Amazon S3 encryption keys](#auth-role-kms-key)
@@ -20,11 +20,11 @@ Identity\-based policies are very powerful\. They determine whether someone can 
 + **Enable MFA for sensitive operations** – For extra security, require IAM users to use multi\-factor authentication \(MFA\) to access sensitive resources or API operations\. For more information, see [Using multi\-factor authentication \(MFA\) in AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\.
 + **Use policy conditions for extra security** – To the extent that it's practical, define the conditions under which your identity\-based policies allow access to a resource\. For example, you can write conditions to specify a range of allowable IP addresses that a request must come from\. You can also write conditions to allow requests only within a specified date or time range, or to require the use of SSL or MFA\. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
-## Using the Amazon Transcribe console<a name="security_iam_id-based-policy-examples-console"></a>
+## Using the AWS Management Console<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), you must have a minimum set of permissions for the console\. These permissions must allow you to list and view details about the Amazon Transcribe resources in your AWS account\. If you create an identity\-based policy that applies permissions that are more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
+To access the [AWS Management Console](https://console.aws.amazon.com/transcribe/), you must have a minimum set of permissions for the AWS Management Console\. These permissions must allow you to list and view details about the Amazon Transcribe resources in your AWS account\. If you create an identity\-based policy that applies permissions that are more restrictive than the minimum required permissions, the AWS Management Console won't function as intended for entities \(IAM users or roles\) with that policy\.
 
-To ensure that those entities can use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/), attach the following AWS managed policy to them\.
+To ensure that those entities can use the [AWS Management Console](https://console.aws.amazon.com/transcribe/), attach the following AWS managed policy to them\.
 
 ```
 {
@@ -41,7 +41,7 @@ To ensure that those entities can use the [Amazon Transcribe console](https://co
 }
 ```
 
-You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\. 
+You don't need to allow minimum AWS Management Console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\. 
 
 For more information, see [Adding Permissions to a User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*:
 
@@ -54,7 +54,7 @@ The following AWS managed policies, which you can attach to users, roles, and gr
 + **AmazonTranscribeFullAccess** – Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon Simple Storage Service \(Amazon S3\) buckets with `transcribe` in the bucket name\.
 
 **Note**  
-You can review the managed permission policies by signing in to the IAM console and searching by policy name\. A search for "transcribe" returns both preceding policies \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
+You can review the managed permission policies by signing in to the IAM AWS Management Console and searching by policy name\. A search for "transcribe" returns both policies listed above \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
 
 You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the IAM users, roles, or groups that require those permissions\.
 
@@ -90,7 +90,7 @@ The user's IAM policy must have Amazon S3 permissions to access the S3 bucket wh
             "Action": [
                         "s3:GetObject"
              ],
-            "Resource": "arn:aws:s3:::your-s3-bucket/"
+            "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/"
         }
     ]
 }
@@ -118,7 +118,7 @@ If you are using an AWS KMS key to encrypt an Amazon S3 bucket, include the foll
 }
 ```
 
-For more information about allowing access to AWS KMS keys, see [ Allowing external AWS Accounts to access an AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS developer guide*\.
+For more information about allowing access to AWS KMS keys, see [ Allowing external AWS accounts to access an AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS KMS developer guide*\.
 
 ## Allow users to view their own permissions<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 

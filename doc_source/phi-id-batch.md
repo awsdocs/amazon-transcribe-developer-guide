@@ -2,15 +2,15 @@
 
 Use a batch transcription job to transcribe audio files and identify the personal health information \(PHI\) within them\. When you activate Personal Health Information \(PHI\) Identification, Amazon Transcribe Medical labels the PHI that it identified in the transcription results\. For information about the PHI that Amazon Transcribe Medical can identify, see [Identifying personal health information \(PHI\) in a transcription](phi-id.md)\.
 
-You can start a batch transcription job using either the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
+You can start a batch transcription job using either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\.
 
-## Console<a name="batch-med-phi-console"></a>
+## AWS Management Console<a name="batch-med-phi-console"></a>
 
-To use the console to transcribe a clinician\-patient dialogue, create a transcription job and choose **Conversation** for **Audio input type**\.
+To use the AWS Management Console to transcribe a clinician\-patient dialogue, create a transcription job and choose **Conversation** for **Audio input type**\.
 
-**To transcribe an audio file and identify its PHI \(console\)**
+**To transcribe an audio file and identify its PHI \(AWS Management Console\)**
 
-1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -33,7 +33,7 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
 ## API<a name="batch-med-phi-api"></a>
 
 **To transcribe an audio file and identify its PHI using a batch transcription job \(API\)**
-+ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique to your AWS account\.
 
@@ -54,8 +54,8 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
   import time
   import boto3
   transcribe = boto3.client('transcribe')
-  job_name = "medical-conversation-transcription-job-name"
-  job_uri = "s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension"
+  job_name = "my-first-transcription-job"
+  job_uri = "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
   transcribe.start_medical_transcription_job(
         MedicalTranscriptionJobName = job_name,
         Media = {'MediaFileUri': job_uri},
@@ -63,7 +63,7 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
         ContentIdentificationType = 'PHI',
         Specialty = 'PRIMARYCARE',
         Type = 'type', # Specify 'CONVERSATION' for a medical conversation. Specify 'DICTATION' for a medical dictation.
-        OutputBucketName = 'DOC-EXAMPLE-BUCKET2'
+        OutputBucketName = 'DOC-EXAMPLE-BUCKET'
     )
   while True:
       status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
@@ -78,8 +78,8 @@ The following example code shows the transcription results with patient PHI iden
 
 ```
 {
-    "jobName": "transcription-job-name",
-    "accountId": "account-id",
+    "jobName": "my-medical-transcription-job-name",
+    "accountId": "111122223333",
     "results": {
         "transcripts": [{
             "transcript": "The patient's name is Bertrand."
@@ -151,10 +151,10 @@ The following example code shows the transcription results with patient PHI iden
   ```
                       
   aws transcribe start-medical-transcription-job \
-  --medical-transcription-job-name job-name\
+  --medical-transcription-job-name my-medical-transcription-job-name\
   --language-code en-US \
-  --media MediaFileUri="s3://your-S3-bucket/S3-prefix/your-filename.file-extension" \
-  --output-bucket-name DOC-EXAMPLE-BUCKET2 \
+  --media MediaFileUri="s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac" \
+  --output-bucket-name DOC-EXAMPLE-BUCKET \
   --specialty PRIMARYCARE \
   --type type \ # Choose CONVERSATION to transcribe a medical conversation. Choose DICTATION to transcribe a medical dictation.
   --content-identification-type PHI
@@ -165,11 +165,11 @@ The following example code shows the transcription results with patient PHI iden
   ```
   {
       "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "job-name",
+          "MedicalTranscriptionJobName": "my-first-transcription-job",
           "TranscriptionJobStatus": "IN_PROGRESS",
           "LanguageCode": "en-US",
           "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension"
+              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
           },
           "StartTime": "2021-04-27T22:21:52.505000+00:00",
           "CreationTime": "2021-04-27T22:21:52.459000+00:00",

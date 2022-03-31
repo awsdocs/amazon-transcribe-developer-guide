@@ -1,6 +1,250 @@
-# Sample call analytics output<a name="call-analytics-output"></a>
+# Example output<a name="call-analytics-output"></a>
 
-Here's an example of redacted JSON output from a call analytics job\. Note that in addition to redacted content \(which is replaced with \[PII\] and an associated timestamp\), there are loudness scores, detected issues, sentiment values, and conversation characteristics associated with the dialogue\.
+Call Analytics transcripts are displayed in a turn\-by\-turn format\. Each segment includes data specific to that segment, which can include detected issues, action items, detected outcomes, loudness scores, redaction, and sentiment\. Additionally, a summary of call characteristics is provided at the end of the transcript\.
+
+To increase accuracy and further customize your transcripts to your use case, such as including industry\-specific terms, use [custom vocabularies](custom-vocabulary.md) or [custom language models](custom-language-models.md) with your Call Analytics job\. To mask, remove, or tag words you don't want in your transcription results, such as profanity, add [vocabulary filtering](vocabulary-filtering.md)\.
+
+The following sections show examples of redacted JSON output, separated by Call Analytics insight\. An abridged, but otherwise complete, transcript is provided following the insight\-specific examples\.
+
+## Call categorization<a name="call-analytics-output-categorization"></a>
+
+Here's what a category match looks like in your transcription output\. This example shows that the audio from the 40040 millisecond time stamp to the 42460 millisecond timestamp is a match to the 'positive\-resolution' category\. In this case, the custom 'positive\-resolution' category required a positive sentiment in last few seconds of speech\.
+
+```
+"Categories": {
+    "MatchedDetails": {
+        "positive-resolution": {
+            "PointsOfInterest": [
+                {
+                    "BeginOffsetMillis":  40040,
+                    "EndOffsetMillis":  42460
+                }
+            ]
+        }
+    },
+    "MatchedCategories": [
+        " positive-resolution"
+    ]
+},
+```
+
+## Call characteristics<a name="call-analytics-output-characteristics"></a>
+
+Here's what call characteristics look like in your transcription output\. Note that loudness scores are provided for each conversation turn, while all other characteristics are provided at the end of the transcript\.
+
+```
+"LoudnessScores": [
+    87.54,
+    88.74,
+    90.16,
+    86.36,
+    85.56,
+    85.52,
+    81.79,
+    87.74,
+    89.82
+],
+  
+...  
+    
+"ConversationCharacteristics": {
+    "NonTalkTime": {
+        "Instances": [],
+        "TotalTimeMillis": 0
+    },
+    "Interruptions": {
+        "TotalCount": 2,
+        "TotalTimeMillis": 10700,
+        "InterruptionsByInterrupter": {
+            "AGENT": [
+                {
+                    "BeginOffsetMillis": 26040,
+                    "DurationMillis": 5510,
+                    "EndOffsetMillis": 31550
+                }
+            ],
+            "CUSTOMER": [
+                {
+                    "BeginOffsetMillis": 770,
+                    "DurationMillis": 5190,
+                    "EndOffsetMillis": 5960
+                }
+            ]
+        }
+    },
+    "TotalConversationDurationMillis": 42460,
+  
+    ...
+    
+    "TalkSpeed": {
+        "DetailsByParticipant": {
+            "AGENT": {
+                "AverageWordsPerMinute": 150
+            },
+            "CUSTOMER": {
+                "AverageWordsPerMinute": 167
+            }
+        }
+    },
+    "TalkTime": {
+        "DetailsByParticipant": {
+            "AGENT": {
+                "TotalTimeMillis": 32750
+            },
+            "CUSTOMER": {
+                "TotalTimeMillis": 18010
+            }
+        },
+        "TotalTimeMillis": 50760
+    }
+},
+```
+
+## Call summarization<a name="call-analytics-output-summarization"></a>
+
+Here's what call summarization looks like in your transcription output:
++ In the following example, **issues** are identified as starting at character 7 and ending at character 51, which refers to this section of the text: "*I would like to cancel my recipe subscription*"\.
+
+  ```
+  "Content": "Well, I would like to cancel my recipe subscription.",
+      
+  "IssuesDetected": [
+      {
+          "CharacterOffsets": {
+              "Begin": 7,
+              "End": 51
+          }
+      }
+  ],
+  ```
++ In the following example, **outcomes** are identified as starting at character 12 and ending at character 78, which refers to this section of the text: "*I made all changes to your account and now this discount is applied*"\.
+
+  ```
+  "Content": "Wonderful. I made all changes to your account and now this discount is applied, please check.",
+  
+  "OutcomesDetected": [
+      {
+          "CharacterOffsets": {
+              "Begin": 12,
+              "End": 78
+          }
+      }
+  ],
+  ```
++ In the following example, **action items** are identified as starting at character 0 and ending at character 103, which refers to this section of the text: "*I will send an email with all the details to you today, and I will call you back next week to follow up*"\.
+
+  ```
+  "Content": "I will send an email with all the details to you today, and I will call you back next week to follow up. Have a wonderful evening.",
+      
+  "ActionItemsDetected": [
+      {
+          "CharacterOffsets": {
+              "Begin": 0,
+              "End": 103
+          }
+      }
+  ],
+  ```
+
+## Sensitive data redaction<a name="call-analytics-output-pii-redaction"></a>
+
+Here's what sensitive data redaction looks like in your transcription output:
+
+```
+"Content": "[PII], my name is [PII], how can I help?",
+```
+
+## Sentiment analysis<a name="call-analytics-output-sentiment"></a>
+
+Here's what sentiment analysis looks like in your transcription output\.
++ Qualitative turn\-by\-turn sentiment values:
+
+  ```
+  "Content": "That's very sad to hear. Can I offer you a 50% discount to have you stay with us?",
+      
+  ...
+      
+  "BeginOffsetMillis": 12180,
+  "EndOffsetMillis": 16960,
+  "Sentiment": "NEGATIVE",
+  "ParticipantRole": "AGENT"
+              
+  ...
+              
+  "Content": "That is a very generous offer. And I accept.",
+  
+  ...
+  
+  "BeginOffsetMillis": 17140,
+  "EndOffsetMillis": 19860,
+  "Sentiment": "POSITIVE",
+  "ParticipantRole": "CUSTOMER"
+  ```
++ Quantitative sentiment values for the entire call:
+
+  ```
+  "Sentiment": {
+      "OverallSentiment": {
+          "AGENT": 2.5,
+          "CUSTOMER": 2.1
+      },
+  ```
++ Quantitative sentiment values per participant and per call quarter:
+
+  ```
+  "SentimentByPeriod": {
+      "QUARTER": {
+          "AGENT": [
+              {
+                  "Score": 0.0,
+                  "BeginOffsetMillis": 0,
+                  "EndOffsetMillis": 9862
+              },
+              {
+                  "Score": -5.0,
+                  "BeginOffsetMillis": 9862,
+                  "EndOffsetMillis": 19725
+              },
+              {
+                  "Score": 5.0,
+                  "BeginOffsetMillis": 19725,
+                  "EndOffsetMillis": 29587
+              },
+              {
+                  "Score": 5.0,
+                  "BeginOffsetMillis": 29587,
+                  "EndOffsetMillis": 39450
+              }
+          ],
+          "CUSTOMER": [
+              {
+                  "Score": -2.5,
+                  "BeginOffsetMillis": 0,
+                  "EndOffsetMillis": 10615
+              },
+              {
+                  "Score": 5.0,
+                  "BeginOffsetMillis": 10615,
+                  "EndOffsetMillis": 21230
+              },
+              {
+                  "Score": 2.5,
+                  "BeginOffsetMillis": 21230,
+                  "EndOffsetMillis": 31845
+              },
+              {
+                  "Score": 5.0,
+                  "BeginOffsetMillis": 31845,
+                  "EndOffsetMillis": 42460
+              }
+          ]
+      }
+  }
+  ```
+
+## Compiled output<a name="call-analytics-output-compiled"></a>
+
+For brevity, some content is replaced with ellipses in the below transcription output\.
 
 ```
 {
@@ -9,228 +253,217 @@ Here's an example of redacted JSON output from a call analytics job\. Note that 
     "Transcript": [
         {
             "LoudnessScores": [
-                87.87,
-                85.25,
-                83.46,
-                81.37,
-                80.37,
-                75.91
+                78.63,
+                78.37,
+                77.98,
+                74.18
             ],
-            "Content": "Hey Mr [PII]? Um I think I lost my debit card or it was stolen. I don't know.",
-            "IssuesDetected": [
-                {
-                    "CharacterOffsets": {
-                        "Begin": 27,
-                        "End": 63
-                    }
-                }
-            ],
-            "Redaction": {
-                "RedactedTimestamps": [
-                    [
-                        {
-                            "BeginOffsetMillis": 6950,
-                            "EndOffsetMillis": 7470
-                        }
-                    ]
-                ]
-            }, 
+            "Content": "[PII], my name is [PII], how can I help?",
             
-           Items removed for brevity
-                
-            ],
-            "Id": "cccccccc-cccc-cccc-cccc-ccccccccccccc",
-            "BeginOffsetMillis": 6040,
-            "EndOffsetMillis": 11650,
-            "Sentiment": "NEUTRAL",
-            "ParticipantRole": "CUSTOMER"
-        },
-        {
-            "LoudnessScores": [
-                86.09,
-                83.63,
-                86.11,
-                85.33,
-                74.4,
-                19.55,
-                64.23,
-                81.19,
-                89.7
-            ],
-            "Content": "Uh I am very sorry to hear that. Um May I ask who I'm speaking with [PII].",
-            "Redaction": {
-                "RedactedTimestamps": [
-                    [
-                        {
-                            "BeginOffsetMillis": 19500,
-                            "EndOffsetMillis": 20230
-                        }
-                    ]
-                ]
-            },   
-                    ],
-                    "BeginOffsetMillis": 19500,
-                    "EndOffsetMillis": 20230
-                },
-               
-           Items removed for brevity
-                
-            ],
-            "Id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbbb",
-            "BeginOffsetMillis": 12040,
-            "EndOffsetMillis": 20230,
+            ...
+     
+             "Content": "Well, I would like to cancel my recipe subscription.",
+             "IssuesDetected": [
+                 {
+                     "CharacterOffsets": {
+                         "Begin": 7,
+                         "End": 51
+                     }
+                 }
+             ],
+            
+            ...
+     
+            "Content": "That's very sad to hear. Can I offer you a 50% discount to have you stay with us?",
+            "Items": [
+            ...
+             ],
+            "Id": "649afe93-1e59-4ae9-a3ba-a0a613868f5d",
+            "BeginOffsetMillis": 12180,
+            "EndOffsetMillis": 16960,
             "Sentiment": "NEGATIVE",
             "ParticipantRole": "AGENT"
         },
-        {
+        {     
             "LoudnessScores": [
-                78.49,
-                84.47,
-                81.35
+                    80.22,
+                    79.48,
+                    82.81
             ],
-            "Content": "Yeah, this is [PII].",
-            "Redaction": {
-                "RedactedTimestamps": [
-                    [
-                        {
-                            "BeginOffsetMillis": 17420,
-                            "EndOffsetMillis": 18460
-                        }
-                    ]
-                ]
-            },
-            
-           Items removed for brevity
-            
+            "Content": "That is a very generous offer. And I accept.",
+            "Items": [
+            ...
             ],
-            "Id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaa",
-            "BeginOffsetMillis": 16840,
-            "EndOffsetMillis": 18460,
-            "Sentiment": "NEUTRAL",
+            "Id": "f9266cba-34df-4ca8-9cea-4f62a52a7981",
+            "BeginOffsetMillis": 17140,
+            "EndOffsetMillis": 19860,
+            "Sentiment": "POSITIVE",
             "ParticipantRole": "CUSTOMER"
-        }
-    ],
-    "AccountId": "123456789012",
-    "Categories": {
+        },
+        {
+     
+     ...
+     
+            "Content": "Wonderful. I made all changes to your account and now this discount is applied, please check.",
+            "OutcomesDetected": [
+                {
+                    "CharacterOffsets": {
+                        "Begin": 12,
+                        "End": 78
+                    }
+                }
+            ],
+            
+            ...
+            
+            "Content": "I will send an email with all the details to you today, and I will call you back next week to follow up. Have a wonderful evening.",
+            "Items": [
+            ...   
+            ],
+            "Id": "78cd0923-cafd-44a5-a66e-09515796572f",
+            "BeginOffsetMillis": 31800,
+            "EndOffsetMillis": 39450,
+            "Sentiment": "POSITIVE",
+            "ParticipantRole": "AGENT"
+        },
+        {
+           "LoudnessScores": [
+               78.54,
+               68.76,
+               67.76
+           ],
+           "Content": "Thank you very much, sir. Goodbye.",
+           "Items": [
+           ...     
+           ],
+           "Id": "5c5e6be0-8349-4767-8447-986f995af7c3",
+           "BeginOffsetMillis": 40040,
+           "EndOffsetMillis": 42460,
+           "Sentiment": "POSITIVE",
+           "ParticipantRole": "CUSTOMER"
+       }
+   ],
+   
+   ...
+     
+   "Categories": {
         "MatchedDetails": {
-            "matchedCategoryA": {
-                "PointsOfInterest": [{
-                    "BeginOffsetMillis": 440,
-                    "EndOffsetMillis": 4960
-                }]
+            "positive-resolution": {
+                "PointsOfInterest": [
+                    {
+                        "BeginOffsetMillis": 40040,
+                        "EndOffsetMillis": 42460
+                    }
+                ]
             }
         },
-        "MatchedCategories": ["matchedCategoryA"]
-    },
-    "Channel": "VOICE",
-    "JobName": "call-analytics-job-name",
-    "Participants": [{
-        "ParticipantRole": "AGENT"
-    }, {
-        "ParticipantRole": "CUSTOMER"
-    }],
+        "MatchedCategories": [
+            "positive-resolution"
+        ]
+    },  
+ 
+    ...
+    
     "ConversationCharacteristics": {
         "NonTalkTime": {
-            "Instances": [{
-                "BeginOffsetMillis": 216450,
-                "DurationMillis": 7690,
-                "EndOffsetMillis": 224140
-            }],
-            "TotalTimeMillis": 7690
+            "Instances": [],
+            "TotalTimeMillis": 0
         },
         "Interruptions": {
-            "TotalCount": 4,
-            "TotalTimeMillis": 12129,
+            "TotalCount": 2,
+            "TotalTimeMillis": 10700,
             "InterruptionsByInterrupter": {
-                "AGENT": [{
-                    "BeginOffsetMillis": 30940,
-                    "DurationMillis": 2800,
-                    "EndOffsetMillis": 33740
-                }, {
-                    "BeginOffsetMillis": 133440,
-                    "DurationMillis": 4510,
-                    "EndOffsetMillis": 137950
-                }, {
-                    "BeginOffsetMillis": 163240,
-                    "DurationMillis": 2710,
-                    "EndOffsetMillis": 165950
-                }, {
-                    "BeginOffsetMillis": 169840,
-                    "DurationMillis": 2110,
-                    "EndOffsetMillis": 171950
-                }]
+                "AGENT": [
+                    {
+                        "BeginOffsetMillis": 26040,
+                        "DurationMillis": 5510,
+                        "EndOffsetMillis": 31550
+                    }
+                ],
+                "CUSTOMER": [
+                    {
+                        "BeginOffsetMillis": 770,
+                        "DurationMillis": 5190,
+                        "EndOffsetMillis": 5960
+                    }
+                ]
             }
         },
-        "TotalConversationDurationMillis": 279060,
+        "TotalConversationDurationMillis": 42460,
         "Sentiment": {
             "OverallSentiment": {
-                "AGENT": 2.7,
-                "CUSTOMER": 0.2
+                "AGENT": 2.5,
+                "CUSTOMER": 2.1
             },
             "SentimentByPeriod": {
                 "QUARTER": {
-                    "AGENT": [{
-                        "Score": 2.1,
-                        "BeginOffsetMillis": 0,
-                        "EndOffsetMillis": 69765
-                    }, {
-                        "Score": -0.7,
-                        "BeginOffsetMillis": 69765,
-                        "EndOffsetMillis": 139530
-                    }, {
-                        "Score": 5.0,
-                        "BeginOffsetMillis": 139530,
-                        "EndOffsetMillis": 209295
-                    }, {
-                        "Score": 3.0,
-                        "BeginOffsetMillis": 209295,
-                        "EndOffsetMillis": 279060
-                    }],
-                    "CUSTOMER": [{
-                        "Score": -2.0,
-                        "BeginOffsetMillis": 0,
-                        "EndOffsetMillis": 69660
-                    }, {
-                        "Score": 0.0,
-                        "BeginOffsetMillis": 69660,
-                        "EndOffsetMillis": 139320
-                    }, {
-                        "Score": 0.0,
-                        "BeginOffsetMillis": 139320,
-                        "EndOffsetMillis": 208980
-                    }, {
-                        "Score": 2.1,
-                        "BeginOffsetMillis": 208980,
-                        "EndOffsetMillis": 278640
-                    }]
+                    "AGENT": [
+                        {
+                            "Score": 0.0,
+                            "BeginOffsetMillis": 0,
+                            "EndOffsetMillis": 9862
+                        },
+                        {
+                            "Score": -5.0,
+                            "BeginOffsetMillis": 9862,
+                            "EndOffsetMillis": 19725
+                        },
+                        {
+                            "Score": 5.0,
+                            "BeginOffsetMillis": 19725,
+                            "EndOffsetMillis": 29587
+                        },
+                        {
+                            "Score": 5.0,
+                            "BeginOffsetMillis": 29587,
+                            "EndOffsetMillis": 39450
+                        }
+                    ],
+                    "CUSTOMER": [
+                        {
+                            "Score": -2.5,
+                            "BeginOffsetMillis": 0,
+                            "EndOffsetMillis": 10615
+                        },
+                        {
+                            "Score": 5.0,
+                            "BeginOffsetMillis": 10615,
+                            "EndOffsetMillis": 21230
+                        },
+                        {
+                            "Score": 2.5,
+                            "BeginOffsetMillis": 21230,
+                            "EndOffsetMillis": 31845
+                        },
+                        {
+                            "Score": 5.0,
+                            "BeginOffsetMillis": 31845,
+                            "EndOffsetMillis": 42460
+                        }
+                    ]
                 }
             }
         },
         "TalkSpeed": {
             "DetailsByParticipant": {
                 "AGENT": {
-                    "AverageWordsPerMinute": 195
+                    "AverageWordsPerMinute": 150
                 },
                 "CUSTOMER": {
-                    "AverageWordsPerMinute": 116
+                    "AverageWordsPerMinute": 167
                 }
             }
         },
         "TalkTime": {
             "DetailsByParticipant": {
                 "AGENT": {
-                    "TotalTimeMillis": 158120
+                    "TotalTimeMillis": 32750
                 },
                 "CUSTOMER": {
-                    "TotalTimeMillis": 108009
+                    "TotalTimeMillis": 18010
                 }
             },
-            "TotalTimeMillis": 266129
+            "TotalTimeMillis": 50760
         }
     },
-    "ContentMetadata": {
-        "Output": "Redacted",
-        "RedactionTypes": ["PII"]
-    }
-}
 ```

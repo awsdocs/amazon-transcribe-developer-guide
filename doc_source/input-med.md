@@ -8,7 +8,7 @@ Amazon Transcribe Medical can transcribe speech as either an audio file or a rea
 
 ## Containers and formats for batch transcription<a name="file-format"></a>
 
-When you transcribe an audio file using the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console, make sure that the file is:
+When you transcribe audio using the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console, make sure that the file is:
 + In FLAC, MP3, MP4, Ogg, WebM, AMR, or WAV file format
 + Less than 4 hours in length and less than 2 GB in size
 + Encoded at a sample rate of 16,000 Hz or higher
@@ -22,8 +22,8 @@ For best results:
 
 ## Audio containers and formats for streaming transcription<a name="streaming-format"></a>
 
-When you transcribe a real\-time stream using the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API or a WebSocket request, make sure that your stream is encoded in:
-+ PCM 16\-bit signed little endian
+When you transcribe a real\-time stream using the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API or a WebSocket request, make sure that your stream is encoded in:
++ PCM signed 16\-bit little\-endian
 + FLAC
 + OPUS encoded audio in the Ogg container
 

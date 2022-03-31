@@ -1,21 +1,19 @@
-# Identifying speakers \(speaker diarization\)<a name="diarization"></a>
+# Identifying speakers \(diarization\)<a name="diarization"></a>
 
-To identify different speakers in Amazon Transcribe, use *speaker diarization*\. When you enable speaker diarization, Amazon Transcribe labels each speaker utterance\. You enable speaker diarization by using the batch transcription or real\-time streaming APIs, or the Amazon Transcribe console\.
+To identify different speakers in Amazon Transcribe, use *speaker diarization*\. When you enable speaker diarization, Amazon Transcribe labels each speaker utterance\. You enable speaker diarization by using the batch transcription or real\-time streaming APIs, or the AWS Management Console\.
 
 **Note**  
 Speaker diarization is supported for all languages with batch transcription jobs, but is only supported for US English \(en\-US\) with streaming transcriptions\.
 
-## Identifying speakers in audio files<a name="diarization-batch"></a>
+## Identifying speakers in audio<a name="diarization-batch"></a>
 
-You can enable speaker diarization in a batch transcription job using either the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API or the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+You can enable speaker diarization in a batch transcription job using either the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API or the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
-### Console<a name="diarization-batch-console"></a>
+### AWS Management Console<a name="diarization-console-batch"></a>
 
-**To identify speakers in an audio file \(console\)**
+To use the AWS Management Console to enable speaker diarization in your transcription job, you enable audio identification and then speaker diarization\.
 
-To use the console to enable speaker diarization in your transcription job, you enable audio identification and then speaker diarization\.
-
-1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe, choose **Transcription jobs**\.
 
@@ -35,12 +33,12 @@ To use the console to enable speaker diarization in your transcription job, you 
 
 ### API<a name="diarization-batch-api"></a>
 
-**To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, specify the following\.
+**To identify speakers in audio using a batch transcription job \(API\)**
++ For the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
-  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file and the language of your vocabulary filter\.
+  1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media\.
 
   1. For the `MediaFileUri` parameter of the `Media` object, specify the name of the media file you want to transcribe\.
 
@@ -157,7 +155,7 @@ The following code shows an example output of a transcription job with speaker i
 
 ### AWS CLI<a name="diarization-batch-cli"></a>
 
-**To identify the speakers in an audio file using a batch transcription job \(AWS CLI\)**
+**To identify the speakers in audio using a batch transcription job \(AWS CLI\)**
 + Run the following code\.
 
   ```
@@ -170,10 +168,10 @@ The following code shows an example output of a transcription job with speaker i
 
   ```
     {
-      "TranscriptionJobName": "your-transcription-job-name",
+      "TranscriptionJobName": "my-first-transcription-job",
       "LanguageCode": "en-US",
       "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.mp4"
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
       },
       "Settings":{
           "MaxSpeakerLabels": 2,
@@ -186,11 +184,11 @@ The following code shows an example output of a transcription job with speaker i
   ```
   {
       "TranscriptionJob": {
-          "TranscriptionJobName": "your-transcription-job-name",
+          "TranscriptionJobName": "my-first-transcription-job",
           "TranscriptionJobStatus": "IN_PROGRESS",
           "LanguageCode": "en-US",
           "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET1/your-audio-file"
+              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
           },
           "StartTime": "2020-07-29T17:45:09.826000+00:00",
           "CreationTime": "2020-07-29T17:45:09.791000+00:00",
@@ -204,15 +202,13 @@ The following code shows an example output of a transcription job with speaker i
 
 ## Identifying speakers in real\-time streams<a name="diarization-streaming"></a>
 
-You can identify different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API\. To start a WebSocket request, you use a pre\-signed URL, a URL that contains the information needed to start your stream\. To use the console to transcribe speech spoken into your microphone, use the following procedure\.
+You can identify different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\. To start a WebSocket request, you use a pre\-signed URI, which is a URI that contains the information needed to start your stream\. To use the AWS Management Console to transcribe speech spoken into your microphone, use the following procedure\.
 
 You can identify speakers in real\-time streams that are in US English \(en\-US\)\.
 
-**To identify speakers in audio that is spoken into your microphone \(console\)**
+You can use the [AWS Management Console](https://console.aws.amazon.com/transcribe/) to start a real\-time stream and transcribe any speech picked up by your microphone\.
 
-You can use the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) to start a real\-time stream and transcribe any speech picked up by your microphone\.
-
-1. Sign in to the [ Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Real\-time transcription**\.
 
@@ -229,51 +225,55 @@ You can use the [Amazon Transcribe console](https://console.aws.amazon.com/trans
 The following is the syntax for the parameters of an HTTP/2 request\.
 
 ```
-    POST /stream-transcription HTTP/2
-    x-amzn-transcribe-language-code: LanguageCode
-    x-amzn-transcribe-sample-rate: MediaSampleRateHertz
-    x-amzn-transcribe-media-encoding: MediaEncoding
-    x-amzn-transcribe-session-id: SessionId
-    x-amzn-transcribe-vocabulary-filter-name: VocabularyFilterName
-    x-amzn-transcribe-vocabulary-filter-method: VocabularyFilterMethod
-    x-amzn-transcribe-show-speaker-label: ShowSpeakerLabel
-    Content-type: application/json
-    
-    {
-       "AudioStream": { 
-          "AudioEvent": { 
-             "AudioChunk": blob
-          }
-       }
-    }
+POST /stream-transcription HTTP/2
+host: transcribestreaming.us-west-2.amazonaws.com
+authorization: Generated value
+x-amz-target: com.amazonaws.transcribe.Transcribe.StartStreamTranscription
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
+x-amz-date: 20220208T235959Z
+x-amzn-transcribe-session-id: my-first-http2-diarization-stream
+x-amzn-transcribe-language-code: en-US
+x-amzn-transcribe-media-encoding: flac
+x-amzn-transcribe-sample-rate: 16000
+x-amzn-transcribe-show-speaker-label: true
+content-type: application/vnd.amazon.eventstream
+transfer-encoding: chunked
 ```
 
-To identify speakers in an HTTP/2 stream, use the [ StartStreamTranscription ](API_streaming_StartStreamTranscription.md) API and specify the following:
-+ `LanguageCode` – the language code that corresponds to the language spoken in the stream\.
-+ `MediaSampleHertz` – the sample rate of the audio\.
-+ `ShowSpeakerLabel` – `true`\.
+Parameter descriptions:
++ **host**: Update the AWS Region \('us\-west\-2' in the preceding example\) with the AWS Region you are calling\. For a list of valid AWS Regions, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region)\.
++ **authorization**: This is a generated field\. To learn more about creating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
++ **x\-amz\-target**: Don't alter this field; use the content shown in the preceding example\.
++ **x\-amz\-content\-sha256**: This is a generated field\. To learn more about calculating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
++ **x\-amz\-date**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
++ **x\-amzn\-transcribe\-session\-id**: The name for your streaming session\.
++ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md#table-language-matrix) for a list of valid values\.
++ **x\-amzn\-transcribe\-media\-encoding**: The encoding used for your input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
++ **x\-amzn\-transcribe\-sample\-rate**: The sample rate of the input audio \(in Hertz\)\. Amazon Transcribe supports a range from 8,000 Hz to 48,000 Hz\. Low\-quality audio, such as telephone audio, is typically around 8,000 Hz\. High\-quality audio typically ranges from 16,000 Hz to 48,000 Hz\. Note that the sample rate you specify **must** match that of your audio\.
++ **x\-amzn\-transcribe\-show\-speaker\-label**: To enable diarization, this value must be `true`\.
++ **content\-type**: Don't alter this field; use the content shown in the preceding example\.
 
 ### WebSocket streaming<a name="diarization-websocket"></a>
 
-To identify speakers in WebSocket streams, use the following format to create a pre\-signed URL to start a WebSocket request and specify `show-speaker-label` as `true`\. A pre\-signed URL contains the information to set up bi\-directional communication between your application and Amazon Transcribe\.
+To identify speakers in WebSocket streams, use the following format to create a pre\-signed URI to start a WebSocket request and specify `show-speaker-label` as `true`\. A pre\-signed URI contains the information to set up bi\-directional communication between your application and Amazon Transcribe\.
 
 ```
-GET wss://transcribestreaming.region.amazonaws.com:8443/stream-transcription-websocket
-?language-code=languageCode
-    &X-Amz-Algorithm=AWS4-HMAC-SHA256
-    &X-Amz-Credential=Signature Version 4 credential scope
-    &X-Amz-Date=date
-    &X-Amz-Expires=time in seconds until expiration
-    &X-Amz-Security-Token=security-token
-    &X-Amz-Signature=Signature Version 4 signature
-    &X-Amz-SignedHeaders=host
-    &media-encoding=mediaEncoding
-    &sample-rate=mediaSampleRateHertz
-    &session-id=sessionId
-    &show-speaker-label=true
+GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket
+?
+&X-Amz-Algorithm=AWS4-HMAC-SHA256
+&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20220208%2Fus-west-2%2Ftranscribe%2Faws4_request
+&X-Amz-Date=20220208T235959Z
+&X-Amz-Expires=250
+&X-Amz-Security-Token=security-token
+&X-Amz-Signature=Signature Version 4 signature
+&X-Amz-SignedHeaders=host
+&language-code=en-US
+&media-encoding=flac
+&sample-rate=16000
+&show-speaker-label=true
 ```
 
-For more information on completing WebSocket requests, see [Creating a pre\-signed URL](websocket.md#websocket-url)\.
+Parameter definitions can be found in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html); parameters common to all AWS API operations are listed in the [Common Parameters](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonParameters.html) section\.
 
 ### Streaming transcription output<a name="diarization-output"></a>
 

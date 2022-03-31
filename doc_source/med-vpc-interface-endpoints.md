@@ -14,15 +14,15 @@ Amazon Transcribe Medical supports making calls to all of its API actions from y
 
 ## Creating an interface VPC endpoint for Amazon Transcribe Medical<a name="med-vpc-endpoint-create"></a>
 
-You can create a VPC endpoint for the Amazon Transcribe Medical service using either the Amazon VPC console or the AWS Command Line Interface \(AWS CLI\)\. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
+You can create a VPC endpoint for the Amazon Transcribe Medical service using either the AWS Management Console or the AWS Command Line Interface \(AWS CLI\)\. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
 
 For batch transcription in Amazon Transcribe Medical, create a VPC endpoint using the following service name: 
-+ com\.amazonaws\.*region*\.transcribe 
++ com\.amazonaws\.*us\-west\-2*\.transcribe 
 
 For streaming transcription in Amazon Transcribe Medical, create a VPC endpoint using the following service name: 
-+ com\.amazonaws\.*region*\.transcribestreaming 
++ com\.amazonaws\.*us\-west\-2*\.transcribestreaming 
 
-If you enable private DNS for the endpoint, you can make API requests to Amazon Transcribe Medical using its default DNS name for the Region, for example, `transcribestreaming.us-east-2.amazonaws.com`\. 
+If you enable private DNS for the endpoint, you can make API requests to Amazon Transcribe Medical using its default DNS name for the AWS Region, for example, `transcribestreaming.us-east-2.amazonaws.com`\. 
 
 For more information, see [Accessing a service through an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#access-service-though-endpoint) in the *Amazon VPC User Guide*\.
 

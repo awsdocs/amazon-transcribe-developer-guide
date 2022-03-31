@@ -32,7 +32,7 @@ We strongly recommend that you access AWS using AWS Identity and Access Manageme
 
 The Getting Started exercises in this guide assume that you have a user with administrator privileges, `adminuser`\. 
 
-**To create an administrator user and sign in to the console**
+**To create an administrator user and sign in to the AWS Management Console**
 
 1. Create an administrator user called `adminuser` in your AWS account\. For instructions, see [Creating Your First IAM User and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
 
@@ -45,4 +45,4 @@ For more information about IAM, see the following:
 
 ## Next step<a name="setting-up-next-step-2-med"></a>
 
-To get started with medical transcription using the console, see [Getting Started \(Console\)](getting-started-med-console.md)\.
+To get started with medical transcription using the AWS Management Console, see [Getting Started \(AWS Management Console\)](getting-started-med-console.md)\.

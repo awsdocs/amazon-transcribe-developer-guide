@@ -1,157 +1,150 @@
-# AWS Command Line Interface<a name="getting-started-cli"></a>
+# Transcribing with the AWS CLI<a name="getting-started-cli"></a>
 
-In the following exercise, you use the AWS Command Line Interface \(AWS CLI\) to transcribe speech into text\. To complete this exercise, you need to: 
-+ Have a text editor\.
-+ Be familiar with the AWS CLI\. For more information, see [Step 2: Set up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)\.
-+ Have a speech file in WAV or MP4 format that is stored in an S3 bucket that has the proper permissions\. For more information about the permissions needed for Amazon Transcribe, see [Permissions required for IAM user roles](security_iam_id-based-policy-examples.md#auth-role-iam-user)\.
+When using the AWS CLI to start a transcription, you can either run all commands at the CLI level or you can run the Amazon Transcribe command you wish to use followed by the AWS Region and the location of a JSON file that contains a request body\. Examples throughout this guide show both methods; however, this section focuses on the former method\.
 
-To transcribe text, you have to provide the input parameters in a JSON file\.
+The AWS CLI does not support streaming transcriptions\.
 
-**To transcribe text**
+Before you continue, make sure you've:
++ Uploaded your media file into an S3 bucket\. If you're unsure how to create an S3 bucket or upload your file, refer to [Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) and [Upload an object to your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html)\.
++ Installed the [AWS CLI](getting-started.md#getting-started-api)\.
 
-1. Copy your input speech to an S3 bucket\. The location must be in the same Region as the endpoint that you are calling\.
+You can find all AWS CLI commands for Amazon Transcribe in the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/index.html#cli-aws-transcribe)\.
 
-1. Create a JSON file named `example-start-command.json` that contains the input parameters for the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\. Enter a unique name for your transcription job under "TranscriptionJobName"\.
+## Starting a new transcription job<a name="getting-started-cli-start-job"></a>
 
-   ```
-   {
-       "TranscriptionJobName": "job-name", 
-       "LanguageCode": "en-US", 
-       "MediaFormat": "wav", 
-       "Media": {
-           "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
-       }
-   }
-   ```
+To start a new transcription, use the `start-transcription-job` command\.
 
-1. In the AWS CLI, run the following command\. The example is formatted for Unix, Linux, and macOS\. For Windows, replace the backslash \(\\\) Unix continuation character at the end of each line with a caret \(^\)\.
+1. In a terminal window, type the following:
 
    ```
    aws transcribe start-transcription-job \
-        --region region \
-        --cli-input-json file://filepath/example-start-command.json
    ```
 
-   Amazon Transcribe responds with the following:
+   A '`>`' appears on the next line and you can now continue adding required parameters, as described in the next step\.
+
+   You can also omit the '`\`' and append all parameters, separating each with a space\.
+
+1. With the `start-transcription-job` command, you must include `region`, `transcription-job-name`, `media`, and either `language-code` or `identify-language`\.
+
+   ```
+   aws transcribe start-transcription-job \
+    --region us-west-2 \
+    --transcription-job-name my-first-transcription-job \
+    --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac \
+    --language-code en-US
+   ```
+
+   If appending all parameters, this request looks like:
+
+   ```
+   aws transcribe start-transcription-job --region us-west-2 --transcription-job-name my-first-transcription-job --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac --language-code en-US
+   ```
+
+   If you choose not to specify an output bucket using `output-bucket-name`, Amazon Transcribe places your transcription output in a service\-managed bucket\. Transcripts stored in a service\-managed bucket expire after 90 days\.
+
+   Amazon Transcribe responds with:
 
    ```
    {
        "TranscriptionJob": {
-           "TranscriptionJobName": "job-name",
-           "LanguageCode": "en-US",
+           "TranscriptionJobName": "my-first-transcription-job",
            "TranscriptionJobStatus": "IN_PROGRESS",
-           "Media": {
-               "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file"
-           },
-           "CreationTime": timestamp,
-           "MediaFormat": "wav"
-       }
-   }
-   ```
-
-**To list transcription jobs**
-+ Run the following command:
-
-  ```
-  aws transcribe list-transcription-jobs \
-       --region region \
-       --status IN_PROGRESS
-  ```
-
-  Amazon Transcribe responds with the following:
-
-  ```
-  {
-      "Status": "IN_PROGRESS",
-      "TranscriptionJobSummaries": [
-          {
-              "TranscriptionJobName": "job-name",
-              "LanguageCode": "en-US",
-              "CreationTime": timestamp,
-              "TranscriptionJobStatus": "IN_PROGRESS"
-          }
-      ]
-  }
-  ```
-
-**To get the results of a transcription job**
-
-1. When the job has the status `COMPLETED`, get the results of the job\. Type the following command:
-
-   ```
-   aws transcribe get-transcription-job \
-      --region region \
-      --transcription-job-name "job-name"
-   ```
-
-   Amazon Transcribe responds with the following:
-
-   ```
-   {
-       "TranscriptionJob": {
-           "TranscriptionJobName": "job-name",
            "LanguageCode": "en-US",
-           "TranscriptionJobStatus": "COMPLETED",
            "Media": {
-               "MediaFileUri": "input URI"
+               "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
            },
-           "CreationTime": timestamp,
-           "CompletionTime": timestamp,
-           "Transcript": {
-               "TranscriptFileUri": "output URI"
-           }
+           "StartTime": "2022-03-07T15:03:44.246000-08:00",
+           "CreationTime": "2022-03-07T15:03:44.229000-08:00"
        }
    }
    ```
 
-1. Use the output URI to get the transcribed text from the audio file\. The following is the output from transcribing a short audio clip:
+To see if your transcription job is successful, as indicated by [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus) changing from `IN_PROGRESS` to `COMPLETED`, use the `get-transcription-job` or `list-transcription-job` command, as shown in the following section\.
 
-   ```
-       {
-         "jobName":"job ID",
-         "accountId":"account ID",
-         "results": {
-            "transcripts":[
-               {
-                  "transcript":" that's no answer"  
-               }
-            ],
-            "items":[
-               {
-                  "start_time":"0.180",
-                  "end_time":"0.470",
-                  "alternatives":[
-                     {
-                        "confidence":0.84,
-                        "content":"that's"
-                     }
-                  ],
-                  "type": "pronunciation"
-               },
-               {
-                  "start_time":"0.470",
-                  "end_time":"0.710",
-                  "alternatives":[
-                     {
-                        "confidence":0.99,
-                        "content":"no"
-                     }
-                  ],
-                  "type": "pronunciation"
-               },
-               {
-                  "start_time":"0.710",
-                  "end_time":"1.080",
-                  "alternatives":[
-                     {
-                        "confidence":0.874,
-                        "content":"answer"
-                     }
-                  ],
-                  "type": "pronunciation"
-               }
-            ]
-         },
-         "status":"COMPLETED"
-      }
-   ```
+## Getting the status of a transcription job<a name="getting-started-cli-get-job"></a>
+
+To get information about your transcription job, use the `get-transcription-job` command\.
+
+The only required parameters for this command are the AWS Region where the job is located and the name of the job\.
+
+```
+aws transcribe get-transcription-job \
+ --region us-west-2 \
+ --transcription-job-name my-first-transcription-job
+```
+
+Amazon Transcribe responds with:
+
+```
+{
+    "TranscriptionJob": {
+        "TranscriptionJobName": "my-first-transcription-job",
+        "TranscriptionJobStatus": "COMPLETED",
+        "LanguageCode": "en-US",
+        "MediaSampleRateHertz": 48000,
+        "MediaFormat": "flac",
+        "Media": {
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+        },
+        "Transcript": {
+            "TranscriptFileUri": "https://s3.the-URI-where-your-job-is-located"
+        },
+        "StartTime": "2022-03-07T15:03:44.246000-08:00",
+        "CreationTime": "2022-03-07T15:03:44.229000-08:00",
+        "CompletionTime": "2022-03-07T15:04:01.158000-08:00",
+        "Settings": {
+            "ChannelIdentification": false,
+            "ShowAlternatives": false
+        }
+    }
+}
+```
+
+If you've selected your own S3 bucket for your transcription output, this bucket is listed with `TranscriptFileUri`\. If you've selected a service\-managed bucket, a temporary URI is provided; use this URI to download your transcript\.
+
+**Note**  
+Temporary URIs for service\-managed S3 buckets are only valid for 15 minutes\. If you get an `AccesDenied` error when using the URI, run the `get-transcription-job` request again to get a new temporary URI\.
+
+## Listing your transcription jobs<a name="getting-started-cli-list-jobs"></a>
+
+To list all your transcription jobs in a given AWS Region, use the `list-transcription-jobs` command\.
+
+The only required parameter for this command is the AWS Region in which your transcription jobs are located\.
+
+```
+aws transcribe list-transcription-jobs \
+ --region us-west-2
+```
+
+Amazon Transcribe responds with:
+
+```
+{
+    "NextToken": "A-very-long-string",
+    "TranscriptionJobSummaries": [
+        {
+            "TranscriptionJobName": "my-first-transcription-job",
+            "CreationTime": "2022-03-07T15:03:44.229000-08:00",
+            "StartTime": "2022-03-07T15:03:44.246000-08:00",
+            "CompletionTime": "2022-03-07T15:04:01.158000-08:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "COMPLETED",
+            "OutputLocationType": "SERVICE_BUCKET"
+        }        
+    ]
+}
+```
+
+## Deleting your transcription job<a name="getting-started-cli-delete-job"></a>
+
+To delete your transcription job, use the `delete-transcription-job` command\.
+
+The only required parameters for this command are the AWS Region where the job is located and the name of the job\.
+
+```
+aws transcribe delete-transcription-job \
+ --region us-west-2 \
+ --transcription-job-name my-first-transcription-job
+```
+
+To confirm your delete request is successful, you can run the `list-transcription-jobs` command; your job should no longer appear in the list\.

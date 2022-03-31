@@ -7,7 +7,7 @@ The following table shows which languages are available for streaming transcript
 
 | Language | Sample rate | Available in | 
 | --- | --- | --- | 
-| US English \(en\-US\) | 16 kHz, 8 kHz | [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/), [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API, and WebSocket request | 
+| US English \(en\-US\) | 16 kHz, 8 kHz | [AWS Management Console](https://console.aws.amazon.com/transcribe/), [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API, and WebSocket request | 
 
 If you are using HTTP/2, we provide an HTTP/2 streaming client that handles retrying the connection when there are transient problems on the network\. You can use this client as a starting point for your own applications\. To use Amazon Transcribe Medical streaming with the WebSocket protocol, you can create your own client\.
 
@@ -36,9 +36,9 @@ The patient was I/0 of Sinus rhythm.
 The patient was I/0 of Sinus rhythm with
 ```
 
-Each [Result](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_MedicalResult.html) object in the response contains a field called `IsPartial` that indicates whether the response is a partial response containing the transcription results so far or if it is a complete transcription of the audio segment\. 
+Each [Result](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_MedicalResult.html) object in the response contains a field called `IsPartial` that indicates whether the response is a partial response containing the transcription results so far or if it is a complete transcription of the audio segment\. 
 
-Each [Result](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_MedicalResult.html) object also contains the start time and end time of the term from the audio stream so that you can, for example, synchronize the transcription with the video\. 
+Each [Result](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_MedicalResult.html) object also contains the start time and end time of the term from the audio stream so that you can, for example, synchronize the transcription with the video\. 
 
 The following example is a partial transcription response\. 
 

@@ -1,16 +1,16 @@
 # Transcribing an audio file of a medical conversation<a name="batch-medical-conversation"></a>
 
-Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\.
+Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\.
 
-When you start a medical transcription job with the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
+When you start a medical transcription job with the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
 
-## Console<a name="batch-med-conversation-console"></a>
+## AWS Management Console<a name="batch-med-conversation-console"></a>
 
-**To transcribe a clinician\-patient dialogue \(console\)**
+**To transcribe a clinician\-patient dialogue \(AWS Management Console\)**
 
-To use the console to transcribe a clinician\-patient dialogue, create a transcription job and choose **Conversation** for **Audio input type**\.
+To use the AWS Management Console to transcribe a clinician\-patient dialogue, create a transcription job and choose **Conversation** for **Audio input type**\.
 
-1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -31,7 +31,7 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
 ## API<a name="batch-med-conversation-api"></a>
 
 **To transcribe a medical conversation using a batch transcription job \(API\)**
-+ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name unique in your AWS account\.
 
@@ -52,15 +52,15 @@ To use the console to transcribe a clinician\-patient dialogue, create a transcr
   import time
   import boto3
   transcribe = boto3.client('transcribe')
-  job_name = "medical-conversation-transcription-job-name"
-  job_uri = "s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension"
+  job_name = "my-first-med-transcription-job"
+  job_uri = "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
   transcribe.start_medical_transcription_job(
         MedicalTranscriptionJobName = job_name,
         Media = {'MediaFileUri': job_uri},
         LanguageCode = 'en-US',
         Specialty = 'PRIMARYCARE',
         Type = 'CONVERSATION',
-        OutputBucketName = 'DOC-EXAMPLE-BUCKET2'
+        OutputBucketName = 's3://DOC-EXAMPLE-BUCKET'
     )
   while True:
       status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
@@ -76,7 +76,7 @@ The following example code shows the transcription results of a clinician\-patie
 ```
 {
     "jobName": "conversation-medical-transcription-job",
-    "accountId": "453794026688",
+    "accountId": "123456789012",
     "results": {
         "transcripts": [
             {
@@ -170,13 +170,13 @@ The following example code shows the transcription results of a clinician\-patie
 
   ```
     {
-        "MedicalTranscriptionJobName": "conversation-medical-transcription-job",        
+        "MedicalTranscriptionJobName": "my-first-med-transcription-job",        
         "LanguageCode": "en-US",
         "Specialty": "PRIMARYCARE",
         "Type": "CONVERSATION",
-        "OutputBucketName":"the-S3-bucket-where-you-output-the-transcription-results",
+        "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
         "Media": {
-            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension"
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
         }
     }
   ```
@@ -186,11 +186,11 @@ The following example code shows the transcription results of a clinician\-patie
   ```
   {
       "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "example-conversation-medical-transcription-job",
+          "MedicalTranscriptionJobName": "my-first-med-transcription-job",
           "TranscriptionJobStatus": "IN_PROGRESS",
           "LanguageCode": "en-US",
           "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension"
+              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
           },
           "StartTime": "2020-10-05T20:43:39.583000+00:00",
           "CreationTime": "2020-10-05T20:43:39.547000+00:00",

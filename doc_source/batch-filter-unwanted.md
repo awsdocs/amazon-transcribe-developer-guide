@@ -1,6 +1,6 @@
 # Filtering batch transcriptions<a name="batch-filter-unwanted"></a>
 
-Use a vocabulary filter to filter unwanted words from a batch transcription job with either the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/) or the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\.
+Use a vocabulary filter to filter unwanted words from a batch transcription job with either the [AWS Management Console](https://console.aws.amazon.com/transcribe/) or the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API\.
 
 The following code shows the parameters and data types\.
 
@@ -36,13 +36,13 @@ The following code shows the parameters and data types\.
 }
 ```
 
-## Console<a name="batch-filter-console"></a>
+## AWS Management Console<a name="batch-filter-console"></a>
 
-To use the console to start a batch transcription job with vocabulary filtering, you must have created a vocabulary filter, as described in [Step 2: Creating a vocabulary filter](create-filter.md)\.
+To use the AWS Management Console to start a batch transcription job with vocabulary filtering, you must have created a vocabulary filter, as described in [Step 2: Creating a vocabulary filter](create-filter.md)\.
 
- **To filter unwanted words in a transcription job \(console\)** 
+ **To filter unwanted words in a transcription job \(AWS Management Console\)** 
 
-1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Transcription jobs**\.
 
@@ -52,7 +52,7 @@ To use the console to start a batch transcription job with vocabulary filtering,
 
 1. For **Language**, choose the language that will be spoken in your transcription job\.
 
-1. Specify the location of your audio file or video file in Amazon S3:
+1. Specify the location of your media file in Amazon S3:
    + For **Input file location on S3** under **Input data**, specify the Amazon S3 URI that identifies the media file that you will transcribe\.
 
      1. Choose **Browse S3** under **Input data** to browse for the media file and choose it\.
@@ -68,13 +68,13 @@ To use the console to start a batch transcription job with vocabulary filtering,
 ## API<a name="batch-filter-api"></a>
 
 **To filter a batch transcription \(API\)**
-+ For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, specify the following:
++ For the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, specify the following:
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your media file and the language of your vocabulary filter\.
 
-  1. For the `MediaFileUri` parameter of the `Media` object, specify the Amazon S3 location of the audio file or video file that you want to transcribe\.
+  1. For the `MediaFileUri` parameter of the `Media` object, specify the Amazon S3 location of the media file you want to transcribe\.
 
   1. For the `VocabularyFilterName` parameter, specify the name of your vocabulary filter\.
 
@@ -88,9 +88,9 @@ To use the console to start a batch transcription job with vocabulary filtering,
 
 ## Tailoring transcripts to different audiences with tagging<a name="batch-tailor-transcripts"></a>
 
-You can generate multiple transcriptions tailored to different audiences from a single audio file\. For the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, use the `tag` method to mark the words in the transcription that match the words in your vocabulary filter\. You can present the results of the transcription job to the audience that can see the complete transcription, including the words listed in your vocabulary filter\. You can then copy your transcription results, remove the words tagged by your vocabulary filter, and show those results to the audience that shouldn't see the unwanted words\. 
+You can generate multiple transcriptions tailored to different audiences from the same media content\. For the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, use the `tag` method to mark the words in the transcription that match the words in your vocabulary filter\. You can present the results of the transcription job to the audience that can see the complete transcription, including the words listed in your vocabulary filter\. You can then copy your transcription results, remove the words tagged by your vocabulary filter, and show those results to the audience that shouldn't see the unwanted words\. 
 
-With tagging, you aren't limited to generating transcriptions for two different audiences\. You can generate multiple transcriptions for many audiences from the same audio file\. You can choose to remove some words caught by the vocabulary filter in one transcript and leave them in other transcripts\.
+With tagging, you aren't limited to generating transcriptions for two different audiences\. You can generate multiple transcriptions for many audiences from the same media content\. You can choose to remove some words caught by the vocabulary filter in one transcript and leave them in other transcripts\.
 
 For example, if "lazy" were in the vocabulary filter, the sentence "The quick brown fox jumps over the lazy dog\." would be unchanged in the transcription results\. Instead of being masked in, or removed from, the transcription, the value for the `VocabularyFilterMatch` parameter would be `true` for "lazy\." 
 
@@ -101,7 +101,7 @@ The word "bloody" is tagged in the following truncated transcription output\.
 ```
 {
    "jobName":"transcription-job-name",
-   "accountId":"account-id",
+   "accountId":"111122223333",
    "results":{
       "transcripts":[
          {

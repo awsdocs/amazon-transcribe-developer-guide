@@ -1,6 +1,6 @@
 # Character sets for custom vocabularies<a name="charsets"></a>
 
- Amazon Transcribe limits the characters that you can use to create custom vocabularies\. You can use the following character sets for each language\.
+Amazon Transcribe limits the characters that you can use to create custom vocabularies\. You can use the following character sets for each language\.
 
 **Important**  
 Be sure to check that your custom vocabulary file uses only the supported Unicode code points and code point sequences listed within the following character sets\.

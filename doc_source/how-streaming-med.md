@@ -1,6 +1,6 @@
 # Using Amazon Transcribe Medical streaming with HTTP/2<a name="how-streaming-med"></a>
 
- Amazon Transcribe Medical uses a format called *event stream encoding* for streaming\-med transcription\. This format encoded binary data with header information that describes the contents of each event\. For more information, see [Event stream encoding](event-stream.md)\. You can use this information for applications that call the Amazon Transcribe Medical endpoint without using the Amazon Transcribe Medical SDK\. 
+Amazon Transcribe Medical uses a format called *event stream encoding* for streaming\-med transcription\. This format encoded binary data with header information that describes the contents of each event\. For more information, see [Event stream encoding](streaming-setting-up.md#streaming-event-stream)\. You can use this information for applications that call the Amazon Transcribe Medical endpoint without using an SDK\. 
 
 When Amazon Transcribe Medical uses the [HTTP/2 protocol](https://http2.github.io/) for streaming medical transcriptions, the key components for a streaming medical request are:
 + A header frame\. This contains the HTTP/2 headers for the request, and a signature in the `authorization` header that Amazon Transcribe Medical uses as a seed signature to sign the following data frames\.
@@ -9,7 +9,7 @@ When Amazon Transcribe Medical uses the [HTTP/2 protocol](https://http2.github.i
 
 ## Streaming request<a name="streaming-med-request"></a>
 
-To make a streaming request, you use the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API\. 
+To make a streaming request, you use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\. 
 
 ### Header frame<a name="streaming-med-header"></a>
 
@@ -20,25 +20,25 @@ The header frame is the authorization frame for the streaming transcription\. Am
 The header frame of a request to Amazon Transcribe Medical requires the following HTTP/2 headers\.
 
 ```
-POST /stream-transcription HTTP/2.0
-host: transcribestreaming.region.amazonaws.com
+POST /medical-stream-transcription HTTP/2
+host: transcribestreaming.us-west-2.amazonaws.com
 authorization: Generated value
-content-type: application/vnd.amazon.eventstream
-x-amz-target: com.amazonaws.transcribe.Transcribe.StartStreamTranscription
-x-amz-content-sha256: streaming-med-AWS4-HMAC-SHA256-EVENTS
-x-amz-date: Date
+x-amz-target: com.amazonaws.transcribe.Transcribe.StartMedicalStreamTranscription
+x-amz-content-sha256: STREAMING-MEDAWS4-HMAC-SHA256-EVENTS
+x-amz-date: 20220208T235959Z
 x-amzn-transcribe-language-code: en-US
-x-amzn-transcribe-media-encoding: media encoding
-x-amzn-transcribe-sample-rate: Sample rate
+x-amzn-transcribe-media-encoding: flac
+x-amzn-transcribe-sample-rate: 16000
+Content-type: application/vnd.amazon.eventstream
 transfer-encoding: chunked
 ```
 
 In the request, use the following values for the `host`, `authorization`, and `x-amz-date` headers:
-+ **`host`**: Use the AWS Region where you are calling Amazon Transcribe Medical\. For a list of valid regions, see [ AWS Regions and Endpoints ](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *Amazon Web Services General Reference*\. 
-+ **`authorization`**: The Signature Version 4 signature for the request\. For more information about creating a signature, see [ Signing AWS Requests with Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html) in the *Amazon Web Services General Reference*\.
-+ **`x-amz-date`**: Generate a date and time for the request following the instructions in [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html) in the *Amazon Web Services General Reference*\.
++ **`host`**: Use the AWS Region where you are calling Amazon Transcribe Medical\. For a list of valid AWS Regions, see [AWS Regions and Endpoints ](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *Amazon Web Services General Reference*\. 
++ **authorization**: This is a generated field\. To learn more about creating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
++ **`x-amz-date`**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 
-For more information about the headers specific to Amazon Transcribe Medical, see the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API\.
+For more information about the headers specific to Amazon Transcribe Medical, see the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
 
 ### Data frames<a name="streaming-med-data"></a>
 
@@ -58,7 +58,12 @@ The following diagram shows how this works\.
 
 To create the message to send to Amazon Transcribe Medical, create the audio event\. Combine the headers described in the following table with a chunk of audio bytes into an event\-encoded message\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-event-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+
+| Header name byte length | Header name \(string\) | Header value type | Value string byte length | Value string \(UTF\-8\) | 
+| --- | --- | --- | --- | --- | 
+| 13 | :content\-type | 7 | 24 | application/octet\-stream | 
+| 11 | :event\-type | 7 | 10 | AudioEvent | 
+| 13 | :message\-type | 7 | 5 | event | 
 
 To create the payload for the event message, use a buffer in raw\-byte format\.
 
@@ -66,7 +71,11 @@ To create the payload for the event message, use a buffer in raw\-byte format\.
 
 Create a data frame using the audio event payload to send to Amazon Transcribe Medical\. The data frame contains event\-encoding headers that include the current date and a signature for the audio chunk and the audio event\. To indicate to Amazon Transcribe Medical that the audio stream is complete, send an empty data frame that contains only the date and signature\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-message-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+
+| Header name byte length | Header name \(string\) | Header value type | Value string byte length | Value | 
+| --- | --- | --- | --- | --- | 
+| 16 | :chunk\-signature | 6 | varies | generated signature | 
+| 5 | :date | 8 | 8 | timestamp | 
 
 To create the signature for the data frame, first create a string to sign, and then calculate the signature for the event\. Construct the string to sign as follows\.
 
@@ -84,8 +93,8 @@ String stringToSign =
     "\n" +
     HexHash(payload);
 ```
-+ **`DATE`**: The current date and time in Universal Time Coordinated \(UTC\) and using the [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html)\. Don't include milliseconds in the date\. For example, 20190127T223754Z is 22:37:54 on 1/27/2019\.
-+ **`KEYPATH`**: The signature scope in the format `date/region/service/aws4_request`\. For example, `20190127/us-east-1/transcribe/aws4_request`\.
++ **`DATE`**: The current date and time in Universal Time Coordinated \(UTC\) and using the [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html)\. Don't include milliseconds in the date\. For example, 20220127T223754Z is 22:37:54 on 1/27/2022\.
++ **`KEYPATH`**: The signature scope in the format `date/region/service/aws4_request`\. For example, `20220127/us-west-2/transcribe/aws4_request`\.
 + **`priorSignature`**: The signature for the previous frame\. For the first data frame, use the signature of the header frame\.
 + **`nonSignatureHeaders`**: The `DATE` header encoded as a string\.
 + **`payload`**: The byte buffer containing the audio event data\.
@@ -109,20 +118,25 @@ To indicate that the audio stream is complete, send an end frame to Amazon Trans
 
 ## Streaming response<a name="streaming-med-response"></a>
 
-Responses from Amazon Transcribe Medical are also sent using event stream encoding\. Use this information to decode a response from the [ StartMedicalStreamTranscription ](API_streaming_StartMedicalStreamTranscription.md) API\.
+Responses from Amazon Transcribe Medical are also sent using event stream encoding\. Use this information to decode a response from the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
 
 ### Transcription response<a name="transcription-response"></a>
 
 A transcription response is event stream encoded\. It contains the standard prelude and the following headers\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-response-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
-For details, see [Event stream encoding](event-stream.md)\. 
+| Header name byte length | Header name \(string\) | Header value type | Value string byte length | Value string \(UTF\-8\) | 
+| --- | --- | --- | --- | --- | 
+| 13 | :content\-type | 7 | 16 | application/json | 
+| 11 | :event\-type | 7 | 15 | TranscriptEvent | 
+| 13 | :message\-type | 7 | 5 | event | 
+
+For details, see [Event stream encoding](streaming-setting-up.md#streaming-event-stream)\. 
 
 When the response is decoded, it contains the following information:
 
 ```
-:content-type: "application/json"
+:content-type: "application/vnd.amazon.eventstream"
 :event-type: "TranscriptEvent"
 :message-type: "event"
                 
@@ -133,16 +147,21 @@ For an example of the JSON structure returned by Amazon Transcribe Medical, see 
 
 ### Exception response<a name="streaming-med-exception"></a>
 
-If there is an error in processing your transcription stream, Amazon Transcribe Medical sends an exception response\. The response is event stream encoded\. For details, see [Event stream encoding](event-stream.md)\. 
+If there is an error in processing your transcription stream, Amazon Transcribe Medical sends an exception response\. The response is event stream encoded\. For details, see [Event stream encoding](streaming-setting-up.md#streaming-event-stream)\. 
 
 The response contains the standard prelude and the following headers\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-error-headers.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+
+| Header name byte length | Header name \(string\) | Header value type | Value string byte length | Value string \(UTF\-8\) | 
+| --- | --- | --- | --- | --- | 
+| 13 | :content\-type | 7 | 16 | application/json | 
+| 11 | :event\-type | 7 | 19 | BadRequestException | 
+| 13 | :message\-type | 7 | 9 | exception | 
 
 When the exception response is decoded, it contains the following information\.
 
 ```
-:content-type: "application/json"
+:content-type: "application/vnd.amazon.eventstream"
 :event-type: "BadRequestException"
 :message-type: "exception"
                 
@@ -151,22 +170,23 @@ Exception message
 
 ## Example request and response<a name="streaming-med-example"></a>
 
-The following is an end\-to\-end example of a streaming transcription request\. In this example, binary data is represented as base64\-encoded strings\. In an actual response, the data are raw bytes\.
+The following is an end\-to\-end example of a streaming transcription request\. In this example, binary data are represented as base64\-encoded strings\. In an actual response, the data are raw bytes\.
 
 ### Step 1: Start the session with Amazon Transcribe Medical<a name="streaming-med-example-step1"></a>
 
 To start the session, send an HTTP/2 request to Amazon Transcribe Medical\.
 
 ```
-POST /stream-transcription HTTP/2.0
-host: transcribestreaming.region.amazonaws.com
+POST /medical-stream-transcription HTTP/2
+host: transcribestreaming.us-west-2.amazonaws.com
 authorization: Generated value
-content-type: application/vnd.amazon.eventstream
-x-amz-content-sha256: streaming-med-AWS4-HMAC-SHA256-EVENTS
-x-amz-date: Date
+x-amz-target: com.amazonaws.transcribe.Transcribe.StartMedicalStreamTranscription
+x-amz-content-sha256: STREAMING-MED-AWS4-HMAC-SHA256-EVENTS
+x-amz-date: 20220208T235959Z
 x-amzn-transcribe-language-code: en-US
-x-amzn-transcribe-media-encoding: Media encoding
-x-amzn-transcribe-sample-rate: Sample rate
+x-amzn-transcribe-media-encoding: flac
+x-amzn-transcribe-sample-rate: 16000
+content-type: application/vnd.amazon.eventstream
 transfer-encoding: chunked
 ```
 
@@ -177,17 +197,17 @@ Amazon Transcribe Medical sends the following response\.
 ```
 HTTP/2.0 200
 x-amzn-transcribe-language-code: en-US
-x-amzn-transcribe-sample-rate: Sample rate
+x-amzn-transcribe-sample-rate: 16000
 x-amzn-request-id: 8a08df7d-5998-48bf-a303-484355b4ab4e
 x-amzn-transcribe-session-id: b4526fcf-5eee-4361-8192-d1cb9e9d6887
-x-amzn-transcribe-media-encoding: pcm
+x-amzn-transcribe-media-encoding: flac
 x-amzn-RequestId: 8a08df7d-5998-48bf-a303-484355b4ab4e
 content-type: application/vnd.amazon.eventstream
 ```
 
 ### Step 3: Create an audio event<a name="streaming-med-example-step3"></a>
 
-Create an audio event containing the audio data to send\. For details, see [Event stream encoding](event-stream-med.md)\. The binary data in this request is base64\-encoded\. In an actual request, the data is raw bytes\.
+Create an audio event containing the audio data to send\. For details, see [Event stream encoding](event-stream-med.md)\. The binary data in this request are base64\-encoded\. In an actual request, the data are raw bytes\.
 
 ```
 :content-type: "application/octet-stream"
@@ -199,7 +219,7 @@ UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA
 
 ### Step 4: Create an audio event message<a name="streaming-med-example-step4"></a>
 
-Create an audio message that contains the audio data to send to Amazon Transcribe Medical\. For details, see [Event stream encoding](event-stream-med.md)\. The audio event data in this example is base64\-encoded\. In an actual request, the data is raw bytes\.
+Create an audio message that contains the audio data to send to Amazon Transcribe Medical\. For details, see [Event stream encoding](event-stream-med.md)\. The audio event data in this example are base64\-encoded\. In an actual request, the data are raw bytes\.
 
 ```
 :date: 2019-01-29T01:56:17.291Z
@@ -222,11 +242,11 @@ AAAAUwAAAEP1RHpYBTpkYXRlCAAAAWiXUkMLEDpjaHVuay1zaWduYXR1cmUGACCt6Zy+uymwEK2SrLp/
 5eGn83jdBwCaRUBJA+eaDafqjqI=
 ```
 
-To see the transcription results, decode the raw bytes using event\-stream encoding\. 
+To see the transcription results, decode the raw bytes using event stream encoding\. 
 
 ```
 :event-type: "TranscriptEvent"
-:content-type: "application/json"
+:content-type: "application/vnd.amazon.eventstream"
 :message-type: "event"
 
 {"Transcript":{"Results":[results]}}

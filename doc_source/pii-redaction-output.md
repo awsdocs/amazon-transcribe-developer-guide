@@ -42,7 +42,9 @@ Transcription jobs using content redaction generate two types of `confidence` va
                         "content": "[PII]",
                         "redactions": [
                             {
-                                "confidence": "0.9999"
+                                "confidence": "0.9999",
+                                "type": "NAME",
+                                "category": "PII"
                             }
                         ]
                     }

@@ -21,15 +21,15 @@ You can use batch language identification in combination with any other Amazon T
 **Important**  
 If you're using automatic language identification with content redaction enabled, make sure that the language of your media file is [supported with redaction](supported-languages.md#table-language-matrix)\. If the language in your file is not supported, your transcript is **not** redacted and there are no warnings or job failures\.
 
-If using language identification with a language model, vocabulary filter, or custom vocabulary, you must use the [ LanguageIdSettings ](API_LanguageIdSettings.md) parameter in your request\. Using this parameter, you can specify one language model, one vocabulary filter, and one custom vocabulary for every language code you provide\. Note that the language codes for each must match the language codes you specify in your request\. For an example of what this parameter looks like in a request, refer to Option 2 in the **AWS CLI** and **AWS SDK** drop\-down panels\.
+If using language identification with a language model, vocabulary filter, or custom vocabulary, you must use the [LanguageIdSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) parameter in your request\. Using this parameter, you can specify one language model, one vocabulary filter, and one custom vocabulary for every language code you provide\. Note that the language codes for each must match the language codes you specify in your request\. For an example of what this parameter looks like in a request, refer to Option 2 in the **AWS CLI** and **AWS SDK** drop\-down panels\.
 
 For best results, ensure your media file contains at least 30 seconds of speech\.
 
-You can use automatic language identification in a batch transcription job using the **Amazon Transcribe Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+You can use automatic language identification in a batch transcription job using the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
 
-## Console<a name="lang-howto-console-batch"></a>
+## AWS Management Console<a name="lang-howto-console-batch"></a>
 
-1. Sign in to the [Amazon Transcribe console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Transcription jobs**, then select the **Create job** button \(top right\)\. This opens the **Specify job details** page\.
 
@@ -43,14 +43,16 @@ You can use automatic language identification in a batch transcription job using
 
 ## AWS CLI<a name="lang-howto-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `IdentifyLanguage` parameter\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ LanguageIdSettings ](API_LanguageIdSettings.md)\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `IdentifyLanguage` parameter\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [LanguageIdSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html)\.
 
 **Option 1**: Without the `language-id-settings` parameter\.
 
 ```
 aws transcribe start-transcription-job \
---transcription-job-name job-name \
---media  MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
+--region us-west-2 \
+--transcription-job-name my-first-transcription-job \
+--media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac \
+--output-bucket-name DOC-EXAMPLE-BUCKET \
 --identify-language
 ```
 
@@ -58,35 +60,41 @@ aws transcribe start-transcription-job \
 
 ```
 aws transcribe start-transcription-job \
---transcription-job-name job-name \
---media MediaFileUri=s3://your-S3-bucket/S3-prefix/your-filename.file-extension \
---identify-language --language-id-settings "{\"en-US\":{\"VocabularyName\":\"your-en-US-vocabulary\",
-\"VocabularyFilterName\":\"your-en-US-vocabulary-filter\",\"LanguageModelName\":\"your-en-US-language-model\"},
-\"en-AU\":{\"VocabularyName\":\"your-en-AU-vocabulary\"}}
+--region us-west-2 \
+--transcription-job-name my-first-transcription-job \
+--media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac \
+--output-bucket-name DOC-EXAMPLE-BUCKET \
+--identify-language --language-id-settings "{\"en-US\":{\"VocabularyName\":\"my-en-US-vocabulary\",
+\"VocabularyFilterName\":\"my-en-US-vocabulary-filter\",\"LanguageModelName\":\"my-en-US-language-model\"},
+\"en-AU\":{\"VocabularyName\":\"my-en-AU-vocabulary\"}}
 ```
 
 Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that identifies the language\.
 
 ```
 aws transcribe start-transcription-job \
---cli-input-json file://filepath/example-start-command.json
+--region us-west-2 \
+--cli-input-json file://filepath/my-first-language-id-job.json
 ```
 
-The file *example\-start\-command\.json* contains the following request body\.
+The file *my\-first\-language\-id\-job\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "job-name",  
+  "TranscriptionJobName": "my-first-transcription-job",  
   "Media": {
-        "MediaFileUri": "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
-    },
+        "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+   },
+  "OutputBucketName": "DOC-EXAMPLE-BUCKET",
   "IdentifyLanguage": "true"
 }
 ```
 
-## AWS SDK for Python \(Boto3\)<a name="lang-howto-sdk"></a>
+## AWS SDK for Python \(Boto3\)<a name="lang-howto-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to identify your file's language using the `IdentifyLanguage` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [ StartTranscriptionJob ](API_StartTranscriptionJob.md) and [ LanguageIdSettings ](API_LanguageIdSettings.md)\.
+This example uses the AWS SDK for Python \(Boto3\) to identify your file's language using the `IdentifyLanguage` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [LanguageIdSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html)\.
+
+For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe](service_code_examples.md) chapter\.
 
 **Option 1**: Without the `LanguageIdSettings` parameter\.
 
@@ -94,15 +102,18 @@ This example uses the AWS SDK for Python \(Boto3\) to identify your file's langu
 from __future__ import print_function
 import time
 import boto3
-transcribe = boto3.client('transcribe')
-job_name = "job-name"
-job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
+transcribe = boto3.client('transcribe', 'us-west-2')
+job_name = "my-first-transcription-job"
+job_uri = "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
-    Media={'MediaFileUri': job_uri},
-    MediaFormat='wav',
+    Media={
+        'MediaFileUri': job_uri
+        },
+    MediaFormat='flac',
     IdentifyLanguage=True
 )
+
 while True:
     status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
     if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
@@ -119,18 +130,18 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "job-name"
-job_uri = "s3://your-S3-bucket/S3-prefix/your-filename.file-extension"
+job_name = "my-first-transcription-job"
+job_uri = "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
     Media={'MediaFileUri': job_uri},
-    MediaFormat='wav',
+    MediaFormat='flac',
     IdentifyLanguage=True,
     LanguageIdSettings={
         'en-US': {
-            'VocabularyName': 'your-en-US-vocabulary',
-            'VocabularyFilterName': 'your-en-US-vocabulary-filter',
-            'LanguageModelName': 'your-en-US-language-model'
+            'VocabularyName': 'my-en-US-vocabulary',
+            'VocabularyFilterName': 'my-en-US-vocabulary-filter',
+            'LanguageModelName': 'my-en-US-language-model'
         }
     }
 )

@@ -13,13 +13,13 @@ Use the following information to diagnose and fix common issues that you might e
 
 If you are using the AWS Management Console, and you get a message that you're not authorized to perform an action, contact your administrator for assistance\. Your administrator is the person that provided you with your user name and password\.
 
-For example, the following error occurs when an IAM user named `mateojackson` IAM tries to use the console to view details about a transcription job but doesn't have `transcribe:GetTranscriptionJob` permissions\.
+For example, the following error occurs when an IAM user named `mateojackson` IAM tries to use the AWS Management Console to view details about a transcription job but doesn't have `transcribe:GetTranscriptionJob` permissions\.
 
 ```
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: transcribe:GetTranscriptionJob
 ```
 
-Mateo must ask his administrator to update his policies to allow him to access the [ GetTranscriptionJob ](API_GetTranscriptionJob.md) API using the `transcribe:GetTrascriptionJob` action\.
+Mateo must ask his administrator to update his policies to allow him to access the [GetTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) API using the `transcribe:GetTrascriptionJob` action\.
 
 ## I am not authorized to perform iam:PassRole<a name="security_iam_troubleshoot-passrole"></a>
 

@@ -1,14 +1,12 @@
 # Identifying speakers and labeling their speech in audio files<a name="conversation-diarization-batch-med"></a>
 
-You can enable speaker identification in a batch transcription job using either the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API or the Amazon Transcribe Medical console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
+You can enable speaker identification in a batch transcription job using either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
 
-## Console<a name="conversation-diarization-batch-med-console"></a>
+## AWS Management Console<a name="conversation-diarization-batch-med-console"></a>
 
-**To enable speaker diarization in a transcription job \(console\)**
+To use the AWS Management Console to enable speaker diarization in your transcription job, you enable audio identification and then speaker identification\.
 
-To use the console to enable speaker diarization in your transcription job, you enable audio identification and then speaker identification\.
-
-1. Sign in to the [ Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -29,7 +27,7 @@ To use the console to enable speaker diarization in your transcription job, you 
 ## API<a name="conversation-diarization-batch-med-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 
@@ -56,15 +54,15 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "example-diarization-transcription"
-job_uri = "https://DOC-EXAMPLE-BUCKET1.s3-Region.amazonaws.com/example-file.mp4"
+job_name = "my-first-transcription-job"
+job_uri = "s3://DOC-EXAMPLE-BUCKET.s3-us-west-2.amazonaws.com/my-audio-file.flac"
 transcribe.start_medical_transcription_job(
     MedicalTranscriptionJobName=job_name,
     Media = {'MediaFileUri': job_uri},
     LanguageCode = 'en-US',
     Specialty = 'PRIMARYCARE',
     Type = 'CONVERSATION',
-    OutputBucketName = 'DOC-EXAMPLE-BUCKET2',
+    OutputBucketName = 's3://DOC-EXAMPLE-BUCKET',
 Settings = {'ShowSpeakerLabels': True,
          'MaxSpeakerLabels': 2
          }
@@ -164,13 +162,13 @@ The following example code shows the transcription results of a transcription jo
 
   ```
   {
-      "MedicalTranscriptionJobName": "speaker-id-conversation-medical-transcription-job",
+      "MedicalTranscriptionJobName": "my-first-transcription-job",
       "LanguageCode": "language-code",
       "Specialty": "PRIMARYCARE",
       "Type": "CONVERSATION",
-      "OutputBucketName":"DOC-EXAMPLE-BUCKET",
+      "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
       "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.extension"
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
           },
       "Settings":{
           "ShowSpeakerLabels": true,
@@ -183,13 +181,13 @@ The following example code shows the transcription results of a transcription jo
 
   ```
   {
-      "MedicalTranscriptionJobName": "speaker-id-conversation-medical-transcription-job",
+      "MedicalTranscriptionJobName": "my-first-transcription-job",
       "LanguageCode": "en-US",
       "Specialty": "PRIMARYCARE",
       "Type": "CONVERSATION",
-      "OutputBucketName":"DOC-EXAMPLE-BUCKET1",
+      "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
       "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET1/example-file.extension"
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
           },
       "Settings":{
           "ShowSpeakerLabels": true,

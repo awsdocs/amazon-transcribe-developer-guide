@@ -1,14 +1,10 @@
 # Transcribing an audio file using a medical custom vocabulary<a name="start-med-custom-vocab-job"></a>
 
-Use the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) or the Amazon Transcribe Medical console to start a transcription job that uses a custom vocabulary to improve transcription accuracy\.
+Use the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) or the AWS Management Console to start a transcription job that uses a custom vocabulary to improve transcription accuracy\.
 
-## Console<a name="start-med-custom-vocab-job-console"></a>
+## AWS Management Console<a name="start-med-custom-vocab-job-console"></a>
 
-**To start a transcription job with a custom vocabulary \(console\)**
-
-To use the console to use your custom vocabulary in your transcription job, \.
-
-1. Sign in to the [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -27,7 +23,7 @@ To use the console to use your custom vocabulary in your transcription job, \.
 ## API<a name="start-med-custom-vocab-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 
@@ -52,15 +48,15 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "example-med-vocab-transcription"
-job_uri = "https://DOC-EXAMPLE-BUCKET1.s3-Region.amazonaws.com/example-audio-file.extension"
+job_name = "my-first-med-transcription-job"
+job_uri = "https://DOC-EXAMPLE-BUCKET.s3-us-west-2.amazonaws.com/my-audio-file.flac"
 transcribe.start_medical_transcription_job(
    MedicalTranscriptionJobName=job_name,
    Media = {'MediaFileUri': job_uri},
    LanguageCode = 'en-US',
    Specialty = 'PRIMARYCARE',
    Type = 'CONVERSATION',
-   OutputBucketName = 'DOC-EXAMPLE-BUCKET2',
+   OutputBucketName = 's3://DOC-EXAMPLE-BUCKET',
    Settings = {
        'VocabularyName': 'example-med-custom-vocab'
        }

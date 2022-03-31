@@ -1,4 +1,4 @@
-# Improving transcription accuracy with custom language models<a name="custom-language-models"></a>
+# Custom language models<a name="custom-language-models"></a>
 
 Custom language models use your text data \(training data\) to improve transcription accuracy for your specific use case\. For example, you can provide Amazon Transcribe with industry\-specific terms or acronyms that it might not otherwise recognize\.
 
@@ -24,18 +24,13 @@ If you're unsure on whether to use your data for training or tuning, this table 
 
 Custom language models are not available with all Amazon Transcribe\-supported languages; refer to [Supported languages and language\-specific features](supported-languages.md#table-language-matrix) for more information\.
 
+For a video walkthrough of creating and using custom language models, see:
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/iTkJoIqRrPU/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/iTkJoIqRrPU)
+
+This video is part of the blog post: [Boost transcription accuracy of class lectures with custom language models for Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/transcribe-class-lectures-accurately-using-amazon-transcribe-with-custom-language-models/)\.
+
 **API operations specific to custom language models**  
- [CreateLanguageModel](https://docs.aws.amazon.com/transcribe/latest/dg/API_CreateLanguageModel.html), [DeleteLanguageModel](https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteLanguageModel.html), [DescribeLanguageModel](https://docs.aws.amazon.com/transcribe/latest/dg/API_DescribeLanguageModel.html), [ListLanguageModels](https://docs.aws.amazon.com/transcribe/latest/dg/API_ListLanguageModels.html) 
+ [CreateLanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html), [DeleteLanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteLanguageModel.html), [DescribeLanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html), [ListLanguageModels](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListLanguageModels.html) 
 
-## Custom language models versus custom vocabularies<a name="custom-language-models-vs-vocabularies"></a>
-
-Custom language models are more robust than [Custom vocabularies](custom-vocabulary.md)\. As such, they require more training data than custom vocabularies; they also give you the option to provide tuning data, which is not available for custom vocabularies\. Because of the additional training involved, custom language models can produce significant accuracy improvements over [Custom vocabularies](custom-vocabulary.md)\.
-
-Not only do custom language models recognize individual terms, but they use each term's context to transcribe your audio\. Custom vocabularies do not use context, and instead focus on individual words, independent of context\.
-
-Custom vocabularies require you to manually input new words\. Custom language models can add words to their recognition vocabularies automatically, adding robustness without any extra work from you\.
-
-To achieve the highest transcription accuracy, use custom vocabularies in conjunction with your custom language model\.
-
-**Note**  
-Streaming custom language models do not support custom vocabularies\.
+When you're ready to create your own custom language model, refer to the [following section](custom-language-models-create.md)\.

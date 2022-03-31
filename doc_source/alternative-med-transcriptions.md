@@ -4,15 +4,13 @@ When you use Amazon Transcribe Medical, you get the transcription that has the h
 
 Use alternative transcriptions to see different interpretations of the transcribed audio\. For example, in an application that enables a person to review the transcription, you can present the alternative transcriptions for the person to choose from\.
 
-You can generate alternative transcriptions with the Amazon Transcribe Medical console or the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API\.
+You can generate alternative transcriptions with the AWS Management Console or the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API\.
 
-## Console<a name="alternative-med-transcriptions-console"></a>
+## AWS Management Console<a name="alternative-med-transcriptions-console"></a>
 
-**To generate additional alternative transcriptions in a transcription job \(console\)**
+To use the AWS Management Console to generate alternative transcriptions, you enable alternative results when you configure your job\.
 
-To use the console to generate alternative transcriptions, you enable alternative results when you configure your job\.
-
-1. Sign in to the [Amazon Transcribe Medical console](https://console.aws.amazon.com/transcribe/)\.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription jobs**\.
 
@@ -31,13 +29,13 @@ To use the console to generate alternative transcriptions, you enable alternativ
 ## API<a name="alternative-med-transcriptions-api"></a>
 
 **To identify speakers in an audio file using a batch transcription job \(API\)**
-+ For the [ StartMedicalTranscriptionJob ](API_StartMedicalTranscriptionJob.md) API, specify the following\.
++ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 
   1. For `LanguageCode`, specify the language code that corresponds to the language spoken in your audio file and the language of your vocabulary filter\.
 
-  1. In the `MediaFileUri` parameter of the `Media` object, specify the name of the audio file you want to transcribe\.
+  1. In the `MediaFileUri` parameter of the `Media` object, specify the location of the audio file you want to transcribe\.
 
   1. For `Specialty`, specify the medical specialty of the clinician speaking in the audio file\.
 
@@ -58,15 +56,15 @@ from __future__ import print_function
 import time
 import boto3
 transcribe = boto3.client('transcribe')
-job_name = "your-transcription-job-name"
-job_uri = s3://DOC-EXAMPLE-BUCKET1/example-audio-file.extension
+job_name = "my-first-transcription-job"
+job_uri = s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac
 transcribe.start_medical_transcription_job(
     MedicalTranscriptionJobName=job_name,
     Media = {'MediaFileUri': job_uri},
     LanguageCode = 'en-US',
     Specialty = 'PRIMARYCARE',
     Type = 'type', # Specify 'CONVERSATION' for a medical conversation. Specify 'DICTATION' for a medical dictation.
-    OutputBucketName = 'Amazon-S3-bucket-name-storing-your-transcription-results'
+    OutputBucketName = 's3://DOC-EXAMPLE-BUCKET'
   ),
 Settings = {'ShowAlternatives': True,
        'MaxAlternatives': 2
@@ -95,13 +93,13 @@ print(status)
 
   ```
   {
-        "MedicalTranscriptionJobName": "alternatives-conversation-medical-transcription-job",
+        "MedicalTranscriptionJobName": "my-first-transcription-job",
         "LanguageCode": "en-US",
         "Specialty": "PRIMARYCARE",
         "Type": "CONVERSATION",
         "OutputBucketName":"DOC-EXAMPLE-BUCKET",
         "Media": {
-            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.extension"
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
           },
         "Settings":{
             "ShowAlternatives": true,
@@ -115,11 +113,11 @@ print(status)
   ```
   {
       "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "alternatives-medical-transcription-job",
+          "MedicalTranscriptionJobName": "my-first-transcription-job",
           "TranscriptionJobStatus": "IN_PROGRESS",
           "LanguageCode": "en-US",
           "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/your-audio-file.extension"
+              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
           },
           "StartTime": "2020-09-21T19:09:18.199000+00:00",
           "CreationTime": "2020-09-21T19:09:18.171000+00:00",

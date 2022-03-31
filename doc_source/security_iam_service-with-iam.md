@@ -1,6 +1,6 @@
 # How Amazon Transcribe works with IAM<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to Amazon Transcribe, you should understand which IAM features are available to use with Amazon Transcribe\. To get a high\-level view of how Amazon Transcribe and other AWS services work with IAM, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*\.
+Before you use IAM to manage access to Amazon Transcribe, you should understand which IAM features are available to use with Amazon Transcribe\. To get a high\-level view of how Amazon Transcribe and other AWS services work with IAM, see [AWS services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*\.
 
 **Topics**
 + [Amazon Transcribe identity\-based policies](#security_iam_service-with-iam-id-based-policies)
@@ -18,7 +18,7 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 Include actions in a policy to grant permissions to perform the associated operation\.
 
-Policy actions in Amazon Transcribe use the following prefix before the action: `transcribe:`\. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon Transcribe [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you include the `transcribe:StartTranscriptionJob` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Transcribe defines actions that describe tasks that you can perform with this service\.
+Policy actions in Amazon Transcribe use the following prefix before the action: `transcribe:`\. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon Transcribe [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, you include the `transcribe:StartTranscriptionJob` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. Amazon Transcribe defines actions that describe tasks that you can perform with this service\.
 
 To specify multiple actions in a single statement, separate them with commas as follows\.
 
@@ -60,13 +60,13 @@ The following table lists the Amazon Transcribe condition keys that apply to Ama
 
 | Amazon Transcribe condition key | Description | Value type | Action | 
 | --- | --- | --- | --- | 
-| transcribe:OutputBucketName | Filters access by the output bucket used to start a transcription job\. | String | [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 
-| transcribe:OutputEncryptionKMSKeyId | Filters access by the KMS key used to start a transcription job\. | String | [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 
-| transcribe:Outputkey | Filters access by the output key used to start a transcription job\. | String | [ StartTranscriptionJob ](API_StartTranscriptionJob.md) | 
+| transcribe:OutputBucketName | Filters access by the output bucket used to start a transcription job\. | String | [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) | 
+| transcribe:OutputEncryptionKMSKeyId | Filters access by the KMS key used to start a transcription job\. | String | [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) | 
+| transcribe:Outputkey | Filters access by the output key used to start a transcription job\. | String | [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) | 
 
 For examples of how you can use condition keys to control access to the resources of Amazon Transcribe, see the following\.
 
-If you want your users to always use a specific output bucket when they use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you can use the following policy\.
+If you want your users to always use a specific output bucket when they use the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, you can use the following policy\.
 
 ```
 {
@@ -89,7 +89,7 @@ If you want your users to always use a specific output bucket when they use the 
 }
 ```
 
-If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you can use the following policy\.
+If you want users to always use a AWS Key Management Service \(KMS\) key when they use the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, you can use the following policy\.
 
 ```
 {
@@ -114,7 +114,7 @@ If you want users to always use a AWS Key Management Service \(KMS\) key when th
 
 For information on AWS KMS keys, see [Key management](key-management.md)\.
 
-If you want your users to always use a specific output key when they use the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API, you can use the following policy\.
+If you want your users to always use a specific output key when they use the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, you can use the following policy\.
 
 ```
 {
@@ -137,7 +137,7 @@ If you want your users to always use a specific output key when they use the [ S
 }
 ```
 
-For more information, see the `OutputKey` parameter description of the [ StartTranscriptionJob ](API_StartTranscriptionJob.md) API\.
+For more information, see the `OutputKey` parameter description of the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API\.
 
 #### Examples<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
@@ -170,3 +170,5 @@ Amazon Transcribe doesn't support service\-linked roles\.
 ### Service roles<a name="security_iam_service-with-iam-roles-service"></a>
 
 You can allow a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles appear in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, doing so might prevent the service from functioning as expected\.
+
+Refer to [Cross\-service confused deputy prevention](security-iam-confused-deputy.md) to learn about preventing unwanted services from assuming roles and performing actions with Amazon Transcribe\.

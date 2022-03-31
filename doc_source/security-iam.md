@@ -8,6 +8,7 @@ AWS Identity and Access Management \(IAM\) is an AWS service that helps an admin
 + [Managing access using policies](#security_iam_access-manage)
 + [How Amazon Transcribe works with IAM](security_iam_service-with-iam.md)
 + [Amazon Transcribe identity\-based policy examples](security_iam_id-based-policy-examples.md)
++ [Cross\-service confused deputy prevention](security-iam-confused-deputy.md)
 + [Troubleshooting Amazon Transcribe identity and access](security_iam_troubleshoot.md)
 
 ## Audience<a name="security_iam_audience"></a>
