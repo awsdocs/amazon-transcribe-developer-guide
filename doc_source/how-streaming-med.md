@@ -34,7 +34,7 @@ transfer-encoding: chunked
 ```
 
 In the request, use the following values for the `host`, `authorization`, and `x-amz-date` headers:
-+ **`host`**: Use the AWS Region where you are calling Amazon Transcribe Medical\. For a list of valid AWS Regions, see [AWS Regions and Endpoints ](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *Amazon Web Services General Reference*\. 
++ **`host`**: Use the AWS Region where you are calling Amazon Transcribe Medical\. For a list of valid AWS Regions, see [AWS Regions and Endpoints ](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) in the *AWS General Reference*\. 
 + **authorization**: This is a generated field\. To learn more about creating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
 + **`x-amz-date`**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 
@@ -101,7 +101,7 @@ String stringToSign =
 + **`Hex`**: A function that encodes its input into a hexadecimal representation\.
 + **`HexHash`**: A function that first creates a SHA\-256 hash of its input and then uses the `Hex` function to encode the hash\.
 
-After you have constructed the string to sign, sign it using the key that you derived for Signature Version 4, as follows\. For details, see [Examples of How to Derive a Signing Key for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html) in the *Amazon Web Services General Reference*\.
+After you have constructed the string to sign, sign it using the key that you derived for Signature Version 4, as follows\. For details, see [Examples of How to Derive a Signing Key for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html) in the *AWS General Reference*\.
 
 ```
 String signature = HMACSHA256(derivedSigningKey, stringToSign);

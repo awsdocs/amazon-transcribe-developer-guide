@@ -1,14 +1,28 @@
-# Improving transcription accuracy<a name="improving-accuracy"></a>
+# Improving transcription accuracy with custom vocabularies and custom language models<a name="improving-accuracy"></a>
 
-If you want to improve the accuracy of your transcriptions, you can use custom vocabularies, custom language models, or both\.
+If your media contains domain\-specific or non\-standard terms, such as brand names, acronyms, technical words, and jargon, you may notice that Amazon Transcribe doesn't correctly capture these terms in your transcription output\.
 
-[Custom vocabularies](custom-vocabulary.md) involve the input of specific words\. For example, if Amazon Transcribe is not correctly rendering terms that are specific to your use case, you can create a vocabulary file with the correct terms for Amazon Transcribe to use in the transcription\.
+To correct transcription inaccuracies and customize your output for your specific use case, you can create [Custom vocabularies](custom-vocabulary.md) and [Custom language models](custom-language-models.md)\.
++ [Custom vocabularies](custom-vocabulary.md) are designed to tune and boost both the recognition and the formatting of specific words in all contexts\. This involves supplying Amazon Transcribe with words and, optionally, pronunciation and display forms\.
 
-Custom vocabularies do not use context, and instead focus on individual words that you input manually\.
+  If Amazon Transcribe is not correctly rendering specific terms in your transcripts, you can create a custom vocabulary file that tells Amazon Transcribe how you want these terms displayed\. This word\-specific approach is most appropriate for correcting terms like brand names and acronyms\.
++ [Custom language models](custom-language-models.md) are designed to capture the context associated with terms\. This involves supplying Amazon Transcribe with a large volume of domain\-specific text data\.
 
-[Custom language models](custom-language-models.md) are more generalized and require the input of large amounts of training and, optionally, tuning data\. Although custom language models often require more work upfront, they can be more widely applied once created\.
+  If Amazon Transcribe is not correctly rendering technical terms or is using the incorrect homophone in your transcripts, you can create a custom language model that teaches Amazon Transcribe your domain\-specific language\. For example, a custom language model can learn when to use 'floe' \(ice floe\) versus 'flow' \(linear flow\)\.
 
-Custom language models also recognize individual terms, but, unlike custom vocabularies, they take into account the context associated with each term when transcribing your audio\. This context\-specific approach can produce significant accuracy improvements over custom vocabularies alone\.
+  This context\-aware approach is most appropriate for transcribing large volumes of domain\-specific speech\. Custom language models can produce significant accuracy improvements over custom vocabularies alone\. When using batch transcriptions, you can include both a custom language model and a custom vocabulary in your request\.
 
 **Tip**  
-To achieve the highest transcription accuracy with batch transcriptions, use custom vocabularies in conjunction with your custom language models\. Note that streaming custom language models do not support custom vocabularies\.
+To achieve the highest transcription accuracy, use custom vocabularies in conjunction with your custom language models\.
+
+For a video walkthrough of creating and using custom vocabularies, see:
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/oBgSJ7bsP2U/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/oBgSJ7bsP2U)
+
+For a video walkthrough of creating and using custom language models, see:
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/iTkJoIqRrPU/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/iTkJoIqRrPU)
+
+**Dive deeper with the AWS Machine Learning Blog**  
+Learn how Formula 1 is using custom vocabularies to create real\-time captions for their live races: [Live transcriptions of F1 races using Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/live-transcriptions-of-f1-races-using-amazon-transcribe/)\.  
+[Boost transcription accuracy of class lectures with custom language models for Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/transcribe-class-lectures-accurately-using-amazon-transcribe-with-custom-language-models/)\.

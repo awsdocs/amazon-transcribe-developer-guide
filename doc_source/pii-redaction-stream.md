@@ -8,7 +8,7 @@ PII identification and redaction for streaming jobs is performed only upon compl
 
 You can start a streaming transcription using the AWS Management Console, WebSocket, or HTTP/2\.
 
-## AWS Management Console<a name="redaction-howto-console-stream"></a>
+## AWS Management Console<a name="redaction-console-stream"></a>
 
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
@@ -21,9 +21,9 @@ You can start a streaming transcription using the AWS Management Console, WebSoc
 1. Select either **Identification only** or **Identification & redaction**, then select the PII entity types you want to identify or redact in your transcript\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream3.png)
 
-1. You're now ready to transcribe your stream\. Select the **Start streaming** button and begin speaking\. To end your dictation, select **Stop streaming**\.
+1. You're now ready to transcribe your stream\. Select **Start streaming** and begin speaking\. To end your dictation, select **Stop streaming**\.
 
-## WebSocket stream<a name="redaction-howto-websocket"></a>
+## WebSocket stream<a name="redaction-websocket"></a>
 
 This example creates a pre\-signed URL that uses either PII Identification or PII redaction in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
@@ -47,7 +47,7 @@ You cannot use both `content-identification-type` and `content-redaction-type` i
 
 Parameter definitions can be found in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html); parameters common to all AWS API operations are listed in the [Common Parameters](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonParameters.html) section\.
 
-## HTTP/2 stream<a name="redaction-howto-http2"></a>
+## HTTP/2 stream<a name="redaction-http2"></a>
 
 This example creates an HTTP/2 request with PII identification or PII redaction enabled\. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-http2.md)\. For more detail on parameters and headers specific to Amazon Transcribe, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 

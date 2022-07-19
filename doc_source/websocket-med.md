@@ -12,7 +12,7 @@ You can use the [WebSocket protocol](https://tools.ietf.org/html/rfc6455) to ope
 
 ## Adding a policy for WebSocket requests to your IAM role<a name="websocket-iam-med"></a>
 
-To use the WebSocket protocol to call Amazon Transcribe Medical, you need to attach the following policy to the AWS Identity and Access Management \(IAM\) role that makes the request\.
+To use the WebSocket protocol to call Amazon Transcribe Medical, you need to attach the following policy to the IAM role that makes the request\.
 
 ```
 {
@@ -70,7 +70,7 @@ Use the following values for the URI parameters:
   For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 + **X\-Amz\-Date** – The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 + **X\-Amz\-Expires** – The length of time in seconds until the credentials expire\. The maximum value is 300 seconds \(5 minutes\)\.
-+ **X\-Amz\-Security\-Token** – Optional\. A Signature Version 4 token for temporary credentials\. If you specify this parameter, include it in the canonical request\. For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html) in the *AWS AWS Identity and Access Management User Guide*\.
++ **X\-Amz\-Security\-Token** – Optional\. A Signature Version 4 token for temporary credentials\. If you specify this parameter, include it in the canonical request\. For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html) in the *AWS Identity and Access Management User Guide*\.
 + **X\-Amz\-Signature** – The Signature Version 4 signature that you generated for the request\.
 + **X\-Amz\-SignedHeaders** – The headers that are signed when creating the signature for the request\. The only valid value is `host`\.
 
@@ -78,7 +78,7 @@ To construct the URI for the request and create the Signature Version 4 signatur
 
 **Task 1: Create a canonical request**
 
-Create a string that includes information from your request in a standardized format\. This ensures that when AWS receives the request, it can calculate the same signature that you calculate in Task 3\. For more information, see [Create a Canonical Request for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html) in the *Amazon Web Services General Reference*\.
+Create a string that includes information from your request in a standardized format\. This ensures that when AWS receives the request, it can calculate the same signature that you calculate in Task 3\. For more information, see [Create a Canonical Request for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html) in the *AWS General Reference*\.
 
 1. Define variables for the request in your application\.
 
@@ -164,7 +164,7 @@ Create a string that includes information from your request in a standardized fo
 
 **Task 2: Create the string to sign**
 
-The string to sign contains meta information about your request\. You use the string to sign in the next step when you calculate the request signature\. For more information, see [Create a String to Sign for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-string-to-sign.html) in the *Amazon Web Services General Reference*\.
+The string to sign contains meta information about your request\. You use the string to sign in the next step when you calculate the request signature\. For more information, see [Create a String to Sign for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-string-to-sign.html) in the *AWS General Reference*\.
 + Create the string\.
 
   ```
@@ -176,9 +176,9 @@ The string to sign contains meta information about your request\. You use the st
 
 **Task 3: Calculate the signature**
 
-You derive a signing key from your AWS secret access key\. For a greater degree of protection, the derived key is specific to the date, service, and AWS Region\. You use the derived key to sign the request\. For more information, see [ Calculate the Signature for AWS Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html) in the *Amazon Web Services General Reference*\.
+You derive a signing key from your AWS secret access key\. For a greater degree of protection, the derived key is specific to the date, service, and AWS Region\. You use the derived key to sign the request\. For more information, see [ Calculate the Signature for AWS Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html) in the *AWS General Reference*\.
 
-The code assumes that you have implemented the `GetSignatureKey` function to derive a signing key\. For more information and example functions, see [Examples of How to Derive a Signing Key for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html) in the *Amazon Web Services General Reference*\.
+The code assumes that you have implemented the `GetSignatureKey` function to derive a signing key\. For more information and example functions, see [Examples of How to Derive a Signing Key for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html) in the *AWS General Reference*\.
 
 The function `HMAC(key, data)` represents an HMAC\-SHA256 function that returns the results in binary format\.
 + Create the signing key and sign the string to sign\.
@@ -193,7 +193,7 @@ The function `HMAC(key, data)` represents an HMAC\-SHA256 function that returns 
 
 **Task 4: Add signing information to the request and create the request URI**
 
-After you calculate the signature, add it to the query string\. For more information, see [Add the Signature to the HTTP Request](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html) in the *Amazon Web Services General Reference*\.
+After you calculate the signature, add it to the query string\. For more information, see [Add the Signature to the HTTP Request](https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html) in the *AWS General Reference*\.
 
 1. Add the authentication information to the query string\.
 

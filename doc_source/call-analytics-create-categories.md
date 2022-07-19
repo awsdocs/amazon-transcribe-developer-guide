@@ -15,11 +15,11 @@ If you run a Call Analytics job and the call characteristics match the rules you
 
 To create a category, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
 
-## AWS Management Console<a name="analytics-category-console"></a>
+## AWS Management Console<a name="analytics-category-console-batch"></a>
 
 1. In the navigation pane, under Amazon Transcribe, choose **Amazon Transcribe Call Analytics**\.
 
-1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Click the **Create category** button\.  
+1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Select **Create category**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories.png)
 
 1. You're now on the **Create category page**\. Enter a name for your category, then choose if you're going to use a template to create a category or make one from scratch\.
@@ -38,51 +38,17 @@ To create a category, you can use the **AWS Management Console**, **AWS CLI**, o
 
 1. When you're finished adding rules to your category, choose **Create category**\.
 
-## AWS SDK for Python \(Boto3\)<a name="analytics-category-python-batch"></a>
-
-This example uses the AWS SDK for Python \(Boto3\) to create a category using the `CategoryName` and `Rules` arguments for the [create\_call\_analytics\_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category) method\. For more information, see [CreateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateCallAnalyticsCategory.html), [CategoryProperties](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CategoryProperties.html), and [Rule](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Rule.html)\.
-
-For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe](service_code_examples.md) chapter\.
-
-```
-from __future__ import print_function
-import time
-import boto3
-transcribe = boto3.client('transcribe', 'us-west-2')
-category_name = "example-call-analytics-category"
-transcribe.create_call_analytics_category(
-    CategoryName=category_name,
-    Rules=[
-        {
-            'SentimentFilter': {
-                'Sentiments': [
-                       'NEGATIVE'
-                ]
-                'ParticipantRole': 'AGENT',
-            }
-        }
-    ]
-)
-
-result = transcribe.get_call_analytics_category(CategoryName=category_name)    
-print(result)
-```
-
-This example creates a category that filters for a negative agent sentiment\.
-
 ## AWS CLI<a name="analytics-category-cli"></a>
 
 This example uses the [create\-call\-analytics\-category](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-call-analytics-category.html) command\. For more information, see [CreateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateCallAnalyticsCategory.html), [CategoryProperties](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CategoryProperties.html), and [Rule](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Rule.html)\.
 
-This example creates a category that filters for a negative agent sentiment:
+The following example creates a category with the rules:
++ The customer was interrupted in the first 60,000 milliseconds\. The duration of these interruptions lasted at least 10,000 milliseconds\.
++ There was a period of silence that lasted at least 20,000 milliseconds between 10% into the call and 80% into the call\.
++ The agent had a negative sentiment at some point in the call\.
++ The words "welcome" or "hello" were not used in the first 10,000 milliseconds of the call\.
 
-```
-aws transcribe create-call-analytics-category \
---category-name my-new-category \
---rules "SentimentFilter={ParticipantRole=AGENT,Sentiments=["NEGATIVE"]}"
-```
-
-Here's another example using the [create\-call\-analytics\-category](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-call-analytics-category.html) command, and a request body that adds several rules to your category\.
+This example uses the [create\-call\-analytics\-category](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-call-analytics-category.html) command, and a request body that adds several rules to your category\.
 
 ```
 aws transcribe create-call-analytics-category \
@@ -94,13 +60,13 @@ The file *my\-first\-analytics\-category\.json* contains the following request b
 ```
 {
   "CategoryName": "my-new-category",
-    "Rules": [
+  "Rules": [
         {
             "InterruptionFilter": {
                 "AbsoluteTimeRange": {
                     "First": 60000
                 },
-                "Negate": true,
+                "Negate": false,
                 "ParticipantRole": "CUSTOMER",
                 "Threshold": 10000
             }
@@ -119,12 +85,13 @@ The file *my\-first\-analytics\-category\.json* contains the following request b
             "SentimentFilter": {
                 "ParticipantRole": "AGENT",
                 "Sentiments": [
-                    "NEGATIVE",                    
+                    "NEGATIVE"                    
                 ]
             }
         },
         {
             "TranscriptFilter": {
+                "Negate": true,
                 "AbsoluteTimeRange": {
                     "First": 10000
                 },
@@ -139,11 +106,75 @@ The file *my\-first\-analytics\-category\.json* contains the following request b
 }
 ```
 
-The preceding example creates a category with the rules:
-+ The customer was not interrupted in the first 60,000 milliseconds\.
-+ No one was speaking between 10% into the call through 80% into the call\.
-+ The agent had a negative sentiment\.
-+ The words "welcome" or "hello" were used in the first 10,000 milliseconds of the call\.
+## AWS SDK for Python \(Boto3\)<a name="analytics-category-python-batch"></a>
+
+This example uses the AWS SDK for Python \(Boto3\) to create a category using the `CategoryName` and `Rules` arguments for the [create\_call\_analytics\_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category) method\. For more information, see [CreateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateCallAnalyticsCategory.html), [CategoryProperties](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CategoryProperties.html), and [Rule](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Rule.html)\.
+
+For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
+
+The following example creates a category with the rules:
++ The customer was interrupted in the first 60,000 milliseconds\. The duration of these interruptions lasted at least 10,000 milliseconds\.
++ There was a period of silence that lasted at least 20,000 milliseconds between 10% into the call and 80% into the call\.
++ The agent had a negative sentiment at some point in the call\.
++ The words "welcome" or "hello" were not used in the first 10,000 milliseconds of the call\.
+
+```
+from __future__ import print_function
+import time
+import boto3
+transcribe = boto3.client('transcribe', 'us-west-2')
+category_name = "my-new-category"
+transcribe.create_call_analytics_category(
+    CategoryName = category_name,
+    Rules = [
+        {
+            'InterruptionFilter': {
+                'AbsoluteTimeRange': {
+                    'First': 60000
+                },
+                'Negate': False,
+                'ParticipantRole': 'CUSTOMER',
+                'Threshold': 10000
+            }
+        },
+        {
+            'NonTalkTimeFilter': {
+                'Negate': False,
+                'RelativeTimeRange': {
+                    'EndPercentage': 80,
+                    'StartPercentage': 10
+                },
+                'Threshold': 20000
+            }
+        },
+        {
+            'SentimentFilter': {
+                'ParticipantRole': 'AGENT',
+                'Sentiments': [
+                    'NEGATIVE'                    
+                ]
+            }
+        },
+        {
+            'TranscriptFilter': {
+                'Negate': True,
+                'AbsoluteTimeRange': {
+                    'First': 10000
+                },
+                'Targets': [
+                    'welcome',
+                    'hello'
+                ],
+                'TranscriptFilterType': 'EXACT'
+            }
+        }
+    ]
+    
+)
+
+result = transcribe.get_call_analytics_category(CategoryName = category_name)    
+print(result)
+```
 
 ## Rule criteria<a name="call-analytics-create-categories-rules"></a>
 
@@ -154,7 +185,7 @@ This section outlines the types of custom rules you can create using the [Create
 Rules using interruptions \([InterruptionFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_InterruptionFilter.html) data type\) are designed to match:
 + Instances where an agent interrupts a customer
 + Instances where a customer interrupts an agent
-+ Either participant interrupting the other
++ Any participant interrupting the other
 + A lack of interruptions
 
 Here's an example of the parameters available with [InterruptionFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_InterruptionFilter.html):
@@ -168,7 +199,7 @@ Here's an example of the parameters available with [InterruptionFilter](https://
        Specify the time frame, in percentage, when the match should occur
     },
     "Negate": Specify if you want to match the presence or absence of interruptions,
-    "ParticipantRole": "Specify if you want to match speech from the agent, the customer, or both",    
+    "ParticipantRole": Specify if you want to match speech from the agent, the customer, or both,    
     "Threshold": Specify a threshold for the amount of time, in seconds, interruptions occurred during the call
 },
 ```
@@ -178,9 +209,8 @@ Refer to [CreateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/la
 ### Keyword match<a name="call-analytics-create-categories-keywords"></a>
 
 Rules using keywords \([TranscriptFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptFilter.html) data type\) are designed to match:
-+ Custom words or phrases
-+ Either the presence or absence of custom words or phrases
-+ Speech of the agent, the customer, or both
++ Custom words or phrases spoken by the agent, the customer, or both
++ Custom words or phrases **not** spoken by the agent, the customer, or both
 + Custom words or phrases that occur at a specific time frame
 
 Here's an example of the parameters available with [TranscriptFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptFilter.html):
@@ -194,9 +224,9 @@ Here's an example of the parameters available with [TranscriptFilter](https://do
        Specify the time frame, in percentage, when the match should occur
     },
     "Negate": Specify if you want to match the presence or absence of your custom keywords,
-    "ParticipantRole": "Specify if you want to match speech from the agent, the customer, or both",
-    "Targets": [ "The custom words and phrases you want to match" ],
-    "TranscriptFilterType": "Use this parameter to specify an exact match for the specified targets"
+    "ParticipantRole": Specify if you want to match speech from the agent, the customer, or both,
+    "Targets": [ The custom words and phrases you want to match ],
+    "TranscriptFilterType": Use this parameter to specify an exact match for the specified targets
 }
 ```
 
@@ -228,10 +258,10 @@ Refer to [CreateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/la
 ### Sentiment match<a name="call-analytics-create-categories-sentiment"></a>
 
 Rules using sentiment \([SentimentFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_SentimentFilter.html) data type\) are designed to match:
-+ Custom words or phrases
-+ Either the presence or absence of custom words or phrases
-+ Speech of the agent, the customer, or both
-+ Custom words or phrases that occur in a specified time frame
++ The presence or absence of a positive sentiment felt by the customer, agent, or both at specified points in the call
++ The presence or absence of a negative sentiment felt by the customer, agent, or both at specified points in the call
++ The presence or absence of a neutral sentiment felt by the customer, agent, or both at specified points in the call
++ The presence or absence of a mixed sentiment felt by the customer, agent, or both at specified points in the call
 
 Here's an example of the parameters available with [SentimentFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_SentimentFilter.html):
 
@@ -244,8 +274,8 @@ Here's an example of the parameters available with [SentimentFilter](https://doc
     Specify the time frame, in percentage, when the match should occur
     },
     "Negate": Specify if you want to match the presence or absence of your chosen sentiment,
-    "ParticipantRole": "Specify if you want to match speech from the agent, the customer, or both",    
-    "Sentiments": [ "The sentiments you want to match" ]
+    "ParticipantRole": Specify if you want to match speech from the agent, the customer, or both,    
+    "Sentiments": [ The sentiments you want to match ]
 },
 ```
 

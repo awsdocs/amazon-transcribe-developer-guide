@@ -1,6 +1,6 @@
 # Call Analytics insights<a name="call-analytics-insights"></a>
 
-The insights available with Call Analytics are separated into six main groups:
+The insights available with Call Analytics are separated into five main groups:
 + [Call categorization](#call-analytics-insights-categorization)
 + [Call characteristics](#call-analytics-insights-characteristics)
 + [Call summarization](#call-analytics-insights-summarization)
@@ -45,7 +45,7 @@ Using call summarization, you can:
 Call summarization works across all industries and business sectors, and is context\-based\.
 
 **Note**  
-Call summarization is supported with these English language variants: Australian \(en\-AU\), British \(en\-GB\), Indian \(en\-IN\), Irish \(en\-IE\), Scottish \(en\-AB\), US \(en\-US\), and Welsh \(en\-WL\)\.
+Call summarization is supported with these English language dialects: Australian \(en\-AU\), British \(en\-GB\), Indian \(en\-IN\), Irish \(en\-IE\), Scottish \(en\-AB\), US \(en\-US\), and Welsh \(en\-WL\)\.
 
 Call summarization works out\-of\-the\-box, and thus doesn't support customization, such as model training or custom categories\.
 

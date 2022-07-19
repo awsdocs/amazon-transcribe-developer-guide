@@ -14,7 +14,7 @@ To use the AWS Management Console to create a custom vocabulary, you provide the
 
 1. Specify the location of your audio file or video file in Amazon S3:
    + For **Vocabulary input file location on S3** under **Vocabulary settings**, specify the Amazon S3 URI that identifies the text file you will use to create your custom vocabulary\.
-   + For **Vocabulary input file location in Amazon S3**, choose **Browse S3** to browse for the text file and choose it\.
+   + For **Vocabulary input file location in S3**, choose **Browse S3** to browse for the text file and choose it\.
 
 1. Choose **Create vocabulary**\.
 
@@ -38,19 +38,17 @@ The following is an example request using the AWS SDK for Python \(Boto3\) to cr
 ```
 from __future__ import print_function
 import time
-import boto3
-  
-transcribe = boto3.client('transcribe')
-vocab_name = "example-med-custom-vocab"
-text_file_uri = "https://DOC-EXAMPLE-BUCKET.s3-us-west-2.amazonaws.com/my-first-custom-vocabulary.txt"
-transcribe.create_medical_vocabulary(
-    VocabularyName = vocab_name,
-    VocabularyFileUri = text_file_uri,
+import boto3  
+transcribe = boto3.client('transcribe', 'us-west-2')
+vocab_name = "my-first-vocabulary"
+response = transcribe.create_medical_vocabulary(
+    VocabularyName = job_name,
+    VocabularyFileUri = 's3://DOC-EXAMPLE-BUCKET/my-vocabularies/my-vocabulary-table.txt'
     LanguageCode = 'en-US',
   )
   
 while True:
-    status = transcribe.get_medical_vocabulary(VocabularyName=vocab_name)
+    status = transcribe.get_medical_vocabulary(VocabularyName = vocab_name)
     if status['VocabularyState'] in ['READY', 'FAILED']:
         break
     print("Not ready yet...")
@@ -65,17 +63,7 @@ print(status)
 
   ```
   aws transcribe create-medical-vocabulary \
-      --vocabulary-name example-med-custom-vocab \
-      --language-code en-US \
-      --vocabulary-file-uri s3://DOC-EXAMPLE-BUCKET.us-west-2.amazonaws.com/my-first-custom-vocabulary.txt
-  ```
-
-  The following is the response from running the preceding CLI command\.
-
-  ```
-  {
-      "VocabularyName": "cli-medical-vocab-1",
-      "LanguageCode": "en-US",
-      "VocabularyState": "PENDING"
-  }
+  --vocabulary-name my-first-vocabulary \ 
+  --vocabulary-file-uri s3://DOC-EXAMPLE-BUCKET/my-vocabularies/my-vocabulary-file.txt \
+  --language-code en-US
   ```

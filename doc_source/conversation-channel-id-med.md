@@ -55,23 +55,26 @@ The following is an example request using the AWS SDK for Python \(Boto3\)\.
 from __future__ import print_function
 import time
 import boto3
-transcribe = boto3.client('transcribe')
+transcribe = boto3.client('transcribe', 'us-west-2')
 job_name = "my-first-transcription-job"
-job_uri = "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
+job_name = "my-first-med-transcription-job"
+job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
 transcribe.start_medical_transcription_job(
-      MedicalTranscriptionJobName=job_name,
-      Media = {'MediaFileUri': job_uri},
-      MediaFormat = 'flac',
+      MedicalTranscriptionJobName = job_name,
+      Media = {
+        'MediaFileUri': job_uri
+      },
+      OutputBucketName = 'DOC-EXAMPLE-BUCKET',
+      OutputKey = 'output-files/',
       LanguageCode = 'en-US',
-      OutputBucketName = 's3://DOC-EXAMPLE-BUCKET',
       Specialty = 'PRIMARYCARE',
       Type = 'CONVERSATION',
-Settings = {
-          'ChannelIdentification': True
-          }
-  )
+      Settings = {
+        'ChannelIdentification': True
+      }
+)
 while True:
-    status = transcribe.get_transcription_job(MedicalTranscriptionJobName=job_name)
+    status = transcribe.get_transcription_job(MedicalTranscriptionJobName = job_name)
     if status['MedicalTranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
         break
     print("Not ready yet...")
@@ -87,46 +90,27 @@ print(status)
   ```
                       
   aws transcribe start-medical-transcription-job \
-  –-cli-input-json file://example-start-command.json
+  --region us-west-2 \
+  --cli-input-json file://example-start-command.json
   ```
 
   The following is the code of `example-start-command.json`\.
 
   ```
   {
-      "MedicalTranscriptionJobName": "my-first-med-transcription-job",
-      "LanguageCode": "language-code",
-      "Specialty": "PRIMARYCARE",
-      "Type": "CONVERSATION",
-      "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
-          "Media": {
-            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
+        "MedicalTranscriptionJobName": "my-first-med-transcription-job",        
+        "Media": {
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac"
+        },
+        "OutputBucketName": "DOC-EXAMPLE-BUCKET",
+        "OutputKey": "my-output-files/", 
+        "LanguageCode": "en-US",
+        "Specialty": "PRIMARYCARE",
+        "Type": "CONVERSATION",
+  
           "Settings":{
             "ChannelIdentification": true
           }
-  }
-  ```
-
-  The following is the response\.
-
-  ```
-  {
-      "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "my-first-transcription-job",
-          "TranscriptionJobStatus": "IN_PROGRESS",
-          "LanguageCode": "language-code",
-          "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
-          "StartTime": "2020-09-20T23:46:44.081000+00:00",
-          "CreationTime": "2020-09-20T23:46:44.053000+00:00",
-          "Settings": {
-              "ChannelIdentification": true
-          },
-          "Specialty": "PRIMARYCARE",
-          "Type": "CONVERSATION"
-      }
   }
   ```
 
@@ -137,7 +121,7 @@ The following code shows the transcription output for an audio file that has a c
 ```
 {
   "jobName": "job id",
-  "accountId": "account id",
+  "accountId": "111122223333",
   "results": {
     "transcripts": [
       {
@@ -261,7 +245,7 @@ GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transc
 &sample-rate=16000
 &session-id=sessionId
 &enable-channel-identification=true
-&number-of-channels=number of channels in your audio stream
+&number-of-channels=2
 ```
 
 Parameter definitions can be found in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html); parameters common to all AWS API operations are listed in the [Common Parameters](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonParameters.html) section\.

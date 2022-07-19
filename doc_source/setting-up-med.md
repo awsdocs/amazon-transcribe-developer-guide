@@ -2,13 +2,13 @@
 
 Before you use Amazon Transcribe Medical for the first time, complete the following tasks:
 
-1. [Sign up for AWS](#setting-up-signup-med)
+1. [Sign up for Amazon Web Services](#setting-up-signup-med)
 
 1. [Create an IAM user](#setting-up-iam-med)
 
-## Sign up for AWS<a name="setting-up-signup-med"></a>
+## Sign up for Amazon Web Services<a name="setting-up-signup-med"></a>
 
-When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all AWS services, including Amazon Transcribe Medical\. You are charged only for the services that you use\.
+When you sign up for Amazon Web Services, your AWS account is automatically signed up for all AWS services, including Amazon Transcribe Medical\. You are charged only for the services that you use\.
 
 With Amazon Transcribe Medical, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Transcribe Medical for free\. For more information, see [AWS Free Usage Tier](http://aws.amazon.com/free/)\.
 

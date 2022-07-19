@@ -1,6 +1,6 @@
 # Setting up a streaming transcription<a name="streaming-setting-up"></a>
 
-This section expands on the main [streaming](streaming.md) section and is intended to provide information for users who want to set up their stream with HTTP/2 or WebSockets directly, rather than with an AWS SDK\. The information in this chapter can also be used to build your own SDK\.
+This section expands on the main [streaming](streaming.md) section and is intended to provide information for users who want to set up their stream with HTTP/2 or WebSockets directly, rather than with an AWS SDK\. The information in this section can also be used to build your own SDK\.
 
 To start streaming using an AWS SDK, see [Transcribing with the AWS SDKs](getting-started-sdk.md)\.
 

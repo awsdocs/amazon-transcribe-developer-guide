@@ -8,14 +8,14 @@ The key components for a [WebSocket protocol](https://tools.ietf.org/html/rfc645
 **Note**  
 Amazon Transcribe only supports one stream per WebSocket session\. If you attempt to use multiple streams, your transcription request fails\.
 
-1. Attach the following policy to the AWS Identity and Access Management \(IAM\) role that makes the request\. See [ Adding IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policy-api) for more information\.
+1. Attach the following policy to the IAM role that makes the request\. See [ Adding IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policy-api) for more information\.
 
    ```
    {
        "Version": "2012-10-17",
        "Statement": [
            {
-               "Sid": "transcribestreaming",
+               "Sid": "my-transcribe-websocket-policy",
                "Effect": "Allow",
                "Action": "transcribe:StartStreamTranscriptionWebSocket",
                "Resource": "*"

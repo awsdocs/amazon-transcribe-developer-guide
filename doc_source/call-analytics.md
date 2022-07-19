@@ -1,11 +1,11 @@
 # Analyzing call center audio with Call Analytics<a name="call-analytics"></a>
 
 Use Amazon Transcribe Call Analytics to gain insight into customer\-agent interactions\. Call Analytics provides you with:
-+ [Call characteristics](call-analytics-insights.md#call-analytics-insights-characteristics) \(talk time, non\-talk time, speaker loudness, interruptions, and talk speed\)
-+ [Call summarization](call-analytics-insights.md#call-analytics-insights-summarization)
++ [Call characteristics](call-analytics-insights.md#call-analytics-insights-characteristics), including talk time, non\-talk time, speaker loudness, interruptions, and talk speed
++ [Call summarization](call-analytics-insights.md#call-analytics-insights-summarization), which detects issues, action items, and outcomes
 + [Custom categories](call-analytics-insights.md#call-analytics-insights-categorization) and rules that you can use to hone in on specific keywords and criteria
 + [Redaction](call-analytics-insights.md#call-analytics-insights-redaction) of your text transcript and your audio file
-+ [Speaker sentiment](call-analytics-insights.md#call-analytics-insights-sentiment)
++ [Speaker sentiment](call-analytics-insights.md#call-analytics-insights-sentiment) for each caller at various points in a call 
 
 Call Analytics can also help increase staff productivity by reducing the need for manual note\-taking after each call\. It also reduces the time required by supervisors to read transcripts or listen to audio recordings\.
 
@@ -30,11 +30,11 @@ To get started, see [Starting a Call Analytics job](call-analytics-start.md)\. C
 
 Before using Call Analytics, note that:
 + Call Analytics only supports stereo\-channel audio; mono\-channel audio cannot be used with this feature\.
-+ [Job queuing](job-queuing.md) is always enabled, meaning that you are limited to 250 concurrent Call Analytics jobs\.
++ [Job queueing](job-queueing.md) is always enabled, meaning that you are limited to 100 concurrent Call Analytics jobs\. If you need to request a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 + Input files for Call Analytics cannot be greater than 500 MB and must be less than 4 hours\.
 + If using categories, you must create all desired categories before starting a Call Analytics job\. Any new categories cannot be applied to existing Call Analytics jobs\. To learn how to create a new category, see [Creating categories](call-analytics-create-categories.md)\.
-+ If you're using redaction, only US English \(en\-US\) is supported\. Refer to [Supported languages and language\-specific features](supported-languages.md#table-language-matrix) for a complete list of languages supported with Call Analytics\.
-+ Call summarization is only supported for the following English language variants: Australian \(en\-AU\), British \(en\-GB\), Indian \(en\-IN\), Irish \(en\-IE\), Scottish \(en\-AB\), US \(en\-US\), and Welsh \(en\-WL\)\.
++ If you're using redaction, only US English \(en\-US\) is supported\. Refer to [Supported languages and language\-specific features](supported-languages.md) for a complete list of languages supported with Call Analytics\.
++ Call summarization is only supported for the following English language dialects: Australian \(en\-AU\), British \(en\-GB\), Indian \(en\-IN\), Irish \(en\-IE\), Scottish \(en\-AB\), US \(en\-US\), and Welsh \(en\-WL\)\.
 + Some Call Analytics quotas differ from Amazon Transcribe and Amazon Transcribe Medical; refer to [Guidelines and quotas](limits-guidelines.md) for specifics\.
 
 **Tip**  

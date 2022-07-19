@@ -39,7 +39,7 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 
   1. For `Type`, specify `CONVERSATION`\.
 
-  1. For `OutputBucketName`, specify the Amazon Simple Storage Service \(Amazon S3\) bucket to store the transcription results\.
+  1. For `OutputBucketName`, specify the Amazon S3 bucket to store the transcription results\.
 
   1. For the `Settings` object, specify the following\.
 
@@ -53,22 +53,26 @@ The following request uses the AWS SDK for Python \(Boto3\) to start a batch tra
 from __future__ import print_function
 import time
 import boto3
-transcribe = boto3.client('transcribe')
+transcribe = boto3.client('transcribe', 'us-west-2')
 job_name = "my-first-transcription-job"
-job_uri = "s3://DOC-EXAMPLE-BUCKET.s3-us-west-2.amazonaws.com/my-audio-file.flac"
+job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
 transcribe.start_medical_transcription_job(
-    MedicalTranscriptionJobName=job_name,
-    Media = {'MediaFileUri': job_uri},
+    MedicalTranscriptionJobName = job_name,
+    Media={
+        'MediaFileUri': job_uri
+    },
+    OutputBucketName = 'DOC-EXAMPLE-BUCKET',
+    OutputKey = 'my-output-files/', 
     LanguageCode = 'en-US',
     Specialty = 'PRIMARYCARE',
     Type = 'CONVERSATION',
-    OutputBucketName = 's3://DOC-EXAMPLE-BUCKET',
+    OutputBucketName = 'DOC-EXAMPLE-BUCKET',
 Settings = {'ShowSpeakerLabels': True,
          'MaxSpeakerLabels': 2
          }
          )
 while True:
-    status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
+    status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName = job_name)
     if status['MedicalTranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
         break
     print("Not ready yet...")
@@ -81,7 +85,7 @@ The following example code shows the transcription results of a transcription jo
 ```
 {
     "jobName": "job ID",
-    "accountId": "account ID",
+    "accountId": "111122223333",
     "results": {
         "transcripts": [
             {
@@ -155,43 +159,26 @@ The following example code shows the transcription results of a transcription jo
   ```
                       
   aws transcribe start-transcription-job \
-  –-cli-input-json file://example-start-command.json
+  --region us-west-2 \
+  --cli-input-json file://example-start-command.json
   ```
 
   The following code shows the contents of `example-start-command.json`\.
 
   ```
   {
-      "MedicalTranscriptionJobName": "my-first-transcription-job",
-      "LanguageCode": "language-code",
-      "Specialty": "PRIMARYCARE",
-      "Type": "CONVERSATION",
-      "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
-      "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
-      "Settings":{
-          "ShowSpeakerLabels": true,
-          "MaxSpeakerLabels": 2
-          }
-  }
-  ```
-
-  The following is the response from running the preceding CLI command\.
-
-  ```
-  {
-      "MedicalTranscriptionJobName": "my-first-transcription-job",
-      "LanguageCode": "en-US",
-      "Specialty": "PRIMARYCARE",
-      "Type": "CONVERSATION",
-      "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
-      "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
-      "Settings":{
-          "ShowSpeakerLabels": true,
-          "MaxSpeakerLabels": 2
+      "MedicalTranscriptionJobName": "my-first-med-transcription-job",       
+       "Media": {
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac"
+        },
+        "OutputBucketName": "DOC-EXAMPLE-BUCKET",
+        "OutputKey": "my-output-files/", 
+        "LanguageCode": "en-US",
+        "Specialty": "PRIMARYCARE",
+        "Type": "CONVERSATION",
+        "Settings":{
+            "ShowSpeakerLabels": true,
+            "MaxSpeakerLabels": 2
           }
   }
   ```

@@ -1,22 +1,19 @@
 # Data protection in Amazon Transcribe<a name="data-protection"></a>
 
-Amazon Transcribe conforms to the AWS [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/), which includes regulations and guidelines for data protection\. AWS is responsible for protecting the global infrastructure that runs all of the AWS services\. AWS maintains control over data hosted on this infrastructure, including the security configuration controls for handling customer content and personal data\. AWS customers and APN partners, acting either as data controllers or data processors, are responsible for any personal data that they put in the AWS Cloud\. 
+The AWS [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon Transcribe\. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud\. You are responsible for maintaining control over your content that is hosted on this infrastructure\. This content includes the security configuration and management tasks for the AWS services that you use\. For more information about data privacy, see the [Data Privacy FAQ](http://aws.amazon.com/compliance/data-privacy-faq)\. For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
 
-For data protection purposes, we recommend that you protect AWS account credentials and set up individual user accounts with AWS Identity and Access Management \(IAM\), so that each user is given only the permissions necessary to fulfill their job duties\. We also recommend that you secure your data in the following ways:
+For data protection purposes, we recommend that you protect AWS account credentials and set up individual user accounts with AWS Identity and Access Management \(IAM\)\. That way each user is given only the permissions necessary to fulfill their job duties\. We also recommend that you secure your data in the following ways:
 + Use multi\-factor authentication \(MFA\) with each account\.
 + Use SSL/TLS to communicate with AWS resources\. We recommend TLS 1\.2 or later\.
 + Set up API and user activity logging with AWS CloudTrail\.
 + Use AWS encryption solutions, along with all default security controls within AWS services\.
-+ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon Simple Storage Service \(Amazon S3\)\.
++ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon S3\.
 + If you require FIPS 140\-2 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint\. For more information about the available FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2](http://aws.amazon.com/compliance/fips/)\.
 
-We strongly recommend that you never put sensitive identifying information, such as your customers' account numbers, into free\-form fields such as a **Name** field\. This includes when you work with Amazon Transcribe or other AWS services using the AWS Management Console, API, AWS CLI, or AWS SDKs\. Any data that you enter into Amazon Transcribe or other services might get picked up for inclusion in diagnostic logs\. When you provide a URL to an external server, don't include credentials information in the URL to validate your request to that server\.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free\-form fields such as a **Name** field\. This includes when you work with Amazon Transcribe or other AWS services using the console, API, AWS CLI, or AWS SDKs\. Any data that you enter into tags or free\-form fields used for names may be used for billing or diagnostic logs\. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server\.
 
-For more information about data protection, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
 
-**Topics**
-+ [Encryption at rest](encryption-at-rest.md)
-+ [Encryption in transit](encryption-in-transit.md)
-+ [Key management](key-management.md)
-+ [Opting out of using your data for service improvement](opt-out.md)
-+ [Amazon Transcribe and interface VPC endpoints \(AWS PrivateLink\)](vpc-interface-endpoints.md)
+
+## Inter\-network traffic privacy<a name="inter-network-traffic-privacy"></a>
+
+An Amazon Virtual Private Cloud \(Amazon VPC\) endpoint for Amazon Transcribe is a logical entity within a VPC that allows connectivity only to Amazon Transcribe\. Amazon VPC routes requests to Amazon Transcribe and routes responses back to the VPC\. For more information, see [AWS PrivateLink concepts](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html)\. For information about using Amazon VPC endpoints with Amazon Transcribe see [Amazon Transcribe and interface VPC endpoints \(AWS PrivateLink\)](vulnerability-analysis-and-management.md#vpc-interface-endpoints)\.

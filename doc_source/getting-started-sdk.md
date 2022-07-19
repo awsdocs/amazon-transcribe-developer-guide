@@ -2,14 +2,15 @@
 
 You can use SDKs for both batch and streaming transcriptions\.
 
-To get started with batch transcriptions, refer to [Batch transcriptions](getting-started-sdk-batch.md)\. Note that prior to starting a batch transcription, you must first upload your media file into an S3 bucket\.
+To get started with batch transcriptions, refer to [Batch transcriptions](getting-started-sdk-batch.md)\. Note that prior to starting a batch transcription, you must first upload your media file into an Amazon S3 bucket\.
 
 To get started with streaming transcriptions, refer to [Streaming transcriptions](getting-started-sdk-streaming.md)\. For streaming transcriptions, you can transcribe a streamed media file or a live media stream\. Note that streaming transcriptions are not supported with the following AWS SDKs: Java V1, \.NET, Python, or PowerShell\. If you wish to use Python for streaming, there's a custom [Python SDK for Amazon Transcribe](https://github.com/awslabs/amazon-transcribe-streaming-sdk) available\.
 
 To view supported media formats and other media requirements and constraints, see [Data input and output](how-input.md)\.
 
 **Tip**  
-For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe](service_code_examples.md) chapter\.
+For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.  
+You can also find code samples in the [AWS Samples repository](https://github.com/aws-samples) on GitHub\.
 
 ## Using this service with an AWS SDK<a name="sdk-general-information-section"></a>
 
@@ -27,7 +28,7 @@ AWS software development kits \(SDKs\) are available for many popular programmin
 | [AWS SDK for Python \(Boto3\)](https://docs.aws.amazon.com/pythonsdk) | [AWS SDK for Python \(Boto3\) code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python) | 
 | [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby) | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby) | 
 
-For examples specific to this service, see [Code examples for Amazon Transcribe](service_code_examples.md)\.
+For examples specific to this service, see [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md)\.
 
 **Example availability**  
 Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page\.

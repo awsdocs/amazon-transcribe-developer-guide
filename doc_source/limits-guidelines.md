@@ -12,7 +12,7 @@ For best results:
 + Use a lossless format, such as FLAC or WAV with PCM 16\-bit encoding\.
 + Use a sample rate of 8,000 Hz for low\-fidelity audio and 16,000\-48,000 Hz for high\-fidelity audio\.
 
-If you don't need to process all of your transcription jobs concurrently, use [Job queuing](job-queuing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\. You can request an increase to the job queue bandwidth ratio to run more transcription jobs\. The quota for the transcription jobs in your job queue is the product of the number of transcription jobs you can run concurrently and the bandwidth ratio\. For example, if you have a bandwidth ratio of `5` and a quota of `100` for the number of transcription jobs you can run concurrently then you can have 500 transcription jobs in your job queue\.
+If you don't need to process all of your transcription jobs concurrently, use [Job queueing](job-queueing.md)\. This enables Amazon Transcribe to keep track of your transcription jobs and process them when slots are available\.
 
 **Note**  
 Amazon Transcribe may temporarily store your content to continuously improve the quality of its analysis models\. See the [Amazon Transcribe FAQ](http://aws.amazon.com/transcribe/faqs/) to learn more\. To request the deletion of content that may have been stored by Amazon Transcribe, open a case with [AWS Support](http://aws.amazon.com/contact-us/)\.
@@ -30,8 +30,8 @@ The following quotas **cannot** be changed:
 | Audio file size \(call analytics\) | 500 MB | 
 | Size of a custom vocabulary | 50 KB | 
 | Length of a custom vocabulary phrase | 256 characters | 
-| Size of a vocabulary filter | 50 KB | 
-| Number of vocabulary filters | 100 | 
+| Size of a custom vocabulary filter | 50 KB | 
+| Number of custom vocabulary filters | 100 | 
 | Number of channels for channel identification | 2 | 
 | Number of days job records are retained | 90 | 
 | Minimum audio file duration | 500 milliseconds \(ms\) | 
@@ -46,11 +46,11 @@ You can request a quota increase for the following resources:
 | Job queue bandwidth ratio | 0\.9 | 
 | Number of concurrent HTTP/2 requests | 25 | 
 | Number of concurrent WebSocket requests | 25 | 
-| Total number of vocabularies per account | 100 | 
+| Total number of vocabularies per AWS account | 100 | 
 | Number of pending vocabularies | 10 | 
 | Number of concurrently training custom language models | 3 | 
-| Total number of custom language models per account | 10 | 
-| Number of categories per account \(Call Analytics\) | 200 | 
+| Total number of custom language models per AWS account | 10 | 
+| Number of categories per AWS account \(Call Analytics\) | 200 | 
 | Number of rules per category \(Call Analytics\) | 20 | 
 
 The following operations limits can also be increased upon request:

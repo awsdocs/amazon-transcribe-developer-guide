@@ -21,7 +21,7 @@ You can request a quota increase for the following resources\.
 | --- | --- | 
 | Number of concurrent batch transcription jobs | 250 | 
 | Number of concurrent HTTP/2 or WebSocket requests | 25 | 
-| Total number of medical vocabularies per account | 100 | 
+| Total number of medical vocabularies per AWS account | 100 | 
 | Number of pending medical vocabularies | 10 | 
 
 The following API limits can also be increased upon request:
@@ -41,7 +41,7 @@ The following API limits can also be increased upon request:
 | [ListMedicalVocabularies](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalVocabularies.html) | 5 | 
 
 **Note**  
-For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*\.
+For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.
 
 The following quotas **cannot** be increased:
 

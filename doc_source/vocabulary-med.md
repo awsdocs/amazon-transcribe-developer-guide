@@ -6,7 +6,7 @@ You are responsible for the integrity of your own data when you use Amazon Trans
 
 For best results, create separate small custom vocabularies that each help transcribe a specific audio recording\. You receive greater improvements in transcription accuracy than if you created one large custom vocabulary to use with all of your recordings\.
 
-By default, you can have up to 100 custom vocabularies in your AWS account\. A custom vocabulary can't exceed 50 KB in size\. For information on requesting an increase to the number of custom vocabularies that you can have in your account, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
+By default, you can have up to 100 custom vocabularies in your AWS account\. A custom vocabulary can't exceed 50 KB in size\. For information on requesting an increase to the number of custom vocabularies that you can have in your AWS account, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
 Custom vocabularies are available in US English \(en\-US\)\.
 

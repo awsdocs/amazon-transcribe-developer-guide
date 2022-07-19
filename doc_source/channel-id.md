@@ -51,19 +51,20 @@ The following is an example request using the AWS SDK for Python \(Boto3\)\.
   import boto3
   transcribe = boto3.client('transcribe')
   job_name = "my-first-transcription-job"
-  job_uri = "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+  job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
   transcribe.start_transcription_job(
-      TranscriptionJobName=job_name,
-      Media= {'MediaFileUri': job_uri},
-      MediaFormat= 'flac',
-      LanguageCode= 'en-US',
+      TranscriptionJobName = job_name,
+      Media = {
+        'MediaFileUri': job_uri
+      },
+      LanguageCode = 'en-US',
       Settings = {
-          'ChannelIdentification': True,
+        'ChannelIdentification': True,
       }
   )
   
   while True:
-      status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+      status = transcribe.get_transcription_job(TranscriptionJobName = job_name)
       if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
           break
       print("Not ready yet...")
@@ -72,8 +73,6 @@ The following is an example request using the AWS SDK for Python \(Boto3\)\.
 ```
 
 ### AWS CLI<a name="channel-id-cli"></a>
-
-**To transcribe multi\-channel audio using a batch transcription job \(AWS CLI\)**
 + Run the following code\.
 
   ```
@@ -85,33 +84,14 @@ The following is an example request using the AWS SDK for Python \(Boto3\)\.
   The following is the code of `my-first-channel-id-job.json`\.
 
   ```
-    {
+  {
       "TranscriptionJobName": "my-first-transcription-job",
       "LanguageCode": "en-US",
       "Media": {
-          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+          "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
       },
       "Settings":{
-    "ChannelIdentification":true
-    }
-  ```
-
-  The following is the response\.
-
-  ```
-  {
-      "TranscriptionJob": {
-          "TranscriptionJobName": "my-first-transcription-job",
-          "TranscriptionJobStatus": "IN_PROGRESS",
-          "LanguageCode": "en-US",
-          "Media": {
-              "MediaFileUri": "s3:/DOC-EXAMPLE-BUCKET/my-media-file.flac"
-          },
-          "StartTime": "2020-09-12T23:20:28.239000+00:00",
-          "CreationTime": "2020-09-12T23:20:28.203000+00:00",
-          "Settings": {
-              "ChannelIdentification": true
-          }
+          "ChannelIdentification":true
       }
   }
   ```
@@ -120,8 +100,8 @@ The following code shows the transcription output for audio that has a conversat
 
 ```
 {
-  "jobName": "job id",
-  "accountId": "account id",
+  "jobName": "my-first-transcription-job",
+  "accountId": "111122223333,
   "results": {
     "transcripts": [
       {
@@ -253,7 +233,7 @@ Parameter descriptions:
 + **x\-amz\-content\-sha256**: This is a generated field\. To learn more about calculating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
 + **x\-amz\-date**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 + **x\-amzn\-transcribe\-session\-id**: The name for your streaming session\.
-+ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md#table-language-matrix) for a list of valid values\.
++ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md) for a list of valid values\.
 + **x\-amzn\-transcribe\-media\-encoding**: The encoding used for your input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
 + **x\-amzn\-transcribe\-sample\-rate**: The sample rate of the input audio \(in Hertz\)\. Amazon Transcribe supports a range from 8,000 Hz to 48,000 Hz\. Low\-quality audio, such as telephone audio, is typically around 8,000 Hz\. High\-quality audio typically ranges from 16,000 Hz to 48,000 Hz\. Note that the sample rate you specify **must** match that of your audio\.
 + **x\-amzn\-transcribe\-enable\-channel\-identification**: To enable channel identification, this field must be `true`\.
@@ -278,7 +258,7 @@ GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-
 &sample-rate=16000
 &session-id=sessionId
 &enable-channel-identification=true
-&number-of-channels=number of channels in your audio stream
+&number-of-channels=2
 ```
 
 ### Multi\-channel streaming output<a name="streaming-output"></a>

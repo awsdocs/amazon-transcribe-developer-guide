@@ -3,7 +3,7 @@
 Amazon Transcribe Medical enables you to transcribe individual audio content with medical information into text\.
 
 Transcription methods can be separated into two main categories:
-+ Batch transcription jobs: Transcribing media that have been uploaded into an S3 bucket\.
++ Batch transcription jobs: Transcribing media that have been uploaded into an Amazon S3 bucket\.
 + Streaming transcriptions: Transcribing media streams in real time\.
 
 Batch transcription jobs can be created with the [AWS CLI](getting-started-cli.md), [AWS Management Console](getting-started-console.md), and various [AWS SDKs](getting-started-sdk.md)\.

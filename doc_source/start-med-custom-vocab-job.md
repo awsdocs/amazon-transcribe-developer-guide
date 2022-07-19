@@ -35,7 +35,7 @@ Use the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/la
 
   1. For `Type`, specify whether the audio file is a conversation or a dictation\.
 
-  1. For `OutputBucketName`, specify the Amazon Simple Storage Service \(Amazon S3\) bucket to store the transcription results\.
+  1. For `OutputBucketName`, specify the Amazon S3 bucket to store the transcription results\.
 
   1. For the `Settings` object, specify the following\.
 
@@ -47,23 +47,26 @@ The following request uses the AWS SDK for Python \(Boto3\) to start a batch tra
 from __future__ import print_function
 import time
 import boto3
-transcribe = boto3.client('transcribe')
+transcribe = boto3.client('transcribe', 'us-west-2')
 job_name = "my-first-med-transcription-job"
-job_uri = "https://DOC-EXAMPLE-BUCKET.s3-us-west-2.amazonaws.com/my-audio-file.flac"
+job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
 transcribe.start_medical_transcription_job(
-   MedicalTranscriptionJobName=job_name,
-   Media = {'MediaFileUri': job_uri},
+   MedicalTranscriptionJobName = job_name,
+   Media = {
+       'MediaFileUri': job_uri
+   },
+   OutputBucketName = 'DOC-EXAMPLE-BUCKET',
+   OutputKey = 'my-output-files/', 
    LanguageCode = 'en-US',
    Specialty = 'PRIMARYCARE',
    Type = 'CONVERSATION',
-   OutputBucketName = 's3://DOC-EXAMPLE-BUCKET',
    Settings = {
        'VocabularyName': 'example-med-custom-vocab'
        }
  )
 
 while True:
-   status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
+   status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName = job_name)
    if status['MedicalTranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
         break
     print("Not ready yet...")

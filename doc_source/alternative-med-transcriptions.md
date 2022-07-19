@@ -41,7 +41,7 @@ To use the AWS Management Console to generate alternative transcriptions, you en
 
   1. For `Type`, specify whether you're transcribing a medical conversation or a dictation\.
 
-  1. For `OutputBucketName`, specify the Amazon Simple Storage Service \(Amazon S3\) bucket to store the transcription results\.
+  1. For `OutputBucketName`, specify the Amazon S3 bucket to store the transcription results\.
 
   1. For the `Settings` object, specify the following\.
 
@@ -55,22 +55,27 @@ The following request uses the AWS SDK for Python \(Boto3\) to start a transcrip
 from __future__ import print_function
 import time
 import boto3
-transcribe = boto3.client('transcribe')
+transcribe = boto3.client('transcribe', 'us-west-2')
 job_name = "my-first-transcription-job"
-job_uri = s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac
+job_uri = s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac
 transcribe.start_medical_transcription_job(
-    MedicalTranscriptionJobName=job_name,
-    Media = {'MediaFileUri': job_uri},
+    MedicalTranscriptionJobName = job_name,
+    Media = {
+        'MediaFileUri': job_uri
+    },
+    OutputBucketName = 'DOC-EXAMPLE-BUCKET',
+    OutputKey = 'my-output-files/', 
     LanguageCode = 'en-US',
     Specialty = 'PRIMARYCARE',
-    Type = 'type', # Specify 'CONVERSATION' for a medical conversation. Specify 'DICTATION' for a medical dictation.
-    OutputBucketName = 's3://DOC-EXAMPLE-BUCKET'
-  ),
-Settings = {'ShowAlternatives': True,
-       'MaxAlternatives': 2
-        }
+    Type = 'CONVERSATION', 
+    Settings = {
+        'ShowAlternatives': True,
+        'MaxAlternatives': 2
+    }
+)
+
 while True:
-   status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
+   status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName = job_name)
    if status['MedicalTranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
        break
    print("Not ready yet...")
@@ -92,6 +97,7 @@ print(status)
   The following code shows the contents of `example-start-command.json`\.
 
   ```
+  >
   {
         "MedicalTranscriptionJobName": "my-first-transcription-job",
         "LanguageCode": "en-US",
@@ -99,34 +105,11 @@ print(status)
         "Type": "CONVERSATION",
         "OutputBucketName":"DOC-EXAMPLE-BUCKET",
         "Media": {
-            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac"
           },
         "Settings":{
             "ShowAlternatives": true,
             "MaxAlternatives": 2
           }
-  }
-  ```
-
-  The following is the response from running the preceding CLI command\.
-
-  ```
-  {
-      "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "my-first-transcription-job",
-          "TranscriptionJobStatus": "IN_PROGRESS",
-          "LanguageCode": "en-US",
-          "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
-          "StartTime": "2020-09-21T19:09:18.199000+00:00",
-          "CreationTime": "2020-09-21T19:09:18.171000+00:00",
-          "Settings": {
-              "ShowAlternatives": true,
-              "MaxAlternatives": 2
-          },
-          "Specialty": "PRIMARYCARE",
-          "Type": "CONVERSATION"
-      }
   }
   ```

@@ -1,6 +1,6 @@
 # Creating a text file for your medical custom vocabulary<a name="create-med-vocab-text"></a>
 
-To create a custom vocabulary, you create a text file that is in UTF\-8 format\. In this file, you create a four column table, with each column specifying a field\. Each field tells Amazon Transcribe Medical either how the domain\-specific terms are pronounced or how to display these terms in your transcriptions\. You store the text file containing these fields in an Amazon Simple Storage Service \(Amazon S3\) bucket\.
+To create a custom vocabulary, you create a text file that is in UTF\-8 format\. In this file, you create a four column table, with each column specifying a field\. Each field tells Amazon Transcribe Medical either how the domain\-specific terms are pronounced or how to display these terms in your transcriptions\. You store the text file containing these fields in an Amazon S3 bucket\.
 
 ## Understanding how to format your text file<a name="understand-vocab-formatting"></a>
 
@@ -48,7 +48,7 @@ The following information shows you how to specify values for the four columns o
 
 You can include spaces only for the values in the `IPA` and `DisplayAs` columns\.
 
-To create the text file of your custom vocabulary, place each word or phrase in your text file on a separate line\. Separate the columns with Tab characters\. Include spaces only for values in the `IPA` and `DisplayAs` columns\. Save the file with the extension `.txt` in an S3 bucket in the same AWS Region where you use Amazon Transcribe Medical to create your custom vocabulary\.
+To create the text file of your custom vocabulary, place each word or phrase in your text file on a separate line\. Separate the columns with Tab characters\. Include spaces only for values in the `IPA` and `DisplayAs` columns\. Save the file with the extension `.txt` in an Amazon S3 bucket in the same AWS Region where you use Amazon Transcribe Medical to create your custom vocabulary\.
 
 If you edit your text file in Windows, make sure that your file is in `LF` format and not in `CRLF` format\. Otherwise, you will be unable to create your custom vocabulary\. Some text editors enable you to change the formatting with Find and Replace commands\.
 

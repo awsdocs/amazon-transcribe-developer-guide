@@ -16,37 +16,42 @@ Features supported with subtitles:
   + \-\- Text spoken by Person 1
   + \-\- Text spoken by Person 2
 
-Subtitle files are stored in the same S3 location as your transcription output\.
+Subtitle files are stored in the same Amazon S3 location as your transcription output\.
 
-## Adding subtitles to your Amazon Transcribe video files<a name="subtitles-how-to"></a>
+For a video walkthrough of creating subtitles, see:
 
-You can add subtitles using the **AWS Management Console**, **AWS SDK**, or **AWS CLI**; see the following for examples:
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/PZdfXGggcH4/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/PZdfXGggcH4)
 
-### AWS Management Console<a name="subtitles-howto-console"></a>
+## Generating subtitle files<a name="subtitles-how-to"></a>
+
+You can create subtitle files using the **AWS Management Console**, **AWS SDK**, or **AWS CLI**; see the following examples:
+
+### AWS Management Console<a name="subtitles-console"></a>
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
-1. In the navigation pane, choose **Transcription jobs**, then select the **Create job** button \(top right\)\. This opens the **Specify job details** page\. Subtitle options are located in the **Output data** panel\.
+1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This opens the **Specify job details** page\. Subtitle options are located in the **Output data** panel\.
 
 1. Select the formats you want for your subtitles files, then choose a value for your start index\. Note that the Amazon Transcribe default is `0`, but `1` is more widely used\. If you're uncertain which value to use, we recommend choosing `1`, as this may improve compatibility with other services\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/subtitles-startindex.png)
 
-1. Fill in any other fields you wish to include on the **Specify job details** page, then click the **Next** button\. This takes you to the **Configure job \- *optional* page**\.
+1. Fill in any other fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional* page**\.
 
-1. Click the **Create job** button to run your transcription job\. 
+1. Select **Create job** to run your transcription job\. 
 
-### AWS CLI<a name="subtitles-howto-cli"></a>
+### AWS CLI<a name="subtitles-cli"></a>
 
 This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Subtitles` parameter\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [Subtitles](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Subtitles.html)\.
 
 ```
 aws transcribe start-transcription-job \
---region us-west-2
---transcription-job-name your-transcription-job-name \
---media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac \
+--region us-west-2 \
+--transcription-job-name my-first-transcription-job \
+--media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac \
 --output-bucket-name DOC-EXAMPLE-BUCKET \
+--output-key my-output-files/ \
 --language-code en-US \
---subtitles Formats=vtt OutputStartIndex=1
+--subtitles Formats=vtt,srt,OutputStartIndex=1
 ```
 
 Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that adds subtitles to that job\.
@@ -54,33 +59,34 @@ Here's another example using the [start\-transcription\-job](https://awscli.amaz
 ```
 aws transcribe start-transcription-job \
 --region us-west-2 \
---cli-input-json file://example-start-command.json
+--cli-input-json file://my-first-subtitle-job.json
 ```
 
 The file *my\-first\-subtitle\-job\.json* contains the following request body\.
 
 ```
 {
-  "TranscriptionJobName": "your-transcription-job-name",
+  "TranscriptionJobName": "my-first-transcription-job",
   "Media": {
-        "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
-    },
+        "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
+  },
   "OutputBucketName": "DOC-EXAMPLE-BUCKET",
+  "OutputKey": "my-output-files/", 
   "LanguageCode": "en-US",
   "Subtitles": {
         "Formats": [
-            "vtt"
-        ],
+            "vtt","srt"
+        ],             
         "OutputStartIndex": 1
    }
 }
 ```
 
-### AWS SDK for Python \(Boto3\)<a name="subtitles-howto-python-batch"></a>
+### AWS SDK for Python \(Boto3\)<a name="subtitles-python-batch"></a>
 
 This example uses the AWS SDK for Python \(Boto3\) to add subtitles using the `Subtitles` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [Subtitles](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Subtitles.html)\.
 
-For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe](service_code_examples.md) chapter\.
+For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 
 ```
 from __future__ import print_function
@@ -88,22 +94,25 @@ import time
 import boto3
 transcribe = boto3.client('transcribe', 'us-west-2')
 job_name = "my-first-transcription-job"
-job_uri = "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
 transcribe.start_transcription_job(
-    TranscriptionJobName=job_name,
-    Media={'MediaFileUri': job_uri},
-    MediaFormat='flac',
-    LanguageCode='en-US', 
-    Subtitles={
+    TranscriptionJobName = job_name,
+    Media = {
+        'MediaFileUri': job_uri
+    },
+    OutputBucketName = 'DOC-EXAMPLE-BUCKET',
+    OutputKey = 'my-output-files/', 
+    LanguageCode = 'en-US', 
+    Subtitles = {
         'Formats': [
-            'vtt'
+            'vtt','srt'
         ],
         'OutputStartIndex': 1 
    }
 )
 
 while True:
-    status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+    status = transcribe.get_transcription_job(TranscriptionJobName = job_name)
     if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
         break
     print("Not ready yet...")

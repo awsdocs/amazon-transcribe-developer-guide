@@ -22,7 +22,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
 
    1. **Audio input type** – **Dictation**
 
-1. For the remaining fields, specify the Amazon Simple Storage Service \(Amazon S3\) location of your audio file and where you want to store the output of your transcription job\.
+1. For the remaining fields, specify the Amazon S3 location of your audio file and where you want to store the output of your transcription job\.
 
 1. Choose **Next**\.
 
@@ -43,7 +43,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
 
   1. For `Type`, specify `DICTATION`\.
 
-  1. For `OutputBucketName`, specify the Amazon Simple Storage Service \(Amazon S3\) bucket to store the transcription results\.
+  1. For `OutputBucketName`, specify the Amazon S3 bucket to store the transcription results\.
 
   The following is an example request that uses the AWS SDK for Python \(Boto3\) to transcribe a medical dictation of a clinician in the `PRIMARYCARE` specialty\.
 
@@ -53,17 +53,20 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
    import boto3
    transcribe = boto3.client('transcribe')
    job_name = "my-first-med-transcription-job"
-   job_uri = "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
+   job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac"
    transcribe.start_medical_transcription_job(
        MedicalTranscriptionJobName = job_name,
-       Media = {'MediaFileUri': job_uri},
+       Media = {
+          'MediaFileUri': job_uri
+       },     
+       OutputBucketName = 'DOC-EXAMPLE-BUCKET',                                
+       OutputKey = 'my-output-files/', 
        LanguageCode = 'en-US',
        Specialty = 'PRIMARYCARE',
-       Type = 'DICTATION',
-       OutputBucketName = 's3://DOC-EXAMPLE-BUCKET'
-    )
+       Type = 'DICTATION'
+   )
   while True:
-      status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
+      status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName = job_name)
       if status['MedicalTranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
           break
       print("Not ready yet...")
@@ -163,39 +166,22 @@ The following example code shows the transcription results of a medical dictatio
   ```
                       
   aws transcribe start-medical-transcription-job \
-  --cli-input-json file://filepath/example-start-command.json
+  --region us-west-2 \
+  --cli-input-json file://example-start-command.json
   ```
 
   The following code shows the contents of `example-start-command.json`\.
 
   ```
-    {
-        "MedicalTranscriptionJobName": "my-first-med-transcription-job",        
-        "LanguageCode": "en-US",
-        "Specialty": "PRIMARYCARE",
-        "Type": "DICTATION",
-        "OutputBucketName":"s3://DOC-EXAMPLE-BUCKET",
-        "Media": {
-            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-        }
-    }
-  ```
-
-  The following is the response from running the preceding CLI command\.
-
-  ```
   {
-      "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "my-first-transcription-job",
-          "TranscriptionJobStatus": "IN_PROGRESS",
-          "LanguageCode": "en-US",
-          "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
-          "StartTime": "2020-09-20T00:35:22.256000+00:00",
-          "CreationTime": "2020-09-20T00:35:22.218000+00:00",
-          "Specialty": "PRIMARYCARE",
-          "Type": "DICTATION"
-      }
+        "MedicalTranscriptionJobName": "my-first-med-transcription-job",        
+        "Media": {
+        "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac"
+        },
+        "OutputBucketName": "DOC-EXAMPLE-BUCKET",
+        "OutputKey": "my-output-files/", 
+        "LanguageCode": "en-US",  
+        "Specialty": "PRIMARYCARE",
+        "Type": "DICTATION"
   }
   ```

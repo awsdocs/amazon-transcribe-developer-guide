@@ -2,17 +2,21 @@
 
 The following code example shows how to start an Amazon Transcribe Medical transcription job\.
 
+**Note**  
+The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
 ------
 #### [ JavaScript ]
 
 **SDK for JavaScript V3**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples)\. 
 Create the client\.  
 
 ```
 const { TranscribeClient } = require("@aws-sdk/client-transcribe");
 // Set the AWS Region.
 const REGION = "REGION"; //e.g. "us-east-1"
-// Create anAmazon EC2 service client object.
+// Create an Amazon Transcribe service client object.
 const transcribeClient = new TranscribeClient({ region: REGION });
 export { transcribeClient };
 ```
@@ -52,10 +56,9 @@ export const run = async () => {
 };
 run();
 ```
-+  Find instructions and more code on [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples)\. 
 +  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.html#transcribe-start-medical-transcription)\. 
 +  For API details, see [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-transcribe/classes/startmedicaltranscriptionjobcommand.html) in *AWS SDK for JavaScript API Reference*\. 
 
 ------
 
-For a complete list of AWS SDK developer guides and code examples, including help getting started and information about previous versions, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section)\.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section)\. This topic also includes information about getting started and details about previous SDK versions\.

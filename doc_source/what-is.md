@@ -1,22 +1,32 @@
 # What is Amazon Transcribe?<a name="what-is"></a>
 
-Amazon Transcribe is an automatic speech recognition service that uses machine learning models to convert audio to text\.
+Amazon Transcribe is an automatic speech recognition service that uses machine learning models to convert audio to text\. You can use Amazon Transcribe as a standalone transcription service or to add speech\-to\-text capabilities to any application\.
 
-With Amazon Transcribe, you can ingest audio input, produce easy\-to\-read transcripts, improve accuracy with language customization, and filter content to ensure customer privacy\. Practical use cases for Amazon Transcribe include transcribing and analyzing customer\-agent calls and creating closed captions for videos\.
+With Amazon Transcribe, you can improve accuracy for your specific use case with language customization, filter content to ensure customer privacy or audience\-appropriate language, analyze content in multi\-channel audio, differentiate the speech of individual speakers, and more\.
 
-With Amazon Transcribe, you can add speech\-to\-text capabilities to any application\.
+**Important**  
+Amazon Transcribe is covered under AWS’s HIPAA eligibility and BAA which requires BAA customers to encrypt all PHI at rest and in transit when in use\. Automatic PHI identification is available at no additional charge and in all regions where Amazon Transcribe operates\. For more information, refer to [ HIPAA eligibility and BAA](http://aws.amazon.com/compliance/hipaa-compliance/)\.
+
+To view a complete list of features, see [Amazon Transcribe features](feature-matrix.md)\.
+
+You can transcribe streaming media in real time or you can upload and transcribe media files\. To see which languages are supported for each type of transcription, refer to the [Supported languages and language\-specific features](supported-languages.md) table\.
 
 For a short video tour of Amazon Transcribe, see:
 
 [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/zD8NMw4T1TI/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/zD8NMw4T1TI)
+
+To learn more, see [How Amazon Transcribe works](how-it-works.md) and [Getting started with Amazon Transcribe](getting-started.md)\.
+
+**Tip**  
+Information on the **Amazon Transcribe API** is located in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/Welcome.html)\.
 
 ## Amazon Transcribe use cases<a name="transcribe-use-cases"></a>
 
 Amazon Transcribe is a robust speech\-to\-text service that offers a diverse array of features, many of which can be combined between Amazon Transcribe and other AWS services\.
 + Gain insight into agent\-customer calls using [Call Analytics](call-analytics.md)\. This feature automatically analyzes 11 different criteria without any customization on your part\. For each speaker, you get sentiment data, talk time, non\-talk time, loudness, interruptions, and talk speed\. Call summarization, call categorization, and turn\-by\-turn output are provided for the whole call\.
 
-  We've also launched two new analytics options for call center audio: [post\-call analytics](http://aws.amazon.com/blogs/machine-learning/post-call-analytics-for-your-contact-center-with-amazon-language-ai-services/) \(designed for audio files located in an S3 bucket\) and [live\-call analytics](http://aws.amazon.com/blogs/machine-learning/live-call-analytics-for-your-contact-center-with-amazon-language-ai-services/) \(designed for live audio streams\)\.
-+ Get a summary of customer\-agent interactions with [call summarization](call-analytics-insights.md#call-analytics-insights-summarization)\. Get an at\-a\-glance summary of issues, action items, and outcomes for every call\.
+  We've also launched two new analytics options for call center audio: [post\-call analytics](http://aws.amazon.com/blogs/machine-learning/post-call-analytics-for-your-contact-center-with-amazon-language-ai-services/) \(designed for audio files located in an Amazon S3 bucket\) and [live\-call analytics](http://aws.amazon.com/blogs/machine-learning/live-call-analytics-for-your-contact-center-with-amazon-language-ai-services/) \(designed for live audio streams\)\.
++ Get a summary of customer\-agent interactions with [call summarization](call-analytics-insights.md#call-analytics-insights-summarization), which provides an at\-a\-glance summary of issues, action items, and outcomes for every call\.
 + Teach Amazon Transcribe industry\-specific terms, unique spelling, acronyms, and any words that are not being rendered correctly in your transcription results using [custom vocabularies](custom-vocabulary.md)\. Providing Amazon Transcribe with custom vocabularies can improve the accuracy of your transcription output\. See also: [Custom language models](custom-language-models.md)\.
 + Create [subtitles](subtitles.md) for your video files\. You can also use [content redaction](pii-redaction.md) \(only in US English\) and [vocabulary filtering](vocabulary-filtering.md) when generating subtitles to ensure your content is audience\-appropriate\. Note that filtered or redacted content shows as white space, `***`, or `[PII]` in your transcript and subtitle files, but **the audio itself is not altered**\.
 + Redact personally identifiable information \(PII\), such as social security numbers, from your transcripts using standard [content redaction](pii-redaction.md) or Call Analytics [sensitive data redaction](call-analytics-insights.md#call-analytics-insights-redaction)\. Call Analytics can also **redact your audio** by replacing spoken PII with silence\.
@@ -24,7 +34,10 @@ Amazon Transcribe is a robust speech\-to\-text service that offers a diverse arr
 + Remove proprietary terms from your transcript using [vocabulary filtering](vocabulary-filtering.md)\. For example, you can mask the name of a new product in a pre\-launch stakeholder meeting\. Vocabulary filtering can also be used to mask profane, offensive, or audience\-inappropriate terms\.
 + Using multi\-channel audio, you can have Amazon Transcribe produce a separate transcript for each channel, or have all channels transcribed in one output file\. See [Transcribing multi\-channel audio](channel-id.md)\.
 + If your audio is not in a language you speak, let Amazon Transcribe identify the language for you using [language identification](lang-id.md)\. You can then use [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) to translate your transcript, and have [Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/what-is.html) read your transcript back to you\.
-+ Improve streaming transcription accuracy with [partial result stabilization](streaming.md#streaming-partial-result-stabilization), which can also be used to [adjust the latency of your transcript](http://aws.amazon.com/blogs/machine-learning/amazon-transcribe-now-supports-partial-results-stabilization-for-streaming-audio/)\.
++ Improve [streaming transcription accuracy](http://aws.amazon.com/blogs/media/what-was-that-increasing-subtitle-accuracy-for-live-broadcasts-using-amazon-transcribe/) with [partial result stabilization](streaming.md#streaming-partial-result-stabilization), which can also be used to [adjust the latency of your transcript](http://aws.amazon.com/blogs/machine-learning/amazon-transcribe-now-supports-partial-results-stabilization-for-streaming-audio/)\.
+
+**Tip**  
+For use case code examples, refer to the [AWS Samples repository](https://github.com/orgs/aws-samples/repositories?language=&q=transcribe&sort=&type=all) on GitHub\.
 
 ### Use cases in action<a name="transcribe-use-cases-in-action"></a>
 

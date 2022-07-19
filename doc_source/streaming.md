@@ -22,7 +22,7 @@ Audio formats supported for streaming transcriptions are:
 Lossless formats \(FLAC or PCM\) are recommended\.
 
 **Note**  
-Streaming transcriptions are not supported with all languages\. See [Supported languages and language\-specific features](supported-languages.md#table-language-matrix) for details\.
+Streaming transcriptions are not supported with all languages\. See [Supported languages and language\-specific features](supported-languages.md) for details\.
 
 ## Streaming and partial results<a name="streaming-partial-results"></a>
 
@@ -33,47 +33,34 @@ An approximation of this is shown in the following code block\. You can view thi
 In this example, each line is the partial result of an audio segment\.
 
 ```
-The
-The ad. 
-The and
-The Amazon. 
-The Amazon is 
-The Amazon is the
-The Amazon is the law.
-The Amazon is the lar.
-The Amazon is the large
-The Amazon is the largest
-The Amazon is the largest ray
-The Amazon is the largest rain
-The Amazon is the largest rain for
-The Amazon is the largest rainforest. 
-The Amazon is the largest rainforest on the planet.
+Welcome.
+Welcome to.
+Welcome to Amazon.
+Welcome to Amazon transcribe.
+Welcome to Amazon transcribe.
 ```
 
 These partial results are present in your transcription output within the [Results](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_Result.html) objects\. Also in this object block is an **IsPartial** field\. If this field is true, your transcription segment is not yet complete\. You can view the difference between an incomplete and a complete segment below:
 
 ```
 "IsPartial": true (incomplete segment)
+            
+"Transcript": "Welcome to Amazon."
 
-"Transcript": "The Amazon is the largest"
-        }
-    ],
-    "EndTime": 3.275,
-    "IsPartial": true,
-    "ResultId": "55421b61-7cc6-4ef1-8d55-08a97159870e",
-    "StartTime": 1.26
-}
+"EndTime": 2.695,
+"IsPartial": true,
+"ResultId": "55421b61-7cc6-4ef1-8d55-f1c128f01d30",
+"StartTime": 1.18
+
 
 "IsPartial": false (complete segment)
-    
-"Transcript": "The Amazon is the largest rain forest on the planet."
-        }
-    ],
-    "EndTime": 5.735,
-    "IsPartial": false,
-    "ResultId": "55421b61-7cc6-4ef1-8d55-08a97159870e",
-    "StartTime": 1.26
-}
+            
+"Transcript": "Welcome to Amazon transcribe."
+
+"EndTime": 4.775,
+"IsPartial": false,
+"ResultId": "55421b61-7cc6-4ef1-8d55-08a97159870e",
+"StartTime": 1.18
 ```
 
 Each word within a complete segment has an associated confidence score, which is a value between `0` and `1`\. A larger value indicates a greater likelihood that the word is correctly transcribed\.
@@ -93,31 +80,32 @@ This process gives you two options for each speech segment:
 + Wait for the finished segment
 + Use the segment's partial results
 
-Partial result stabilization changes how Amazon Transcribe produces the final transcription result for each complete segment\. When activated, only the last few words from the partial results can change\. Because of this, transcription accuracy may be affected\. However, your transcript is returned faster than without partial\-results stabilization\. This reduction in latency can help use cases, such as subtitling videos or generating captions for live streams\.
+Partial result stabilization changes how Amazon Transcribe produces the final transcription result for each complete segment\. When activated, only the last few words from the partial results can change\. Because of this, transcription accuracy may be affected\. However, your transcript is returned faster than without partial\-results stabilization\. This reduction in latency may be beneficial when subtitling videos or generating captions for live streams\.
 
-The following examples show how the same audio stream is handled when partial\-results stabilization is not activated and when it is\. Note that you can set the stability level to low, medium, or high\. Low stability provides the highest accuracy\. High stability transcribes faster, but with slightly lower accuracy\. You can also see that by the end of the segment, transcription time is quite similar\.
+The following examples show how the same audio stream is handled when partial\-results stabilization is not activated and when it is\. Note that you can set the stability level to low, medium, or high\. Low stability provides the highest accuracy\. High stability transcribes faster, but with slightly lower accuracy\.
 
 
-| Transcription output | "EndTime": | 
-| --- | --- | 
+| "Transcript": | "EndTime": | "IsPartial": | 
+| --- | --- | --- | 
 | Partial\-result stabilization not enabled | 
-|  <pre>The <br />The Amazon.                                                      <br />The Amazon is the large                                     <br />The Amazon is the largest                                 <br />The Amazon is the largest                                 <br />The Amazon is the largest rainforest on                   <br />The Amazon is the largest rainforest on the planet.     <br />The Amazon is the largest rainforest on the planet.</pre>  |  <pre>0.515<br />1.015<br />1.515<br />2.015<br />2.515<br />3.015<br />3.515<br />3.885</pre>  | 
+|  <pre>Welcome. <br />Welcome to. <br />Welcome to Amazon. <br />Welcome to Amazon.  <br />Welcome to Amazon transcribe.<br />Welcome to Amazon transcribe.<br />Welcome to Amazon transcribe. <br />Welcome to Amazon transcribe. <br />Welcome to Amazon transcribe. </pre>  |  <pre>0.515<br />1.015<br />1.515 <br />2.015<br />2.515<br />3.015<br />3.515<br />3.595<br />3.595</pre>  |  <pre>true<br />true<br />true<br />true<br />true<br />true<br />true<br />true<br />false</pre>  | 
 | Partial\-result stabilization enabled \(high stability\) | 
-|  <pre>The <br />The Amazon.                                                       <br />The Amazon is the large                                      <br />The Amazon is the largest                                  <br />The Amazon is the largest rain for                        <br />The Amazon is the largest rain forest on              <br />The Amazon is the largest rain forest on the plan.       <br />The Amazon is the largest rain forest on the planet.</pre>  |  <pre>0.095<br />1.015<br />1.515<br />2.015<br />2.495<br />3.015<br />3.515<br />4.015</pre>  | 
+|  <pre>Welcome. <br />Welcome to<br />Welcome to Amas.<br />Welcome to Amazon.  <br />Welcome to Amazon.<br />Welcome to Amazon transcribe.<br />Welcome to Amazon transcribe.</pre>  |  <pre>0.515<br />1.015<br />1.515<br />2.015<br />2.515<br />2.865<br />2.865</pre>  |  <pre>true<br />true<br />true<br />true<br />true<br />true<br />false</pre>  | 
 
-When you activate partial\-result stabilization, Amazon Transcribe uses the `Stable` field to indicate whether an 'item' is stable, where 'item' refers to a transcribed word or phrase\. Values for `Stable` are either `true`, indicating that the item is stable, or `false`, indicating that the item is not stable\.
-
-Items flagged as `false` \(not stable\) are more likely to change as your segment is transcribed\. Conversely, items flagged as `true` \(stable\) don't change\.
+When you activate partial\-result stabilization, Amazon Transcribe uses a `Stable` field to indicate whether an item is stable, where 'item' refers to a transcribed word or phrase\. Values for `Stable` are either `true`, indicating that the item is stable, or `false`, indicating that the item is not stable\. Items flagged as `false` \(not stable\) are more likely to change as your segment is transcribed\. Conversely, items flagged as `true` \(stable\) don't change\.
 
 You can choose to render non\-stable words so your captions align with speech\. Even if captions change slightly as context is added, this is a better user experience than periodic text bursts, which may or may not align with speech\.
 
 You can also choose to display non\-stable words in a different format, such as italics, to indicate to viewers that these words may change\. Displaying partial results limits the amount of text displayed at a given time\. This can be important when you're dealing with space constraints, as with video captions\.
 
-Here's a blog post that dives a little deeper: [Improve the streaming transcription experience with Amazon Transcribe partial results stabilization](http://aws.amazon.com/blogs/machine-learning/amazon-transcribe-now-supports-partial-results-stabilization-for-streaming-audio/)
+**Dive deeper with the AWS Machine Learning Blog**  
+To learn more about improving accuracy with real\-time transcriptions, see:  
+[Improve the streaming transcription experience with Amazon Transcribe partial results stabilization](http://aws.amazon.com/blogs/machine-learning/amazon-transcribe-now-supports-partial-results-stabilization-for-streaming-audio/)
+[“What was that?” Increasing subtitle accuracy for live broadcasts using Amazon Transcribe](http://aws.amazon.com/blogs/media/what-was-that-increasing-subtitle-accuracy-for-live-broadcasts-using-amazon-transcribe/)
 
 ### Partial\-result stabilization example output<a name="streaming-stabilization-output"></a>
 
-The following example output shows `Stable` flags for an incomplete segment \(`"IsPartial": true`\)\. You can see that the words "*the large*" are not stable and therefore could change before the segment is finalized\.
+The following example output shows `Stable` flags for an incomplete segment \(`"IsPartial": true`\)\. You can see that the words "*to Amazon*" are not stable and therefore could change before the segment is finalized\.
 
 ```
 "Transcript": {
@@ -127,53 +115,45 @@ The following example output shows `Stable` flags for an incomplete segment \(`"
                 {
                     "Items": [
                         {
-                            "Content": "The",
-                            "EndTime": 1.4475,
+                            "Content": "Welcome",
+                            "EndTime": 2.4225,
                             "Stable": true,
-                            "StartTime": 1.26,
+                            "StartTime": 1.65,
+                            "Type": "pronunciation",
+                            "VocabularyFilterMatch": false
+                        },
+                        { 
+                            "Content": "to",
+                            "EndTime": 2.8325,
+                            "Stable": false,
+                            "StartTime": 2.4225,
                             "Type": "pronunciation",
                             "VocabularyFilterMatch": false
                         },
                         {
                             "Content": "Amazon",
-                            "EndTime": 2.1725,
-                            "Stable": true,
-                            "StartTime": 1.4475,
-                            "Type": "pronunciation",
-                            "VocabularyFilterMatch": false
-                        },
-                        {
-                            "Content": "is",
-                            "EndTime": 2.3975,
-                            "Stable": true,
-                            "StartTime": 2.1725,
-                            "Type": "pronunciation",
-                            "VocabularyFilterMatch": false
-                        },
-                        {
-                            "Content": "the",
-                            "EndTime": 2.5875,
+                            "EndTime": 3.635,
                             "Stable": false,
-                            "StartTime": 2.3975,
+                            "StartTime": 2.8325,
                             "Type": "pronunciation",
                             "VocabularyFilterMatch": false
                         },
                         {
-                            "Content": "large",
-                            "EndTime": 2.775,
+                            "Content": ".",
+                            "EndTime": 3.635,
                             "Stable": false,
-                            "StartTime": 2.5875,
-                            "Type": "pronunciation",
+                            "StartTime": 3.635,
+                            "Type": "punctuation",
                             "VocabularyFilterMatch": false
                         }
                     ],
-                    "Transcript": "The Amazon is the large"
+                    "Transcript": "Welcome to Amazon."
                 }
             ],
-            "EndTime": 2.775,
+            "EndTime": 4.165,
             "IsPartial": true,
-            "ResultId": "55421b61-7cc6-4ef1-8d55-08a97159870e",
-            "StartTime": 1.26
+            "ResultId": "364f1c74-5e21-4333-af74-b6531a6b9158",
+            "StartTime": 1.65
         }
     ]
 }

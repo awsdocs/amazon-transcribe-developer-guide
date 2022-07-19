@@ -8,8 +8,8 @@ Transcription jobs using content redaction generate two types of `confidence` va
 
 ```
 {
-    "jobName": "job id",
-    "accountId": "account id",
+    "jobName": "my-first-transcription-job",
+    "accountId": "111122223333",
     "isRedacted": true,
     "results": {
         "transcripts": [
@@ -63,7 +63,7 @@ Here's the unredacted transcript for comparison:
 ```
 {
     "jobName": "job id",
-    "accountId": "account id",
+    "accountId": "111122223333",
     "isRedacted": false,
     "results": {
         "transcripts": [
@@ -181,7 +181,7 @@ PII identification is an additional feature that you can use with your streaming
                     {
                         "Alternatives": [
                             {
-                                "Transcript": "my name is janet smithy",
+                                "Transcript": "my name is mike",
                                 "Items": [
                                     {
                                         "Content": "my",
@@ -202,21 +202,15 @@ PII identification is an additional feature that you can use with your streaming
                                         "Type": "pronunciation"
                                     },
                                     {
-                                        "Content": "janet",
+                                        "Content": "mike",
                                         "EndTime": 0.9199375,
                                         "StartTime": 0.7999375,
-                                        "Type": "pronunciation"
-                                    },
-                                    {
-                                        "Content": "smithy",
-                                        "EndTime": 1.0199375,
-                                        "StartTime": 0.9299375,
-                                        "Type": "pronunciation"
+                                        "Type": "pronunciation"                                    
                                     }
                                 ],
                                 "Entities": [
                                     {
-                                        "Content": "janet smithy",
+                                        "Content": "mike",
                                         "Category": "PII",
                                         "Type": "NAME",
                                         "StartTime" : 0.7999375,

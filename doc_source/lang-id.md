@@ -1,14 +1,12 @@
-# Identifying the dominant language in your media<a name="lang-id"></a>
+# Identifying the dominant languages in your media<a name="lang-id"></a>
 
-Amazon Transcribe is able to automatically identify the language spoken in your media without you having to specify a language code\. Language identification works for all [supported languages](supported-languages.md#table-language-matrix); note that not all supported languages can be used with streaming transcriptions\.
+Amazon Transcribe is able to automatically identify the languages spoken in your media without you having to specify a language code\.
 
-Batch jobs can only be transcribed in one language, while streaming transcriptions can have one language per channel \(a maximum of two channels are supported\)\.
+[Batch language identification](lang-id-batch.md) can identify the dominant language spoken in your media file or, if your media contains multiple languages, it can identify all languages spoken\. To improve language identification accuracy, you can optionally provide a list of two or more languages you think may be present in your media\.
 
-To improve language identification accuracy, you can provide a list of languages you think may be present\. From this list, Amazon Transcribe chooses the closest matching language to transcribe your audio\. Providing language codes is optional with batch jobs and required for streaming transcriptions\. If none of the language codes you provide match languages spoken in your media, your transcription accuracy is diminished\.
+[Streaming language identification](lang-id-stream.md) can identify one language per channel \(a maximum of two channels are supported\)\. Streaming requests must have a minimum of two additional language options included in your request\. Providing language options allows for faster language identification\. The faster Amazon Transcribe is able to identify the language, the less change there is of data loss in the first few seconds of your stream\.
 
-**Note**  
-If none of your specified language codes match any of the languages spoken in your media, Amazon Transcribe selects the closest option in your subset of selected language codes and produces a transcript based on that language\. For example, if your media is in US English \(`en-US`\) and you provide Amazon Transcribe with the language codes `zh-CN`, `fr-FR`, and `de-DE`, Amazon Transcribe is likely to match your media to German \(`de-DE`\) and produce a German\-language transcription\. Mismatching language codes and spoken languages can result in a very inaccurate transcript, so we advise caution when selecting language codes\.
-
-For additional information, see [Language identification with batch transcription jobs](lang-id-batch.md) and [Language identification with streaming transcriptions](lang-id-stream.md)\.
+**Important**  
+Batch and streaming transcriptions support different languages\. Refer to the [supported languages table](supported-languages.md) for details\.
 
 To learn about monitoring and events with language identification, refer to [Language identification events](monitoring-events.md#lang-id-event)\.

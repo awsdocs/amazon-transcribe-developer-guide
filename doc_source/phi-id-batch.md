@@ -22,7 +22,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
 
    1. **Audio input type** – **Conversation** or **Dictation**\.
 
-1. For the remaining fields, specify the Amazon Simple Storage Service \(Amazon S3\) location of your audio file and where you want to store the output of your transcription job\.
+1. For the remaining fields, specify the Amazon S3 location of your audio file and where you want to store the output of your transcription job\.
 
 1. Choose **Next**\.
 
@@ -45,7 +45,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
 
   1. For `Type`, specify either `CONVERSATION` or `DICTATION`\.
 
-  1. For `OutputBucketName`, specify the Amazon Simple Storage Service \(Amazon S3\) bucket where you want to store the transcription results\.
+  1. For `OutputBucketName`, specify the Amazon S3 bucket where you want to store the transcription results\.
 
   The following is an example request that uses the AWS SDK for Python \(Boto3\) to transcribe an audio file and identify the PHI of a patient\.
 
@@ -55,7 +55,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
   import boto3
   transcribe = boto3.client('transcribe')
   job_name = "my-first-transcription-job"
-  job_uri = "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
+  job_uri = "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac"
   transcribe.start_medical_transcription_job(
         MedicalTranscriptionJobName = job_name,
         Media = {'MediaFileUri': job_uri},
@@ -66,7 +66,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
         OutputBucketName = 'DOC-EXAMPLE-BUCKET'
     )
   while True:
-      status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName=job_name)
+      status = transcribe.get_medical_transcription_job(MedicalTranscriptionJobName = job_name)
       if status['MedicalTranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
           break
       print("Not ready yet...")
@@ -149,33 +149,12 @@ The following example code shows the transcription results with patient PHI iden
 + Run the following code\.
 
   ```
-                      
   aws transcribe start-medical-transcription-job \
   --medical-transcription-job-name my-medical-transcription-job-name\
   --language-code en-US \
-  --media MediaFileUri="s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac" \
+  --media MediaFileUri="s3://DOC-EXAMPLE-BUCKET/my-input-files/my-audio-file.flac" \
   --output-bucket-name DOC-EXAMPLE-BUCKET \
   --specialty PRIMARYCARE \
   --type type \ # Choose CONVERSATION to transcribe a medical conversation. Choose DICTATION to transcribe a medical dictation.
   --content-identification-type PHI
-  ```
-
-  The following is the response from running the preceding CLI command\.
-
-  ```
-  {
-      "MedicalTranscriptionJob": {
-          "MedicalTranscriptionJobName": "my-first-transcription-job",
-          "TranscriptionJobStatus": "IN_PROGRESS",
-          "LanguageCode": "en-US",
-          "Media": {
-              "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-audio-file.flac"
-          },
-          "StartTime": "2021-04-27T22:21:52.505000+00:00",
-          "CreationTime": "2021-04-27T22:21:52.459000+00:00",
-          "ContentIdentificationType": "PHI",
-          "Specialty": "PRIMARYCARE",
-          "Type": "type"
-      }
-  }
   ```

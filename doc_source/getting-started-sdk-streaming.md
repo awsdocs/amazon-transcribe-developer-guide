@@ -286,23 +286,23 @@ class MyEventHandler(TranscriptResultStreamHandler):
 
 async def basic_transcribe():
     # Set up our client with your chosen Region
-    client = TranscribeStreamingClient(region="us-west-2")
+    client = TranscribeStreamingClient(region = "us-west-2")
 
     # Start transcription to generate async stream
     stream = await client.start_stream_transcription(
-        language_code="en-US",
-        media_sample_rate_hz=16000,
-        media_encoding="pcm",
+        language_code = "en-US",
+        media_sample_rate_hz = 16000,
+        media_encoding = "pcm",
     )
 
     async def write_chunks():
         # NOTE: For pre-recorded files longer than 5 minutes, the sent audio
-        # chunks should be rate limited to match the realtime bitrate of the
+        # chunks should be rate limited to match the real-time bitrate of the
         # audio stream to avoid signing issues.
         async with aiofile.AIOFile('filepath/my-media-file.flac', 'rb') as afp:
-            reader = aiofile.Reader(afp, chunk_size=1024 * 16)
+            reader = aiofile.Reader(afp, chunk_size = 1024 * 16)
             async for chunk in reader:
-                await stream.input_stream.send_audio_event(audio_chunk=chunk)
+                await stream.input_stream.send_audio_event(audio_chunk = chunk)
         await stream.input_stream.end_stream()
 
     # Instantiate our handler and start processing events

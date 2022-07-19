@@ -1,13 +1,13 @@
-# Supported languages<a name="supported-languages"></a>
+# Supported languages and language\-specific features<a name="supported-languages"></a>
 
-The languages supported by Amazon Transcribe are listed in the following table; also listed are the features that are language\-specific\. Please verify that the feature you wish to use is supported for the language in your media before proceeding with your transcription\. To view the complete list of Amazon Transcribe features, refer to [Amazon Transcribe features](feature-matrix.md)\.
+The languages supported by Amazon Transcribe are listed in the following table; also listed are the features that are language\-specific\. Please verify that the feature you wish to use is supported for the language in your media before proceeding with your transcription\.
 
-In the following table, 'batch' refers to transcribing a media file located in an S3 bucket and 'streaming' refers to transcribing streamed media in real time\.
+To view the complete list of Amazon Transcribe features, refer to the [Feature summary](feature-matrix.md)\.
+
+In the following table, 'batch' refers to transcribing a media file located in an Amazon S3 bucket and 'streaming' refers to transcribing streamed media in real time\.
 
 
-**Supported languages and language\-specific features**  
-
-| Language | Language Code | [Data input and output](how-input.md) | [Transcribing digits](how-numbers.md) | [Acronyms](custom-vocabulary-create-table.md) | [Custom language models](custom-language-models.md) | [Redacting transcripts](pii-redaction.md) | [Call Analytics](call-analytics.md) | 
+|  **Language**  |  **Language Code**  |  **[Data input](how-input.md)**  |  **[Transcribing numbers](how-numbers.md)**  |  **[Acronyms](custom-vocabulary-create-table.md)**  |  **[Custom language models](custom-language-models.md)**  |  **[Redaction](pii-redaction.md)**  |  **[Call Analytics](call-analytics.md)**  | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
 | [Afrikaans](charsets.md#char-afrikaans) | af\-ZA | batch | no | batch | no | no | no | 
 | [Arabic](charsets.md#char-arabic), Gulf | ar\-AE | batch | no | no | no | no | batch | 
@@ -17,7 +17,7 @@ In the following table, 'batch' refers to transcribing a media file located in a
 | [Danish](charsets.md#char-danish) | da\-DK | batch | no | batch | no | no | no | 
 | [Dutch](charsets.md#char-dutch) | nl\-NL | batch | no | batch | no | no | no | 
 | [English](charsets.md#char-english), Australian | en\-AU | batch, streaming | batch, streaming | batch, streaming | batch | no | batch | 
-| [English](charsets.md#char-english), British | en\-GB | batch, streaming | batch, streaming | batch, streaming | batch | no | batch | 
+| [English](charsets.md#char-english), British | en\-GB | batch, streaming | batch, streaming | batch, streaming | batch, streaming | no | batch | 
 | [English](charsets.md#char-english), Indian | en\-IN | batch | batch | batch | no | no | batch | 
 | [English](charsets.md#char-english), Irish | en\-IE | batch | batch | batch | no | no | batch | 
 | [English](charsets.md#char-english), New Zealand | en\-NZ | batch | batch | batch | no | no | no | 

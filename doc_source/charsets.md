@@ -1,6 +1,6 @@
-# Character sets for custom vocabularies<a name="charsets"></a>
+# Character sets for custom vocabularies and vocabulary filters<a name="charsets"></a>
 
-Amazon Transcribe limits the characters that you can use to create custom vocabularies\. You can use the following character sets for each language\.
+For each language Amazon Transcribe supports, there is a specific set of characters Amazon Transcribe can recognize\. When you create a custom vocabulary or vocabulary filter, use only the characters listed in your language's character set\. If you use unsupported characters, your custom vocabulary or vocabulary filter fails\.
 
 **Important**  
 Be sure to check that your custom vocabulary file uses only the supported Unicode code points and code point sequences listed within the following character sets\.
@@ -55,7 +55,7 @@ You can also use the following Unicode characters in the `Phrase` and `SoundsLik
 | í | 00ED | û | 00FB | 
 | î | 00EE | ü | 00FC | 
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 
@@ -113,7 +113,7 @@ For Arabic custom vocabularies, you can use the following Unicode characters in 
 | ر | 0631 | ى | 0649 | 
 | ز | 0632 | ي | 064A | 
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 
@@ -162,7 +162,7 @@ Amazon Transcribe represents the four tones in Chinese \(Simplified\) using numb
 **Note**  
 For the 5th \(neutral\) tone, you can use Tone 1, with the exception of 'er', which must be mapped to Tone 2\. For example, 打转儿 would be represented as 'da3\-zhuan4\-er2'\.
 
-Chinese \(Simplified\) custom vocabularies don't use the `IPA` field, but you must still include the `IPA` header in the vocabulary table\. 
+Chinese \(Simplified\) custom vocabularies don't use the `IPA` field, but you must still include the `IPA` header in the custom vocabulary table\. 
 
 The following example is an input file in text format\. The example uses spaces to align the columns\. Your input files should use TAB characters to separate the columns\. Include spaces only in the `DisplayAs` column\.
 
@@ -194,7 +194,7 @@ Amazon Transcribe represents the four tones in Chinese \(Traditional\) using num
 | Tone 3 | ㄇㄚˇ | 
 | Tone 4 | ㄇㄚˋ | 
 
-Chinese \(Traditional\) custom vocabularies don't use the `IPA` field, but you must still include the `IPA` header in the vocabulary table\.
+Chinese \(Traditional\) custom vocabularies don't use the `IPA` field, but you must still include the `IPA` header in the custom vocabulary table\.
 
 The following example is an input file in text format\. The example uses spaces to align the columns\. Your input files should use TAB characters to separate the columns\. Include spaces only in the `DisplayAs` column\.
 
@@ -224,7 +224,7 @@ You can also use the following Unicode characters in the `Phrase` and `SoundsLik
 | Ø | 00D8 | ø | 00F8 | 
 | å | 00E5 | 
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 
@@ -275,7 +275,7 @@ You can also use the following Unicode characters in the `Phrase` and `SoundsLik
 | ì | 00EC | û | 00FB | 
 | í | 00ED | ü | 00FC | 
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 
@@ -312,7 +312,7 @@ For English custom vocabularies, you can use the following characters in the `Ph
 + \- \(hyphen\)
 + \. \(period\)
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 
@@ -369,7 +369,7 @@ For Farsi custom vocabularies, you can use the following characters in the `Phra
 | ض | 0636 | ی | 06CC | 
 | ط | 0637 |   |   | 
 
-You can use the following International Phonetic Alphabet in the `IPA` field of your vocabulary file:
+You can use the following International Phonetic Alphabet in the `IPA` field of your custom vocabulary file:
 
 
 | Character | Code | Character | Code | 
@@ -419,7 +419,7 @@ You can also use the following Unicode characters in the `Phrase` and `SoundsLik
 | Û | 00DB | û | 00FB | 
 | Ü | 00DC | ü | 00FC | 
 
-You can use the following International Phonetic Alphabet in the `IPA` field of your vocabulary file:
+You can use the following International Phonetic Alphabet in the `IPA` field of your custom vocabulary file:
 
 
 | Character | Code | Character | Code | 
@@ -465,7 +465,7 @@ You can also use the following Unicode characters in the `Phrase` and `SoundsLik
 | ü | 00FC | Ü | 00DC | 
 | ß | 00DF |   |   | 
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 
@@ -517,7 +517,7 @@ For Hebrew custom vocabularies, you can use the following Unicode characters in 
 | כ | 05DB | ש | 05E9 | 
 | ל | 05DC | ת | 05EA | 
 
-You can use the following International Phonetic Alphabet characters in the `IPA` field of the vocabulary input file:
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
 
 
 | Character | Code | Character | Code | 

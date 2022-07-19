@@ -1,6 +1,6 @@
 # Batch transcriptions<a name="getting-started-sdk-batch"></a>
 
-You can create batch transcriptions using the URI of a media file located in an S3 bucket\. If you're unsure how to create an S3 bucket or upload your file, refer to [Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) and [Upload an object to your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html)\.
+You can create batch transcriptions using the URI of a media file located in an Amazon S3 bucket\. If you're unsure how to create an Amazon S3 bucket or upload your file, refer to [Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) and [Upload an object to your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html)\.
 
 ------
 #### [ Java ]
@@ -27,7 +27,7 @@ public class TranscribeDemoApp {
         String transcriptionJobName = "my-first-transcription-job";
         String mediaType = "flac"; // can be other types
         Media myMedia = Media.builder()
-                .mediaFileUri("s3://DOC-EXAMPLE-BUCKET/my-media-file.flac")
+                .mediaFileUri("s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac")
                 .build();
 
         String outputS3BucketName = "s3://DOC-EXAMPLE-BUCKET";
@@ -82,9 +82,9 @@ const input = {
   TranscriptionJobName: "my-first-transcription-job",
   LanguageCode: "en-US",
   Media: {
-    MediaFileUri: "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+    MediaFileUri: "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
   },
-  OutputBucketName: "s3://DOC-EXAMPLE-BUCKET",
+  OutputBucketName: "DOC-EXAMPLE-BUCKET",
 };
 
 async function startTranscriptionRequest() {
@@ -115,16 +115,18 @@ import boto3
 
 def transcribe_file(job_name, file_uri, transcribe_client):
     transcribe_client.start_transcription_job(
-        TranscriptionJobName=job_name,
-        Media={'MediaFileUri': file_uri},
-        MediaFormat='flac',
-        LanguageCode='en-US'
+        TranscriptionJobName = job_name,
+        Media = {
+            'MediaFileUri': file_uri
+        },
+        MediaFormat = 'flac',
+        LanguageCode = 'en-US'
     )
 
     max_tries = 60
     while max_tries > 0:
         max_tries -= 1
-        job = transcribe_client.get_transcription_job(TranscriptionJobName=job_name)
+        job = transcribe_client.get_transcription_job(TranscriptionJobName = job_name)
         job_status = job['TranscriptionJob']['TranscriptionJobStatus']
         if job_status in ['COMPLETED', 'FAILED']:
             print(f"Job {job_name} is {job_status}.")
@@ -139,8 +141,8 @@ def transcribe_file(job_name, file_uri, transcribe_client):
 
 
 def main():
-    transcribe_client = boto3.client('transcribe', region_name='us-west-2')
-    file_uri = 's3://DOC-EXAMPLE-BUCKET/my-media-file.flac'
+    transcribe_client = boto3.client('transcribe', region_name = 'us-west-2')
+    file_uri = 's3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac'
     transcribe_file('Example-job', file_uri, transcribe_client)
 
 

@@ -5,7 +5,7 @@ When using the AWS CLI to start a transcription, you can either run all commands
 The AWS CLI does not support streaming transcriptions\.
 
 Before you continue, make sure you've:
-+ Uploaded your media file into an S3 bucket\. If you're unsure how to create an S3 bucket or upload your file, refer to [Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) and [Upload an object to your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html)\.
++ Uploaded your media file into an Amazon S3 bucket\. If you're unsure how to create an Amazon S3 bucket or upload your file, refer to [Create your first Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) and [Upload an object to your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html)\.
 + Installed the [AWS CLI](getting-started.md#getting-started-api)\.
 
 You can find all AWS CLI commands for Amazon Transcribe in the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/index.html#cli-aws-transcribe)\.
@@ -26,18 +26,20 @@ To start a new transcription, use the `start-transcription-job` command\.
 
 1. With the `start-transcription-job` command, you must include `region`, `transcription-job-name`, `media`, and either `language-code` or `identify-language`\.
 
+   If you want to specify an output location, include `output-bucket-name` in your request; if you want to specify a sub\-folder of the specified output bucket, also include `output-key`\.
+
    ```
    aws transcribe start-transcription-job \
     --region us-west-2 \
     --transcription-job-name my-first-transcription-job \
-    --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac \
+    --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac \
     --language-code en-US
    ```
 
    If appending all parameters, this request looks like:
 
    ```
-   aws transcribe start-transcription-job --region us-west-2 --transcription-job-name my-first-transcription-job --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-media-file.flac --language-code en-US
+   aws transcribe start-transcription-job --region us-west-2 --transcription-job-name my-first-transcription-job --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac --language-code en-US
    ```
 
    If you choose not to specify an output bucket using `output-bucket-name`, Amazon Transcribe places your transcription output in a service\-managed bucket\. Transcripts stored in a service\-managed bucket expire after 90 days\.
@@ -51,7 +53,7 @@ To start a new transcription, use the `start-transcription-job` command\.
            "TranscriptionJobStatus": "IN_PROGRESS",
            "LanguageCode": "en-US",
            "Media": {
-               "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+               "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
            },
            "StartTime": "2022-03-07T15:03:44.246000-08:00",
            "CreationTime": "2022-03-07T15:03:44.229000-08:00"
@@ -84,10 +86,10 @@ Amazon Transcribe responds with:
         "MediaSampleRateHertz": 48000,
         "MediaFormat": "flac",
         "Media": {
-            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-media-file.flac"
+            "MediaFileUri": "s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac"
         },
         "Transcript": {
-            "TranscriptFileUri": "https://s3.the-URI-where-your-job-is-located"
+            "TranscriptFileUri": "https://s3.the-URI-where-your-job-is-located.json"
         },
         "StartTime": "2022-03-07T15:03:44.246000-08:00",
         "CreationTime": "2022-03-07T15:03:44.229000-08:00",
@@ -100,10 +102,10 @@ Amazon Transcribe responds with:
 }
 ```
 
-If you've selected your own S3 bucket for your transcription output, this bucket is listed with `TranscriptFileUri`\. If you've selected a service\-managed bucket, a temporary URI is provided; use this URI to download your transcript\.
+If you've selected your own Amazon S3 bucket for your transcription output, this bucket is listed with `TranscriptFileUri`\. If you've selected a service\-managed bucket, a temporary URI is provided; use this URI to download your transcript\.
 
 **Note**  
-Temporary URIs for service\-managed S3 buckets are only valid for 15 minutes\. If you get an `AccesDenied` error when using the URI, run the `get-transcription-job` request again to get a new temporary URI\.
+Temporary URIs for service\-managed Amazon S3 buckets are only valid for 15 minutes\. If you get an `AccesDenied` error when using the URI, run the `get-transcription-job` request again to get a new temporary URI\.
 
 ## Listing your transcription jobs<a name="getting-started-cli-list-jobs"></a>
 
