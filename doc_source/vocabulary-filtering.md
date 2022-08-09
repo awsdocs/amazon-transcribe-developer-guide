@@ -34,6 +34,9 @@ When you submit a transcription request, you can specify a custom vocabulary fil
 
 Custom vocabulary filters can be applied to batch and streaming transcription requests\. To learn how to create a custom vocabulary filter, see [Creating a vocabulary filter](vocabulary-filter-create.md)\. To learn how to apply your custom vocabulary filter, see [Using a custom vocabulary filter](vocabulary-filter-using.md)\.
 
+**Note**  
+Amazon Transcribe automatically masks racially sensitive terms, though you can opt out of this default filter by contacting [AWS Technical Support](http://aws.amazon.com/contact-us/)\.
+
 For a video walkthrough of vocabulary filtering, see:
 
 [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/TcpSqbr0FnI/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/TcpSqbr0FnI)

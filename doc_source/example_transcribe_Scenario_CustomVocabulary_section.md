@@ -1,6 +1,10 @@
 # Create and refine an Amazon Transcribe custom vocabulary using an AWS SDK<a name="example_transcribe_Scenario_CustomVocabulary_section"></a>
 
-The following code example shows how to create and refine an Amazon Transcribe custom vocabulary to improve transcription accuracy\.
+The following code example shows how to:
++ Upload an audio file to Amazon S3\.
++ Run an Amazon Transcribe job to transcribe the file and get the results\.
++ Create and refine a custom vocabulary to improve transcription accuracy\.
++ Run jobs with custom vocabularies and get the results\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
@@ -318,6 +322,15 @@ def usage_demo():
     bucket.delete()
     print("Thanks for watching!")
 ```
++ For API details, see the following topics in *AWS SDK for Python \(Boto3\) API Reference*\.
+  + [CreateVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateVocabulary)
+  + [DeleteTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob)
+  + [DeleteVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/DeleteVocabulary)
+  + [GetTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetTranscriptionJob)
+  + [GetVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetVocabulary)
+  + [ListVocabularies](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/ListVocabularies)
+  + [StartTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob)
+  + [UpdateVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/UpdateVocabulary)
 
 ------
 

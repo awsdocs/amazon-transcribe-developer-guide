@@ -71,15 +71,25 @@ The IAM entity you use to make your transcription request must have a trust poli
 {
   "Version": "2012-10-17",
   "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                  "Service": [
-                      "transcribe.amazonaws.com"
-                  ]
-            },
-            "Action": "sts:AssumeRole"
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "transcribe.amazonaws.com"
+        ]
+      },
+      "Action": [
+        "sts:AssumeRole"
+      ],      
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "aws:SourceArn": "arn:aws:transcribe:us-west-2:111122223333:*"
         }
+      }
+    }
   ]
 }
 ```

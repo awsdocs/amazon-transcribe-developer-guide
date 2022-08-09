@@ -713,8 +713,25 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 
 ## Japanese character set<a name="char-japanese"></a>
 
-For Japanese custom vocabularies, the `Phrase` and `SoundsLike` fields can use any of the characters listed in the following file on GitHub\.
+For Japanese custom vocabularies, the `Phrase` and `DisplayAs` fields support the hiragana, katakana, and kanji characters, and fullwidth romaji capital letters, as listed in the following file on GitHub:
 + [ ja\-jp\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/ja-jp-character-set.txt) 
+
+The `SoundsLike` field supports lowercase romaji characters, as listed here:
++ a \- k
++ m \- p
++ r \- w
++ y \- z
+
+Represent long vowels by doubling the vowel:
+
+
+| Vowel | Representation | 
+| --- | --- | 
+| ā | aa | 
+| ē | ee | 
+| ī | ii | 
+| ō | oo | 
+| ū | uu | 
 
 You can use the following International Phonetic Alphabet characters in the `IPA` field of your input file:
 
@@ -739,6 +756,9 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | n | 006E | ʑ | 0291 | 
 | o | 006F | ʔ | 0294 | 
 | oː | 006F 02D0 |   |   | 
+
+**Tip**  
+If your custom vocabulary contains hiragana or katakana characters in the `SoundsLike` field and you're not getting the accuracy you want, try replacing these characters with lowercase romaji characters\.
 
 ## Korean character set<a name="char-korean"></a>
 

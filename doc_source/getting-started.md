@@ -135,7 +135,7 @@ Here's an example policy that grants Amazon Transcribe read \(`GetObject`, `List
         {
              "Effect": "Allow",
              "Action": [
-                 "s3:PutObject",
+                 "s3:PutObject"
              ],
              "Resource": [
                  "arn:aws:s3:::DOC-EXAMPLE-BUCKET",

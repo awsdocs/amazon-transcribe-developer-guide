@@ -1,6 +1,9 @@
 # Transcribe audio and get job data with Amazon Transcribe using an AWS SDK<a name="example_transcribe_Scenario_GettingStartedTranscriptionJobs_section"></a>
 
-The following code example shows how to transcribe audio and get job data with Amazon Transcribe\.
+The following code example shows how to:
++ Start a transcription job with Amazon Transcribe\.
++ Wait for the job to complete\.
++ Get the URI where the transcript is stored\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 

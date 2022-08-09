@@ -46,3 +46,22 @@ In the following table, 'batch' refers to transcribing a media file located in a
 | [Telugu](charsets.md#char-telugu) | te\-IN | batch | no | no | no | no | no | 
 | [Thai](charsets.md#char-thai) | th\-TH | batch | no | batch | no | no | no | 
 | [Turkish](charsets.md#char-turkish) | tr\-TR | batch | no | batch | no | no | no | 
+
+## Supported programming languages<a name="supported-sdks"></a>
+
+Amazon Transcribe supports the following AWS SDKs:
+
+
+| Batch transcriptions | Streaming transcriptions | 
+| --- | --- | 
+| [AWS Command Line Interface \(CLI\)](https://docs.aws.amazon.com/cli/latest/reference/transcribe/index.html#cli-aws-transcribe) | The CLI is not supported for streaming\. | 
+| [C\+\+](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_transcribe_service.html) | [C\+\+](https://github.com/aws/aws-sdk-cpp/tree/master/aws-cpp-sdk-transcribestreaming) | 
+| [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribeservice/) | [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/) | 
+| [Java V2](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/transcribe/TranscribeClient.html) | [Java V2](https://github.com/aws/aws-sdk-java-v2/tree/master/services/transcribestreaming) | 
+| [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TranscribeService.html) | [JavaScript V3](https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-transcribe-streaming) | 
+| [PHP V3](https://docs.aws.amazon.com/aws-sdk-php/v3/api/namespace-Aws.TranscribeService.html) | [PHP V3](https://github.com/aws/aws-sdk-php/releases/tag/3.172.4) | 
+| [Python Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html) | [Python Streaming SDK for Amazon Transcribe](https://github.com/awslabs/amazon-transcribe-streaming-sdk) | 
+| [Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeService.html) | [Ruby V3](https://github.com/aws/aws-sdk-ruby/tree/version-3/gems/aws-sdk-transcribestreamingservice) | 
+| [\.NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/TranscribeService/NTranscribeService.html) | \.NET is not supported for streaming\. | 
+
+For more information on using SDKs with Amazon Transcribe, refer to [Transcribing with the AWS SDKs](getting-started-sdk.md)\.
