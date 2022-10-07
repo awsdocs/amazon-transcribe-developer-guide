@@ -48,7 +48,7 @@ To transcribe an HTTP/2 stream of a medical conversation, use the [StartMedicalS
 
 To improve transcription accuracy of specific terms in a real\-time stream, use a custom vocabulary\. To enable a custom vocabulary, set the value of `VocabularyName` parameter to the name of the custom vocabulary that you want to use\. For more information, see [Improving transcription accuracy with medical custom vocabularies](vocabulary-med.md)\.
 
-To label the speech from different speakers, set the `ShowSpeakerLabel` parameter to `true`\. For more information, see [Identifying speakers and labeling their speech](conversation-diarization-med.md)\.
+To label the speech from different speakers, set the `ShowSpeakerLabel` parameter to `true`\. For more information, see [Enabling speaker partitioning](conversation-diarization-med.md)\.
 
 For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Streaming request](how-streaming-med.md#streaming-med-request)\.
 
@@ -79,6 +79,6 @@ GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transc
 
 To improve transcription accuracy of specific terms in a real\-time stream, use a custom vocabulary\. To enable a custom vocabulary, set the value of `vocabulary-name` to the name of the custom vocabulary that you want to use\. For more information, see [Improving transcription accuracy with medical custom vocabularies](vocabulary-med.md)\.
 
-To label the speech from different speakers, set the `show-speaker-label` parameter in to `true`\. For more information, see [Identifying speakers and labeling their speech](conversation-diarization-med.md)\.
+To label the speech from different speakers, set the `show-speaker-label` parameter in to `true`\. For more information, see [Enabling speaker partitioning](conversation-diarization-med.md)\.
 
 For more information on creating pre\-signed URIs, see [Creating a pre\-signed URI](websocket-med.md#websocket-url-med)\.

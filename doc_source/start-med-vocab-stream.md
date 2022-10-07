@@ -24,7 +24,7 @@ To use the AWS Management Console to transcribe streaming audio of a medical dic
 
 1. Speak into the microphone\.
 
-## Identifying speakers in an HTTP/2 stream<a name="vocabulary-med-http2"></a>
+## Enabling speaker partitioning in an HTTP/2 stream<a name="vocabulary-med-http2"></a>
 
 The following is the syntax for the parameters of an HTTP/2 request\.
 
@@ -63,9 +63,9 @@ Parameter descriptions:
 + **x\-amzn\-transcribe\-show\-speaker\-label**: To enable diarization, this value must be `true`\.
 + **content\-type**: Don't alter this field; use the content shown in the preceding example\.
 
-## Identifying speakers in a WebSocket request<a name="vocabulary-websocket"></a>
+## Enabling speaker partitioning in a WebSocket request<a name="vocabulary-websocket"></a>
 
-To identify speakers in WebSocket streams with the API, use the following format to create a pre\-signed URI to start a WebSocket request and set `vocabulary-name` to the name of the custom vocabulary\. 
+To partition speakers in WebSocket streams with the API, use the following format to create a pre\-signed URI to start a WebSocket request and set `vocabulary-name` to the name of the custom vocabulary\. 
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket

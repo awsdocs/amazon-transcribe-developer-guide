@@ -22,5 +22,5 @@ For information about how numbers and medical measurements appear in the transcr
 **Topics**
 + [Transcribing an audio file of a medical conversation](batch-medical-conversation.md)
 + [Transcribing a medical conversation in a real\-time stream](streaming-medical-conversation.md)
-+ [Identifying speakers and labeling their speech](conversation-diarization-med.md)
++ [Enabling speaker partitioning](conversation-diarization-med.md)
 + [Transcribing multi\-channel audio](conversation-channel-id-med.md)

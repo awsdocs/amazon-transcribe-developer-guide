@@ -1,9 +1,34 @@
 # Delete a Amazon Transcribe Medical transcription job using an AWS SDK<a name="example_transcribe_DeleteMedicalTranscriptionJob_section"></a>
 
-The following code example shows how to delete an Amazon Transcribe Medical transcription job\.
+The following code examples show how to delete an Amazon Transcribe Medical transcription job\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Delete a medical transcription job. Also deletes the transcript associated with the job.
+    /// </summary>
+    /// <param name="jobName">Name of the medical transcription job to delete.</param>
+    /// <returns>True if successful.</returns>
+    public async Task<bool> DeleteMedicalTranscriptionJob(string jobName)
+    {
+        var response = await _amazonTranscribeService.DeleteMedicalTranscriptionJobAsync(
+            new DeleteMedicalTranscriptionJobRequest()
+            {
+                MedicalTranscriptionJobName = jobName
+            });
+        return response.HttpStatusCode == HttpStatusCode.OK;
+    }
+```
++  For API details, see [DeleteMedicalTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/DeleteMedicalTranscriptionJob) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ JavaScript ]

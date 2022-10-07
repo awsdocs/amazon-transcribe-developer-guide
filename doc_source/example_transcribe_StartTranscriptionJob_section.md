@@ -6,6 +6,47 @@ The following code examples show how to start an Amazon Transcribe transcription
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
 
 ------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Start a transcription job for a media file. This method returns
+    /// as soon as the job is started.
+    /// </summary>
+    /// <param name="jobName">A unique name for the transcription job.</param>
+    /// <param name="mediaFileUri">The URI of the media file, typically an Amazon S3 location.</param>
+    /// <param name="mediaFormat">The format of the media file.</param>
+    /// <param name="languageCode">The language code of the media file, such as en-US.</param>
+    /// <param name="vocabularyName">Optional name of a custom vocabulary.</param>
+    /// <returns>A TranscriptionJob instance with information on the new job.</returns>
+    public async Task<TranscriptionJob> StartTranscriptionJob(string jobName, string mediaFileUri,
+        MediaFormat mediaFormat, LanguageCode languageCode, string? vocabularyName)
+    {
+        var response = await _amazonTranscribeService.StartTranscriptionJobAsync(
+            new StartTranscriptionJobRequest()
+            {
+                TranscriptionJobName = jobName,
+                Media = new Media()
+                {
+                    MediaFileUri = mediaFileUri
+                },
+                MediaFormat = mediaFormat,
+                LanguageCode = languageCode,
+                Settings = vocabularyName != null ? new Settings()
+                {
+                    VocabularyName = vocabularyName
+                } : null
+            });
+        return response.TranscriptionJob;
+    }
+```
++  For API details, see [StartTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob) in *AWS SDK for \.NET API Reference*\. 
+
+------
 #### [ JavaScript ]
 
 **SDK for JavaScript V3**  

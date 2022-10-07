@@ -1,9 +1,38 @@
 # List custom Amazon Transcribe vocabularies using an AWS SDK<a name="example_transcribe_ListVocabularies_section"></a>
 
-The following code example shows how to list custom Amazon Transcribe vocabularies\.
+The following code examples show how to list custom Amazon Transcribe vocabularies\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// List custom vocabularies for the current account. Optionally specify a name
+    /// filter and a specific state to filter the vocabularies list.
+    /// </summary>
+    /// <param name="nameContains">Optional string the vocabulary name must contain.</param>
+    /// <param name="stateEquals">Optional state of the vocabulary.</param>
+    /// <returns>List of information about the vocabularies.</returns>
+    public async Task<List<VocabularyInfo>> ListCustomVocabularies(string? nameContains = null,
+        VocabularyState? stateEquals = null)
+    {
+        var response = await _amazonTranscribeService.ListVocabulariesAsync(
+            new ListVocabulariesRequest()
+            {
+                NameContains = nameContains,
+                StateEquals = stateEquals
+            });
+        return response.Vocabularies;
+    }
+```
++  For API details, see [ListVocabularies](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListVocabularies) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ Python ]

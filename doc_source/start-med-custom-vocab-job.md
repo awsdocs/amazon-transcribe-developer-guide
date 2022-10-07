@@ -22,7 +22,7 @@ Use the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/la
 
 ## API<a name="start-med-custom-vocab-api"></a>
 
-**To identify speakers in an audio file using a batch transcription job \(API\)**
+**To enable speaker partitioning in an audio file using a batch transcription job \(API\)**
 + For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.

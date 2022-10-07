@@ -14,6 +14,9 @@ Once you complete these prerequisites, you're ready to transcribe\. Select your 
 + [HTTP](getting-started-http-websocket.md)
 + [WebSockets](getting-started-http-websocket.md)
 
+**Tip**  
+If you're new to Amazon Transcribe or would like to explore our features, we recommend using the [AWS Management Console](https://console.aws.amazon.com/transcribe)\. This is also the easiest option if you'd like to start a stream using your computer microphone\.
+
 Because streaming using HTTP/2 and WebSockets is more complicated than the other transcription methods, we advise reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before getting started with these methods\.
 
 ## Signing up for an AWS account<a name="getting-started-sign-up"></a>
@@ -111,16 +114,6 @@ Here's an example policy that grants Amazon Transcribe read \(`GetObject`, `List
 {
   "Version": "2012-10-17",
   "Statement": [
-        {
-            "Sid": "my-policy-name",
-            "Effect": "Allow",
-            "Principal": {
-                  "Service": [
-                      "transcribe.amazonaws.com"
-                  ]
-            },
-            "Action": "sts:AssumeRole"
-        },
         {
             "Effect": "Allow",
             "Action": [

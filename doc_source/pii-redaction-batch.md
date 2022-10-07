@@ -1,8 +1,26 @@
 # Redacting PII in your batch job<a name="pii-redaction-batch"></a>
 
-When redacting personally identifiable information \(PII\) from a transcript during a batch transcription job, Amazon Transcribe replaces each identified instance of PII with `[PII]` in the main text body of your transcript\. You can also view the type of PII that was redacted in the word\-for\-word portion of the transcription output\. For an output sample, see [Example redacted batch output](pii-redaction-output.md#pii-redaction-output-batch)\.
+When redacting personally identifiable information \(PII\) from a transcript during a batch transcription job, Amazon Transcribe replaces each identified instance of PII with `[PII]` in the main text body of your transcript\. You can also view the type of PII that is redacted in the word\-for\-word portion of the transcription output\. For an output sample, see [Example redacted batch output](pii-redaction-output.md#pii-redaction-output-batch)\.
 
 Both redacted and unredacted transcripts are stored in the same output Amazon S3 bucket\. Amazon Transcribe stores them in either a bucket you specify or in the default Amazon S3 bucket managed by the service\.
+
+
+**Types of PII Amazon Transcribe can recognize for batch transcriptions**  
+
+| PII type | Description | 
+| --- | --- | 
+| ADDRESS | A physical address, such as *100 Main Street, Anytown, USA* or *Suite \#12, Building 123*\. An address can include a street, building, location, city, state, country, county, zip, precinct, neighborhood, and more\.  | 
+| ALL | Redact or identify all PII types listed in this table\. | 
+| BANK\_ACCOUNT\_NUMBER | A US bank account number\. These are typically between 10 \- 12 digits long, but Amazon Transcribe also recognizes bank account numbers when only the last 4 digits are present\. | 
+| BANK\_ROUTING | A US bank account routing number\. These are typically 9 digits long, but Amazon Transcribe also recognizes routing numbers when only the last 4 digits are present\. | 
+| CREDIT\_DEBIT\_CVV | A 3\-digit card verification code \(CVV\) that is present on VISA, MasterCard, and Discover credit and debit cards\. In American Express credit or debit cards, it is a 4\-digit numeric code\. | 
+| CREDIT\_DEBIT\_EXPIRY | The expiration date for a credit or debit card\. This number is usually 4 digits long and formatted as month/year or MM/YY\. For example, Amazon Transcribe can recognize expiration dates such as *01/21*, *01/2021*, and *Jan 2021*\. | 
+| CREDIT\_DEBIT\_NUMBER | The number for a credit or debit card\. These numbers can vary from 13 to 16 digits in length, but Amazon Transcribe also recognizes credit or debit card numbers when only the last 4 digits are present\. | 
+| EMAIL | An email address, such as *efua\.owusu@email\.com*\. | 
+| NAME | An individual's name\. This entity type does not include titles, such as Mr\., Mrs\., Miss, or Dr\. Amazon Transcribe does not apply this entity type to names that are part of organizations or addresses\. For example, Amazon Transcribe recognizes the *John Doe Organization* as an organization, and *Jane Doe Street* as an address\. | 
+| PHONE | A phone number\. This entity type also includes fax and pager numbers\. | 
+| PIN | A 4\-digit personal identification number \(PIN\) that allows someone to access their bank account information\. | 
+| SSN | A Social Security Number \(SSN\) is a 9\-digit number that is issued to US citizens, permanent residents, and temporary working residents\. Amazon Transcribe also recognizes Social Security Numbers when only the last 4 digits are present\. | 
 
 You can start a batch transcription job using the AWS Management Console, AWS CLI, or AWS SDK\.
 
@@ -13,10 +31,10 @@ You can start a batch transcription job using the AWS Management Console, AWS CL
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This will open the **Specify job details** page\.
 
 1. After filling in your desired fields on the **Specify job details** page, select **Next** to go to the **Configure job \- *optional*** page\. Here you'll find the **Content removal** panel with the **PII redaction** toggle\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact.png)
+![\[Amazon Transcribe console screenshot: the 'content removal pane' on the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact.png)
 
 1. Once you select **PII redaction**, you have the option to select all PII types you want to redact\. You can also choose to have an unredacted transcript if you select **Include unredacted transcript in job output** box\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact-select.png)
+![\[Amazon Transcribe console screenshot: the 'content removal' pane showing PII options.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact-select.png)
 
 1. Select **Create job** to run your transcription job\.
 

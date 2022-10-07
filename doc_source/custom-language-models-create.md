@@ -56,10 +56,10 @@ You can create custom language models using the AWS Management Console, AWS CLI,
 1. In the navigation pane, choose **Custom language model**\. This opens the **Custom language models** page where you can view existing custom language models or train a new custom language model\.
 
 1. To train a new model, select **Train model**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-create-console.png)
+![\[Amazon Transcribe console screenshot: the 'custom language models' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-create-console.png)
 
    This takes you to the **Train model** page\. Add a name, specify the language, and choose the base model you want for your model\. Then, add the path to your training and, optionally, your tuning data\. You must include an IAM role that has permissions to access your data\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-train-console.png)
+![\[Amazon Transcribe console screenshot: the 'train models' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-train-console.png)
 
 1. Once you have all fields completed, select **Train model** at the bottom of the page\.
 

@@ -40,4 +40,4 @@ The following are the minimum number of request parameters to enter in the sampl
 
 Amazon Transcribe Medical enables you to generate alternative transcriptions\. For more information, see [Generating alternative transcriptions](alternative-med-transcriptions.md)\.
 
-You can also identify different speakers or channels in your audio\. For more information, see [Identifying speakers and labeling their speech](conversation-diarization-med.md) and [Transcribing multi\-channel audio](conversation-channel-id-med.md)\.
+You can also enable speaker partitioning or identify channels in your audio\. For more information, see [Enabling speaker partitioning](conversation-diarization-med.md) and [Transcribing multi\-channel audio](conversation-channel-id-med.md)\.

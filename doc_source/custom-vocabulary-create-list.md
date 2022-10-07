@@ -40,21 +40,21 @@ Before continuing, save your custom vocabulary as a text \(\*\.txt\) file\.
 1. In the navigation pane, choose **Custom vocabulary**\. This opens the **Custom vocabulary** page where you can view existing vocabularies or create a new one\.
 
 1. Select **Create vocabulary**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console.png)
+![\[Amazon Transcribe console screenshot: the custom vocabulary main page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console.png)
 
    This takes you to the **Create vocabulary** page\. Enter a name for your new custom vocabulary\.
 
    Select the **File upload** option under **Vocabulary input source**\. Then, select **Choose file** to upload your custom vocabulary\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-upload.png)
+![\[Amazon Transcribe console screenshot: the 'create vocabulary' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-upload.png)
 
 1. Optionally, add tags to your custom vocabulary\. Once you have all fields completed, select **Create vocabulary** at the bottom of the page\. This takes you back to the **Custom vocabulary** page where you can view the status of your custom vocabulary\. When the status changes from 'Pending' to 'Ready' your custom vocabulary can be used with a transcription\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-pending.png)
+![\[Amazon Transcribe console screenshot: custom vocabulary in pending status while processing.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-pending.png)
 
 1. If the status changes to 'Failed', click on the name of your custom vocabulary to go to its information page\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed.png)
+![\[Amazon Transcribe console screenshot: 'custom vocabulary' page showing one vocabulary as complete and one as failed.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed.png)
 
    There is a **Failure reason** banner at the top of this page that provides information on why your custom vocabulary failed\. Correct the error in your text file and try again\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed2.png)
+![\[Amazon Transcribe console screenshot: vocabulary's information page shows failure reason.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed2.png)
 
 ### AWS CLI<a name="vocab-create-list-cli"></a>
 

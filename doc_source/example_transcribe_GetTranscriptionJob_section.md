@@ -1,9 +1,34 @@
 # Get an Amazon Transcribe transcription job using an AWS SDK<a name="example_transcribe_GetTranscriptionJob_section"></a>
 
-The following code example shows how to get an Amazon Transcribe transcription job\.
+The following code examples show how to get an Amazon Transcribe transcription job\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Get details about a transcription job.
+    /// </summary>
+    /// <param name="jobName">A unique name for the transcription job.</param>
+    /// <returns>A TranscriptionJob instance with information on the requested job.</returns>
+    public async Task<TranscriptionJob> GetTranscriptionJob(string jobName)
+    {
+        var response = await _amazonTranscribeService.GetTranscriptionJobAsync(
+            new GetTranscriptionJobRequest()
+            {
+                TranscriptionJobName = jobName
+            });
+        return response.TranscriptionJob;
+    }
+```
++  For API details, see [GetTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/GetTranscriptionJob) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ Python ]

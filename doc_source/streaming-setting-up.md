@@ -2,7 +2,7 @@
 
 This section expands on the main [streaming](streaming.md) section and is intended to provide information for users who want to set up their stream with HTTP/2 or WebSockets directly, rather than with an AWS SDK\. The information in this section can also be used to build your own SDK\.
 
-To start streaming using an AWS SDK, see [Transcribing with the AWS SDKs](getting-started-sdk.md)\.
+Note that we strongly recommend using SDKs rather than using HTTP/2 and WebSockets directly\. SDKs are the simplest and most reliable method for transcribing data streams\. To start streaming using an AWS SDK, see [Transcribing with the AWS SDKs](getting-started-sdk.md)\. 
 
 ## Event stream encoding<a name="streaming-event-stream"></a>
 
@@ -28,7 +28,7 @@ Total message overhead, including the prelude and both checksums, is 16 bytes\.
 
 The following diagram shows the components that make up a message and a header\. There are multiple headers per message\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-frame-overview.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+![\[The components of a message and a header for a streaming transcription.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-frame-overview.png)![\[The components of a message and a header for a streaming transcription.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 Each message contains the following components:
 + **Prelude**: Consists of two, 4\-byte fields, for a fixed total of 8 bytes\.
@@ -68,6 +68,6 @@ Each streaming request contains one or more data frames\. There are two steps to
 
 The following diagram shows how this works\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/streaming10.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+![\[The components of a data frame for a streaming transcription.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/streaming10.png)![\[The components of a data frame for a streaming transcription.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 You can find more information on data frames in the [Setting up an HTTP/2 stream](streaming-http2.md) and [Setting up a WebSocket stream](streaming-websocket.md) sections\.

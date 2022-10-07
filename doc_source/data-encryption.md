@@ -31,7 +31,7 @@ If you don't specify a KMS key, the output of the transcription job is encrypted
 **To enable output encryption:**
 
 1. Under **Output data** choose **Encryption**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/output-encryption.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+![\[You must provide a KMS key ID when you enable encryption.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/output-encryption.png)![\[You must provide a KMS key ID when you enable encryption.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 1. Choose whether the KMS key is from the AWS account you're currently using or from a different AWS account\. If you want to use a key from the current AWS account, choose the key from **KMS key ID**\. If you're using a key from a different AWS account, you need to enter the key's ARN\. To use a key from a different AWS account, the caller must have `kms:Encrypt` permissions for the KMS key\. Refer to [Creating a key policy ](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) for more information\.
 

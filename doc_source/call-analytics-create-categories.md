@@ -20,21 +20,21 @@ To create a category, you can use the **AWS Management Console**, **AWS CLI**, o
 1. In the navigation pane, under Amazon Transcribe, choose **Amazon Transcribe Call Analytics**\.
 
 1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Select **Create category**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories.png)
+![\[You can create a new category from the Call Analytics categories page in the Amazon Transcribe console.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories.png)
 
 1. You're now on the **Create category page**\. Enter a name for your category, then choose if you're going to use a template to create a category or make one from scratch\.
 
    If using a template: select **Use a template \(recommended\)**, choose the template you want, then select **Create category**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-settings.png)
+![\[Specify whether you want your category used for batch or real-time (streaming) transcriptions.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-settings.png)
 
 1. If creating a custom category: select **Create from scratch**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom.png)
+![\[You can either use a template for your new category or create it from scratch.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom.png)
 
 1. Add rules to your category using the drop\-down menu\. You can add up to 20 rules per category\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules1.png)
+![\[If you create a category from scratch, you must specify at least one rule.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules1.png)
 
 1. Here's an example of a category with two rules: an agent who interrupts a customer for more than 15 seconds during the call and there is negative sentiment by either the customer or the agent in the last two minutes of the call\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules2.png)
+![\[Select a rule type from the drop-down menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules2.png)
 
 1. When you're finished adding rules to your category, choose **Create category**\.
 

@@ -1,9 +1,34 @@
 # Delete a custom Amazon Transcribe vocabulary using an AWS SDK<a name="example_transcribe_DeleteVocabulary_section"></a>
 
-The following code example shows how to delete a custom Amazon Transcribe vocabulary\.
+The following code examples show how to delete a custom Amazon Transcribe vocabulary\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Delete an existing custom vocabulary.
+    /// </summary>
+    /// <param name="vocabularyName">Name of the vocabulary to delete.</param>
+    /// <returns>True if successful.</returns>
+    public async Task<bool> DeleteCustomVocabulary(string vocabularyName)
+    {
+        var response = await _amazonTranscribeService.DeleteVocabularyAsync(
+            new DeleteVocabularyRequest
+            {
+                VocabularyName = vocabularyName
+            });
+        return response.HttpStatusCode == HttpStatusCode.OK;
+    }
+```
++  For API details, see [DeleteVocabulary](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/DeleteVocabulary) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ Python ]

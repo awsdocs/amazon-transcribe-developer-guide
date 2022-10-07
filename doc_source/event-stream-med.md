@@ -20,7 +20,7 @@ Total message overhead, including the prelude and both checksums, is 16 bytes\.
 
 The following diagram shows the components that make up a message and a header\. There are multiple headers per message\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-frame-overview.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+![\[.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-frame-overview.png)![\[.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 Each message contains the following components:
 + **Prelude:** Always a fixed size of 8 bytes, two fields of 4 bytes each\.

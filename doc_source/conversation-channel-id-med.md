@@ -229,7 +229,7 @@ For more information on setting up an HTTP/2 stream to transcribe a medical conv
 
 ### Transcribing multi\-channel audio in a WebSocket stream<a name="channel-id-med-websocket"></a>
 
-To identify speakers in WebSocket streams, use the following format to create a pre\-signed URI and start a WebSocket request\. Specify `enable-channel-identification` as `true` and the number of channels in your stream in `number-of-channels`\. A pre\-signed URI contains the information needed to set up bi\-directional communication between your application and Amazon Transcribe Medical\.
+To partition speakers in WebSocket streams, use the following format to create a pre\-signed URI and start a WebSocket request\. Specify `enable-channel-identification` as `true` and the number of channels in your stream in `number-of-channels`\. A pre\-signed URI contains the information needed to set up bi\-directional communication between your application and Amazon Transcribe Medical\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket

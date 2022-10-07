@@ -6,6 +6,31 @@ The following code examples show how to list Amazon Transcribe transcription job
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
 
 ------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// List transcription jobs, optionally with a name filter.
+    /// </summary>
+    /// <param name="jobNameContains">Optional name filter for the transcription jobs.</param>
+    /// <returns>A list of transcription job summaries.</returns>
+    public async Task<List<TranscriptionJobSummary>> ListTranscriptionJobs(string? jobNameContains = null)
+    {
+        var response = await _amazonTranscribeService.ListTranscriptionJobsAsync(
+            new ListTranscriptionJobsRequest()
+            {
+                JobNameContains = jobNameContains
+            });
+        return response.TranscriptionJobSummaries;
+    }
+```
++  For API details, see [ListTranscriptionJobs](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListTranscriptionJobs) in *AWS SDK for \.NET API Reference*\. 
+
+------
 #### [ JavaScript ]
 
 **SDK for JavaScript V3**  

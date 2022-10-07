@@ -50,17 +50,17 @@ You can add, modify or delete tags using the **AWS Management Console**, **AWS C
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This opens the **Specify job details** page\.
 
 1. Scroll to the bottom of the **Specify job details** page to find the **Tags \- *optional*** box and select **Add new tag**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/add-new-tag.png)
+![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/add-new-tag.png)
 
 1. Enter information for the **Key** field and, optionally, the **Value** field\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/add-new-tag-color.png)
+![\[Amazon Transcribe console screenshot: the 'tags' panel, showing example tags.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/add-new-tag-color.png)
 
 1. Fill in any other fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional* page\.**
 
    Select **Create job** to run your transcription job\. 
 
 1. You can view the tags associated with a transcription job by navigating to the **Transcription jobs** page, selecting a transcription job, and scrolling to the bottom of that job's information page\. If you wish to edit your tags, you can do so by selecting **Manage tags**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/view-tags.png)
+![\[Amazon Transcribe console screenshot: the 'tags' panel in a transcription job's information page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/view-tags.png)
 
 ### AWS CLI<a name="tagging-cli"></a>
 

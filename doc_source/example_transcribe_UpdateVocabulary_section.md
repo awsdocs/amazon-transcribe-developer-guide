@@ -1,9 +1,39 @@
 # Update a custom Amazon Transcribe vocabulary using an AWS SDK<a name="example_transcribe_UpdateVocabulary_section"></a>
 
-The following code example shows how to update a custom Amazon Transcribe vocabulary\.
+The following code examples show how to update a custom Amazon Transcribe vocabulary\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Update a custom vocabulary with new values. Update overwrites all existing information.
+    /// </summary>
+    /// <param name="languageCode">The language code of the vocabulary.</param>
+    /// <param name="phrases">Phrases to use in the vocabulary.</param>
+    /// <param name="vocabularyName">Name for the vocabulary.</param>
+    /// <returns>The state of the custom vocabulary.</returns>
+    public async Task<VocabularyState> UpdateCustomVocabulary(LanguageCode languageCode,
+        List<string> phrases, string vocabularyName)
+    {
+        var response = await _amazonTranscribeService.UpdateVocabularyAsync(
+            new UpdateVocabularyRequest()
+            {
+                LanguageCode = languageCode,
+                Phrases = phrases,
+                VocabularyName = vocabularyName
+            });
+        return response.VocabularyState;
+    }
+```
++  For API details, see [UpdateVocabulary](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/UpdateVocabulary) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ Python ]

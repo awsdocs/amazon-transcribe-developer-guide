@@ -28,7 +28,7 @@ To use the AWS Management Console to generate alternative transcriptions, you en
 
 ## API<a name="alternative-med-transcriptions-api"></a>
 
-**To identify speakers in an audio file using a batch transcription job \(API\)**
+**To separate text per speaker in an audio file using a batch transcription job \(API\)**
 + For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
@@ -85,7 +85,7 @@ print(status)
 
 ## AWS CLI<a name="alternative-med-transcriptions-cli"></a>
 
-**To transcribe an audio file of a conversation between a primary care clinician and a patient in an audio file and identify what each person said in the transcription output \(AWS CLI\)**
+**To transcribe an audio file of a conversation between a primary care clinician and a patient in an audio file \(AWS CLI\)**
 + Run the following code\.
 
   ```

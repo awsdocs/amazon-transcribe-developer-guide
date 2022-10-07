@@ -2,14 +2,14 @@
 
 Amazon Transcribe is an automatic speech recognition service that uses machine learning models to convert audio to text\. You can use Amazon Transcribe as a standalone transcription service or to add speech\-to\-text capabilities to any application\.
 
-With Amazon Transcribe, you can improve accuracy for your specific use case with language customization, filter content to ensure customer privacy or audience\-appropriate language, analyze content in multi\-channel audio, differentiate the speech of individual speakers, and more\.
-
-**Important**  
-Amazon Transcribe is covered under AWS’s HIPAA eligibility and BAA which requires BAA customers to encrypt all PHI at rest and in transit when in use\. Automatic PHI identification is available at no additional charge and in all regions where Amazon Transcribe operates\. For more information, refer to [ HIPAA eligibility and BAA](http://aws.amazon.com/compliance/hipaa-compliance/)\.
+With Amazon Transcribe, you can improve accuracy for your specific use case with language customization, filter content to ensure customer privacy or audience\-appropriate language, analyze content in multi\-channel audio, partition the speech of individual speakers, and more\.
 
 To view a complete list of features, see [Amazon Transcribe features](feature-matrix.md)\.
 
 You can transcribe streaming media in real time or you can upload and transcribe media files\. To see which languages are supported for each type of transcription, refer to the [Supported languages and language\-specific features](supported-languages.md) table\.
+
+**Important**  
+Amazon Transcribe is covered under AWS’s HIPAA eligibility and BAA which requires BAA customers to encrypt all PHI at rest and in transit when in use\. Automatic PHI identification is available at no additional charge and in all regions where Amazon Transcribe operates\. For more information, refer to [ HIPAA eligibility and BAA](http://aws.amazon.com/compliance/hipaa-compliance/)\.
 
 For a short video tour of Amazon Transcribe, see:
 
@@ -30,7 +30,7 @@ Amazon Transcribe is a robust speech\-to\-text service that offers a diverse arr
 + Teach Amazon Transcribe industry\-specific terms, unique spelling, acronyms, and any words that are not being rendered correctly in your transcription results using [custom vocabularies](custom-vocabulary.md)\. Providing Amazon Transcribe with custom vocabularies can improve the accuracy of your transcription output\. See also: [Custom language models](custom-language-models.md)\.
 + Create [subtitles](subtitles.md) for your video files\. You can also use [content redaction](pii-redaction.md) \(only in US English\) and [vocabulary filtering](vocabulary-filtering.md) when generating subtitles to ensure your content is audience\-appropriate\. Note that filtered or redacted content shows as white space, `***`, or `[PII]` in your transcript and subtitle files, but **the audio itself is not altered**\.
 + Redact personally identifiable information \(PII\), such as social security numbers, from your transcripts using standard [content redaction](pii-redaction.md) or Call Analytics [sensitive data redaction](call-analytics-insights.md#call-analytics-insights-redaction)\. Call Analytics can also **redact your audio** by replacing spoken PII with silence\.
-+ Identify individual speakers in an audio clip using [speaker diarization](diarization.md)\. When you activate speaker diarization, Amazon Transcribe attaches a unique attribute to each speaker in your transcription output\.
++ Partition individual speakers in an audio clip using [speaker diarization](diarization.md)\. When you activate speaker diarization, Amazon Transcribe attaches a unique attribute to the text from each speaker in your transcription output\.
 + Remove proprietary terms from your transcript using [vocabulary filtering](vocabulary-filtering.md)\. For example, you can mask the name of a new product in a pre\-launch stakeholder meeting\. Vocabulary filtering can also be used to mask profane, offensive, or audience\-inappropriate terms\.
 + Using multi\-channel audio, you can have Amazon Transcribe produce a separate transcript for each channel, or have all channels transcribed in one output file\. See [Transcribing multi\-channel audio](channel-id.md)\.
 + If your audio is not in a language you speak, let Amazon Transcribe identify the language for you using [language identification](lang-id.md)\. You can then use [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) to translate your transcript, and have [Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/what-is.html) read your transcript back to you\.

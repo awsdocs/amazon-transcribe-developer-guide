@@ -16,18 +16,18 @@ Use the following procedure to start a Call Analytics job\. The calls that match
 1. In the navigation pane, under Amazon Transcribe Call Analytics, choose **Call analytics jobs**\.
 
 1. Choose **Create job**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start.png)
+![\[Create a new Call Analytics job from the Call Analytics jobs main page in the Amazon Transcribe console.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start.png)
 
 1. On the **Specify job details** page, provide information about your Call Analytics job, including the location of your input data\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings1.png)
+![\[The job settings are listed on the specify job details page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings1.png)
 
    Specify the desired Amazon S3 location of your output data and which IAM role to use\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings2.png)
+![\[You must specify an IAM role in the access permissions panel.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings2.png)
 
 1. Choose **Next**\.
 
 1. For **Configure job**, turn on any optional features you want to include with your Call Analytics job\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-configure.png)
+![\[All of your categories are listed in the Categories pane on the configure job page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-configure.png)
 
 1. Choose **Create job**\.
 

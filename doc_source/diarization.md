@@ -1,8 +1,8 @@
-# Identifying speakers \(diarization\)<a name="diarization"></a>
+# Partitioning speakers \(diarization\)<a name="diarization"></a>
 
-To identify different speakers in Amazon Transcribe, use *speaker diarization*\. When you enable speaker diarization, Amazon Transcribe labels each speaker utterance\. You enable speaker diarization by using the batch transcription or real\-time streaming APIs, or the AWS Management Console\.
+To partition the text from different speakers in Amazon Transcribe, use *speaker diarization*\. When you enable speaker diarization, Amazon Transcribe labels each speaker utterance\. You enable speaker diarization by using the batch transcription or real\-time streaming APIs, or the AWS Management Console\.
 
-## Identifying speakers in audio<a name="diarization-batch"></a>
+## Partitioning speakers in audio<a name="diarization-batch"></a>
 
 You can enable speaker diarization in a batch transcription job using either the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API or the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
@@ -22,9 +22,9 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 
 1. Enable **Audio identification**\.
 
-1. For **Audio identification type**, choose **Speaker identification**\.
+1. For **Audio identification type**, choose **Speaker partitioning**\.
 
-1. For **Maximum number of speakers**, specify the maximum number of speakers you think are speaking in your audio\. For best results, match the number of speakers you ask Amazon Transcribe to identify to the number of speakers in the input audio\. If you specify a value less than the number of speakers in your input audio, the transcription text of the most similar sounding speakers are attributed to a speaker label\.
+1. For **Maximum number of speakers**, specify the maximum number of speakers you think are speaking in your audio\.
 
 1. Choose **Create**\.
 
@@ -55,11 +55,11 @@ To use the AWS Management Console to enable speaker diarization in your transcri
   }
   ```
 
-## Identifying speakers in real\-time streams<a name="diarization-streaming"></a>
+## Partitioning speakers in real\-time streams<a name="diarization-streaming"></a>
 
-You can identify different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for identifying between two and five speakers\. Although Amazon Transcribe can identify more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\. To start a WebSocket request, you use a pre\-signed URI, which is a URI that contains the information needed to start your stream\. To use the AWS Management Console to transcribe speech spoken into your microphone, use the following procedure\.
+You can partition different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for partitioning between two and five speakers\. Although Amazon Transcribe can separate text for more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\. To start a WebSocket request, you use a pre\-signed URI, which is a URI that contains the information needed to start your stream\. To use the AWS Management Console to transcribe speech spoken into your microphone, use the following procedure\.
 
-You can identify speakers in real\-time streams that are in US English \(en\-US\)\.
+You can partition speakers in real\-time streams that are in US English \(en\-US\)\.
 
 You can use the [AWS Management Console](https://console.aws.amazon.com/transcribe/) to start a real\-time stream and transcribe any speech picked up by your microphone\.
 
@@ -69,7 +69,7 @@ You can use the [AWS Management Console](https://console.aws.amazon.com/transcri
 
 1. In **Language**, choose the language of your real\-time stream\.
 
-1. Under **Additional settings**, enable **Speaker identification**\.
+1. Under **Additional settings**, enable **Speaker partitioning**\.
 
 1. Choose **Start streaming**\.
 
@@ -110,7 +110,7 @@ Parameter descriptions:
 
 ### WebSocket streaming<a name="diarization-websocket"></a>
 
-To identify speakers in WebSocket streams, use the following format to create a pre\-signed URI to start a WebSocket request and specify `show-speaker-label` as `true`\. A pre\-signed URI contains the information to set up bi\-directional communication between your application and Amazon Transcribe\.
+To partition speakers in WebSocket streams, use the following format to create a pre\-signed URI to start a WebSocket request and specify `show-speaker-label` as `true`\. A pre\-signed URI contains the information to set up bi\-directional communication between your application and Amazon Transcribe\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket

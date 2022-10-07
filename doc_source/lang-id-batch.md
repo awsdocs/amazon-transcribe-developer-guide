@@ -87,10 +87,10 @@ You can use automatic language identification in a batch transcription job using
 1. In the **Job settings** panel, find the **Language settings** section and select **Automatic language identification** or **Automatic multiple languages identification**\.
 
    You have the option to select multiple language options \(from the *Select languages* drop\-down box\) if you know which languages are present in your audio file\. Providing language options can improve accuracy, but is not required\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-batch1.png)
+![\[Amazon Transcribe console screenshot: the 'job settings' pane on the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-batch1.png)
 
 1. Fill in any other fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-configure-batch.png)
+![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-configure-batch.png)
 
 1. Select **Create job** to run your transcription job\. 
 
@@ -107,7 +107,7 @@ aws transcribe start-transcription-job \
 --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac \
 --output-bucket-name DOC-EXAMPLE-BUCKET \
 --output-key my-output-files/ \    
---identify-language=true \  (or --identify-multiple-languages=true) \
+--identify-language \  (or --identify-multiple-languages) \
 --language-options "en-US" "hi-IN"
 ```
 
@@ -120,7 +120,7 @@ aws transcribe start-transcription-job \
 --media MediaFileUri=s3://DOC-EXAMPLE-BUCKET/my-input-files/my-media-file.flac \
 --output-bucket-name DOC-EXAMPLE-BUCKET \
 --output-key my-output-files/ \
---identify-language=true \  (or --identify-multiple-languages=true)
+--identify-language \  (or --identify-multiple-languages)
 --language-options "en-US" "hi-IN" \
 --language-id-settings en-US=VocabularyName=my-en-US-vocabulary,en-US=VocabularyFilterName=my-en-US-vocabulary-filter,en-US=LanguageModelName=my-en-US-language-model,hi-IN=VocabularyName=my-hi-IN-vocabulary,hi-IN=VocabularyFilterName=my-hi-IN-vocabulary-filter
 ```
@@ -145,7 +145,7 @@ The file *my\-first\-language\-id\-job\.json* contains the following request bod
    },
   "OutputBucketName": "DOC-EXAMPLE-BUCKET",
   "OutputKey": "my-output-files/", 
-  "IdentifyLanguage": "true",  (or "IdentifyMultipleLanguages": "true"),
+  "IdentifyLanguage": true,  (or "IdentifyMultipleLanguages": true),
   "LanguageOptions": [
         "en-US", "hi-IN"  
   ]
@@ -162,7 +162,7 @@ The file *my\-first\-language\-id\-job\.json* contains the following request bod
    },
    "OutputBucketName": "DOC-EXAMPLE-BUCKET",
    "OutputKey": "my-output-files/", 
-   "IdentifyLanguage": "true",  (or "IdentifyMultipleLanguages": "true")
+   "IdentifyLanguage": true,  (or "IdentifyMultipleLanguages": true)
    "LanguageOptions": [
         "en-US", "hi-IN"  
    ],

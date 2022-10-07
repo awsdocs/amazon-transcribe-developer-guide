@@ -1,9 +1,35 @@
 # List Amazon Transcribe Medical transcription jobs using an AWS SDK<a name="example_transcribe_ListMedicalTranscriptionJobs_section"></a>
 
-The following code example shows how to list Amazon Transcribe Medical transcription jobs\.
+The following code examples show how to list Amazon Transcribe Medical transcription jobs\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// List medical transcription jobs, optionally with a name filter.
+    /// </summary>
+    /// <param name="jobNameContains">Optional name filter for the medical transcription jobs.</param>
+    /// <returns>A list of summaries about medical transcription jobs.</returns>
+    public async Task<List<MedicalTranscriptionJobSummary>> ListMedicalTranscriptionJobs(
+        string? jobNameContains = null)
+    {
+        var response = await _amazonTranscribeService.ListMedicalTranscriptionJobsAsync(
+            new ListMedicalTranscriptionJobsRequest()
+            {
+                JobNameContains = jobNameContains
+            });
+        return response.MedicalTranscriptionJobSummaries;
+    }
+```
++  For API details, see [ListMedicalTranscriptionJobs](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListMedicalTranscriptionJobs) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ JavaScript ]

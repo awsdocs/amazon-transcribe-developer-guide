@@ -1,11 +1,12 @@
 # Document history for Amazon Transcribe and Amazon Transcribe Medical<a name="doc-history"></a>
-+ **Latest documentation update:** 18 June 2022
++ **Latest documentation update:** 14 September 2022
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) | The custom language model section has been updated\. | June 18, 2022 | 
+| [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction-stream.html) | New PII categories are available for streaming redaction and identification\. | September 14, 2022 | 
+| [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) | The custom language model section has been revised\. | June 18, 2022 | 
 | [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/lang-id-batch.html) | Batch language identification can now identify multiple languages per audio file\. | May 31, 2022 | 
 | [Guide Update](https://docs.aws.amazon.com/transcribe/latest/APIReference/Welcome.html) | The Amazon Transcribe API Reference is now a standalone guide\. | April 1, 2022 | 
 | [New chapter](https://docs.aws.amazon.com/transcribe/latest/dg/feature-matrix.html) | A new comparison table for Amazon Transcribe, Amazon Transcribe Medical, and Amazon Transcribe Call Analytics is included\. | March 21, 2022 | 
@@ -44,7 +45,7 @@ The following table describes important changes in each release of Amazon Transc
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/vpc-interface-endpoints.html) | Amazon Transcribe adds support for interface VPC endpoints in batch transcription\. | October 9, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html) | Amazon Transcribe adds support for channel identification in streaming\. | September 17, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/auto-lang-id.html) | Amazon Transcribe adds support for automatic language identification in batch transcription\. | September 15, 2020 | 
-| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/diarization-streaming.html) | Amazon Transcribe adds support for speaker identification in streaming\. | August 19, 2020 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/diarization-streaming.html) | Amazon Transcribe adds support for speaker partitioning in streaming\. | August 19, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) | Amazon Transcribe adds support for custom language models\. | August 5, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/vpc-interface-endpoints.html) | Amazon Transcribe adds support for interface VPC endpoints in streaming\. | June 26, 2020 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/streaming-filter-unwanted.html) | Amazon Transcribe adds support for vocabulary filtering in streaming\. | May 20, 2020 | 

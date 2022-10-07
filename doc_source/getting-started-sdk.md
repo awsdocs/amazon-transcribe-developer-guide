@@ -1,6 +1,6 @@
 # Transcribing with the AWS SDKs<a name="getting-started-sdk"></a>
 
-You can use SDKs for both batch and streaming transcriptions\.
+You can use SDKs for both batch and streaming transcriptions\. If you're transcribing a media file located in an Amazon S3 bucket, you're performing a batch transcription\. If you're transcribing a real\-time stream of audio data, you're performing a streaming transcription\.
 
 To get started with batch transcriptions, refer to [Batch transcriptions](getting-started-sdk-batch.md)\. Note that prior to starting a batch transcription, you must first upload your media file into an Amazon S3 bucket\.
 
@@ -23,10 +23,13 @@ AWS software development kits \(SDKs\) are available for many popular programmin
 | [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go) | [AWS SDK for Go code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2) | 
 | [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java) | [AWS SDK for Java code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2) | 
 | [AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript) | [AWS SDK for JavaScript code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3) | 
+| [AWS SDK for Kotlin](https://docs.aws.amazon.com/sdk-for-kotlin) | [AWS SDK for Kotlin code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin) | 
 | [AWS SDK for \.NET](https://docs.aws.amazon.com/sdk-for-net) | [AWS SDK for \.NET code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3) | 
 | [AWS SDK for PHP](https://docs.aws.amazon.com/sdk-for-php) | [AWS SDK for PHP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php) | 
 | [AWS SDK for Python \(Boto3\)](https://docs.aws.amazon.com/pythonsdk) | [AWS SDK for Python \(Boto3\) code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python) | 
 | [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby) | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby) | 
+| [AWS SDK for Rust](https://docs.aws.amazon.com/sdk-for-rust) | [AWS SDK for Rust code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rust_dev_preview) | 
+| [AWS SDK for Swift](https://docs.aws.amazon.com/sdk-for-swift) | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift) | 
 
 For examples specific to this service, see [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md)\.
 

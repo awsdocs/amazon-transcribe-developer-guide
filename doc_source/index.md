@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -53,7 +53,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Identifying the dominant languages in your media](lang-id.md)
    + [Language identification with batch transcription jobs](lang-id-batch.md)
    + [Language identification with streaming transcriptions](lang-id-stream.md)
-+ [Identifying speakers (diarization)](diarization.md)
++ [Partitioning speakers (diarization)](diarization.md)
 + [Creating video subtitles](subtitles.md)
 + [Analyzing call center audio with Call Analytics](call-analytics.md)
    + [Call Analytics insights](call-analytics-insights.md)
@@ -119,9 +119,9 @@ Amazon's trademarks and trade dress may not be used in
    + [Transcribing a medical conversation](transcribe-medical-conversation.md)
       + [Transcribing an audio file of a medical conversation](batch-medical-conversation.md)
       + [Transcribing a medical conversation in a real-time stream](streaming-medical-conversation.md)
-      + [Identifying speakers and labeling their speech](conversation-diarization-med.md)
-         + [Identifying speakers and labeling their speech in audio files](conversation-diarization-batch-med.md)
-         + [Identifying speakers and labeling their speech in real-time streams](conversation-diarization-streaming-med.md)
+      + [Enabling speaker partitioning](conversation-diarization-med.md)
+         + [Enabling speaker partitioning in batch transcriptions](conversation-diarization-batch-med.md)
+         + [Enabling speaker partitioning in real-time streams](conversation-diarization-streaming-med.md)
       + [Transcribing multi-channel audio](conversation-channel-id-med.md)
    + [Transcribing a medical dictation](transcribe-medical-dictation.md)
       + [Transcribing an audio file of a medical dictation](batch-medical-dictation.md)

@@ -1,6 +1,6 @@
 # Identifying PHI in a real\-time stream<a name="phi-id-stream"></a>
 
-You can identify Personally Identifiable Health Information \(PHI\) in either HTTP/2 or WebSocket streams\. When you activate PHI Identification, Amazon Transcribe Medical labels the PHI that it identifies in the transcription results\. For information about the PHI that Amazon Transcribe Medical can identify, see [Identifying personal health information \(PHI\) in a transcription](phi-id.md)\. 
+You can identify Personal Health Information \(PHI\) in either HTTP/2 or WebSocket streams\. When you activate PHI Identification, Amazon Transcribe Medical labels the PHI that it identifies in the transcription results\. For information about the PHI that Amazon Transcribe Medical can identify, see [Identifying personal health information \(PHI\) in a transcription](phi-id.md)\. 
 
 
 

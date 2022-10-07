@@ -16,7 +16,7 @@ In the following table, 'batch' refers to transcribing a media file located in a
 | [Chinese, Traditional](charsets.md#char-chinese-man-tw) | zh\-TW | batch | no | no | no | no | no | 
 | [Danish](charsets.md#char-danish) | da\-DK | batch | no | batch | no | no | no | 
 | [Dutch](charsets.md#char-dutch) | nl\-NL | batch | no | batch | no | no | no | 
-| [English](charsets.md#char-english), Australian | en\-AU | batch, streaming | batch, streaming | batch, streaming | batch | no | batch | 
+| [English](charsets.md#char-english), Australian | en\-AU | batch, streaming | batch, streaming | batch, streaming | batch, streaming | no | batch | 
 | [English](charsets.md#char-english), British | en\-GB | batch, streaming | batch, streaming | batch, streaming | batch, streaming | no | batch | 
 | [English](charsets.md#char-english), Indian | en\-IN | batch | batch | batch | no | no | batch | 
 | [English](charsets.md#char-english), Irish | en\-IE | batch | batch | batch | no | no | batch | 
@@ -41,7 +41,7 @@ In the following table, 'batch' refers to transcribing a media file located in a
 | [Portuguese](charsets.md#char-portuguese), Brazilian | pt\-BR | batch, streaming | no | batch, streaming | no | no | batch | 
 | [Russian](charsets.md#char-russian) | ru\-RU | batch | no | no | no | no | no | 
 | [Spanish](charsets.md#char-spanish) | es\-ES | batch | no | batch | no | no | batch | 
-| [Spanish](charsets.md#char-spanish), US | es\-US | batch, streaming | no | batch, streaming | batch | no | batch | 
+| [Spanish](charsets.md#char-spanish), US | es\-US | batch, streaming | no | batch, streaming | batch, streaming | no | batch | 
 | [Tamil](charsets.md#char-tamil) | ta\-IN | batch | no | no | no | no | no | 
 | [Telugu](charsets.md#char-telugu) | te\-IN | batch | no | no | no | no | no | 
 | [Thai](charsets.md#char-thai) | th\-TH | batch | no | batch | no | no | no | 

@@ -24,7 +24,7 @@ You can enable job queueing using the **AWS Management Console**, **AWS SDK**, o
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This opens the **Specify job details** page\.
 
 1. In the **Job Settings** box, there is an **Additional settings** panel\. If you expand this panel, you can select the **Add to job queue** box to enable job queueing\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/jobqueueing.png)
+![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/jobqueueing.png)
 
 1. Fill in any other fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional* page**\.
 

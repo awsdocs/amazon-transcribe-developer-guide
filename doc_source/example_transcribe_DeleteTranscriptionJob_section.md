@@ -6,6 +6,31 @@ The following code examples show how to delete an Amazon Transcribe transcriptio
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
 
 ------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Delete a transcription job. Also deletes the transcript associated with the job.
+    /// </summary>
+    /// <param name="jobName">Name of the transcription job to delete.</param>
+    /// <returns>True if successful.</returns>
+    public async Task<bool> DeleteTranscriptionJob(string jobName)
+    {
+        var response = await _amazonTranscribeService.DeleteTranscriptionJobAsync(
+            new DeleteTranscriptionJobRequest()
+            {
+                TranscriptionJobName = jobName
+            });
+        return response.HttpStatusCode == HttpStatusCode.OK;
+    }
+```
++  For API details, see [DeleteTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/DeleteTranscriptionJob) in *AWS SDK for \.NET API Reference*\. 
+
+------
 #### [ JavaScript ]
 
 **SDK for JavaScript V3**  

@@ -713,7 +713,9 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 
 ## Japanese character set<a name="char-japanese"></a>
 
-For Japanese custom vocabularies, the `Phrase` and `DisplayAs` fields support the hiragana, katakana, and kanji characters, and fullwidth romaji capital letters, as listed in the following file on GitHub:
+For Japanese custom vocabularies, the `DisplayAs` field supports all hiragana, katakana, and kanji characters, and fullwidth romaji capital letters\.
+
+ The `Phrase` field supports the characters listed in the following file:
 + [ ja\-jp\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/ja-jp-character-set.txt) 
 
 The `SoundsLike` field supports lowercase romaji characters, as listed here:

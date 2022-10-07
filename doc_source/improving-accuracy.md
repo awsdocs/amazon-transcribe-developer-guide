@@ -24,5 +24,8 @@ For a video walkthrough of creating and using custom language models, see:
 [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/iTkJoIqRrPU/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/iTkJoIqRrPU)
 
 **Dive deeper with the AWS Machine Learning Blog**  
-Learn how Formula 1 is using custom vocabularies to create real\-time captions for their live races: [Live transcriptions of F1 races using Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/live-transcriptions-of-f1-races-using-amazon-transcribe/)\.  
-[Boost transcription accuracy of class lectures with custom language models for Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/transcribe-class-lectures-accurately-using-amazon-transcribe-with-custom-language-models/)\.
+Custom vocabularies:  
+[Live transcriptions of F1 races using Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/live-transcriptions-of-f1-races-using-amazon-transcribe/)
+Custom language models:  
+[Building custom language models to supercharge speech\-to\-text performance Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/building-custom-language-models-to-supercharge-speech-to-text-performance-for-amazon-transcribe/)
+[Boost transcription accuracy of class lectures with custom language models for Amazon Transcribe](http://aws.amazon.com/blogs/machine-learning/transcribe-class-lectures-accurately-using-amazon-transcribe-with-custom-language-models/)

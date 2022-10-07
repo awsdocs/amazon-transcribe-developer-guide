@@ -24,8 +24,6 @@ Use Personal Health Information Identification to identify the following types o
   + Health insurance beneficiary numbers
   + Account numbers
   + Certificate or license numbers
-  + Biometric identifiers
-  + Voice prints
 + Vehicle PHI:
   + Vehicle identification number \(VIN\)
   + License plate number

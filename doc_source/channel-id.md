@@ -1,6 +1,6 @@
 # Transcribing multi\-channel audio<a name="channel-id"></a>
 
-If your audio has multiple channels, you can use *channel identification* to transcribe the speech from each of those channels\. Amazon Transcribe identifies the speech from each channel and transcribes that speech in separate transcriptions\. It combines those transcriptions into a single transcription output\.
+If your audio has multiple channels, you can use *channel identification* to transcribe the speech from each of those channels\. Amazon Transcribe partitions the speech from each channel and transcribes that speech in separate transcriptions\. It combines those transcriptions into a single transcription output\.
 
  You can enable channel identification for both batch processing and real\-time streaming\. The following list describes how to enable it for each method\.
 + Batch transcription \- [AWS Management Console](https://console.aws.amazon.com/transcribe/) and [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API
@@ -242,7 +242,7 @@ Parameter descriptions:
 
 ### Transcribing multi\-channel audio in a WebSocket stream<a name="channel-id-websocket"></a>
 
-To identify speakers in WebSocket streams, use the following format to create a pre\-signed URI and start a WebSocket request\. Specify `enable-channel-id` as `true` and the number of channels in your stream in `number-of-channels`\. A pre\-signed URI contains the information needed to set up bi\-directional communication between your application and Amazon Transcribe\.
+To partition channels in WebSocket streams, use the following format to create a pre\-signed URI and start a WebSocket request\. Specify `enable-channel-id` as `true` and the number of channels in your stream in `number-of-channels`\. A pre\-signed URI contains the information needed to set up bi\-directional communication between your application and Amazon Transcribe\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket

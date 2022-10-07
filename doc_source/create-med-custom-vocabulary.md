@@ -58,7 +58,7 @@ print(status)
 
 ## AWS CLI<a name="create-med-custom-vocab-cli"></a>
 
-**To identify the speakers in an audio file using a batch transcription job \(AWS CLI\)**
+**To enable speaker partitioning in a batch transcription job \(AWS CLI\)**
 + Run the following code\.
 
   ```

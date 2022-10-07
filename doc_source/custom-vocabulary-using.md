@@ -13,12 +13,12 @@ To use a custom vocabulary with a batch transcription, see the following for exa
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This opens the **Specify job details** page\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
+![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
 
    Name your job and specify your input media\. Optionally include any other fields, then choose **Next**\.
 
 1. At the bottom of the **Configure job** page, in the **Customization** panel, toggle on **Custom vocabulary**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-configure-job-vocab.png)
+![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-configure-job-vocab.png)
 
 1. Select your custom vocabulary from the drop\-down menu\.
 
@@ -108,10 +108,10 @@ To use a custom vocabulary with a streaming transcription, see the following for
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Real\-time transcription**\. Scroll down to **Customizations** and expand this field if it is minimized\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
+![\[Amazon Transcribe console screenshot: the 'real-time transcription' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
 
 1. Toggle on **Custom vocabulary** and select a custom vocabulary from the drop\-down menu\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-stream2.png)
+![\[Amazon Transcribe console screenshot: the expanded 'customizations' pane.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-stream2.png)
 
    Include any other settings you wish to apply to your stream\.
 

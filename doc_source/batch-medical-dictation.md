@@ -160,7 +160,7 @@ The following example code shows the transcription results of a medical dictatio
 
 ## AWS CLI<a name="batch-med-dictation-cli"></a>
 
-**To identify the speakers in an audio file using a batch transcription job \(AWS CLI\)**
+**To enable speaker partitioning in a batch transcription job \(AWS CLI\)**
 + Run the following code\.
 
   ```

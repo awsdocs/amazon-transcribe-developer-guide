@@ -170,7 +170,7 @@ Here's the unredacted transcript for comparison:
 
 ## Example PII identification output<a name="pii-redaction-output-id"></a>
 
-PII identification is an additional feature that you can use with your streaming transcription job\.
+PII identification is an additional feature that you can use with your streaming transcription job\. The identified PII is listed in each segment's `Entities` section\.
 
 ```
 {

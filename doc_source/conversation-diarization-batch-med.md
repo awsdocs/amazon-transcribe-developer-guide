@@ -1,10 +1,10 @@
-# Identifying speakers and labeling their speech in audio files<a name="conversation-diarization-batch-med"></a>
+# Enabling speaker partitioning in batch transcriptions<a name="conversation-diarization-batch-med"></a>
 
-You can enable speaker identification in a batch transcription job using either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\. This enables you to identify the speakers in a clinician\-patient conversation and determine who said what in the transcription output\.
+You can enable speaker partitioning in a batch transcription job using either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\. This enables you to partition the text per speaker in a clinician\-patient conversation and determine who said what in the transcription output\.
 
 ## AWS Management Console<a name="conversation-diarization-batch-med-console"></a>
 
-To use the AWS Management Console to enable speaker diarization in your transcription job, you enable audio identification and then speaker identification\.
+To use the AWS Management Console to enable speaker diarization in your transcription job, you enable audio identification and then speaker partitioning\.
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
@@ -18,15 +18,15 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 
 1. Enable **Audio identification**\.
 
-1. For **Audio identification type**, choose **Speaker identification**\.
+1. For **Audio identification type**, choose **Speaker partitioning**\.
 
-1. For **Maximum number of speakers**, enter the maximum number of speakers that you think are speaking in your audio file\. For best results, match the number of speakers that you ask to identify to the number of speakers in the input audio\. If you specify a value less than the number of speakers in your input audio, the transcription text of the most similar sounding speakers are attributed to a speaker label\. 
+1. For **Maximum number of speakers**, enter the maximum number of speakers that you think are speaking in your audio file\.
 
 1. Choose **Create**\.
 
 ## API<a name="conversation-diarization-batch-med-api"></a>
 
-**To identify speakers in an audio file using a batch transcription job \(API\)**
+**To enable speaker partitioning using a batch transcription job \(API\)**
 + For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
@@ -45,9 +45,9 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 
      1. `ShowSpeakerLabels` – `true`\.
 
-     1. `MaxSpeakerLabels` – An integer between 2 and 10 to indicate the number of speakers that you think are speaking in your audio\. For best results, match the number of speakers that you ask to identify to the number of speakers in the input audio\. If you specify a value less than the number of speakers in your input audio, the transcription text of the most similar sounding speakers are attributed to the same speaker label\. 
+     1. `MaxSpeakerLabels` – An integer between 2 and 10 to indicate the number of speakers that you think are speaking in your audio\.
 
-The following request uses the AWS SDK for Python \(Boto3\) to start a batch transcription job of a primary care clinician patient dialogue with speaker identification enabled\.
+The following request uses the AWS SDK for Python \(Boto3\) to start a batch transcription job of a primary care clinician patient dialogue with speaker partitioning enabled\.
 
 ```
 from __future__ import print_function
@@ -80,7 +80,7 @@ while True:
 print(status)
 ```
 
-The following example code shows the transcription results of a transcription job with speaker identification enabled\.
+The following example code shows the transcription results of a transcription job with speaker partitioning enabled\.
 
 ```
 {
@@ -153,7 +153,7 @@ The following example code shows the transcription results of a transcription jo
 
 ## AWS CLI<a name="diarization-batch-cli"></a>
 
-**To transcribe an audio file of a conversation between a clinician practicing primary care and a patient in an audio file and identify what each person said in the transcription output \(AWS CLI\)**
+**To transcribe an audio file of a conversation between a clinician practicing primary care and a patient \(AWS CLI\)**
 + Run the following code\.
 
   ```

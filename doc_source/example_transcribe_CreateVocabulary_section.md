@@ -1,9 +1,40 @@
 # Create a custom Amazon Transcribe vocabulary using an AWS SDK<a name="example_transcribe_CreateVocabulary_section"></a>
 
-The following code example shows how to create a custom Amazon Transcribe vocabulary\.
+The following code examples show how to create a custom Amazon Transcribe vocabulary\.
 
 **Note**  
 The source code for these examples is in the [AWS Code Examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples)\. Have feedback on a code example? [Create an Issue](https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose) in the code examples repo\. 
+
+------
+#### [ \.NET ]
+
+**AWS SDK for \.NET**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples)\. 
+  
+
+```
+    /// <summary>
+    /// Create a custom vocabulary using a list of phrases. Custom vocabularies
+    /// improve transcription accuracy for one or more specific words.
+    /// </summary>
+    /// <param name="languageCode">The language code of the vocabulary.</param>
+    /// <param name="phrases">Phrases to use in the vocabulary.</param>
+    /// <param name="vocabularyName">Name for the vocabulary.</param>
+    /// <returns>The state of the custom vocabulary.</returns>
+    public async Task<VocabularyState> CreateCustomVocabulary(LanguageCode languageCode,
+        List<string> phrases, string vocabularyName)
+    {
+        var response = await _amazonTranscribeService.CreateVocabularyAsync(
+            new CreateVocabularyRequest
+            {
+                LanguageCode = languageCode,
+                Phrases = phrases,
+                VocabularyName = vocabularyName
+            });
+        return response.VocabularyState;
+    }
+```
++  For API details, see [CreateVocabulary](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabulary) in *AWS SDK for \.NET API Reference*\. 
 
 ------
 #### [ Python ]

@@ -12,7 +12,8 @@ Amazon Transcribe offers the following options for streaming:
 + [WebSockets](streaming-websocket.md)
 + [AWS Management Console](https://console.aws.amazon.com/transcribe/)
 
-We recommend using the AWS Management Console or an SDK, rather than using HTTP/2 or WebSockets directly\.
+**Tip**  
+We recommend using the [AWS Management Console](https://console.aws.amazon.com/transcribe) or an SDK, rather than using HTTP/2 or WebSockets directly\. If you're using your computer microphone, we suggest using the [AWS Management Console](https://console.aws.amazon.com/transcribe) for your transcription\.
 
 Audio formats supported for streaming transcriptions are:
 + FLAC

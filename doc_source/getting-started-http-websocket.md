@@ -2,6 +2,8 @@
 
 Amazon Transcribe supports HTTP for both batch \(HTTP/1\.1\) and streaming \(HTTP/2\) transcriptions\. WebSockets are supported for streaming transcriptions\.
 
+If you're transcribing a media file located in an Amazon S3 bucket, you're performing a batch transcription\. If you're transcribing a real\-time stream of audio data, you're performing a streaming transcription\.
+
 Both HTTP and WebSockets require you to authenticate your request using AWS Signature Version 4 headers\. Refer to [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) for more information\.
 
 You can make a batch HTTP request using the following headers:

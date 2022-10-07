@@ -1,10 +1,10 @@
-# Identifying speakers and labeling their speech in real\-time streams<a name="conversation-diarization-streaming-med"></a>
+# Enabling speaker partitioning in real\-time streams<a name="conversation-diarization-streaming-med"></a>
 
-To identify speakers and label their speech in a real\-time stream, use the AWS Management Console or a streaming request\. Speaker identification works best for identifying between two and five speakers in a stream\. Although Amazon Transcribe Medical can identify more than five speakers in a stream, the accuracy of speaker identification decreases if you exceed that number\.
+To partition speakers and label their speech in a real\-time stream, use the AWS Management Console or a streaming request\. Speaker partitioning works best for between two and five speakers in a stream\. Although Amazon Transcribe Medical can partition more than five speakers in a stream, the accuracy of the partitions decrease if you exceed that number\.
 
 To start an HTTP/2 request, use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\. To start a WebSocket request, use a pre\-signed URI\. The URI contains the information required to set up bi\-directional communication between your application and Amazon Transcribe Medical\.
 
-## Identifying speakers in audio that is spoken into your microphone \(AWS Management Console\)<a name="conversation-diarization-console"></a>
+## Enabling speaker partitioning in audio that is spoken into your microphone \(AWS Management Console\)<a name="conversation-diarization-console"></a>
 
 You can use the AWS Management Console to start a real\-time stream of a clinician\-patient conversation, or a dictation that is spoken into your microphone in real\-time\.
 
@@ -14,15 +14,15 @@ You can use the AWS Management Console to start a real\-time stream of a clinici
 
 1. For **Audio input type**, choose the type of medical speech that you want to transcribe\.
 
-1. For **Additional settings**, choose **Speaker identification**\.
+1. For **Additional settings**, choose **Speaker partitioning**\.
 
 1. Choose **Start streaming** to start transcribing your real\-time audio\.
 
 1. Speak into the microphone\.
 
-## Identifying speakers in an HTTP/2 stream<a name="conversation-diarization-med-http2"></a>
+## Enabling speaker partitioning in an HTTP/2 stream<a name="conversation-diarization-med-http2"></a>
 
-To identify speakers in an HTTP/2 stream of a medical conversation, use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API and specify the following: 
+To enable speaker partitioning in an HTTP/2 stream of a medical conversation, use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API and specify the following: 
 + For `LanguageCode`, specify the language code that corresponds to the language in the stream\. The valid value is `en-US`\.
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + For `Specialty`, specify the medical specialty of the provider\.
@@ -30,9 +30,9 @@ To identify speakers in an HTTP/2 stream of a medical conversation, use the [Sta
 
 For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Streaming request](how-streaming-med.md#streaming-med-request)\.
 
-## Identifying speakers in a WebSocket request<a name="conversation-diarization-med-websocket"></a>
+## Enabling speaker partitioning in a WebSocket request<a name="conversation-diarization-med-websocket"></a>
 
-To identify speakers in WebSocket streams with the API, use the following format to create a pre\-signed URI to start a WebSocket request and set `show-speaker-label` to `true`\. 
+To partition speakers in WebSocket streams with the API, use the following format to create a pre\-signed URI to start a WebSocket request and set `show-speaker-label` to `true`\. 
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket
@@ -161,7 +161,7 @@ Each `Transcript` object has its own `Results` object\. This object contains the
 Each `Results` object has an `Alternatives` object\.
 
 **`Items`**  
-Each `Alternatives` object has its own `Items` object that contains information about each word and punctuation mark in the transcription output\. When you enable speaker identification, each word has a `Speaker` label for fully\-transcribed speech segments\. Amazon Transcribe Medical uses this label to assign a unique integer to each speaker it identifies in the stream\. The `Type` parameter having a value of `speaker-change` indicates that one person has stopped speaking and that another person is about to begin\.
+Each `Alternatives` object has its own `Items` object that contains information about each word and punctuation mark in the transcription output\. When you enable speaker partitioning, each word has a `Speaker` label for fully\-transcribed speech segments\. Amazon Transcribe Medical uses this label to assign a unique integer to each speaker in the stream\. The `Type` parameter having a value of `speaker-change` indicates that one person has stopped speaking and that another person is about to begin\.
 
 **`Transcript`**  
 Each Items object contains a transcribed speech segment as the value of the `Transcript` field\.
