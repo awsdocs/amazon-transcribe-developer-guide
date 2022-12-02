@@ -65,7 +65,7 @@ You can create custom language models using the AWS Management Console, AWS CLI,
 
 ### AWS CLI<a name="model-create-cli"></a>
 
-This example uses the [create\-language\-model](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-language-model.html) command\. For more information, see [CreateLanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html) and [LanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageModel.html)\.
+This example uses the [create\-language\-model](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-language-model.html) command\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageModel.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageModel.html)\.
 
 ```
 aws transcribe create-language-model \ 
@@ -75,7 +75,7 @@ aws transcribe create-language-model \
 --language-code en-US
 ```
 
-Here's another example using the [create\-language\-model](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that creates your CLM\.
+Here's another example using the [create\-language\-model](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that creates your custom language model\.
 
 ```
 aws transcribe create-language-model \
@@ -99,7 +99,7 @@ The file *my\-first\-language\-model\.json* contains the following request body\
 
 ### AWS SDK for Python \(Boto3\)<a name="model-create-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to create a CLM using the [create\_language\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model) method\. For more information, see [CreateLanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html) and [LanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageModel.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to create a CLM using the [create\_language\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageModel.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageModel.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 
@@ -133,6 +133,6 @@ print(status)
 
 Amazon Transcribe continually updates the base models available for custom language models\.
 
-To see if your custom language model is using the latest base model, run a [DescribeLanguageModel](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html) request using the AWS CLI or an AWS SDK, then find the `UpgradeAvailability` field in your response\.
+To see if your custom language model is using the latest base model, run a [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html) request using the AWS CLI or an AWS SDK, then find the `UpgradeAvailability` field in your response\.
 
 If `UpgradeAvailability` is `true`, your model is not running the latest version of the base model\. To use the latest base model in a custom language model, you must create a new custom language model\. Custom language models cannot be upgraded\.

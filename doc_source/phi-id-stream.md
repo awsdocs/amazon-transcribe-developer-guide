@@ -24,7 +24,7 @@ To use the AWS Management Console to transcribe the speech picked up by your mic
 
 ## Identifying PHI in an HTTP/2 stream<a name="http2-stream-phi"></a>
 
-To start an HTTP/2 stream with PHI Identification activated, use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API and specify the following:
+To start an HTTP/2 stream with PHI Identification activated, use the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API and specify the following:
 + For `LanguageCode`, specify the language code for the language spoken in the stream\. For US English, specify `en-US`\.
 + For `MediaSampleHertz`, specify the sample rate of the audio\.
 + For `content-identification-type`, specify `PHI`\.

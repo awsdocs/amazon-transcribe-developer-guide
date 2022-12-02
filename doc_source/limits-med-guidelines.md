@@ -29,16 +29,16 @@ The following API limits can also be increased upon request:
 
 | API | Maximum transactions per second | 
 | --- | --- | 
-| [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) | 25 | 
-| [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) | 25 | 
-| [GetMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalTranscriptionJob.html) | 30 | 
-| [DeleteMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteMedicalTranscriptionJob.html) | 5 | 
-| [ListMedicalTranscriptionJobs](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalTranscriptionJobs.html) | 5 | 
-| [CreateMedicalVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html) | 10 | 
-| [UpdateMedicalVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateMedicalVocabulary.html) | 10 | 
-| [DeleteMedicalVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteMedicalVocabulary.html) | 5 | 
-| [GetMedicalVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalVocabulary.html) | 20 | 
-| [ListMedicalVocabularies](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalVocabularies.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) | 25 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) | 25 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalTranscriptionJob.html) | 30 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteMedicalTranscriptionJob.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalTranscriptionJobs.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalTranscriptionJobs.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateMedicalVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateMedicalVocabulary.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteMedicalVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteMedicalVocabulary.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalVocabulary.html) | 20 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalVocabularies.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListMedicalVocabularies.html) | 5 | 
 
 **Note**  
 For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.

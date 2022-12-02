@@ -4,7 +4,7 @@ When you use Amazon Transcribe Medical, you get the transcription that has the h
 
 Use alternative transcriptions to see different interpretations of the transcribed audio\. For example, in an application that enables a person to review the transcription, you can present the alternative transcriptions for the person to choose from\.
 
-You can generate alternative transcriptions with the AWS Management Console or the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API\.
+You can generate alternative transcriptions with the AWS Management Console or the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API\.
 
 ## AWS Management Console<a name="alternative-med-transcriptions-console"></a>
 
@@ -29,7 +29,7 @@ To use the AWS Management Console to generate alternative transcriptions, you en
 ## API<a name="alternative-med-transcriptions-api"></a>
 
 **To separate text per speaker in an audio file using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
++ For the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 

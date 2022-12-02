@@ -1,14 +1,14 @@
-# Example output<a name="call-analytics-output"></a>
+# Post\-call analytics output<a name="tca-output-batch"></a>
 
-Call Analytics transcripts are displayed in a turn\-by\-turn format\. Each segment includes data specific to that segment, which can include detected issues, action items, detected outcomes, loudness scores, redaction, and sentiment\. Additionally, a summary of call characteristics is provided at the end of the transcript\.
+Post\-call analytics transcripts are displayed in a turn\-by\-turn format by segment\. They include call categorization, call characteristics \(loudness scores, interruptions, non\-talk time, talk speed\), call summarization \(issues, outcomes, and action items\), redaction, and sentiment\. Additionally, a summary of conversation characteristics is provided at the end of the transcript\.
 
-To increase accuracy and further customize your transcripts to your use case, such as including industry\-specific terms, use [custom vocabularies](custom-vocabulary.md) or [custom language models](custom-language-models.md) with your Call Analytics job\. To mask, remove, or tag words you don't want in your transcription results, such as profanity, add [vocabulary filtering](vocabulary-filtering.md)\.
+To increase accuracy and further customize your transcripts to your use case, such as including industry\-specific terms, add [custom vocabularies](custom-vocabulary.md) or [custom language models](custom-language-models.md) to your Call Analytics request\. To mask, remove, or tag words that you don't want in your transcription results, such as profanity, add [vocabulary filtering](vocabulary-filtering.md)\.
 
-The following sections show examples of redacted JSON output, separated by Call Analytics insight\. An abridged, but otherwise complete, transcript is provided following the insight\-specific examples\.
+The following sections show examples of JSON output at an insight level\. For compiled output, see [Compiled post\-call analytics output](#tca-output-batch-compiled)\.
 
-## Call categorization<a name="call-analytics-output-categorization"></a>
+## Call categorization<a name="tca-output-categorization-batch"></a>
 
-Here's what a category match looks like in your transcription output\. This example shows that the audio from the 40040 millisecond time stamp to the 42460 millisecond timestamp is a match to the 'positive\-resolution' category\. In this case, the custom 'positive\-resolution' category required a positive sentiment in last few seconds of speech\.
+Here's what a category match looks like in your transcription output\. This example shows that the audio from the 40040 millisecond timestamp to the 42460 millisecond timestamp is a match to the 'positive\-resolution' category\. In this case, the custom 'positive\-resolution' category required a positive sentiment in last few seconds of speech\.
 
 ```
 "Categories": {
@@ -28,7 +28,7 @@ Here's what a category match looks like in your transcription output\. This exam
 },
 ```
 
-## Call characteristics<a name="call-analytics-output-characteristics"></a>
+## Call characteristics<a name="tca-output-characteristics-batch"></a>
 
 Here's what call characteristics look like in your transcription output\. Note that loudness scores are provided for each conversation turn, while all other characteristics are provided at the end of the transcript\.
 
@@ -100,7 +100,7 @@ Here's what call characteristics look like in your transcription output\. Note t
 },
 ```
 
-## Call summarization<a name="call-analytics-output-summarization"></a>
+## Call summarization<a name="tca-output-summarization-batch"></a>
 
 Here's what call summarization looks like in your transcription output:
 + In the following example, **issues** are identified as starting at character 7 and ending at character 51, which refers to this section of the text: "*I would like to cancel my recipe subscription*"\.
@@ -146,15 +146,7 @@ Here's what call summarization looks like in your transcription output:
   ],
   ```
 
-## Sensitive data redaction<a name="call-analytics-output-pii-redaction"></a>
-
-Here's what sensitive data redaction looks like in your transcription output:
-
-```
-"Content": "[PII], my name is [PII], how can I help?",
-```
-
-## Sentiment analysis<a name="call-analytics-output-sentiment"></a>
+## Sentiment analysis<a name="tca-output-sentiment-batch"></a>
 
 Here's what sentiment analysis looks like in your transcription output\.
 + Qualitative turn\-by\-turn sentiment values:
@@ -242,9 +234,17 @@ Here's what sentiment analysis looks like in your transcription output\.
   }
   ```
 
-## Compiled output<a name="call-analytics-output-compiled"></a>
+## PII redaction<a name="tca-output-pii-redact-batch"></a>
 
-For brevity, some content is replaced with ellipses in the below transcription output\.
+Here's what PII redaction looks like in your transcription output\.
+
+```
+"Content": "[PII], my name is [PII], how can I help?",
+```
+
+## Compiled post\-call analytics output<a name="tca-output-batch-compiled"></a>
+
+For brevity, some content is replaced with ellipses in the following transcription output\.
 
 ```
 {

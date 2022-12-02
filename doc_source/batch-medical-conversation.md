@@ -1,8 +1,8 @@
 # Transcribing an audio file of a medical conversation<a name="batch-medical-conversation"></a>
 
-Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\.
+Use a batch transcription job to transcribe audio files of medical conversations\. You can use this to transcribe a clinician\-patient dialogue\. You can start a batch transcription job in either the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\.
 
-When you start a medical transcription job with the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
+When you start a medical transcription job with the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, you specify `PRIMARYCARE` as the value of the `Specialty` parameter\. 
 
 ## AWS Management Console<a name="batch-med-conversation-console"></a>
 
@@ -31,7 +31,7 @@ To use the AWS Management Console to transcribe a clinician\-patient dialogue, c
 ## API<a name="batch-med-conversation-api"></a>
 
 **To transcribe a medical conversation using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
++ For the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name unique in your AWS account\.
 

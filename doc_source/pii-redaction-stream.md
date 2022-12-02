@@ -4,6 +4,8 @@ When redacting personally identifiable information \(PII\) from a streaming tran
 
 An additional option available for streaming transcriptions is *PII identification*\. When you activate PII Identification, Amazon Transcribe labels the PII in your transcription results under an `Entities` object\. For an output sample, see [Example redacted streaming output](pii-redaction-output.md#pii-redaction-output-stream) and [Example PII identification output](pii-redaction-output.md#pii-redaction-output-id)\.
 
+Redaction and identification of PII with streaming transcriptions is available with these English dialects: Australian \(`en-AU`\), British \(`en-GB`\), and US \(`en-US`\)\.
+
 PII identification and redaction for streaming jobs is performed only upon complete transcription of the audio segments\.
 
 
@@ -12,28 +14,17 @@ PII identification and redaction for streaming jobs is performed only upon compl
 | PII type | Description | 
 | --- | --- | 
 | ADDRESS | A physical address, such as *100 Main Street, Anytown, USA* or *Suite \#12, Building 123*\. An address can include a street, building, location, city, state, country, county, zip, precinct, neighborhood, and more\.  | 
-| AGE | An individual's age, including the quantity and unit of time\. For example, in the phrase *I am 40 years old*, Amazon Transcribe recognizes '40 years' as an age\. | 
 | ALL | Redact or identify all PII types listed in this table\. | 
-| AWS\_ACCESS\_KEY | A unique identifier that's associated with an AWS secret access key\. Your access key ID and secret access key allow you to sign programmatic AWS requests cryptographically\. | 
-| AWS\_SECRET\_KEY | A unique identifier that's associated with an AWS access key\. Your secret access key and access key ID allow you to sign programmatic AWS requests cryptographically\. | 
 | BANK\_ACCOUNT\_NUMBER | A US bank account number\. These are typically between 10 \- 12 digits long, but Amazon Transcribe also recognizes bank account numbers when only the last 4 digits are present\. | 
 | BANK\_ROUTING | A US bank account routing number\. These are typically 9 digits long, but Amazon Transcribe also recognizes routing numbers when only the last 4 digits are present\. | 
 | CREDIT\_DEBIT\_CVV | A 3\-digit card verification code \(CVV\) that is present on VISA, MasterCard, and Discover credit and debit cards\. In American Express credit or debit cards, it is a 4\-digit numeric code\. | 
 | CREDIT\_DEBIT\_EXPIRY | The expiration date for a credit or debit card\. This number is usually 4 digits long and formatted as month/year or MM/YY\. For example, Amazon Transcribe can recognize expiration dates such as *01/21*, *01/2021*, and *Jan 2021*\. | 
 | CREDIT\_DEBIT\_NUMBER | The number for a credit or debit card\. These numbers can vary from 13 to 16 digits in length, but Amazon Transcribe also recognizes credit or debit card numbers when only the last 4 digits are present\. | 
-| DATE\_TIME | A date, which may include the year, month, day, day of week, or time of day\. For example, Amazon Transcribe recognizes *January 19 2020*, *11 am*, and *Thursday morning* as dates\. Amazon Transcribe also recognizes partial dates, date ranges, date intervals and decades, such as *the 1990s*\. | 
-| DRIVER\_ID | A driver's license number\. Driver's license numbers consists of alphanumeric characters\. | 
 | EMAIL | An email address, such as *efua\.owusu@email\.com*\. | 
-| IP\_ADDRESS | An IPv4 address, such as *198\.51\.100\.0*\. | 
-| MAC\_ADDRESS | A media access control \(MAC\) address is a unique identifier assigned to a network interface controller \(NIC\)\. | 
 | NAME | An individual's name\. This entity type does not include titles, such as Mr\., Mrs\., Miss, or Dr\. Amazon Transcribe does not apply this entity type to names that are part of organizations or addresses\. For example, Amazon Transcribe recognizes the *John Doe Organization* as an organization, and *Jane Doe Street* as an address\. | 
-| PASSPORT\_NUMBER | A US passport number\. Passport numbers range from six to nine alphanumeric characters\. | 
-| PASSWORD | An alphanumeric string that is used as a password, such as *Myd0GsB\!RthD@y7*\. | 
 | PHONE | A phone number\. This entity type also includes fax and pager numbers\. | 
 | PIN | A 4\-digit personal identification number \(PIN\) that allows someone to access their bank account information\. | 
 | SSN | A Social Security Number \(SSN\) is a 9\-digit number that is issued to US citizens, permanent residents, and temporary working residents\. Amazon Transcribe also recognizes Social Security Numbers when only the last 4 digits are present\. | 
-| URL | A web address, such as *www\.example\.com*\. | 
-| USERNAME | A name or pseudonym that identifies a user's account, such as a login name, screen name, nickname, or handle\. | 
 
 You can start a streaming transcription using the AWS Management Console, WebSocket, or HTTP/2\.
 
@@ -54,7 +45,7 @@ You can start a streaming transcription using the AWS Management Console, WebSoc
 
 ## WebSocket stream<a name="redaction-websocket"></a>
 
-This example creates a pre\-signed URL that uses either PII Identification or PII redaction in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a pre\-signed URL that uses either PII Identification or PII redaction in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?
@@ -78,7 +69,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ## HTTP/2 stream<a name="redaction-http2"></a>
 
-This example creates an HTTP/2 request with PII identification or PII redaction enabled\. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-http2.md)\. For more detail on parameters and headers specific to Amazon Transcribe, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates an HTTP/2 request with PII identification or PII redaction enabled\. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-http2.md)\. For more detail on parameters and headers specific to Amazon Transcribe, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 POST /stream-transcription HTTP/2

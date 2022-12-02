@@ -2,6 +2,8 @@
 
 When redacting personally identifiable information \(PII\) from a transcript during a batch transcription job, Amazon Transcribe replaces each identified instance of PII with `[PII]` in the main text body of your transcript\. You can also view the type of PII that is redacted in the word\-for\-word portion of the transcription output\. For an output sample, see [Example redacted batch output](pii-redaction-output.md#pii-redaction-output-batch)\.
 
+Redaction with batch transcriptions is available with US English \(`en-US`\)\.
+
 Both redacted and unredacted transcripts are stored in the same output Amazon S3 bucket\. Amazon Transcribe stores them in either a bucket you specify or in the default Amazon S3 bucket managed by the service\.
 
 
@@ -40,7 +42,7 @@ You can start a batch transcription job using the AWS Management Console, AWS CL
 
 ## AWS CLI<a name="redaction-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `content-redaction` parameter\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [ContentRedaction](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ContentRedaction.html)\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `content-redaction` parameter\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ContentRedaction.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ContentRedaction.html)\.
 
 ```
 aws transcribe start-transcription-job \
@@ -86,7 +88,7 @@ The file *my\-first\-redaction\-job\.json* contains the following request body\.
 
 ## AWS SDK for Python \(Boto3\)<a name="redaction-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to redact content using the `ContentRedaction` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [ContentRedaction](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ContentRedaction.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to redact content using the `ContentRedaction` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ContentRedaction.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ContentRedaction.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 

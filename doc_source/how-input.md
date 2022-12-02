@@ -14,6 +14,9 @@ Supported media types differ between batch transcriptions and streaming transcri
 | Supported formats |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-input.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-input.html)  | 
 | Recommended formats |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-input.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/how-input.html)  | 
 
+**Note**  
+Streaming transcriptions are not supported with all languages\. Refer to the 'Data input' column in the [supported languages table](supported-languages.md) for details\.
+
 ## Sample rates<a name="how-input-sample-rates"></a>
 
 With batch transcription jobs, you can choose to provide a sample rate, though this parameter is optional\. If you do include it in your request, make sure the value you provide matches the actual sample rate in your audio; if you provide a sample rate that doesn't match your audio, your job may fail\.

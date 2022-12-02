@@ -5,8 +5,8 @@ If you have an audio file or stream that has multiple channels, you can use *cha
 Use channel identification to identify the separate channels in your audio and transcribe the speech from each of those channels\. Enable this in situations such as a caller and agent scenario\. Use this to distinguish a caller from an agent in recordings or streams from contact centers that perform drug safety monitoring\.
 
 You can enable channel identification for both batch processing and real\-time streaming\. The following list describes how to enable it for each method\.
-+ Batch transcription – AWS Management Console and [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API
-+ Streaming transcription – WebSocket streaming and [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API
++ Batch transcription – AWS Management Console and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API
++ Streaming transcription – WebSocket streaming and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API
 
 ## Transcribing multi\-channel audio files<a name="conversation-channel-id-med-batch"></a>
 
@@ -14,7 +14,7 @@ When you transcribe an audio file, Amazon Transcribe Medical returns a list of *
 
 By default, you can transcribe audio files with two channels\. You can request a quota increase if you need to transcribe files that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
-To transcribe multi\-channel audio in a batch transcription job, use the AWS Management Console or the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API\.
+To transcribe multi\-channel audio in a batch transcription job, use the AWS Management Console or the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API\.
 
 ### AWS Management Console<a name="channel-id-batch-med-console"></a>
 
@@ -39,7 +39,7 @@ To use the AWS Management Console to enable channel identification in your batch
 ### API<a name="channel-id-batch-med-api"></a>
 
 **To transcribe a multi\-channel audio file \(API\)**
-+ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
++ For the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
@@ -213,7 +213,7 @@ The following code shows the transcription output for an audio file that has a c
 
 ## Transcribing multi\-channel audio streams<a name="conversation-channel-id-med-stream"></a>
 
-You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
+You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
 
 By default, you can transcribe streams with two channels\. You can request a quota increase if you need to transcribe streams that have more than two channels\. For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 

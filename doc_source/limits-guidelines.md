@@ -27,7 +27,7 @@ The following quotas **cannot** be changed:
 | Audio file length | 4:00:00 \(four\) hours \(14,400 seconds\) | 
 | Audio stream duration | 4:00:00 \(four\) hours \(14,400 seconds\) | 
 | Audio file size | 2 GB | 
-| Audio file size \(call analytics\) | 500 MB | 
+| Audio file size \(Call Analytics\) | 500 MB | 
 | Size of a custom vocabulary | 50 KB | 
 | Length of a custom vocabulary phrase | 256 characters | 
 | Size of a custom vocabulary filter | 50 KB | 
@@ -58,25 +58,25 @@ The following operations limits can also be increased upon request:
 
 | Operation | Transactions per second | 
 | --- | --- | 
-| [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) | 25 | 
-| [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) | 25 | 
-| [GetTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) | 30 | 
-| [DeleteTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteTranscriptionJob.html) | 5 | 
-| [ListTranscriptionJobs](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListTranscriptionJobs.html) | 5 | 
-| [CreateVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html) | 10 | 
-| [UpdateVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateVocabulary.html) | 10 | 
-| [DeleteVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteVocabulary.html) | 5 | 
-| [GetVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetVocabulary.html) | 20 | 
-| [ListVocabularies](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListVocabularies.html) | 5 | 
-| [StartCallAnalyticsJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartCallAnalyticsJob.html) | 10 | 
-| [GetCallAnalyticsJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetCallAnalyticsJob.html) | 20 | 
-| [ListCallAnalyticsJobs](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListCallAnalyticsJobs.html) | 5 | 
-| [DeleteCallAnalyticsJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteCallAnalyticsJob.html) | 5 | 
-| [CreateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateCallAnalyticsCategory.html) | 10 | 
-| [UpdateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateCallAnalyticsCategory.html) | 10 | 
-| [DeleteCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteCallAnalyticsCategory.html) | 5 | 
-| [GetCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetCallAnalyticsCategory.html) | 20 | 
-| [ListCallAnalyticsCategories](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListCallAnalyticsCategories.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) | 25 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) | 25 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) | 30 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteTranscriptionJob.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListTranscriptionJobs.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListTranscriptionJobs.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateVocabulary.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteVocabulary.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetVocabulary.html) | 20 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListVocabularies.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListVocabularies.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartCallAnalyticsJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartCallAnalyticsJob.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetCallAnalyticsJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetCallAnalyticsJob.html) | 20 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListCallAnalyticsJobs.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListCallAnalyticsJobs.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteCallAnalyticsJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteCallAnalyticsJob.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateCallAnalyticsCategory.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateCallAnalyticsCategory.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateCallAnalyticsCategory.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateCallAnalyticsCategory.html) | 10 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteCallAnalyticsCategory.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteCallAnalyticsCategory.html) | 5 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetCallAnalyticsCategory.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetCallAnalyticsCategory.html) | 20 | 
+| [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListCallAnalyticsCategories.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListCallAnalyticsCategories.html) | 5 | 
 
 **Note**  
 For information about requesting a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.

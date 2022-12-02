@@ -4,7 +4,7 @@ To partition the text from different speakers in Amazon Transcribe, use *speaker
 
 ## Partitioning speakers in audio<a name="diarization-batch"></a>
 
-You can enable speaker diarization in a batch transcription job using either the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API or the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
+You can enable speaker diarization in a batch transcription job using either the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API or the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 ### AWS Management Console<a name="diarization-console-batch"></a>
 
@@ -57,7 +57,7 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 
 ## Partitioning speakers in real\-time streams<a name="diarization-streaming"></a>
 
-You can partition different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for partitioning between two and five speakers\. Although Amazon Transcribe can separate text for more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\. To start a WebSocket request, you use a pre\-signed URI, which is a URI that contains the information needed to start your stream\. To use the AWS Management Console to transcribe speech spoken into your microphone, use the following procedure\.
+You can partition different speakers in either HTTP/2 or WebSocket streams\. Speaker diarization works best for partitioning between two and five speakers\. Although Amazon Transcribe can separate text for more than five speakers in a stream, the accuracy of speaker diarization decreases if you exceed that number\. To start an HTTP/2 stream, you specify the `ShowSpeakerLabel` request parameter of the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\. To start a WebSocket request, you use a pre\-signed URI, which is a URI that contains the information needed to start your stream\. To use the AWS Management Console to transcribe speech spoken into your microphone, use the following procedure\.
 
 You can partition speakers in real\-time streams that are in US English \(en\-US\)\.
 
@@ -102,7 +102,7 @@ Parameter descriptions:
 + **x\-amz\-content\-sha256**: This is a generated field\. To learn more about calculating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
 + **x\-amz\-date**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 + **x\-amzn\-transcribe\-session\-id**: The name for your streaming session\.
-+ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md) for a list of valid values\.
++ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md) for a list of valid values\.
 + **x\-amzn\-transcribe\-media\-encoding**: The encoding used for your input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
 + **x\-amzn\-transcribe\-sample\-rate**: The sample rate of the input audio \(in Hertz\)\. Amazon Transcribe supports a range from 8,000 Hz to 48,000 Hz\. Low\-quality audio, such as telephone audio, is typically around 8,000 Hz\. High\-quality audio typically ranges from 16,000 Hz to 48,000 Hz\. Note that the sample rate you specify **must** match that of your audio\.
 + **x\-amzn\-transcribe\-show\-speaker\-label**: To enable diarization, this value must be `true`\.

@@ -1,17 +1,19 @@
 # Document history for Amazon Transcribe and Amazon Transcribe Medical<a name="doc-history"></a>
-+ **Latest documentation update:** 14 September 2022
++ **Latest documentation update:** 28 November 2022
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-streaming.html) | Amazon Transcribe now supports real\-time Call Analytics\. | November 28, 2022 | 
+| [Feature Update](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction-stream.html) | Streaming redaction and identification is now available with Hindi and Thai\. | November 11, 2022 | 
 | [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction-stream.html) | New PII categories are available for streaming redaction and identification\. | September 14, 2022 | 
 | [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) | The custom language model section has been revised\. | June 18, 2022 | 
 | [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/lang-id-batch.html) | Batch language identification can now identify multiple languages per audio file\. | May 31, 2022 | 
 | [Guide Update](https://docs.aws.amazon.com/transcribe/latest/APIReference/Welcome.html) | The Amazon Transcribe API Reference is now a standalone guide\. | April 1, 2022 | 
 | [New chapter](https://docs.aws.amazon.com/transcribe/latest/dg/feature-matrix.html) | A new comparison table for Amazon Transcribe, Amazon Transcribe Medical, and Amazon Transcribe Call Analytics is included\. | March 21, 2022 | 
 | [New chapter](https://docs.aws.amazon.com/transcribe/latest/dg/service_code_examples.html) | A new SDK code examples chapter is included\. | March 21, 2022 | 
-| [Feature update](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-insights.html#call-analytics-insights-summarization) | Call Analytics now provides call summarization\. | March 21, 2022 | 
+| [Feature update](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-batch.html) | Call Analytics now provides call summarization\. | March 21, 2022 | 
 | [Chapter update](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | The introductory chapter now showcases Amazon Transcribe use cases\. | March 21, 2022 | 
 | [Chapter update](https://docs.aws.amazon.com/transcribe/latest/dg/getting-started.html) | The Getting started chapter has been updated to be method\-specific\. | March 21, 2022 | 
 | [Chapter update](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html) | The Streaming chapter has been updated and restructured\. | March 21, 2022 | 

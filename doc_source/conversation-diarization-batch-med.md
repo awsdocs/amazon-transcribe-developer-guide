@@ -1,6 +1,6 @@
 # Enabling speaker partitioning in batch transcriptions<a name="conversation-diarization-batch-med"></a>
 
-You can enable speaker partitioning in a batch transcription job using either the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\. This enables you to partition the text per speaker in a clinician\-patient conversation and determine who said what in the transcription output\.
+You can enable speaker partitioning in a batch transcription job using either the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console\. This enables you to partition the text per speaker in a clinician\-patient conversation and determine who said what in the transcription output\.
 
 ## AWS Management Console<a name="conversation-diarization-batch-med-console"></a>
 
@@ -27,7 +27,7 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 ## API<a name="conversation-diarization-batch-med-api"></a>
 
 **To enable speaker partitioning using a batch transcription job \(API\)**
-+ For the [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
++ For the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API, specify the following\.
 
   1. For `MedicalTranscriptionJobName`, specify a name that is unique in your AWS account\.
 

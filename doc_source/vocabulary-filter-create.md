@@ -47,7 +47,7 @@ Before continuing, save your custom vocabulary filter as a text \(\*\.txt\) file
 
 ### AWS CLI<a name="vocab-filter-create-cli"></a>
 
-This example uses the [create\-vocabulary\-filter](https://docs.aws.amazon.com/cli/latest/reference/transcribe/create-vocabulary-filter.html) command to process a word list into a usable custom vocabulary filter\. For more information, see [CreateVocabularyFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabularyFilter.html)\.
+This example uses the [create\-vocabulary\-filter](https://docs.aws.amazon.com/cli/latest/reference/transcribe/create-vocabulary-filter.html) command to process a word list into a usable custom vocabulary filter\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabularyFilter.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabularyFilter.html)\.
 
 **Option 1**: You can include your list of words to your request using the `words` parameter\.
 
@@ -103,7 +103,7 @@ If you include `VocabularyFilterFileUri` in your request, you cannot use `Words`
 
 ### AWS SDK for Python \(Boto3\)<a name="vocab-filter-create-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to create a custom vocabulary filter using the [create\_vocabulary\_filter](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter) method\. For more information, see [CreateVocabularyFilter](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabularyFilter.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to create a custom vocabulary filter using the [create\_vocabulary\_filter](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabularyFilter.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabularyFilter.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 

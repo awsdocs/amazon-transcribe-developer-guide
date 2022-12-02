@@ -14,6 +14,7 @@ The following code examples demonstrate how to perform individual Amazon Transcr
 + [List custom vocabularies](example_transcribe_ListVocabularies_section.md)
 + [List medical transcription jobs](example_transcribe_ListMedicalTranscriptionJobs_section.md)
 + [List transcription jobs](example_transcribe_ListTranscriptionJobs_section.md)
++ [Produce real\-time transcriptions](example_transcribe_StartStreamTranscriptionAsync_section.md)
 + [Start a medical transcription job](example_transcribe_StartMedicalTranscriptionJob_section.md)
 + [Start a transcription job](example_transcribe_StartTranscriptionJob_section.md)
 + [Update a custom vocabulary](example_transcribe_UpdateVocabulary_section.md)

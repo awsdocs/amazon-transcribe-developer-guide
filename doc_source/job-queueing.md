@@ -2,7 +2,7 @@
 
 Job queueing enables you to submit more transcription job requests than can be concurrently processed\. Without job queueing, once you reach the quota of allowed concurrent requests, you must wait until one or more requests are completed before submitting a new request\.
 
-Job queueing is optional for transcription job requests\. Call Analytics job requests have job queueing enabled automatically\.
+Job queueing is optional for transcription job requests\. Post\-call analytics requests have job queueing enabled automatically\.
 
 If you enable job queueing, Amazon Transcribe creates a queue that contains all requests that exceed your limit\. As soon as a request is completed, a new request is pulled from your queue and processed\. Queued requests are processed in a FIFO \(first in, first out\) order\.
 
@@ -26,7 +26,7 @@ You can enable job queueing using the **AWS Management Console**, **AWS SDK**, o
 1. In the **Job Settings** box, there is an **Additional settings** panel\. If you expand this panel, you can select the **Add to job queue** box to enable job queueing\.  
 ![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/jobqueueing.png)
 
-1. Fill in any other fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional* page**\.
+1. Fill in any other fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional* page**\.
 
 1. Select **Create job** to run your transcription job\. 
 
@@ -34,7 +34,7 @@ You can enable job queueing using the **AWS Management Console**, **AWS SDK**, o
 
 This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `job-execution-settings` parameter with the `AllowDeferredExecution` sub\-parameter\. Note that when you include `AllowDeferredExecution` in your request, you must also include `DataAccessRoleArn`\.
 
-For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [JobExecutionSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_JobExecutionSettings.html)\.
+For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_JobExecutionSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_JobExecutionSettings.html)\.
 
 ```
 aws transcribe start-transcription-job \
@@ -47,7 +47,7 @@ aws transcribe start-transcription-job \
 --job-execution-settings AllowDeferredExecution=true,DataAccessRoleArn=arn:aws:iam::111122223333:role/ExampleRole
 ```
 
-Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that adds subtitles to that job\.
+Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that enables queueing\.
 
 ```
 aws transcribe start-transcription-job \
@@ -75,7 +75,7 @@ The file *my\-first\-queueing\-request\.json* contains the following request bod
 
 ### AWS SDK for Python \(Boto3\)<a name="queueing-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to enable job queueing using the `AllowDeferredExecution` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. Note that when you include `AllowDeferredExecution` in your request, you must also include `DataAccessRoleArn`\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [JobExecutionSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_JobExecutionSettings.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to enable job queueing using the `AllowDeferredExecution` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. Note that when you include `AllowDeferredExecution` in your request, you must also include `DataAccessRoleArn`\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_JobExecutionSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_JobExecutionSettings.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 
@@ -109,4 +109,4 @@ while True:
 print(status)
 ```
 
-You can view the progress of a queued job via the AWS Management Console or by submitting a [GetTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) request\. When a job is queued, the `Status` is `QUEUED`\. The status changes to `IN_PROGRESS` once your job starts processing, then changes to either `COMPLETED` or `FAILED` when processing is finished\.
+You can view the progress of a queued job via the AWS Management Console or by submitting a [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) request\. When a job is queued, the `Status` is `QUEUED`\. The status changes to `IN_PROGRESS` once your job starts processing, then changes to either `COMPLETED` or `FAILED` when processing is finished\.

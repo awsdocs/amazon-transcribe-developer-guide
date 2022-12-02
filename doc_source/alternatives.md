@@ -104,7 +104,7 @@ You can request alternative transcriptions using the **AWS Management Console**,
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This opens the **Specify job details** page\.  
 ![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
-1. Fill in any fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.
+1. Fill in any fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.
 
    Select **Alternative results** and specify the maximum number of alternative transcription result you want in your transcript\.  
 ![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/alt-transcription-configure-batch.png)
@@ -113,7 +113,7 @@ You can request alternative transcriptions using the **AWS Management Console**,
 
 ### AWS CLI<a name="alt-transcription-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `ShowAlternatives` parameter\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [ShowAlternatives](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ShowAlternatives)\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `ShowAlternatives` parameter\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ShowAlternatives](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ShowAlternatives)\.
 
 Note that if you include `ShowAlternatives=true` in your request, you must also include `MaxAlternatives`\.
 
@@ -128,7 +128,7 @@ aws transcribe start-transcription-job \
 --settings ShowAlternatives=true,MaxAlternatives=4
 ```
 
-Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that identifies the language\.
+Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that includes alternative transcriptions\.
 
 ```
 aws transcribe start-transcription-job \
@@ -156,7 +156,7 @@ The file *my\-first\-alt\-transcription\-job\.json* contains the following reque
 
 ### AWS SDK for Python \(Boto3\)<a name="alt-transcription-python-batch"></a>
 
-The following example uses the AWS SDK for Python \(Boto3\) to request alternative transcriptions by using the `ShowAlternatives` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [ShowAlternatives](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ShowAlternatives)\.
+The following example uses the AWS SDK for Python \(Boto3\) to request alternative transcriptions by using the `ShowAlternatives` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ShowAlternatives](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ShowAlternatives)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 

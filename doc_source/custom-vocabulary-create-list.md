@@ -58,7 +58,7 @@ Before continuing, save your custom vocabulary as a text \(\*\.txt\) file\.
 
 ### AWS CLI<a name="vocab-create-list-cli"></a>
 
-This example uses the [create\-vocabulary](https://docs.aws.amazon.com/cli/latest/reference/transcribe/create-vocabulary.html) command with a list\-formatted custom vocabulary file\. For more information, see [CreateVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html)\.
+This example uses the [create\-vocabulary](https://docs.aws.amazon.com/cli/latest/reference/transcribe/create-vocabulary.html) command with a list\-formatted custom vocabulary file\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html)\.
 
 ```
 aws transcribe create-vocabulary \ 
@@ -67,7 +67,7 @@ aws transcribe create-vocabulary \
 --phrases {CLI,Eva-Maria,ABCs}
 ```
 
-Here's another example using the [create\-vocabulary](https://docs.aws.amazon.com/cli/latest/reference/transcribe/create-vocabulary.html) command, and a request body that creates your vocabulary\.
+Here's another example using the [create\-vocabulary](https://docs.aws.amazon.com/cli/latest/reference/transcribe/create-vocabulary.html) command, and a request body that creates your custom vocabulary\.
 
 ```
 aws transcribe create-vocabulary \
@@ -95,7 +95,7 @@ aws transcribe get-vocabulary \
 
 ### AWS SDK for Python \(Boto3\)<a name="vocab-create-list-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to create a custom vocabulary from a list using the [create\_vocabulary](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary) method\. For more information, see [CreateVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to create a custom vocabulary from a list using the [create\_vocabulary](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 

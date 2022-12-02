@@ -89,14 +89,14 @@ You can use automatic language identification in a batch transcription job using
    You have the option to select multiple language options \(from the *Select languages* drop\-down box\) if you know which languages are present in your audio file\. Providing language options can improve accuracy, but is not required\.  
 ![\[Amazon Transcribe console screenshot: the 'job settings' pane on the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-batch1.png)
 
-1. Fill in any other fields you wish to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.  
+1. Fill in any other fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.  
 ![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-configure-batch.png)
 
 1. Select **Create job** to run your transcription job\. 
 
 ### AWS CLI<a name="lang-id-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `IdentifyLanguage` parameter\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [LanguageIdSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html)\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `IdentifyLanguage` parameter\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html)\.
 
 **Option 1**: Without the `language-id-settings` parameter\. Use this option if you are **not** including a custom language model, custom vocabulary, or custom vocabulary filter in your request\. `language-options` is optional, but recommended\.
 
@@ -182,7 +182,7 @@ The file *my\-first\-language\-id\-job\.json* contains the following request bod
 
 ### AWS SDK for Python \(Boto3\)<a name="lang-id-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to identify your file's language using the `IdentifyLanguage` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [LanguageIdSettings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to identify your file's language using the `IdentifyLanguage` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 

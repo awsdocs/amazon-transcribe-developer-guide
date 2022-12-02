@@ -3,12 +3,12 @@
 If your audio has multiple channels, you can use *channel identification* to transcribe the speech from each of those channels\. Amazon Transcribe partitions the speech from each channel and transcribes that speech in separate transcriptions\. It combines those transcriptions into a single transcription output\.
 
  You can enable channel identification for both batch processing and real\-time streaming\. The following list describes how to enable it for each method\.
-+ Batch transcription \- [AWS Management Console](https://console.aws.amazon.com/transcribe/) and [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API
-+ Streaming transcription \- WebSocket streaming and [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API
++ Batch transcription \- [AWS Management Console](https://console.aws.amazon.com/transcribe/) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API
++ Streaming transcription \- WebSocket streaming and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API
 
 ## Transcribing multi\-channel audio<a name="channel-id-batch"></a>
 
-To transcribe multi\-channel audio in a batch transcription job, use the [AWS Management Console](https://console.aws.amazon.com/transcribe/) or the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API\.
+To transcribe multi\-channel audio in a batch transcription job, use the [AWS Management Console](https://console.aws.amazon.com/transcribe/) or the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API\.
 
 ### AWS Management Console<a name="channel-id-batch-console"></a>
 
@@ -33,7 +33,7 @@ To use the AWS Management Console to enable channel identification in your batch
 ### API<a name="channel-id-batch-api"></a>
 
 **To transcribe multi\-channel audio \(API\)**
-+ For the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, specify the following\.
++ For the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, specify the following\.
 
   1. For `TranscriptionJobName`, specify a name unique to your AWS account\.
 
@@ -197,11 +197,11 @@ For each channel in the transcription output, Amazon Transcribe returns a list o
 
 ## Transcribing multi\-channel audio streams<a name="channel-id-stream"></a>
 
-You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\.
+You can transcribe audio from separate channels in either HTTP/2 or WebSocket streams using the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\.
 
 ### Transcribing multi\-channel audio in an HTTP/2 stream<a name="channel-id-http2"></a>
 
-To transcribe multi\-channel audio in an HTTP/2 stream, use the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API and specify the following:
+To transcribe multi\-channel audio in an HTTP/2 stream, use the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API and specify the following:
 + `LanguageCode` \- The language code of the audio\.
 + `MediaEncoding` \- The encoding of the audio\.
 + `EnableChannelIdentification` \- `true`
@@ -233,7 +233,7 @@ Parameter descriptions:
 + **x\-amz\-content\-sha256**: This is a generated field\. To learn more about calculating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
 + **x\-amz\-date**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 + **x\-amzn\-transcribe\-session\-id**: The name for your streaming session\.
-+ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md) for a list of valid values\.
++ **x\-amzn\-transcribe\-language\-code**: The encoding used for your input audio\. Refer to [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) or [Supported languages and language\-specific features](supported-languages.md) for a list of valid values\.
 + **x\-amzn\-transcribe\-media\-encoding**: The encoding used for your input audio\. Valid values are `pcm`, `ogg-opus`, and `flac`\.
 + **x\-amzn\-transcribe\-sample\-rate**: The sample rate of the input audio \(in Hertz\)\. Amazon Transcribe supports a range from 8,000 Hz to 48,000 Hz\. Low\-quality audio, such as telephone audio, is typically around 8,000 Hz\. High\-quality audio typically ranges from 16,000 Hz to 48,000 Hz\. Note that the sample rate you specify **must** match that of your audio\.
 + **x\-amzn\-transcribe\-enable\-channel\-identification**: To enable channel identification, this field must be `true`\.

@@ -7,7 +7,20 @@ Streaming can include pre\-recorded media \(movies, music, and podcasts\) and re
 Streaming content is delivered as a series of sequential data packets, or 'chunks,' that Amazon Transcribe transcribes instantaneously\. The advantages to using streaming over batch include real\-time speech\-to\-text capabilities in your applications and faster transcription times\. However, this increased speed may have accuracy limitations in some cases\.
 
 Amazon Transcribe offers the following options for streaming:
-+ [AWS SDKs]()
++ [AWS SDKs](http://aws.amazon.com/developer/tools/) \(see also [ Supported programming languages  Amazon Transcribe supports the following AWS SDKs: 
+
+
+| Batch transcriptions | Streaming transcriptions | 
+| --- | --- | 
+| [AWS Command Line Interface \(CLI\)](https://docs.aws.amazon.com/cli/latest/reference/transcribe/index.html#cli-aws-transcribe) | The CLI is not supported for streaming\. | 
+| [C\+\+](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_transcribe_service.html) | [C\+\+](https://github.com/aws/aws-sdk-cpp/tree/master/aws-cpp-sdk-transcribestreaming) | 
+| [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribeservice/) | [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/) | 
+| [Java V2](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/transcribe/TranscribeClient.html) | [Java V2](https://github.com/aws/aws-sdk-java-v2/tree/master/services/transcribestreaming) | 
+| [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TranscribeService.html) | [JavaScript V3](https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-transcribe-streaming) | 
+| [PHP V3](https://docs.aws.amazon.com/aws-sdk-php/v3/api/namespace-Aws.TranscribeService.html) | [PHP V3](https://github.com/aws/aws-sdk-php/releases/tag/3.172.4) | 
+| [Python Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html) | [Python Streaming SDK for Amazon Transcribe](https://github.com/awslabs/amazon-transcribe-streaming-sdk) | 
+| [Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeService.html) | [Ruby V3](https://github.com/aws/aws-sdk-ruby/tree/version-3/gems/aws-sdk-transcribestreamingservice) | 
+| [\.NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/TranscribeService/NTranscribeService.html) | \.NET is not supported for streaming\. |  For more information on using SDKs with Amazon Transcribe, refer to [Transcribing with the AWS SDKs](getting-started-sdk.md)\. ](supported-languages.md#supported-sdks)\)
 + [HTTP/2](streaming-http2.md)
 + [WebSockets](streaming-websocket.md)
 + [AWS Management Console](https://console.aws.amazon.com/transcribe/)
@@ -23,7 +36,9 @@ Audio formats supported for streaming transcriptions are:
 Lossless formats \(FLAC or PCM\) are recommended\.
 
 **Note**  
-Streaming transcriptions are not supported with all languages\. See [Supported languages and language\-specific features](supported-languages.md) for details\.
+Streaming transcriptions are not supported with all languages\. Refer to the 'Data input' column in the [supported languages table](supported-languages.md) for details\.
+
+To view the Amazon Transcribe Region availability for streaming transcriptions, see: [Amazon Transcribe Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region)\.
 
 ## Streaming and partial results<a name="streaming-partial-results"></a>
 
@@ -41,7 +56,7 @@ Welcome to Amazon transcribe.
 Welcome to Amazon transcribe.
 ```
 
-These partial results are present in your transcription output within the [Results](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_Result.html) objects\. Also in this object block is an **IsPartial** field\. If this field is true, your transcription segment is not yet complete\. You can view the difference between an incomplete and a complete segment below:
+These partial results are present in your transcription output within the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_Result.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_Result.html) objects\. Also in this object block is an **IsPartial** field\. If this field is true, your transcription segment is not yet complete\. You can view the difference between an incomplete and a complete segment below:
 
 ```
 "IsPartial": true (incomplete segment)

@@ -39,6 +39,8 @@ Amazon Transcribe only supports one stream per WebSocket session\. If you attemp
    &media-encoding=flac
    &sample-rate=16000
    ```
+**Note**  
+The maximum value for `X-Amz-Expires` is 300 \(5 minutes\)\.
 
    Additional operations and parameters are listed in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html); parameters common to all AWS API operations are listed in the [Common Parameters](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonParameters.html) section\.
 

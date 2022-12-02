@@ -27,7 +27,7 @@ To use a custom vocabulary filter with a batch transcription, see the following 
 
 ### AWS CLI<a name="vocab-filter-using-cli"></a>
 
-This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Settings` parameter with the `VocabularyFilterName` and `VocabularyFilterMethod` sub\-parameters\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [Settings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html)\.
+This example uses the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `Settings` parameter with the `VocabularyFilterName` and `VocabularyFilterMethod` sub\-parameters\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html)\.
 
 ```
 aws transcribe start-transcription-job \
@@ -40,7 +40,7 @@ aws transcribe start-transcription-job \
 --settings VocabularyFilterName=my-first-vocabulary-filter,VocabularyFilterMethod=mask
 ```
 
-Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that includes your custom vocabulary with that job\.
+Here's another example using the [start\-transcription\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that includes your custom vocabulary filter with that job\.
 
 ```
 aws transcribe start-transcription-job \
@@ -68,7 +68,7 @@ The file *my\-first\-vocabulary\-filter\-job\.json* contains the following reque
 
 ### AWS SDK for Python \(Boto3\)<a name="vocab-filter-using-python-batch"></a>
 
-This example uses the AWS SDK for Python \(Boto3\) to include a custom vocabulary filter using the `Settings` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [Settings](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html)\.
+This example uses the AWS SDK for Python \(Boto3\) to include a custom vocabulary filter using the `Settings` argument for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method\. For more information, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html)\.
 
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.
 
@@ -116,13 +116,13 @@ To use a custom vocabulary filter with a streaming transcription, see the follow
 1. Toggle on **Vocabulary filtering**\. Select a custom vocabulary filter from the drop\-down menu and specify the filtration method\.  
 ![\[Amazon Transcribe console screenshot: the expanded 'content removal settings' pane.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-stream.png)
 
-   Include any other settings you wish to apply to your stream\.
+   Include any other settings you want to apply to your stream\.
 
 1. You're now ready to transcribe your stream\. Select **Start streaming** and begin speaking\. To end your dictation, select **Stop streaming**\.
 
 ### HTTP/2 stream<a name="vocab-filter-using-http2"></a>
 
-This example creates an HTTP/2 request that includes your custom vocabulary filter and filter method\. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-http2.md)\. For more detail on parameters and headers specific to Amazon Transcribe, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates an HTTP/2 request that includes your custom vocabulary filter and filter method\. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-http2.md)\. For more detail on parameters and headers specific to Amazon Transcribe, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 POST /stream-transcription HTTP/2
@@ -144,7 +144,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ### WebSocket stream<a name="vocab-filter-using-websocket"></a>
 
-This example creates a pre\-signed URL that applies your custom vocabulary to a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a pre\-signed URL that applies your custom vocabulary to a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

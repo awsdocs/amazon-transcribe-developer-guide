@@ -1,6 +1,6 @@
 # Using a text file to create a medical custom vocabulary<a name="create-med-custom-vocabulary"></a>
 
-To create a custom vocabulary, you must have prepared a text file that contains a collection a words or phrases\. Amazon Transcribe Medical uses this text file to create a custom vocabulary that you can use to improve the transcription accuracy of those words or phrases\. You can create a custom vocabulary using the [CreateMedicalVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html) API or the Amazon Transcribe Medical console\.
+To create a custom vocabulary, you must have prepared a text file that contains a collection a words or phrases\. Amazon Transcribe Medical uses this text file to create a custom vocabulary that you can use to improve the transcription accuracy of those words or phrases\. You can create a custom vocabulary using the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html) API or the Amazon Transcribe Medical console\.
 
 ## AWS Management Console<a name="create-med-custom-vocab-console"></a>
 
@@ -23,7 +23,7 @@ You can see the processing status of your custom vocabulary in the AWS Managemen
 ## API<a name="create-med-custom-vocab-api"></a>
 
 **To create a medical custom vocabulary \(API\)**
-+ For the [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, specify the following\.
++ For the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API, specify the following\.
 
   1. For `LanguageCode`, specify `en-US`\.
 
@@ -31,7 +31,7 @@ You can see the processing status of your custom vocabulary in the AWS Managemen
 
   1. For `VocabularyName`, specify a name for your custom vocabulary\. The name you specify must be unique within your AWS account\.
 
-To see the processing status of your custom vocabulary, use the [GetMedicalVocabulary](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalVocabulary.html) API\.
+To see the processing status of your custom vocabulary, use the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetMedicalVocabulary.html) API\.
 
 The following is an example request using the AWS SDK for Python \(Boto3\) to create a custom vocabulary\.
 

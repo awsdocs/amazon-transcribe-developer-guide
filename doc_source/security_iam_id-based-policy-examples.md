@@ -4,7 +4,7 @@ By default, users and roles don't have permission to create or modify Amazon Tra
 
 To learn how to create an IAM identity\-based policy by using these example JSON policy documents, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*\.
 
-For details about actions and resource types defined by Amazon Transcribe, including the format of the ARNs for each of the resource types, see in the *Service Authorization Reference*\.
+For details about actions and resource types defined by Amazon Transcribe, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for Amazon Transcribe](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazontranscribe.html) in the *Service Authorization Reference*\.
 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
@@ -68,9 +68,11 @@ You can also create your own custom IAM policies to allow permissions for Amazon
 
 When you create an IAM user to call Amazon Transcribe, the identity must have permission to access the Amazon S3 bucket and the KMS key used to encrypt the contents of the bucket, if you provided one\. 
 
-### Trust policy<a name="trust-policy"></a>
+### Trust policies<a name="trust-policy"></a>
 
-The IAM entity you use to make your transcription request must have a trust policy that enables Amazon Transcribe to assume that role\. Use the following trust policy\.
+The IAM entity you use to make your transcription request must have a trust policy that enables Amazon Transcribe to assume that role\. Use the following Amazon Transcribe trust policy\. Note that if you're making a real\-time Call Analytics request with post\-call analytics enabled, you must use 'Trust policy for real\-time Call Analytics'\.
+
+**Trust policy for Amazon Transcribe**
 
 ```
 {
@@ -81,6 +83,35 @@ The IAM entity you use to make your transcription request must have a trust poli
       "Principal": {
         "Service": [
           "transcribe.amazonaws.com"
+        ]
+      },
+      "Action": [
+        "sts:AssumeRole"
+      ],      
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "aws:SourceArn": "arn:aws:transcribe:us-west-2:111122223333:*"
+        }
+      }
+    }
+  ]
+}
+```
+
+**Trust policy for real\-time Call Analytics**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "transcribe.streaming.amazonaws.com"
         ]
       },
       "Action": [

@@ -142,10 +142,10 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 ## Chinese, Mandarin \(Mainland China\), Simplified character set<a name="char-chinese-man-cn"></a>
 
 For Chinese \(Simplified\) custom vocabularies, the `Phrase` field can use any of the characters listed in the following file on GitHub\.
-+ [zh\-cn\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/zh-cn-character-set.txt) 
++ [zh\-cn\-character\-set](samples/zh-cn-character-set.zip)
 
 The `SoundsLike` field can contain the pinyin syllables listed in the following file on GitHub\.
-+ [pinyin\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/pinyin-set.txt) 
++ [pinyin\-character\-set](samples/pinyin-character-set.zip)
 
 When you use pinyin syllables in the `SoundsLike` field, separate the syllables with a hyphen \(\-\)\.
 
@@ -177,10 +177,10 @@ Phrase       SoundsLike               IPA     DisplayAs
 ## Chinese, Mandarin \(Taiwan\), Traditional character set<a name="char-chinese-man-tw"></a>
 
  For Chinese \(Traditional\) custom vocabularies, the `Phrase` field can use any of the characters listed in the following file on GitHub\.
-+ [zh\-tw\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/zh-tw-character-set.txt) 
++ [zh\-tw\-character\-set](samples/zh-tw-character-set.zip)
 
 The `SoundsLike` field can contain the zhuyin syllables listed in the following file on GitHub\.
-+ [zhuyin\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/zhuyin-set.txt) 
++ [zhuyin\-character\-set](samples/zhuyin-character-set.zip)
 
 When you use zhuyin syllables in the `SoundsLike` field, separate the syllables with a hyphen \(\-\)\.
 
@@ -716,7 +716,7 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 For Japanese custom vocabularies, the `DisplayAs` field supports all hiragana, katakana, and kanji characters, and fullwidth romaji capital letters\.
 
  The `Phrase` field supports the characters listed in the following file:
-+ [ ja\-jp\-character\-set\.txt](https://github.com/awsdocs/amazon-transcribe-developer-guide/blob/master/doc_source/ja-jp-character-set.txt) 
++ [ja\-jp\-character\-set](samples/ja-jp-character-set.zip)
 
 The `SoundsLike` field supports lowercase romaji characters, as listed here:
 + a \- k
@@ -959,7 +959,7 @@ You can also use the following Unicode characters in the `Phrase` and `SoundsLik
 | --- | --- | --- | --- | 
 | Á | 00C1 | á | 00E1 | 
 | É | 00C9 | é | 00E9 | 
-| Í | 00CD | ë | 00ED | 
+| Í | 00CD | í | 00ED | 
 | Ó | 00D3 | ó | 0XF3 | 
 | Ú | 00DA | ú | 00FA | 
 | Ñ | 00D1 | ñ | 0XF1 | 

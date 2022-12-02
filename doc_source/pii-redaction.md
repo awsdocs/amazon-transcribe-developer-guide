@@ -12,8 +12,6 @@ To learn more about PII redaction or identification with streaming transcription
 The redaction feature is designed to identify and remove sensitive data\. However, due to the predictive nature of machine learning, Amazon Transcribe may not identify and remove all instances of sensitive data in your transcript\. We strongly recommend that you review any redacted output to ensure it meets your needs\.  
 The redaction feature does not meet the requirements for de\-identification under medical privacy laws, such as the U\.S\. Health Insurance Portability and Accountability Act of 1996 \(HIPAA\)\.
 
-Redaction is supported with US English \(en\-US\) only\.
-
 For a video walkthrough of redacting and identifying PII, see:
 
 [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/4H8dQoeLkyM/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/4H8dQoeLkyM)

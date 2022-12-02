@@ -2,16 +2,11 @@
 
 The following code examples show how to use Amazon Transcribe with an AWS software development kit \(SDK\)\. 
 
-The examples are divided into the following categories:
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-**Actions**  
-Code excerpts that show you how to call individual service functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
-**Scenarios**  
-Code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
-
-**Cross\-service examples**  
-Sample applications that work across multiple AWS services\.
+*Cross\-service examples* are sample applications that work across multiple AWS services\.
 
 For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section)\. This topic also includes information about getting started and details about previous SDK versions\.
 
@@ -26,6 +21,7 @@ For a complete list of AWS SDK developer guides and code examples, see [Using th
   + [List custom vocabularies](example_transcribe_ListVocabularies_section.md)
   + [List medical transcription jobs](example_transcribe_ListMedicalTranscriptionJobs_section.md)
   + [List transcription jobs](example_transcribe_ListTranscriptionJobs_section.md)
+  + [Produce real\-time transcriptions](example_transcribe_StartStreamTranscriptionAsync_section.md)
   + [Start a medical transcription job](example_transcribe_StartMedicalTranscriptionJob_section.md)
   + [Start a transcription job](example_transcribe_StartTranscriptionJob_section.md)
   + [Update a custom vocabulary](example_transcribe_UpdateVocabulary_section.md)

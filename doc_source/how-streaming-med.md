@@ -9,7 +9,7 @@ When Amazon Transcribe Medical uses the [HTTP/2 protocol](https://http2.github.i
 
 ## Streaming request<a name="streaming-med-request"></a>
 
-To make a streaming request, you use the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\. 
+To make a streaming request, you use the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\. 
 
 ### Header frame<a name="streaming-med-header"></a>
 
@@ -38,7 +38,7 @@ In the request, use the following values for the `host`, `authorization`, and `x
 + **authorization**: This is a generated field\. To learn more about creating a signature, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)\.
 + **`x-amz-date`**: The date and time the signature is created\. The format is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute, SS=seconds, and 'T' and 'Z' are fixed characters\. For more information, refer to [Handling Dates in Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-date-handling.html)\.
 
-For more information about the headers specific to Amazon Transcribe Medical, see the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
+For more information about the headers specific to Amazon Transcribe Medical, see the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
 
 ### Data frames<a name="streaming-med-data"></a>
 
@@ -118,7 +118,7 @@ To indicate that the audio stream is complete, send an end frame to Amazon Trans
 
 ## Streaming response<a name="streaming-med-response"></a>
 
-Responses from Amazon Transcribe Medical are also sent using event stream encoding\. Use this information to decode a response from the [StartMedicalStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
+Responses from Amazon Transcribe Medical are also sent using event stream encoding\. Use this information to decode a response from the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
 
 ### Transcription response<a name="transcription-response"></a>
 
