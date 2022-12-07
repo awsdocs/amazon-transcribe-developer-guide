@@ -28,13 +28,13 @@ In the following table, 'batch' refers to transcribing a media file located in a
 | [French](charsets.md#char-french) | fr\-FR | batch, streaming | no | batch, streaming | no | no | post\-call, real\-time | 
 | [French](charsets.md#char-french), Canadian | fr\-CA | batch, streaming | no | batch, streaming | no | no | post\-call, real\-time | 
 | [Farsi](charsets.md#char-farsi) | fa\-IR | batch | no | no | no | no | no | 
-| [German](charsets.md#char-german) | de\-DE | batch, streaming | batch, streaming | batch, streaming | no | no | post\-call, real\-time | 
+| [German](charsets.md#char-german) | de\-DE | batch, streaming | batch, streaming | batch, streaming | batch, streaming | no | post\-call, real\-time | 
 | [German](charsets.md#char-german), Swiss | de\-CH | batch | batch | batch | no | no | post\-call | 
 | [Hebrew](charsets.md#char-hebrew) | he\-IL | batch | no | no | no | no | no | 
 | [Hindi](charsets.md#char-hindi), Indian | hi\-IN | batch, streaming | no | batch, streaming | batch | no | post\-call | 
 | [Indonesian](charsets.md#char-indonesian) | id\-ID | batch | no | batch | no | no | no | 
 | [Italian](charsets.md#char-italian) | it\-IT | batch, streaming | no | batch, streaming | no | no | post\-call, real\-time | 
-| [Japanese](charsets.md#char-japanese) | ja\-JP | batch, streaming | no | no | no | no | post\-call | 
+| [Japanese](charsets.md#char-japanese) | ja\-JP | batch, streaming | no | no | batch, streaming | no | post\-call | 
 | [Korean](charsets.md#char-korean) | ko\-KR | batch, streaming | no | no | no | no | post\-call | 
 | [Malay](charsets.md#char-malay) | ms\-MY | batch | no | batch | no | no | no | 
 | [Portuguese](charsets.md#char-portuguese) | pt\-PT | batch | no | batch | no | no | post\-call | 
