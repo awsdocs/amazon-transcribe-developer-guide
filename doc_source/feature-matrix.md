@@ -13,6 +13,7 @@ In the following table, 'batch' refers to transcribing a file that is located in
 | [Channel identification](channel-id.md) | batch, streaming | batch, streaming | post\-call, real\-time | 
 | [Job queueing](job-queueing.md) | batch | No | post\-call | 
 | [Speaker diarization](diarization.md) | batch, streaming | batch, streaming | post\-call | 
+| [Alternative transcriptions](alternatives.md) | batch, streaming | batch, streaming | No | 
 | [Transcribing digits](how-numbers.md)2 | batch, streaming | batch, streaming | post\-call, real\-time | 
 | Conversation analytics | 
 | [Issue detection](call-analytics.md) \(action items, issue detection, outcomes\)2 | No | No | post\-call, real\-time | 

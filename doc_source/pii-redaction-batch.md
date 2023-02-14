@@ -2,7 +2,7 @@
 
 When redacting personally identifiable information \(PII\) from a transcript during a batch transcription job, Amazon Transcribe replaces each identified instance of PII with `[PII]` in the main text body of your transcript\. You can also view the type of PII that is redacted in the word\-for\-word portion of the transcription output\. For an output sample, see [Example redacted batch output](pii-redaction-output.md#pii-redaction-output-batch)\.
 
-Redaction with batch transcriptions is available with US English \(`en-US`\)\.
+Redaction with batch transcriptions is available with US English \(`en-US`\)\. Redaction is not compatible with [language identification](lang-id-batch.md)\.
 
 Both redacted and unredacted transcripts are stored in the same output Amazon S3 bucket\. Amazon Transcribe stores them in either a bucket you specify or in the default Amazon S3 bucket managed by the service\.
 

@@ -18,7 +18,7 @@ When you create a custom vocabulary, make sure that you:
 
 Make sure that the values that you enter for each column:
 + Have fewer than 256 characters, including hyphens
-+ Use only characters from the allowed character set, see [Character sets for Amazon Transcribe Medical](charsets-med.md)\.
++ Use only characters from the allowed character set, see [Character set for Amazon Transcribe Medical](charsets-med.md)\.
 
 ## Entering values for the columns of the table<a name="entering-vocabulary-values-med"></a>
 
@@ -29,17 +29,17 @@ The following information shows you how to specify values for the four columns o
 
   Enter acronyms or other words whose letters should be pronounced individually as single letters followed by dots, such as **D\.N\.A\.** or **S\.T\.E\.M\.I\.**\. To enter the plural form of an acronym, such as "STEMIs," separate the "s" from the acronym with a hyphen: "**S\.T\.E\.M\.I\-s**" You can use either uppercase or lowercase letters for acronyms\.
 
-  The `Phrase` column is required\. You can use any of the allowed characters for the input language\. For allowed characters, see [Character sets for Amazon Transcribe Medical](charsets-med.md)\. If you don't specify the `DisplayAs` column, Amazon Transcribe Medical uses the contents of the `Phrase` column in the output file\.
+  The `Phrase` column is required\. You can use any of the allowed characters for the input language\. For allowed characters, see [Character set for Amazon Transcribe Medical](charsets-med.md)\. If you don't specify the `DisplayAs` column, Amazon Transcribe Medical uses the contents of the `Phrase` column in the output file\.
 + `IPA` \(column required, values can be optional\) – To specify the pronunciation of a word or phrase, you can include characters in the [International Phonetic Alphabet \(IPA\)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) in this column\. The `IPA` column can't contain leading or trailing spaces, and you must use a single space to separate each phoneme in the input\. For example, in English you would enter the phrase **acute\-respiratory\-distress\-syndrome** as **ə k j u t ɹ ɛ s p ɪ ɹ ə t ɔ ɹ i d ɪ s t ɹ ɛ s s ɪ n d ɹ oʊ m**\. You would enter the phrase **A\.L\.L\.** as **eɪ ɛ l ɛ l**\.
 
   Even if you don't specify the contents of the `IPA` column, you must include a blank `IPA` column\. If you include values in the `IPA` column, you can't provide values for the `SoundsLike` column\.
 
-  For a list of allowed IPA characters for a specific language, see [Character sets for Amazon Transcribe Medical](charsets-med.md)\. US English is the only language available in Amazon Transcribe Medical\.
+  For a list of allowed IPA characters for a specific language, see [Character set for Amazon Transcribe Medical](charsets-med.md)\. US English is the only language available in Amazon Transcribe Medical\.
 + `SoundsLike` \(column required, values can be optional\) – You can break a word or phrase down into smaller segments and provide a pronunciation for each segment using the standard orthography of the language to mimic the way that the word sounds\. For example, you can provide pronunciation hints for the phrase **cerebral\-autosomal\-dominant\-arteriopathy\-with\-subcortical\-infarcts\-and\-leukoencephalopathy** like this: **sir\-e\-brul\-aut\-o\-som\-ul\-dah\-mi\-nant\-ar\-ter\-ri\-o\-pa\-thy\-with\-sub\-cor\-ti\-cul\-in\-farcts\-and\-lewk\-o\-en\-ce\-phul\-ah\-pu\-thy**\. The hint for the phrase **atrioventricular\-nodal\-reentrant\-tachycardia** would look like this: **ay\-tree\-o\-ven\-trick\-u\-lar\-node\-al\-re\-entr\-ant\-tack\-ih\-card\-ia**\. You separate each part of the hint with a hyphen \(\-\)\. 
 
   Even if you don't provide values for the `SoundsLike` column, you must include a blank `SoundsLike` column\. If you include values in the `SoundsLike` column, you can't provide values for the `IPA` column\. 
 
-  You can use any of the allowed characters for the input language\. For the list of allowed characters, see [Character sets for Amazon Transcribe Medical](charsets-med.md)\.
+  You can use any of the allowed characters for the input language\. For the list of allowed characters, see [Character set for Amazon Transcribe Medical](charsets-med.md)\.
 + `DisplayAs` \(column required, values can be optional\) – Defines how the word or phrase looks when it's output\. For example, if the word or phrase is **cerebral\-autosomal\-dominant\-arteriopathy\-with\-subcortical\-infarcts\-and\-leukoencephalopathy**, you can specify the display form as `cerebral autosomal dominant arteriopathy with subcortical infarcts and leukoencephalopathy`, so that the hyphen is not present\. You can also specify `DisplayAs` as `CADASIL` if you'd like to show the acronym instead of the full term in the output\.
 
   If you don't specify the `DisplayAs` column, Amazon Transcribe Medical uses the `Phrase` column from the input file in the output\.

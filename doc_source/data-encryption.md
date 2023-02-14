@@ -20,7 +20,7 @@ Amazon Transcribe works with KMS keys to provide enhanced encryption for your da
 
 If you don't specify a KMS key, the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.
 
-For more information on AWS KMS, see the [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)\.
+For more information on AWS KMS, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)*\.
 
 ### Key management using the AWS Management Console<a name="kms-console"></a>
 
@@ -55,7 +55,7 @@ If using a key located in a **different** AWS account than the current AWS accou
 
 1. Use the ARN for the KMS key alias\. For example, `arn:aws:kms:region:account-ID:alias/ExampleAlias`\.
 
-Note that the user making the request must have permission to use the specified KMS key\.
+Note that the entity making the request must have permission to use the specified KMS key\.
 
 ## AWS KMS encryption context<a name="kms-context"></a>
 

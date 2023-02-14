@@ -1,6 +1,6 @@
 # Transcribing with the AWS CLI<a name="getting-started-cli"></a>
 
-When using the AWS CLI to start a transcription, you can either run all commands at the CLI level or you can run the Amazon Transcribe command you want to use followed by the AWS Region and the location of a JSON file that contains a request body\. Examples throughout this guide show both methods; however, this section focuses on the former method\.
+When using the AWS CLI to start a transcription, you can either run all commands at the CLI level or you can run the command you want to use followed by the AWS Region and the location of a JSON file that contains a request body\. Examples throughout this guide show both methods; however, this section focuses on the former method\.
 
 The AWS CLI does not support streaming transcriptions\.
 

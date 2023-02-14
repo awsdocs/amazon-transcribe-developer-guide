@@ -9,7 +9,6 @@ For details about actions and resource types defined by Amazon Transcribe, inclu
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
 + [Using the AWS Management Console](#security_iam_id-based-policy-examples-console)
-+ [AWS\-managed \(predefined\) policies for Amazon Transcribe](#auth-managed-policies)
 + [Permissions required for IAM user roles](#auth-role-iam-user)
 + [Permissions required for Amazon S3 encryption keys](#auth-role-kms-key)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
@@ -24,7 +23,7 @@ Identity\-based policies determine whether someone can create, access, or delete
 + **Apply least\-privilege permissions** – When you set permissions with IAM policies, grant only the permissions required to perform a task\. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as *least\-privilege permissions*\. For more information about using IAM to apply permissions, see [ Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
 + **Use conditions in IAM policies to further restrict access** – You can add a condition to your policies to limit access to actions and resources\. For example, you can write a policy condition to specify that all requests must be sent using SSL\. You can also use conditions to grant access to service actions if they are used through a specific AWS service, such as AWS CloudFormation\. For more information, see [ IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 + **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions** – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language \(JSON\) and IAM best practices\. IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help you author secure and functional policies\. For more information, see [IAM Access Analyzer policy validation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html) in the *IAM User Guide*\.
-+ **Require multi\-factor authentication \(MFA\)** – If you have a scenario that requires IAM users or root users in your account, turn on MFA for additional security\. To require MFA when API operations are called, add MFA conditions to your policies\. For more information, see [ Configuring MFA\-protected API access](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html) in the *IAM User Guide*\.
++ **Require multi\-factor authentication \(MFA\)** – If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security\. To require MFA when API operations are called, add MFA conditions to your policies\. For more information, see [ Configuring MFA\-protected API access](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html) in the *IAM User Guide*\.
 
 For more information about best practices in IAM, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
 
@@ -34,39 +33,18 @@ To access the Amazon Transcribe console, you must have a minimum set of permissi
 
 You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\.
 
-To ensure that an entity \(users and roles\) can use the [AWS Management Console](https://console.aws.amazon.com/transcribe/), attach the following AWS\-managed policy to them\. For more information, see [Adding Permissions to a User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *AWS Identity and Access Management User Guide*\.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "transcribe:*"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}
-```
-
-## AWS\-managed \(predefined\) policies for Amazon Transcribe<a name="auth-managed-policies"></a>
-
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These policies are called AWS managed policies\. Managed policies make it easier for you to assign appropriate permissions to users, groups, and roles than if you had to write the policies yourself\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *AWS Identity and Access Management User Guide*\.
-
-The following AWS\-managed policies, which you can attach to entities in your AWS account, are specific to Amazon Transcribe:
-+ **AmazonTranscribeReadOnly**: Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.
-+ **AmazonTranscribeFullAccess**: Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon S3 buckets with `transcribe` in the bucket name\.
+To ensure that an entity \(users and roles\) can use the [AWS Management Console](https://console.aws.amazon.com/transcribe/), attach one of the following AWS\-managed policies to them\.
++ `AmazonTranscribeFullAccess`: Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon S3 buckets with `transcribe` in the bucket name\.
++ `AmazonTranscribeReadOnlyAccess`: Grants read\-only access to Amazon Transcribe resources so that you can get and list transcription jobs and custom vocabularies\.
 
 **Note**  
 You can review the managed permission policies by signing in to the IAM AWS Management Console and searching by policy name\. A search for "transcribe" returns both policies listed above \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
 
-You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the entities that require those permissions\.
+You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the entities that require those permissions\. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 ## Permissions required for IAM user roles<a name="auth-role-iam-user"></a>
 
-When you create an IAM user to call Amazon Transcribe, the identity must have permission to access the Amazon S3 bucket and the KMS key used to encrypt the contents of the bucket, if you provided one\. 
+If you create an IAM role to call Amazon Transcribe, it must have permission to access the Amazon S3 bucket and, if applicable, the KMS key used to encrypt the contents of the bucket\. Refer to the following sections for example policies\.
 
 ### Trust policies<a name="trust-policy"></a>
 
@@ -233,7 +211,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 ## AWS KMS encryption context policy<a name="kms-context-policy"></a>
 
-The following policy grants the IAM role “`ExampleRole`” permission to use the AWS KMS *Decrypt* and *Encrypt* operations for this particular KMS key\. This policy works **only** for requests with at least one encryption context pair, in this case "`color:indig0Blu3`”\. For more information on AWS KMS encryption context, see [AWS KMS encryption context](data-encryption.md#kms-context)\.
+The following policy grants the IAM role “`ExampleRole`” permission to use the AWS KMS *Decrypt* and *Encrypt* operations for this particular KMS key\. This policy works **only** for requests with at least one encryption context pair, in this case "`color:indigoBlue`”\. For more information on AWS KMS encryption context, see [AWS KMS encryption context](data-encryption.md#kms-context)\.
 
 ```
 {
@@ -254,7 +232,7 @@ The following policy grants the IAM role “`ExampleRole`” permission to use t
           "Resource": "*",
           "Condition": {
               "StringEquals": {
-                  "kms:EncryptionContext:color":"indig0Blu3"
+                  "kms:EncryptionContext:color":"indigoBlue"
               }
            }
         }
@@ -295,7 +273,7 @@ Here's an example of an assume role policy that shows how you can use `aws:Sourc
 
 You can use conditions in your identity\-based policy to control access to Amazon Transcribe resources based on tags\. This example shows how you might create a policy that allows viewing a transcription job\. However, permission is granted only if the transcription job tag `Owner` has the value of that user's user name\. This policy also grants the permissions necessary to complete this action using the AWS Management Console\.
 
-You can attach this policy to the IAM users in your account\. If a user named `richard-roe` attempts to view a transcription job, the transcription job must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise they are denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names are not case\-sensitive\. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
+You can attach this policy to the IAM entities in your account\. If a role named `test-role` attempts to view a transcription job, the transcription job must be tagged `Owner=test-role` or `owner=test-role` \(condition key names are not case\-sensitive\), otherwise they are denied access\. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
 For more information on tagging in Amazon Transcribe, see [Tagging resources](tagging.md)\.
 

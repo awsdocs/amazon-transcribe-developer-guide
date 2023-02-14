@@ -7,7 +7,7 @@ Call Analytics transcripts can't be retroactively matched to new categories\. On
 
 If you've created one or more categories, and your audio matches all the rules within at least one of your categories, Amazon Transcribe flags your output with the matching category\. If you choose not to use categories, or if your audio doesn't match the rules specified in your categories, your transcript isn't flagged\.
 
-To start a post\-call analytics transcription, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+To start a post\-call analytics transcription, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 
 ## AWS Management Console<a name="analytics-start-console-batch"></a>
 
@@ -45,7 +45,7 @@ aws transcribe start-call-analytics-job \
 --channel-definitions ChannelId=0,ParticipantRole=AGENT ChannelId=1,ParticipantRole=CUSTOMER
 ```
 
-Here's another example using the [start\-call\-analytics\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-call-analytics-job.html) command, and a request body that identifies audio channels for that job\.
+Here's another example using the [start\-call\-analytics\-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-call-analytics-job.html) command, and a request body that enables Call Analytics for that job\.
 
 ```
 aws transcribe start-call-analytics-job \

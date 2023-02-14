@@ -42,10 +42,12 @@ In the following table, 'batch' refers to transcribing a media file located in a
 | [Russian](charsets.md#char-russian) | ru\-RU | batch | no | no | no | no | no | 
 | [Spanish](charsets.md#char-spanish) | es\-ES | batch | no | batch | no | no | post\-call | 
 | [Spanish](charsets.md#char-spanish), US | es\-US | batch, streaming | no | batch, streaming | batch, streaming | no | post\-call, real\-time | 
+| [Swedish](charsets.md#char-swedish) | sv\-SE | batch | no | batch | no | no | no | 
 | [Tamil](charsets.md#char-tamil) | ta\-IN | batch | no | no | no | no | no | 
 | [Telugu](charsets.md#char-telugu) | te\-IN | batch | no | no | no | no | no | 
 | [Thai](charsets.md#char-thai) | th\-TH | batch, streaming | no | batch, streaming | no | no | no | 
 | [Turkish](charsets.md#char-turkish) | tr\-TR | batch | no | batch | no | no | no | 
+| [Vietnamese](charsets.md#char-vietnamese) | vi\-VN | batch | no | batch | no | no | no | 
 
 ## Supported programming languages<a name="supported-sdks"></a>
 
@@ -54,6 +56,7 @@ Amazon Transcribe supports the following AWS SDKs:
 
 | Batch transcriptions | Streaming transcriptions | 
 | --- | --- | 
+| [\.NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/TranscribeService/NTranscribeService.html) | \.NET is not supported for streaming\. | 
 | [AWS Command Line Interface \(CLI\)](https://docs.aws.amazon.com/cli/latest/reference/transcribe/index.html#cli-aws-transcribe) | The CLI is not supported for streaming\. | 
 | [C\+\+](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_transcribe_service.html) | [C\+\+](https://github.com/aws/aws-sdk-cpp/tree/master/aws-cpp-sdk-transcribestreaming) | 
 | [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribeservice/) | [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/) | 
@@ -62,6 +65,8 @@ Amazon Transcribe supports the following AWS SDKs:
 | [PHP V3](https://docs.aws.amazon.com/aws-sdk-php/v3/api/namespace-Aws.TranscribeService.html) | [PHP V3](https://github.com/aws/aws-sdk-php/releases/tag/3.172.4) | 
 | [Python Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html) | [Python Streaming SDK for Amazon Transcribe](https://github.com/awslabs/amazon-transcribe-streaming-sdk) | 
 | [Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeService.html) | [Ruby V3](https://github.com/aws/aws-sdk-ruby/tree/version-3/gems/aws-sdk-transcribestreamingservice) | 
-| [\.NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/TranscribeService/NTranscribeService.html) | \.NET is not supported for streaming\. | 
+|  [Rust](https://crates.io/crates/aws-sdk-transcribe)  |  [Rust](https://crates.io/crates/aws-sdk-transcribestreaming)  | 
 
-For more information on using SDKs with Amazon Transcribe, refer to [Transcribing with the AWS SDKs](getting-started-sdk.md)\.
+For information on using SDKs with Amazon Transcribe, refer to [Transcribing with the AWS SDKs](getting-started-sdk.md)\.
+
+For more information on all available AWS SDKs and builder tools, refer to [Tools to Build on AWS](http://aws.amazon.com/developer/tools)\.

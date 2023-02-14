@@ -36,7 +36,7 @@ The following quotas **cannot** be changed:
 | Number of days job records are retained | 90 | 
 | Minimum audio file duration | 500 milliseconds \(ms\) | 
 
-You can request a quota increase for the following resources:
+The following quotas **can** be increased upon request:
 
 
 | Resource | Default | 

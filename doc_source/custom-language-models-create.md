@@ -33,13 +33,16 @@ You can add more data to these buckets at a later date\. However, if you do, you
 
 ## Allowing access to your data<a name="data-permissions"></a>
 
-To create a custom language model, you must specify an IAM role that has permissions to access your Amazon S3 bucket\. If you don't already have a role with access to the Amazon S3 bucket where you placed your training data, you must create one\. After you create a role, you can attach a policy to grant that role permissions\.
+To create a custom language model, you must specify an IAM role that has permissions to access your Amazon S3 bucket\. If you don't already have a role with access to the Amazon S3 bucket where you placed your training data, you must create one\. After you create a role, you can attach a policy to grant that role permissions\. Do not attach a policy to a user\.
 
 For example policies, see [Amazon Transcribe identity\-based policy examples](security_iam_id-based-policy-examples.md)\.
 
-To learn how to create a new IAM role, see [Creating your first IAM admin user and user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) or [Creating your first IAM delegated user and user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html)\.
+To learn how to create a new IAM identity, see [IAM Identities \(users, user groups, and roles\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html)\.
 
-To learn more about policies, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-start)\.
+To learn more about policies, see:
++ [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
++ [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-start)
++ [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access)
 
 ## Creating your custom language model<a name="create-custom-language-model"></a>
 

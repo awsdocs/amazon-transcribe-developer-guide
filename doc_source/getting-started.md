@@ -3,7 +3,7 @@
 Before you can create transcriptions, you have a few prerequisites:
 + [Sign up for an AWS account](#getting-started-sign-up)
 + [Install the AWS CLI and SDKs](#getting-started-api) \(if you're using the AWS Management Console for your transcriptions, you can skip this step\)
-+ [Create an IAM user](#getting-started-iam) with administrator permissions
++ [Configure IAM credentials](#getting-started-iam)
 + [Set up an Amazon S3 bucket](#getting-started-s3)
 + [Create an IAM policy](#getting-started-policy)
 
@@ -17,18 +17,18 @@ Once you complete these prerequisites, you're ready to transcribe\. Select your 
 **Tip**  
 If you're new to Amazon Transcribe or would like to explore our features, we recommend using the [AWS Management Console](https://console.aws.amazon.com/transcribe)\. This is also the easiest option if you'd like to start a stream using your computer microphone\.
 
-Because streaming using HTTP/2 and WebSockets is more complicated than the other transcription methods, we advise reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before getting started with these methods\.
+Because streaming using HTTP/2 and WebSockets is more complicated than the other transcription methods, we advise reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before getting started with these methods\. **Note that we strongly recommend using an SDK for streaming transcriptions\.**
 
 ## Signing up for an AWS account<a name="getting-started-sign-up"></a>
 
 You can sign up for either a [free tier](http://aws.amazon.com/free/) account or a [paid account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)\. Both options give you access to all AWS services\. The free tier has a trial period during which you can explore AWS services and estimate your usage\. Once your trial period expires, you can migrate to a paid account\. Fees are accrued on a pay\-as\-you\-use basis; see [Amazon Transcribe Pricing](http://aws.amazon.com/transcribe/pricing/) for details\.
 
 **Tip**  
-When setting up your account, make note of your AWS account ID because you need it to create an IAM user or group\.
+When setting up your account, make note of your AWS account ID because you need it to create IAM entities\.
 
 ## Installing the AWS CLI and SDKs<a name="getting-started-api"></a>
 
-To use the Amazon Transcribe API, you must first install the AWS CLI\. The current AWS CLI is version 2\. You can find installation instructions for [Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html), [Mac](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html), [Windows](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html), and [Docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html) in the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)\. 
+To use the Amazon Transcribe API, you must first install the AWS CLI\. The current AWS CLI is version 2\. You can find installation instructions for [Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html), [Mac](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html), [Windows](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html), and [Docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html) in the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)*\. 
 
 Once you have the AWS CLI installed, you need to [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) it for your security credentials and AWS Region\.
 
@@ -39,17 +39,25 @@ If you want to use Amazon Transcribe with an SDK, select your preferred language
 + [Java V2](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html)
 + [JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started.html)
 + [PHP V3](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html)
-+ [AWS SDK for Python \(Boto3\)](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) \(batch transcriptions only\)
-+ [Python](https://github.com/awslabs/amazon-transcribe-streaming-sdk) \(streaming transcriptions only\)
++ [AWS SDK for Python \(Boto3\)](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) \(batch transcriptions\)
++ [Python](https://github.com/awslabs/amazon-transcribe-streaming-sdk) \(streaming transcriptions\)
 + [Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html)
++ [Rust](https://crates.io/crates/aws-sdk-transcribe) \(batch transcriptions\)
++ [Rust](https://crates.io/crates/aws-sdk-transcribestreaming) \(streaming transcriptions\)
 
-## Creating an IAM user<a name="getting-started-iam"></a>
+## Configure IAM credentials<a name="getting-started-iam"></a>
 
-IAM, or Identity and Access Management, is a means of controlling which users can access which resources\. All AWS services use IAM credentials and it is best practice to use an IAM admin user to access your resources\. To learn more about IAM, see [What is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
+When you create an AWS account, you begin with one sign\-in identity that has complete access to all AWS services and resources in your account\. This identity is called the AWS account root user and is accessed by signing in with the email address and password that you used to create the account\.
 
-You can create an IAM admin user with the AWS Management Console or AWS CLI\. For instructions, see [Creating your first IAM admin user and user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)\. For information on signing in to your account using IAM user credentials, refer to [How IAM users sign in to your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_how-users-sign-in.html)\.
+We strongly recommend that you do not use the root user for your everyday tasks\. Safeguard your root user credentials and use them to perform the tasks that only the root user can perform\.
 
-Using your AWS account root user credentials to access resources, such as a transcription request, is **not** recommended\. Creating non\-admin identities with specific \(restricted\) permissions is best practice\. For instructions on creating non\-admin identities, see [Creating your first IAM delegated user and user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html)\.
+As a best practice, require users—including those that require administrator access—to use federation with an identity provider to access AWS services by using temporary credentials\.
+
+A federated identity is any user that accesses AWS services by using credentials provided through an identity source\. When federated identities access AWS accounts, they assume roles, and the roles provide temporary credentials\.
+
+For centralized access management, we recommend that you use [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\. You can create users and groups in IAM Identity Center, or you can connect and synchronize to a set of users and groups in your own identity source for use across all your AWS accounts and applications\. For more information, see [Identity and Access Management for Amazon Transcribe](security-iam.md)\.
+
+To learn more about IAM best practices, refer to [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)\.
 
 ## Creating an Amazon S3 bucket<a name="getting-started-s3"></a>
 
@@ -61,7 +69,7 @@ Learn how to [Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/
 
 ## Creating an IAM policy<a name="getting-started-policy"></a>
 
-To manage access in AWS, you must create policies and attach them to IAM identities \(users, groups, or roles\) or AWS resources\. A policy defines the permissions of the entity it is attached to\. For example, a user can only access a media file located in your Amazon S3 bucket if you've attached a policy to that user which grants them access\. If you want to further restrict that user, you can instead limit their access to a specific file within an Amazon S3 bucket\.
+To manage access in AWS, you must create policies and attach them to IAM identities \(users, groups, or roles\) or AWS resources\. A policy defines the permissions of the entity it is attached to\. For example, a role can only access a media file located in your Amazon S3 bucket if you've attached a policy to that role which grants it access\. If you want to further restrict that role, you can instead limit its access to a specific file within an Amazon S3 bucket\.
 
 To learn more about using AWS policies see:
 + [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)

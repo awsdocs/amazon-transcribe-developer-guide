@@ -17,7 +17,7 @@ Here are a few examples of what you can do with custom categories:
 
 When creating a new category, you can specify whether you want it created as a post\-call analytics category \(`POST_CALL`\) or as a real\-time Call Analytics category \(`REAL_TIME`\)\. If you don't specify an option, your category is created as a post\-call category by default\. Post\-call analytics category matches are available in your output upon completion of your post\-call analytics transcription\.
 
-To create a new category for post\-call analytics, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+To create a new category for post\-call analytics, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 
 ## AWS Management Console<a name="tca-category-console-batch"></a>
 

@@ -95,19 +95,19 @@ Your transcription output is structured as follows\. The ellipses \(*\.\.\.*\) i
 
 ## Requesting alternative transcriptions<a name="how-alternatives-how-to"></a>
 
-You can request alternative transcriptions using the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+You can request alternative transcriptions using the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 
 ### AWS Management Console<a name="alt-transcription-console-batch"></a>
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/)\.
 
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** \(top right\)\. This opens the **Specify job details** page\.  
-![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)![\[Amazon Transcribe console screenshot: the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+![\[Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)![\[Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 1. Fill in any fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.
 
    Select **Alternative results** and specify the maximum number of alternative transcription result you want in your transcript\.  
-![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/alt-transcription-configure-batch.png)
+![\[Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable Alternative results and specify the maximum number of alternatives you want included in your transcription output.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/alt-transcription-configure-batch.png)
 
 1. Select **Create job** to run your transcription job\. 
 

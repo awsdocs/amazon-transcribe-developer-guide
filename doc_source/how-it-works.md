@@ -20,4 +20,4 @@ You can create streaming transcriptions using the [AWS Management Console](getti
 
 **API operations to get you started**  
 Batch: [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html)  
-Streaming: [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartStreamTranscription.html) 
+Streaming: [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartStreamTranscription.html), StartStreamTranscriptionWebSocket

@@ -5,14 +5,15 @@ Using a table format is the most robust way to create your custom vocabulary\. V
 
 | Phrase | SoundsLike | IPA | DisplayAs | 
 | --- | --- | --- | --- | 
-|  Required\. Every row in your table must contain an entry in this column\. Do not use spaces in this column\. If your entry contains multiple words, separate each word with a hyphen \(\-\)\. For example, **Andorra\-la\-Vella** or **Los\-Angeles**\. For acronyms, any pronounced letters must be separated by a period\. If your acronym is plural, you must use a hyphen between the acronym and the 's'\. For example, 'CLI' is **C\.L\.I\.** and 'ABCs' is **A\.B\.C\.\-s**\. If your phrase consists of both a word and an acronym, these two components must be separated by a hyphen\. For example, 'DynamoDB' is **Dynamo\-D\.B\.**\.  |  Optional\. Rows in this column can be left empty\. Do not use spaces in this column\. Include your entry as hyphen\-separated syllables that mimic how the word sounds\. It's better to use small, common words over phonetic representations\. For example, for 'Los Angeles', '**loss\-ann\-gel\-es**' is preferable to '**lahs\-ahn\-jul\-ees**'\. You cannot have an entry for both `SoundsLike` and `IPA` in the same row\.  |  Optional\. Rows in this column can be left empty\. You must add a single space between every IPA character \(single\-byte\) or valid IPA character pair \(double\-byte\)\. This column is intended for phonetic spellings using only characters in the [International Phonetic Alphabet \(IPA\)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)\. For example, 'Los Angeles' is **l ɔ s æ n ʤ ə l ə s** and 'CLI' is **s ɪ ɛ l aɪ**\. You cannot have an entry for both `IPA` and `SoundsLike` in the same row\.  |  Optional\. Rows in this column can be left empty\. You can use spaces in this column\. Defines the how you want your entry to look in your transcription output\. For example, **Andorra\-la\-Vella** in the `Phrase` column is **Andorra la Vella** in the `DisplayAs` column\. If a row in this column is empty, Amazon Transcribe uses the contents of the `Phrase` column to determine output\.  | 
+|  Required\. Every row in your table must contain an entry in this column\. Do not use spaces in this column\. If your entry contains multiple words, separate each word with a hyphen \(\-\)\. For example, **Andorra\-la\-Vella** or **Los\-Angeles**\. For acronyms, any pronounced letters must be separated by a period\. If your acronym is plural, you must use a hyphen between the acronym and the 's'\. For example, 'CLI' is **C\.L\.I\.** and 'ABCs' is **A\.B\.C\.\-s**\. If your phrase consists of both a word and an acronym, these two components must be separated by a hyphen\. For example, 'DynamoDB' is **Dynamo\-D\.B\.**\. Do not include digits in this column; numbers must be spelled out\. For example, 'VX02Q' is **V\.X\.\-zero\-two\-Q\.**\.  |  Optional\. Rows in this column can be left empty\. Do not use spaces in this column\. Include your entry as hyphen\-separated syllables that mimic how the word sounds\. It's better to use small, common words over phonetic representations\. For example, for 'Los Angeles', '**loss\-ann\-gel\-es**' is preferable to '**lahs\-ahn\-jul\-ees**'\. You cannot have an entry for both `SoundsLike` and `IPA` in the same row\.  |  Optional\. Rows in this column can be left empty\. You must add a single space between every IPA character \(single\-byte\) or valid IPA character pair \(double\-byte\)\. This column is intended for phonetic spellings using only characters in the [International Phonetic Alphabet \(IPA\)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)\. For example, 'Los Angeles' is **l ɔ s æ n ʤ ə l ə s** and 'CLI' is **s i ɛ l aɪ**\. You cannot have an entry for both `IPA` and `SoundsLike` in the same row\.  |  Optional\. Rows in this column can be left empty\. You can use spaces in this column\. Defines the how you want your entry to look in your transcription output\. For example, **Andorra\-la\-Vella** in the `Phrase` column is **Andorra la Vella** in the `DisplayAs` column\. If a row in this column is empty, Amazon Transcribe uses the contents of the `Phrase` column to determine output\. You can include digits \(`0-9`\) in this column\.  | 
 
 Things to note when creating your table:
 + Your table must contain all four columns \(Phrase, SoundsLike, IPA, and DisplayAs\), but the `Phrase` column is the only one that must contain an entry on each row\. All other columns can be left empty\.
 + In a given row, you cannot have entries for both `IPA` and `SoundsLike` fields\. You must choose one or the other, or leave both blank\.
-+ You can only use characters that are supported for your language\. Refer to your language's [character set](charsets.md) for details\.
++ The `DisplayAs` column supports symbols and special characters \(for example, C\+\+\)\. All other columns support the characters that are listed on your language's [character set](charsets.md) page\.
++ If you want to include numbers in the `Phrase` column, you must spell them out\. Digits \(`0-9`\) are only supported in the `DisplayAs` column\.
 + Spaces are only allowed within the `IPA` and `DisplayAs` columns\. Do not use spaces to separate columns; columns must be TAB\-separated\.
-+ You must save your table as a plain text \(\*\.txt\) file in `LF` format\. If you use any other format, such as `CRLF`, your custom vocabulary is not accepted by Amazon Transcribe\.
++ You must save your table as a plain text \(\*\.txt\) file in `LF` format\. If you use any other format, such as `CRLF`, your custom vocabulary can't be processed\.
 + You must upload your custom vocabulary file into an Amazon S3 bucket and process it using [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html) before you can include it in a transcription request\. Refer to [Creating custom vocabulary tables](#custom-vocabulary-create-table-examples) for instructions\.
 
 **Note**  
@@ -26,12 +27,14 @@ Los-Angeles[TAB][TAB]l ɔ s æ n ʤ ə l ə s[TAB]Los Angeles
 Eva-Maria[TAB]ay-va-ma-ree-ah[TAB][TAB]
 A.B.C.-s[TAB]ay-bee-sees[TAB][TAB]ABCs
 Amazon-dot-com[TAB][TAB][TAB]Amazon.com
-C.L.I.[TAB][TAB]s ɪ ɛ l aɪ[TAB]CLI
+C.L.I.[TAB][TAB]s i ɛ l aɪ[TAB]CLI
 Andorra-la-Vella[TAB]ann-do-rah-la-bay-ah[TAB][TAB]Andorra la Vella
 Dynamo-D.B.[TAB][TAB][TAB]DynamoDB
+V.X.-zero-two[TAB][TAB][TAB]VX02
+V.X.-zero-two-Q.[TAB][TAB][TAB]VX02Q
 ```
 
-Here is the same table with aligned columns for visual clarity\. **Do not** add spaces between columns in your custom vocabulary table; your table should look misaligned like the preceding example\.
+For visual clarity, here is the same table with aligned columns\. **Do not** add spaces between columns in your custom vocabulary table; your table should look misaligned like the preceding example\.
 
 ```
 Phrase          [TAB]SoundsLike          [TAB]IPA                [TAB]DisplayAs  
@@ -39,9 +42,11 @@ Los-Angeles     [TAB]                    [TAB]l ɔ s æ n ʤ ə l ə s[TAB]Los A
 Eva-Maria       [TAB]ay-va-ma-ree-ah     [TAB]                   [TAB]
 A.B.C.-s        [TAB]ay-bee-sees         [TAB]                   [TAB]ABCs  
 amazon-dot-com  [TAB]                    [TAB]                   [TAB]amazon.com
-C.L.I.          [TAB]                    [TAB]s ɪ ɛ l aɪ         [TAB]CLI   
+C.L.I.          [TAB]                    [TAB]s i ɛ l aɪ         [TAB]CLI   
 Andorra-la-Vella[TAB]ann-do-rah-la-bay-ah[TAB]                   [TAB]Andorra la Vella
 Dynamo-D.B.     [TAB]                    [TAB]                   [TAB]DynamoDB
+V.X.-zero-two   [TAB]                    [TAB]                   [TAB]VX02
+V.X.-zero-two-Q.[TAB]                    [TAB]                   [TAB]VX02Q
 ```
 
 ## Creating custom vocabulary tables<a name="custom-vocabulary-create-table-examples"></a>

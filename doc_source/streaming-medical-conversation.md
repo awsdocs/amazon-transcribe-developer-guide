@@ -1,6 +1,6 @@
 # Transcribing a medical conversation in a real\-time stream<a name="streaming-medical-conversation"></a>
 
-You can transcribe an audio stream of a medical conversation using either the HTTP/2 or [WebSocket ](https://tools.ietf.org/html/rfc6455) protocols\. For information on how to start a stream using the WebSocket protocol, see [Establish a bi\-directional connection using the WebSocket protocol](websocket-med.md)\. To start an HTTP/2 stream, use the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
+You can transcribe an audio stream of a medical conversation using either the HTTP/2 or [WebSocket ](https://tools.ietf.org/html/rfc6455) protocols\. For information on how to start a stream using the WebSocket protocol, see [Setting up a WebSocket stream](streaming-websocket.md)\. To start an HTTP/2 stream, use the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API\.
 
 You can transcribe streaming audio in the following medical specialties:
 + Cardiology
@@ -50,11 +50,11 @@ To improve transcription accuracy of specific terms in a real\-time stream, use 
 
 To label the speech from different speakers, set the `ShowSpeakerLabel` parameter to `true`\. For more information, see [Enabling speaker partitioning](conversation-diarization-med.md)\.
 
-For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Streaming request](how-streaming-med.md#streaming-med-request)\.
+For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Setting up an HTTP/2 stream](streaming-http2.md)\.
 
 ## Transcribing a medical conversation in a WebSocket stream<a name="transcribe-medical-conversation-websocket"></a>
 
-You can use a WebSocket request to transcribe a medical conversation\. When you make a WebSocket request, you create a pre\-signed URI\. This URI contains the information needed to set up the audio stream between your application and Amazon Transcribe Medical\. For more information on creating WebSocket requests, see [Establish a bi\-directional connection using the WebSocket protocol](websocket-med.md)\.
+You can use a WebSocket request to transcribe a medical conversation\. When you make a WebSocket request, you create a pre\-signed URI\. This URI contains the information needed to set up the audio stream between your application and Amazon Transcribe Medical\. For more information on creating WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.
 
 Use the following template to create your pre\-signed URI\.
 
@@ -81,4 +81,4 @@ To improve transcription accuracy of specific terms in a real\-time stream, use 
 
 To label the speech from different speakers, set the `show-speaker-label` parameter in to `true`\. For more information, see [Enabling speaker partitioning](conversation-diarization-med.md)\.
 
-For more information on creating pre\-signed URIs, see [Creating a pre\-signed URI](websocket-med.md#websocket-url-med)\.
+For more information on creating pre\-signed URIs, see [Setting up a WebSocket stream](streaming-websocket.md)\.

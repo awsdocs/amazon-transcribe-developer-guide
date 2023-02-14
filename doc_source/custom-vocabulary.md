@@ -2,6 +2,8 @@
 
 Use custom vocabularies to improve transcription accuracy for one or more specific words\. These are generally domain\-specific terms, such as brand names and acronyms, proper nouns, and words that Amazon Transcribe isn't rendering correctly\.
 
+Custom vocabularies can be used with all supported languages\. Note that only the characters listed in your language's [character set](charsets.md) can be used in a custom vocabulary\.
+
 **Important**  
 You are responsible for the integrity of your own data when you use Amazon Transcribe\. Do not enter confidential information, personal information \(PII\), or protected health information \(PHI\) into a custom vocabulary\.
 
@@ -9,7 +11,6 @@ Considerations when creating a custom vocabulary:
 + You can have up to 100 vocabularies per AWS account
 + The size limit for each custom vocabulary is 50 Kb
 + Each entry cannot exceed 256 characters
-+ Only the characters listed in your language's [character set](charsets.md) can be used
 + Vocabularies can be in table or list format \(table format is strongly recommended\)
 + How you create your custom vocabulary varies depending on the format you used; refer to [Using a custom vocabulary](custom-vocabulary-using.md) for examples
   + Table format: You must first upload your custom vocabulary file into an Amazon S3 bucket, then include the Amazon S3 URI of your vocabulary file in your request

@@ -2,11 +2,9 @@
 
 You can use SDKs for both batch and streaming transcriptions\. If you're transcribing a media file located in an Amazon S3 bucket, you're performing a batch transcription\. If you're transcribing a real\-time stream of audio data, you're performing a streaming transcription\.
 
-To get started with batch transcriptions, refer to [Batch transcriptions](getting-started-sdk-batch.md)\. Note that prior to starting a batch transcription, you must first upload your media file into an Amazon S3 bucket\.
+For a list of the programming languages you can use with Amazon Transcribe, see [Supported programming languages](supported-languages.md#supported-sdks)\. Note that streaming transcriptions are not supported with all AWS SDKs\. To view supported media formats and other media requirements and constraints, see [Data input and output](how-input.md)\.
 
-To get started with streaming transcriptions, refer to [Streaming transcriptions](getting-started-sdk-streaming.md)\. For streaming transcriptions, you can transcribe a streamed media file or a live media stream\. Note that streaming transcriptions are not supported with all AWS SDKs\.
-
-For a list of the programming languages you can use with Amazon Transcribe, see [Supported programming languages](supported-languages.md#supported-sdks)\. To view supported media formats and other media requirements and constraints, see [Data input and output](how-input.md)\.
+For more information on all available AWS SDKs and builder tools, refer to [Tools to Build on AWS](http://aws.amazon.com/developer/tools)\.
 
 **Tip**  
 For additional examples using the AWS SDKs, including feature\-specific, scenario, and cross\-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter\.  

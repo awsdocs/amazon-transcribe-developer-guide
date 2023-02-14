@@ -2,7 +2,7 @@
 
 Amazon Transcribe is integrated with AWS CloudTrail, a service that provides a record of actions taken in Amazon Transcribe by an AWS Identity and Access Management \(IAM\) user or role, or by an AWS service\. CloudTrail captures all API calls for Amazon Transcribe, including calls from the AWS Management Console and from code calls to the Amazon Transcribe APIs, as events\. By creating a trail, you can enable continuous delivery of CloudTrail events, including events for Amazon Transcribe, to an Amazon S3 bucket\. If you don't create a trail, you can still view the most recent events in the CloudTrail AWS Management Console in **Event history**\. Using the information collected by CloudTrail, you can see each request that is made to Amazon Transcribe, the IP address from which the request is made, who made the request, when it is made, and additional details\.
 
-To learn more about CloudTrail, refer to the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
+To learn more about CloudTrail, refer to the *[AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)*\.
 
 ## Amazon Transcribe and CloudTrail<a name="transcribe-info-in-cloudtrail"></a>
 
@@ -16,7 +16,7 @@ By default, when you create a trail in the AWS Management Console, the trail app
 + [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 + [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-CloudTrail logs all Amazon Transcribe actions, which are documented in the [Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html)\. For example, calls to the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html), [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html), and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) APIs generate entries in the CloudTrail log files\.
+CloudTrail logs all Amazon Transcribe actions, which are documented in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html)\. For example, the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html), [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html), and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) operations generate entries in the CloudTrail log files\.
 
 Every event or log entry contains information about who generated the request\. This information helps you determine the following:
 + Whether the request is made with root or IAM user credentials
@@ -31,7 +31,7 @@ You can also aggregate Amazon Transcribe log files from multiple AWS Regions and
 
 A *trail* is a configuration that enables delivery of events as log files to a specified Amazon S3 bucket\. CloudTrail log files contain one or more log entries\. An *event* represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\. 
 
-Calls to the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) APIs create the following entry\.
+Calls to the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) API operations create the following entry\.
 
 ```
 {

@@ -97,7 +97,6 @@ print(status)
   The following code shows the contents of `example-start-command.json`\.
 
   ```
-  >
   {
         "MedicalTranscriptionJobName": "my-first-transcription-job",
         "LanguageCode": "en-US",

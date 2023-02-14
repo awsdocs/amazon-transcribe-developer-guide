@@ -202,7 +202,7 @@ Changing the permissions for a service role might break Amazon Transcribe functi
 | --- |--- |
 |  Supports service\-linked roles  |    No   | 
 
-  A service\-linked role is a type of service role that is linked to an AWS service\. The service can assume the role to perform an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view, but not edit the permissions for service\-linked roles\. 
+  A service\-linked role is a type of service role that is linked to an AWS service\. The service can assume the role to perform an action on your behalf\. Service\-linked roles appear in your AWS account and are owned by the service\. An IAM administrator can view, but not edit the permissions for service\-linked roles\. 
 
 Amazon Transcribe doesn't support service\-linked roles\.
 

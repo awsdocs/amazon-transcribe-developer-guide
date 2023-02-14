@@ -41,7 +41,7 @@ For more detailed information on tag\-based access control, see [Controlling acc
 
 You can add tags before or after you run your Amazon Transcribe job\. The existing **Create\*** and **Start\*** APIs allow you to add tags with your transcription job\.
 
-You can add, modify or delete tags using the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+You can add, modify or delete tags using the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 
 ### AWS Management Console<a name="tagging-console"></a>
 

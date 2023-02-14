@@ -72,11 +72,11 @@ If you want to add one or more custom language models, custom vocabularies, or c
 
 It's recommended that you include `LanguageOptions` when using [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) to ensure that the correct language dialect is identified\. For example, if you specify an `en-US` custom vocabulary, but Amazon Transcribe determines that the language spoken in your media is `en-AU`, your custom vocabulary *is not* applied to your transcription\. If you include `LanguageOptions` and specify `en-US` as the only English language dialect, your custom vocabulary *is* applied to your transcription\.
 
-For examples of [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) in a request, refer to Option 2 in the **AWS CLI** and **AWS SDK** drop\-down panels in the [Using language identification with batch transcriptions](#lang-id-batch-examples) section\.
+For examples of [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) in a request, refer to Option 2 in the **AWS CLI** and **AWS SDKs** drop\-down panels in the [Using language identification with batch transcriptions](#lang-id-batch-examples) section\.
 
 ## Using language identification with batch transcriptions<a name="lang-id-batch-examples"></a>
 
-You can use automatic language identification in a batch transcription job using the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+You can use automatic language identification in a batch transcription job using the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 
 ### AWS Management Console<a name="lang-id-console-batch"></a>
 

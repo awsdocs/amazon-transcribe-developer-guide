@@ -188,13 +188,13 @@ Descriptions for the preceding fields:
 + `region` – The AWS Region in which the request is made\.
 + `resources` – The resources used by the API call\. For Amazon Transcribe, this field is always empty\.
 + `detail` – Details about the event\. The fields within the `detail` tag may vary depending on the type of event, but may contain the following fields:
-  + `JobType` – For transcription jobs, this value must be `TranscriptionJob`\.
-  + `JobName` – The unique name of your transcription job\.
+  + `CallAnalyticsJobName` – The unique name of your Call Analytics transcription job\.
+  + `FailureReason` – This field is present if the state or status changes to `FAILED`, and describes the reason for the `FAILED` state or status\.
   + `JobStatus` – The status of your Call Analytics transcription job\. It can be either `COMPLETED` or `FAILED`\.
+  + `JobType` – For transcription jobs, this value must be `TranscriptionJob`\.
   + `LanguageIdentificationStatus` – The status of language identification in a transcription job\. It can be either `COMPLETED` or `FAILED`\.
   + `StreamingSessionId` – The identification number assigned to your real\-time Call Analytics transcription request\.
   + `TranscriptionJobName` – The unique name you chose for your transcription job\.
   + `TranscriptionJobStatus ` – The status of the transcription job\. For a list of status values, see the `TranscriptionJobStatus` field of the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html) data type\.
   + `VocabularyName` – The unique name for your custom vocabulary\.
   + `VocabularyState` – The processing state of your custom vocabulary\. For a list of status values, see the `VocabularyState` field of the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_VocabularyInfo.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_VocabularyInfo.html) data type\.
-  + `FailureReason` – This field is present if the state or status changes to `FAILED`, and describes the reason for the `FAILED` state or status\.

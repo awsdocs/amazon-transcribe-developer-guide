@@ -28,7 +28,7 @@ To enable speaker partitioning in an HTTP/2 stream of a medical conversation, us
 + For `Specialty`, specify the medical specialty of the provider\.
 + `ShowSpeakerLabel` – `true`
 
-For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Streaming request](how-streaming-med.md#streaming-med-request)\.
+For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Setting up an HTTP/2 stream](streaming-http2.md)\.
 
 ## Enabling speaker partitioning in a WebSocket request<a name="conversation-diarization-med-websocket"></a>
 
@@ -166,4 +166,4 @@ Each `Alternatives` object has its own `Items` object that contains information 
 **`Transcript`**  
 Each Items object contains a transcribed speech segment as the value of the `Transcript` field\.
 
-For more information about WebSocket requests, see [Creating a pre\-signed URI](websocket-med.md#websocket-url-med)\.
+For more information about WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.

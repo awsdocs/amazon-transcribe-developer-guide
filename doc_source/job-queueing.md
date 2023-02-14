@@ -6,7 +6,7 @@ Job queueing is optional for transcription job requests\. Post\-call analytics r
 
 If you enable job queueing, Amazon Transcribe creates a queue that contains all requests that exceed your limit\. As soon as a request is completed, a new request is pulled from your queue and processed\. Queued requests are processed in a FIFO \(first in, first out\) order\.
 
-You can add up to 10,000 jobs to your queue\. If you exceed this limit, you get a `LimitExceededConcurrentJobException` error\. To maintain optimal performance, Amazon Transcribe only uses up to 90 percent of your quota \(a bandwidth ratio of 0\.9\) to process queued jobs\. Note that this is a default value that can be increased\.
+You can add up to 10,000 jobs to your queue\. If you exceed this limit, you get a `LimitExceededConcurrentJobException` error\. To maintain optimal performance, Amazon Transcribe only uses up to 90 percent of your quota \(a bandwidth ratio of 0\.9\) to process queued jobs\. Note that these are default values that can be increased upon request\.
 
 **Tip**  
 You can find a list of default limits and quotas for Amazon Transcribe resources in the [Quotas](limits-guidelines.md#limits) section\. Some of these defaults can be increased upon request; refer to [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) for more information\.
@@ -15,7 +15,7 @@ If you enable job queueing but don't exceed the quota for concurrent requests, a
 
 ## Enabling job queueing<a name="job-queueing-how"></a>
 
-You can enable job queueing using the **AWS Management Console**, **AWS SDK**, or **AWS CLI**; see the following for examples:
+You can enable job queueing using the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples; see the following for examples:
 
 ### AWS Management Console<a name="queueing-console-batch"></a>
 

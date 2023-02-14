@@ -15,7 +15,7 @@ Here are a few examples of what you can do with custom categories:
 
 When creating a new category, you can specify whether you want it created as a post\-call category \(`POST_CALL`\) or as a real\-time category \(`REAL_TIME`\)\. If you don't specify an option, your category is created as a post\-call category by default\. Real\-time category matches can be used to create real\-time alerts\. For more information, see [Creating real\-time alerts for category matches](tca-start-stream.md#tca-create-alert-stream)\.
 
-To create a new category for real\-time Call Analytics, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDK**; see the following for examples:
+To create a new category for real\-time Call Analytics, you can use the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 
 ## AWS Management Console<a name="tca-category-console"></a>
 

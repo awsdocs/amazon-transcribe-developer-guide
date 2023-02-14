@@ -24,7 +24,7 @@ For a video walkthrough of creating subtitles, see:
 
 ## Generating subtitle files<a name="subtitles-how-to"></a>
 
-You can create subtitle files using the **AWS Management Console**, **AWS SDK**, or **AWS CLI**; see the following examples:
+You can create subtitle files using the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following examples:
 
 ### AWS Management Console<a name="subtitles-console"></a>
 

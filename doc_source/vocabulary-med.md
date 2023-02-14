@@ -15,4 +15,4 @@ Custom vocabularies are available in US English \(en\-US\)\.
 + [Using a text file to create a medical custom vocabulary](create-med-custom-vocabulary.md)
 + [Transcribing an audio file using a medical custom vocabulary](start-med-custom-vocab-job.md)
 + [Transcribing a real\-time stream using a medical custom vocabulary](start-med-vocab-stream.md)
-+ [Character sets for Amazon Transcribe Medical](charsets-med.md)
++ [Character set for Amazon Transcribe Medical](charsets-med.md)

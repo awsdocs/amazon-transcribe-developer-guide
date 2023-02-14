@@ -225,7 +225,7 @@ To transcribe multi\-channel audio in an HTTP/2 stream, use the [StartMedicalStr
 + `EnableChannelIdentification` – `true`
 + `NumberOfChannels` – the number of channels in your streaming audio\.
 
-For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Streaming request](how-streaming-med.md#streaming-med-request)\.
+For more information on setting up an HTTP/2 stream to transcribe a medical conversation, see [Setting up an HTTP/2 stream](streaming-http2.md)\.
 
 ### Transcribing multi\-channel audio in a WebSocket stream<a name="channel-id-med-websocket"></a>
 
@@ -250,7 +250,7 @@ GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transc
 
 Parameter definitions can be found in the [API Reference](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Reference.html); parameters common to all AWS API operations are listed in the [Common Parameters](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonParameters.html) section\.
 
-For more information about WebSocket requests, see [Creating a pre\-signed URI](websocket-med.md#websocket-url-med)\.
+For more information about WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.
 
 ### Multi\-channel streaming output<a name="streaming-med-output"></a>
 

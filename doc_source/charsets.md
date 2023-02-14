@@ -30,10 +30,12 @@ Many Unicode characters can appear identical in popular fonts, even if they use 
 + [Portuguese character set](#char-portuguese)
 + [Russian character set](#char-russian)
 + [Spanish character set](#char-spanish)
++ [Swedish character set](#char-swedish)
 + [Tamil character set](#char-tamil)
 + [Telugu character set](#char-telugu)
 + [Thai character set](#char-thai)
 + [Turkish character set](#char-turkish)
++ [Vietnamese character set](#char-vietnamese)
 
 ## Afrikaans character set<a name="char-afrikaans"></a>
 
@@ -154,10 +156,10 @@ Amazon Transcribe represents the four tones in Chinese \(Simplified\) using numb
 
 | Tone | Tone mark | Tone number | 
 | --- | --- | --- | 
-| Tone 1 | mā | ma1 | 
-| Tone 2 | má | ma2 | 
-| Tone 3 | mǎ | ma3 | 
-| Tone 4 | mà | ma4 | 
+| Tone 1 | mā | ma1 | 
+| Tone 2 | má | ma2 | 
+| Tone 3 | mǎ | ma3 | 
+| Tone 4 | mà | ma4 | 
 
 **Note**  
 For the 5th \(neutral\) tone, you can use Tone 1, with the exception of 'er', which must be mapped to Tone 2\. For example, 打转儿 would be represented as 'da3\-zhuan4\-er2'\.
@@ -170,8 +172,8 @@ The following example is an input file in text format\. The example uses spaces 
 Phrase       SoundsLike               IPA     DisplayAs
 康健          kang1-jian4 
 谴责          qian3-ze2 
-国防大臣      guo2-fang2-da4-chen2 
-世界博览会    shi4-jie4-bo2-lan3-hui4          世博会
+国防大臣        guo2-fang2-da4-chen2 
+世界博览会      shi4-jie4-bo2-lan3-hui4          世博会
 ```
 
 ## Chinese, Mandarin \(Taiwan\), Traditional character set<a name="char-chinese-man-tw"></a>
@@ -202,7 +204,7 @@ The following example is an input file in text format\. The example uses spaces 
 Phrase        SoundsLike                     IPA        DisplayAs
 健康          ㄐㄧㄢˋ-ㄎㄤ 
 譴責          ㄑㄧㄢˇ-ㄗㄜˊ 
-國防部長      ㄍㄨㄛˊ-ㄈㄤˊ-ㄅㄨˋ-ㄓㄤˇ 
+國防部長       ㄍㄨㄛˊ-ㄈㄤˊ-ㄅㄨˋ-ㄓㄤˇ 
 世界博覽會     ㄕˋ-ㄐㄧㄝˋ-ㄅㄛˊ-ㄌㄢˇ-ㄏㄨㄟˋ             世博會
 ```
 
@@ -986,6 +988,55 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | o | 006F | ʧ | 02A7 | 
 | p | 0070 | θ | 03B8 | 
 
+## Swedish character set<a name="char-swedish"></a>
+
+For Swedish custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
++ a \- z
++ A \- Z
++ ' \(apostrophe\)
++ \- \(hyphen\)
++ \. \(period\)
+
+You can also use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+|  Ä | 00C4 | ä | 00E4 | 
+| Å | 00C5 | å | 00E5 | 
+|  Ö | 00D6 | ö | 00F6 | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| ø | 00F8 | ɡ | 0261 | 
+| ɜ | 025C | h | 0068 | 
+| ɐ | 0250 | i | 0069 | 
+| ɵ | 0275 | j | 006A | 
+| œ | 0153 | k | 006B | 
+| ə | 0259 |  l | 006C | 
+| ɑ | 0251 | m | 006D | 
+| ð | 00F0 | n | 006E | 
+| ɛ | 025B | oː | 006F 02D0 | 
+| ɛː | 025B 02D0 | p | 0070 | 
+| æ | 00E6 |  r | 0072 | 
+| ɪ | 026A | ɹ | 0279 | 
+| ŋ | 014B | s | 0073 | 
+| ɔ | 0254 | ɕ | 0255 | 
+| ɒ | 0252 | ʂ | 0282 | 
+| ʃ | 0283 | ɧ | 0267 | 
+|  ʊ | 028A | t | 0074 | 
+| ʌ | 028C | u | 0075 | 
+| a | 0061 | ʉ | 0289 | 
+| b | 0062 | v | 0076 | 
+| d | 0064 | w | 0077 | 
+| ʤ | 02A4 | ʏ | 028F | 
+| e | 0065 | y | 0079 | 
+| eː | 0065 02D0 | z | 007A | 
+| f | 0066 |  |  | 
+
 ## Tamil character set<a name="char-tamil"></a>
 
 For Tamil custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
@@ -1255,3 +1306,125 @@ You can use the following International Phonetic Alphabet characters in the `IPA
 | p | 0070 | ʤ | 02A4 | 
 | s | 0073 | ʧ | 02A7 | 
 | t | 0074 |   |   | 
+
+## Vietnamese character set<a name="char-vietnamese"></a>
+
+Amazon Transcribe represents the six tones in Vietnamese using numbers\. The following table shows how tone marks are mapped for the word 'ma'\.
+
+
+| Tone name | Tone mark | Tone number | 
+| --- | --- | --- | 
+| ngang | ma | ma1 | 
+| sắc | má | ma2 | 
+| huyền | mà | ma3 | 
+| hỏi | mả | ma4 | 
+| ngã | mã | ma5 | 
+|  nặng | mạ | ma6 | 
+
+For Vietnamese custom vocabularies, you can use the following characters in the `Phrase` and `SoundsLike` fields:
++ a \- z
++ A \- Z
++ ' \(apostrophe\)
++ \- \(hyphen\)
++ \. \(period\)
++ & \(ampersand\)
++ ; \(semicolon\)
++ \_ \(low line\)
+
+You can also use the following Unicode characters in the `Phrase` and `SoundsLike` fields:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| à | 00E0 | À | 00C0 | 
+| á | 00E1 | Á | 00C1 | 
+| â | 00E2 | Â | 00C2 | 
+| ã | 00E3 | Ã | 00C3 | 
+| è | 00E8 | È | 00C8 | 
+| é | 00E9 | É | 00C9 | 
+| ê | 00EA | Ê | 00CA | 
+| ì | 00EC | Ì | 00CC | 
+| í | 00ED | Í | 00CD | 
+| ò | 00F2 | Ò | 00D2 | 
+| ó | 00F3 | Ó | 00D3 | 
+| ô | 00F4 | Ô | 00D4 | 
+| õ | 00F5 | Õ | 00D5 | 
+| ù | 00F9 | Ù | 00D9 | 
+| ú | 00FA  | Ú | 00DA | 
+| ý | 00FD  | Ý | 00DD | 
+| ă | 0103 | Ă | 0102 | 
+| đ | 0111 | Đ | 0110 | 
+| ĩ | 0129 | Ĩ | 0128 | 
+| ũ | 0169 | Ũ | 0168 | 
+| ơ | 01A1 | Ơ | 01A0 | 
+| ư | 01B0 | Ư | 01AF | 
+| ạ | 1EA1 | Ạ | 1EA0 | 
+| ả | 1EA3 | Ả | 1EA2 | 
+| ấ | 1EA5 | Ấ | 1EA4 | 
+| ầ | 1EA7 | Ầ | 1EA6 | 
+| ẩ | 1EA9 | Ẩ | 1EA8 | 
+| ẫ | 1EAB | Ẫ | 1EAA | 
+| ậ | 1EAD | Ậ | 1EAC | 
+| ắ | 1EAF | Ắ | 1EAE | 
+| ằ | 1EB1 | Ằ | 1EB0 | 
+| ẳ | 1EB3 | Ẳ | 1EB2 | 
+| ẵ | 1EB5 | Ẵ | 1EB4 | 
+| ặ | 1EB7 | Ặ | 1EB6 | 
+| ẹ | 1EB9 | Ẹ | 1EB8 | 
+| ẻ | 1EBB | Ẻ | 1EBA | 
+| ẽ | 1EBD |  Ẽ | 1EBC | 
+| ế | 1EBF | Ế | 1EBE | 
+| ề | 1EC1 | Ề | 1EC0 | 
+| ể | 1EC3 | Ể | 1EC2 | 
+| ễ | 1EC5 | Ễ | 1EC4 | 
+| ệ | 1EC7 | Ệ | 1EC6 | 
+| ỉ | 1EC9 | Ỉ | 1EC8 | 
+| ị | 1ECB | Ị | 1ECA | 
+| ọ | 1ECD | Ọ | 1ECC | 
+| ỏ | 1ECF | Ỏ | 1ECE | 
+| ố | 1ED1 | Ố | 1ED0 | 
+| ồ | 1ED3 |  Ồ | 1ED2 | 
+| ổ | 1ED5 | Ổ | 1ED4 | 
+| ỗ | 1ED7 | Ỗ | 1ED6 | 
+| ộ | 1ED9 |  Ộ | 1ED8 | 
+| ớ | 1EDB | Ớ | 1EDA | 
+| ờ | 1EDD |  Ờ | 1EDC | 
+| ở | 1EDF | Ở | 1EDE | 
+| ỡ | 1EE1 | Ỡ | 1EE0 | 
+| ợ | 1EE3 | Ợ | 1EE2 | 
+| ụ | 1EE5 | Ụ | 1EE4 | 
+| ủ | 1EE7 | Ủ | 1EE6 | 
+| ứ | 1EE9 | Ứ | 1EE8 | 
+| ừ | 1EEB | Ừ | 1EEA | 
+| ử | 1EED | Ử | 1EEC | 
+| ữ | 1EEF | Ữ | 1EEE | 
+| ự | 1EF1 | Ự | 1EF0 | 
+| ỳ | 1EF3 | Ỳ | 1EF2 | 
+| ỵ | 1EF5 | Ỵ | 1EF4 | 
+| ỷ | 1EF7 | Ỷ | 1EF6 | 
+| ỹ | 1EF9 | Ỹ | 1EF8 | 
+
+You can use the following International Phonetic Alphabet characters in the `IPA` field of the custom vocabulary input file:
+
+
+| Character | Code | Character | Code | 
+| --- | --- | --- | --- | 
+| a | 0061 | u | 0075 | 
+| a: | 0061 003A | v | 0076 | 
+| c | 0063 | w | 0077 | 
+| e | 0065 | x | 0078 | 
+| f | 0066 | z | 007A | 
+| h | 0068 | ŋ | 014B | 
+| i | 0069 | ɓ | 0253 | 
+| j | 006A |  ɔ | 0254 | 
+| k | 006B | ɗ | 0257 | 
+| l | 006C | ə | 0259 | 
+| m | 006D | ɛ | 025B | 
+| n | 006E | ɟ | 025F | 
+| o | 006F | ɣ | 0263 | 
+| p | 0070 | ɨ | 0268 | 
+| s | 0073 | ɲ | 0272 | 
+| t | 0074 |  ɹ | 0279 | 
+| tɕ | 0074 0255 | ʂ | 0282 | 
+| tʂ | 0074 0282 | ə: | 0259 003A | 
+| tʰ | 0074 02B0 |  |  | 
