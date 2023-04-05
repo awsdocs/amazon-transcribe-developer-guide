@@ -1,6 +1,38 @@
 # Partitioning speakers \(diarization\)<a name="diarization"></a>
 
-You can partition the text from different speakers using *speaker diarization*\. When you enable speaker diarization, Amazon Transcribe labels each speaker utterance in your transcript so you can distinguish between each speaker\.
+With speaker diarization, you can distinguish between different speakers in your transcription output\. Amazon Transcribe can differentiate between a maximum of 10 unique speakers and labels the text from each unique speaker with a unique value \(`spk_0` through `spk_9`\)\.
+
+In addition to the [standard transcript sections](how-input.md#how-it-works-output) \(`transcripts` and `items`\), requests with speaker partitioning enabled include a `speaker_labels` section\. This section is grouped by speaker and contains information on each utterance, including speaker label and timestamps\.
+
+```
+"speaker_labels": {
+    "channel_label": "ch_0",
+    "speakers": 2,
+    "segments": [
+         {
+            "start_time": "4.87",
+            "speaker_label": "spk_0",
+            "end_time": "6.88",
+            "items": [                                                 
+                {
+                    "start_time": "4.87",
+                    "speaker_label": "spk_0",
+                    "end_time": "5.02"
+                },
+        ...
+        {
+            "start_time": "8.49",
+            "speaker_label": "spk_1",
+            "end_time": "9.24",
+            "items": [
+                {
+                    "start_time": "8.49",
+                    "speaker_label": "spk_1",
+                    "end_time": "8.88"
+                },
+```
+
+To view a complete example transcript with speaker partitioning \(for two speakers\), see [Example diarization output \(batch\)](diarization-output-batch.md)\.
 
 ## Partitioning speakers in a batch transcription<a name="diarization-batch"></a>
 
@@ -15,7 +47,7 @@ To partition speakers in a batch transcription, see the following examples:
 
 1. Fill in any fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.
 
-   In the **Audio settings** panel, select **Speaker partitioning** \(under the 'Audio identification type heading'\)\. You can optionally specify the number of speakers you want to partition, up to a maximum of 10\.  
+   In the **Audio settings** panel, select **Speaker partitioning** \(under the 'Audio identification type' heading\)\. You can optionally specify the number of speakers you want to partition, up to a maximum of 10\.  
 ![\[Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable 'Speaker partitioning'.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-batch.png)
 
 1. Select **Create job** to run your transcription job\. 
@@ -131,7 +163,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ### WebSocket stream<a name="diarization-websocket"></a>
 
-This example creates a pre\-signed URL that separates speakers in your transcription output\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a presigned URL that separates speakers in your transcription output\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

@@ -9,6 +9,8 @@ Amazon Transcribe Medical operates under a shared responsibility model, whereby 
 
 Amazon Transcribe Medical is available in US English \(en\-US\)\.
 
+For best results, use a lossless audio format, such as FLAC or WAV, with PCM 16\-bit encoding\. Amazon Transcribe Medical supports sample rates of 16,000 Hz or higher\.
+
 For analysis of your transcripts, you can use other AWS services, such as [Amazon Comprehend Medical](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-medical.html)\.
 
 
@@ -25,3 +27,9 @@ For analysis of your transcripts, you can use other AWS services, such as [Amazo
 | Primary Care | Pediatrics | batch, streaming | 
 | Radiology | none | streaming only | 
 | Urology | none | streaming only | 
+
+## Endpoints and quotas<a name="endpoints-quotas"></a>
+
+For a list of AWS Regions and endpoints available for Amazon Transcribe Medical, refer to the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region)\.
+
+For a list of quotas that pertain to your transcriptions, refer to the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region)\. Some quotas can be changed upon request\. If the **Adjustable** column contains '**Yes**', you can request an increase\. To do so, select the provided link\.

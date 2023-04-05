@@ -54,9 +54,9 @@ For more information on setting up an HTTP/2 stream to transcribe a medical conv
 
 ## Transcribing a medical conversation in a WebSocket stream<a name="transcribe-medical-conversation-websocket"></a>
 
-You can use a WebSocket request to transcribe a medical conversation\. When you make a WebSocket request, you create a pre\-signed URI\. This URI contains the information needed to set up the audio stream between your application and Amazon Transcribe Medical\. For more information on creating WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.
+You can use a WebSocket request to transcribe a medical conversation\. When you make a WebSocket request, you create a presigned URI\. This URI contains the information needed to set up the audio stream between your application and Amazon Transcribe Medical\. For more information on creating WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.
 
-Use the following template to create your pre\-signed URI\.
+Use the following template to create your presigned URI\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket

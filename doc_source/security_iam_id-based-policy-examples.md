@@ -1,6 +1,6 @@
 # Amazon Transcribe identity\-based policy examples<a name="security_iam_id-based-policy-examples"></a>
 
-By default, users and roles don't have permission to create or modify Amazon Transcribe resources\. They also can't perform tasks by using the AWS Management Console, AWS Command Line Interface \(AWS CLI\), or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform actions on the resources that they need\. The administrator must then attach those policies for users that require them\.
+By default, users and roles don't have permission to create or modify Amazon Transcribe resources\. They also can't perform tasks by using the AWS Management Console, AWS Command Line Interface \(AWS CLI\), or AWS API\. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies\. The administrator can then add the IAM policies to roles, and users can assume the roles\.
 
 To learn how to create an IAM identity\-based policy by using these example JSON policy documents, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*\.
 
@@ -9,7 +9,7 @@ For details about actions and resource types defined by Amazon Transcribe, inclu
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
 + [Using the AWS Management Console](#security_iam_id-based-policy-examples-console)
-+ [Permissions required for IAM user roles](#auth-role-iam-user)
++ [Permissions required for IAM roles](#auth-role-iam-user)
 + [Permissions required for Amazon S3 encryption keys](#auth-role-kms-key)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 + [AWS KMS encryption context policy](#kms-context-policy)
@@ -31,7 +31,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 To access the Amazon Transcribe console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Amazon Transcribe resources in your AWS account\. If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities \(users or roles\) with that policy\.
 
-You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\.
+You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that they're trying to perform\.
 
 To ensure that an entity \(users and roles\) can use the [AWS Management Console](https://console.aws.amazon.com/transcribe/), attach one of the following AWS\-managed policies to them\.
 + `AmazonTranscribeFullAccess`: Grants full access to create, read, update, delete, and run all Amazon Transcribe resources\. It also allows access to Amazon S3 buckets with `transcribe` in the bucket name\.
@@ -40,11 +40,11 @@ To ensure that an entity \(users and roles\) can use the [AWS Management Console
 **Note**  
 You can review the managed permission policies by signing in to the IAM AWS Management Console and searching by policy name\. A search for "transcribe" returns both policies listed above \(*AmazonTranscribeReadOnly* and *AmazonTranscribeFullAccess*\)\.
 
-You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the entities that require those permissions\. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
+You can also create your own custom IAM policies to allow permissions for Amazon Transcribe API actions\. You can attach these custom policies to the entities that require those permissions\.
 
-## Permissions required for IAM user roles<a name="auth-role-iam-user"></a>
+## Permissions required for IAM roles<a name="auth-role-iam-user"></a>
 
-If you create an IAM role to call Amazon Transcribe, it must have permission to access the Amazon S3 bucket and, if applicable, the KMS key used to encrypt the contents of the bucket\. Refer to the following sections for example policies\.
+If you create an IAM role to call Amazon Transcribe, it must have permission to access the Amazon S3 bucket\. If applicable, the KMS key must also be used to encrypt the contents of the bucket\. Refer to the following sections for example policies\.
 
 ### Trust policies<a name="trust-policy"></a>
 

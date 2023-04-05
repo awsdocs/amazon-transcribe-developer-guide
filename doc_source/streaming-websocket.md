@@ -24,7 +24,7 @@ Amazon Transcribe only supports one stream per WebSocket session\. If you attemp
    }
    ```
 
-1. To start the session, create a pre\-signed URL in the following format\. Line breaks have been added for readability\.
+1. To start the session, create a presigned URL in the following format\. Line breaks have been added for readability\.
 
    ```
    GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?
@@ -81,7 +81,7 @@ The maximum value for `X-Amz-Expires` is 300 \(5 minutes\)\.
       signed_headers = "host"
       ```
 
-   1. Match the algorithm to the hashing algorithm\. You must use `SHA-256`\.
+   1. Match the algorithm to the hashing algorithm\. Use `SHA-256`\.
 
       ```
       algorithm = "AWS4-HMAC-SHA256"
@@ -230,9 +230,9 @@ If an exception occurs while processing your request, Amazon Transcribe responds
 | 13 | :message\-type | 7 | 9 | exception | 
 
 The `exception-type` header contains one of the following values:
-+ `BadRequestException`: There was a client error when the stream was created, or an error occurred while streaming data\. Make sure your client is ready to accept data and try your request again\.
++ `BadRequestException`: There was a client error when the stream was created, or an error occurred while streaming data\. Make sure that your client is ready to accept data and try your request again\.
 + `InternalFailureException`: Amazon Transcribe had a problem during the handshake with the client\. Try your request again\.
-+ `LimitExceededException`: The client exceeded the concurrent stream limit\. For more information, see [Amazon Transcribe Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe)\. Reduce the number of streams you're transcribing\.
++ `LimitExceededException`: The client exceeded the concurrent stream limit\. For more information, see [Amazon Transcribe Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe)\. Reduce the number of streams that you're transcribing\.
 + `UnrecognizedClientException`: The WebSocket upgrade request was signed with an incorrect access key or secret key\. Make sure you're correctly creating the access key and try your request again\.
 
 Amazon Transcribe can also return any of the common service errors\. For a list, see [Common Errors](https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html)\.

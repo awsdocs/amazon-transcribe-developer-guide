@@ -31,7 +31,7 @@ To start an HTTP/2 stream with PHI Identification activated, use the [https://do
 
 ## Identifying PHI in a WebSocket stream<a name="websocket-phi-id"></a>
 
- To a start a WebSocket stream with PHI Identification activated, use the following format to create a pre\-signed URL\.
+ To a start a WebSocket stream with PHI Identification activated, use the following format to create a presigned URL\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket?

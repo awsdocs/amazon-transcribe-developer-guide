@@ -1,6 +1,6 @@
 # Job queueing<a name="job-queueing"></a>
 
-Job queueing enables you to submit more transcription job requests than can be concurrently processed\. Without job queueing, once you reach the quota of allowed concurrent requests, you must wait until one or more requests are completed before submitting a new request\.
+Using job queueing, you can submit more transcription job requests than can be concurrently processed\. Without job queueing, once you reach the quota of allowed concurrent requests, you must wait until one or more requests are completed before submitting a new request\.
 
 Job queueing is optional for transcription job requests\. Post\-call analytics requests have job queueing enabled automatically\.
 
@@ -9,7 +9,7 @@ If you enable job queueing, Amazon Transcribe creates a queue that contains all 
 You can add up to 10,000 jobs to your queue\. If you exceed this limit, you get a `LimitExceededConcurrentJobException` error\. To maintain optimal performance, Amazon Transcribe only uses up to 90 percent of your quota \(a bandwidth ratio of 0\.9\) to process queued jobs\. Note that these are default values that can be increased upon request\.
 
 **Tip**  
-You can find a list of default limits and quotas for Amazon Transcribe resources in the [Quotas](limits-guidelines.md#limits) section\. Some of these defaults can be increased upon request; refer to [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) for more information\.
+You can find a list of default limits and quotas for Amazon Transcribe resources in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. Some of these defaults can be increased upon request\.
 
 If you enable job queueing but don't exceed the quota for concurrent requests, all requests are processed concurrently\.
 
@@ -109,4 +109,4 @@ while True:
 print(status)
 ```
 
-You can view the progress of a queued job via the AWS Management Console or by submitting a [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) request\. When a job is queued, the `Status` is `QUEUED`\. The status changes to `IN_PROGRESS` once your job starts processing, then changes to either `COMPLETED` or `FAILED` when processing is finished\.
+You can view the progress of a queued job via the AWS Management Console or by submitting a [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_GetTranscriptionJob.html) request\. When a job is queued, the `Status` is `QUEUED`\. The status changes to `IN_PROGRESS` once your job starts processing, then changes to `COMPLETED` or `FAILED` when processing is finished\.

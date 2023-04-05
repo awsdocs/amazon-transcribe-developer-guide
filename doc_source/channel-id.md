@@ -1,8 +1,52 @@
 # Transcribing multi\-channel audio<a name="channel-id"></a>
 
-If your audio has multiple channels, you can use *channel identification* to transcribe the speech from each channel separately\. The output from each channel is provided in one file, with the content from the first channel listed above the content from the second channel\.
+If your audio has two channels, you can use channel identification to transcribe the speech from each channel separately\. Amazon Transcribe doesn't currently support audio with more than two channels\.
 
-For each channel in the transcription output, Amazon Transcribe returns a list of *items*\. An item is a transcribed word, pause, or punctuation mark\. Each item has a start time and an end time\. If a person on one channel speaks over a person on a separate channel, the start times and end times of the items for each channel overlap while the individuals are speaking over each other\.
+In your transcript, channels are assigned the labels `ch_0` and `ch_1`\.
+
+In addition to the [standard transcript sections](how-input.md#how-it-works-output) \(`transcripts` and `items`\), requests with channel identification enabled include a `channel_labels` section\. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score\.
+
+```
+"channel_labels": {
+    "channels": [
+        {
+            "channel_label": "ch_0",
+            "items": [                                      
+                {
+                    "channel_label": "ch_0",
+                    "start_time": "4.86",
+                    "end_time": "5.01",
+                    "alternatives": [
+                        {
+                            "confidence": "1.0",
+                            "content": "I've"
+                        }
+                    ],
+                    "type": "pronunciation"
+                },
+                ...               
+            "channel_label": "ch_1",
+            "items": [
+                {
+                    "channel_label": "ch_1",
+                    "start_time": "8.5",
+                    "end_time": "8.89",
+                    "alternatives": [
+                        {
+                            "confidence": "1.0",
+                            "content": "Sorry"
+                        }
+                    ],
+                    "type": "pronunciation"
+                },
+                ...
+            "number_of_channels": 2
+        },
+```
+
+Note that if a person on one channel speaks at the same time as a person on a separate channel, timestamps for each channel overlap while the individuals are speaking over each other\.
+
+To view a complete example transcript with channel identification, see [Example channel identification output \(batch\)](channel-id-output-batch.md)\.
 
 ## Using channel identification in a batch transcription<a name="channel-id-batch"></a>
 
@@ -17,7 +61,7 @@ To identify channels in a batch transcription, you can use the **AWS Management 
 
 1. Fill in any fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.
 
-   In the **Audio settings** panel, select **Channel identification** \(under the 'Audio identification type heading'\)\.  
+   In the **Audio settings** panel, select **Channel identification** \(under the 'Audio identification type' heading\)\.  
 ![\[Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable Channel identification.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/channel-id-batch.png)
 
 1. Select **Create job** to run your transcription job\. 
@@ -122,7 +166,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ### WebSocket stream<a name="channel-id-websocket"></a>
 
-This example creates a pre\-signed URL that separates channels in your transcription output\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a presigned URL that separates channels in your transcription output\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

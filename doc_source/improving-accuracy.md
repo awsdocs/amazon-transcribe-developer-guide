@@ -1,6 +1,6 @@
 # Improving transcription accuracy with custom vocabularies and custom language models<a name="improving-accuracy"></a>
 
-If your media contains domain\-specific or non\-standard terms, such as brand names, acronyms, technical words, and jargon, you may notice that Amazon Transcribe doesn't correctly capture these terms in your transcription output\.
+If your media contains domain\-specific or non\-standard terms, such as brand names, acronyms, technical words, and jargon, Amazon Transcribe might not correctly capture these terms in your transcription output\.
 
 To correct transcription inaccuracies and customize your output for your specific use case, you can create [Custom vocabularies](custom-vocabulary.md) and [Custom language models](custom-language-models.md)\.
 + [Custom vocabularies](custom-vocabulary.md) are designed to tune and boost both the recognition and the formatting of specific words in all contexts\. This involves supplying Amazon Transcribe with words and, optionally, pronunciation and display forms\.

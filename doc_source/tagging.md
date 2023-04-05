@@ -1,6 +1,6 @@
 # Tagging resources<a name="tagging"></a>
 
-A tag is a custom metadata label that you can add to a resource in order to make it easier to identify, organize, and find in a search\. Tags are comprised of two individual parts: A tag key and a tag value\. This is referred to as a key:value pair\.
+A tag is a custom metadata label that you can add to a resource to make it easier to identify, organize, and find in a search\. Tags are comprised of two individual parts: A tag key and a tag value\. This is referred to as a key:value pair\.
 
 A tag key typically represents a larger category, while a tag value represents a subset of that category\. For example you could have *tag key=Color* and *tag value=Blue*, which would produce the key:value pair `Color:Blue`\. Note that you can set the value of a tag to an empty string, but you can't set the value of a tag to null\. Omitting the tag value is the same as using an empty string\.
 
@@ -19,7 +19,7 @@ Tag keys can be up to 128 characters in length and tag values can be up to 256 c
 
 **API operations specific to resource tagging**  
  [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListTagsForResource.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListTagsForResource.html), [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TagResource.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TagResource.html), [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UntagResource.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UntagResource.html)   
-To use the tagging APIs, you need to include an Amazon Resource Name \(ARN\) with your request\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id`\. For example, the ARN associated with a transcription job may look like: `arn:aws:transcribe:us-west-2:111122223333:transcription-job/my-transcription-job-name`\.
+To use the tagging APIs, you must include an Amazon Resource Name \(ARN\) with your request\. ARNs have the format `arn:partition:service:region:account-id:resource-type/resource-id`\. For example, the ARN associated with a transcription job may look like: `arn:aws:transcribe:us-west-2:111122223333:transcription-job/my-transcription-job-name`\.
 
 To learn more about tagging, including best practices, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)\.
 
@@ -39,7 +39,7 @@ For more detailed information on tag\-based access control, see [Controlling acc
 
 ## Adding tags to your Amazon Transcribe resources<a name="tagging-how-to"></a>
 
-You can add tags before or after you run your Amazon Transcribe job\. The existing **Create\*** and **Start\*** APIs allow you to add tags with your transcription job\.
+You can add tags before or after you run your Amazon Transcribe job\. Using the existing **Create\*** and **Start\*** APIs, you can add add tags with your transcription request\.
 
 You can add, modify or delete tags using the **AWS Management Console**, **AWS CLI**, or **AWS SDKs**; see the following for examples:
 

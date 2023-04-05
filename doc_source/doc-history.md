@@ -1,10 +1,12 @@
 # Document history for Amazon Transcribe<a name="doc-history"></a>
-+ **Latest documentation update:** 13 February 2023
++ **Latest documentation update:** 06 March 2023
 
 The following table describes important changes in each release of Amazon Transcribe\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Feature Update](https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html) | Diarization can now be combined with channel identification\. | March 6, 2023 | 
+| [Feature Update](https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html) | Channel identification can now be combined with diarization\. | March 6, 2023 | 
 | [Section Update](https://docs.aws.amazon.com/transcribe/latest/dg/security-iam.html) | IAM best practices have been updated\. | February 13, 2023 | 
 | [New languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) | Amazon Transcribe now supports Vietnamese and Swedish\. | December 6, 2022 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-streaming.html) | Amazon Transcribe now supports real\-time Call Analytics\. | November 28, 2022 | 
@@ -53,7 +55,7 @@ The following table describes important changes in each release of Amazon Transc
 | [New languages](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | Amazon Transcribe adds support for Dutch, Farsi, Indonesian, Irish English, Portuguese, Scottish English, Tamil, and Welsh English\. | November 12, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | Amazon Transcribe now supports streaming transcription for Australian English \(en\-AU\)\. | October 25, 2019 | 
 | [AWS Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the China \(Beijing\) \(cn\-north\-1\) and China \(Ningxia\) \(cn\-northwest\-1\)\. | October 9, 2019 | 
-| [New feature](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-OutputEncryptionKMSKeyId) | Amazon Transcribe enables you to provide your own KMS key to encrypt your transcription output files\. For more information, see the [OutputEncryptionKMSKeyId](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-OutputEncryptionKMSKeyId) parameter of the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API\. | September 24, 2019 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-OutputEncryptionKMSKeyId) | Amazon Transcribe allows you to provide your own KMS key to encrypt your transcription output files\. For more information, see the [OutputEncryptionKMSKeyId](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-OutputEncryptionKMSKeyId) parameter of the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) API\. | September 24, 2019 | 
 | [New languages](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | Amazon Transcribe adds support for Chinese \(Mandarin\), Simplified, Mainland China and Russian\. | August 23, 2019 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html) | Amazon Transcribe adds support for streaming audio transcription using the WebSocket protocol\. | July 19, 2019 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/monitoring-transcribe-cloud-trail.html) | AWS CloudTrail now records events for the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API\. | July 19, 2019 | 
@@ -66,7 +68,7 @@ The following table describes important changes in each release of Amazon Transc
 | [AWS Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the EU \(Frankfurt\) \(eu\-central\-1\) and Asia Pacific \(Seoul\) \(ap\-northeast\-2\)\. | April 18, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | Amazon Transcribe adds support for streaming transcription in British English, French, and Canadian French\. | April 5, 2019 | 
 | [New feature](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/TranscribeService.html) | The AWS SDK for Ruby V3 now supports Amazon Transcribe | March 25, 2019 | 
-| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html) | Amazon Transcribe now enables you to create custom vocabularies, lists of specific words that you want Amazon Transcribe to recognize in your audio input\. | March 25, 2019 | 
+| [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html) | Amazon Transcribe allows custom vocabularies, which are lists of specific words that you want Amazon Transcribe to recognize in your audio input\. | March 25, 2019 | 
 | [New languages](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | Amazon Transcribe adds support for German and Korean\. | March 22, 2019 | 
 | [New language](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) | Amazon Transcribe now supports streaming transcription for US Spanish \(es\-US\)\. | February 7, 2019 | 
 | [AWS Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#transcribe_region) | Amazon Transcribe is now available in the South America \(Sao Paulo\) \(sa\-east\-1\)\. | February 7, 2019 | 

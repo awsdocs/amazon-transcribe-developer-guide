@@ -120,7 +120,7 @@ Amazon Transcribe only supports one stream per HTTP/2 session\. If you attempt t
 
       After you've calculated the signature for the data frame, construct a byte buffer containing the date, signature, and audio event payload\. Send the byte array to Amazon Transcribe for transcription\.
 
-1. To indicate the audio stream is complete, send an end frame \(an empty data frame\) that contains only the date and signature\. You construct this end frame the same way you construct a data frame\.
+1. To indicate the audio stream is complete, send an end frame \(an empty data frame\) that contains only the date and signature\. You construct this end frame the same way that you construct a data frame\.
 
    Amazon Transcribe responds with a stream of transcription events, sent to your application\. This response is event stream encoded\. It contains the standard prelude and the following headers\.    
 <a name="table-http2-frame-response-headers"></a>[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/transcribe/latest/dg/streaming-http2.html)

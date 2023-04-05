@@ -4,7 +4,7 @@ There are two options for creating a custom vocabulary filter:
 
 1. Save a list of line\-separated words as a plain text file with UTF\-8 encoding\.
    + You can use this approach with the AWS Management Console, AWS CLI, or AWS SDKs\.
-   + If using the AWS Management Console, you can provide either a local path or an Amazon S3 URI for your custom vocabulary file\.
+   + If using the AWS Management Console, you can provide a local path or an Amazon S3 URI for your custom vocabulary file\.
    + If using the AWS CLI or AWS SDKs, you must upload your custom vocabulary file to an Amazon S3 bucket and include the Amazon S3 URI in your request\.
 
 1. Include a list of comma\-separated words directly in your API request\.
@@ -38,7 +38,7 @@ Before continuing, save your custom vocabulary filter as a text \(\*\.txt\) file
 
    This takes you to the **Create vocabulary filter** page\. Enter a name for your new custom vocabulary filter\.
 
-   Select either the **File upload** or **S3 location** option under **Vocabulary input source**\. Then specify the location of your custom vocabulary file\.  
+   Select the **File upload** or **S3 location** option under **Vocabulary input source**\. Then specify the location of your custom vocabulary file\.  
 ![\[Amazon Transcribe console screenshot: the 'create vocabulary filter' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-create-console-upload.png)
 
 1. Optionally, add tags to your custom vocabulary filter\. Once you have all fields completed, select **Create vocabulary filter** at the bottom of the page\. If there are no errors processing your file, this takes you back to the **Vocabulary filters** page\.

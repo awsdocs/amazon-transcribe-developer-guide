@@ -2,7 +2,7 @@
 
 When Amazon Transcribe transcribes audio, it creates different versions of the same transcript and assigns a confidence score to each version\. In a typical transcription, you only get the version with the highest confidence score\.
 
-If you enable alternative transcriptions, Amazon Transcribe returns other versions of your transcript that have lower confidence levels\. You can choose to have up to ten alternative transcriptions returned\. If you specify a greater number of alternatives than what Amazon Transcribe identifies, only the actual number of alternatives is returned\.
+If you turn on alternative transcriptions, Amazon Transcribe returns other versions of your transcript that have lower confidence levels\. You can choose to have up to 10 alternative transcriptions returned\. If you specify a greater number of alternatives than what Amazon Transcribe identifies, only the actual number of alternatives is returned\.
 
 All alternatives are located in the same transcription output file and are presented at the segment level\. Segments are natural pauses in speech, such as a change in speaker or a pause in the audio\.
 

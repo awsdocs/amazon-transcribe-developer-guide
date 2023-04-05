@@ -1,4 +1,4 @@
-# Security Best Practices for Amazon Transcribe<a name="security-best-practices"></a>
+# Security best practices for Amazon Transcribe<a name="security-best-practices"></a>
 
 The following best practices are general guidelines and don’t represent a complete security solution\. Because these best practices might not be appropriate or sufficient for your environment, use them as helpful considerations rather than prescriptions\.
 + **Use data encryption, such as AWS KMS encryption context**
@@ -28,6 +28,6 @@ The following best practices are general guidelines and don’t represent a comp
   For more information, refer to [Monitoring Amazon Transcribe with AWS CloudTrail](monitoring-transcribe-cloud-trail.md)\.
 + **Enable AWS Config**
 
-  AWS Config enables you to assess, audit, and evaluate the configurations of your AWS resources\. Using AWS Config, you can review changes in configurations and relationships between AWS resources, investigate detailed resource configuration histories, and determine your overall compliance against the configurations specified in your internal guidelines\. This can help you simplify compliance auditing, security analysis, change management, and operational troubleshooting\.
+  AWS Config can assess, audit, and evaluate the configurations of your AWS resources\. Using AWS Config, you can review changes in configurations and relationships between AWS resources\. You can also investigate detailed resource configuration histories and determine your overall compliance against the configurations specified in your internal guidelines\. This can help you simplify compliance auditing, security analysis, change management, and operational troubleshooting\.
 
   For more information, refer to [What Is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html)

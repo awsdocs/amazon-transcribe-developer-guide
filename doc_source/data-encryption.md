@@ -16,24 +16,24 @@ Amazon Transcribe uses TLS 1\.2 with AWS certificates to encrypt data in transit
 
 ## Key management<a name="key-management"></a>
 
-Amazon Transcribe works with KMS keys to provide enhanced encryption for your data\. Amazon S3 already enables you to encrypt your input media when creating a transcription job\. Integration with AWS KMS enables you to encrypt the output from a [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) request\.
+Amazon Transcribe works with KMS keys to provide enhanced encryption for your data\. With Amazon S3, you can encrypt your input media when creating a transcription job\. Integration with AWS KMS allows encryption of the output from a [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) request\.
 
 If you don't specify a KMS key, the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.
 
-For more information on AWS KMS, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)*\.
+For more information on AWS KMS, see the [https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)\.
 
 ### Key management using the AWS Management Console<a name="kms-console"></a>
 
-To encrypt the output of your transcription job, you can choose between using a KMS key for the AWS account that is making the request, or you can use a KMS key from another AWS account\.
+To encrypt the output of your transcription job, you can choose between using a KMS key for the AWS account that is making the request, or a KMS key from another AWS account\.
 
 If you don't specify a KMS key, the output of the transcription job is encrypted with the default Amazon S3 key \(SSE\-S3\)\.
 
 **To enable output encryption:**
 
 1. Under **Output data** choose **Encryption**\.  
-![\[Screenshot of enabled encryption toggle and KMS key ID drop-down menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/output-encryption.png)![\[Screenshot of enabled encryption toggle and KMS key ID drop-down menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
+![\[Screenshot of enabled encryption toggle and KMS key ID dropdown menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/output-encryption.png)![\[Screenshot of enabled encryption toggle and KMS key ID dropdown menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
-1. Choose whether the KMS key is from the AWS account you're currently using or from a different AWS account\. If you want to use a key from the current AWS account, choose the key from **KMS key ID**\. If you're using a key from a different AWS account, you need to enter the key's ARN\. To use a key from a different AWS account, the caller must have `kms:Encrypt` permissions for the KMS key\. Refer to [Creating a key policy ](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) for more information\.
+1. Choose whether the KMS key is from the AWS account you're currently using or from a different AWS account\. If you want to use a key from the current AWS account, choose the key from **KMS key ID**\. If you're using a key from a different AWS account, you must enter the key's ARN\. To use a key from a different AWS account, the caller must have `kms:Encrypt` permissions for the KMS key\. Refer to [Creating a key policy ](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) for more information\.
 
 ### Key management using the API<a name="kms-api"></a>
 
@@ -61,7 +61,7 @@ Note that the entity making the request must have permission to use the specifie
 
 AWS KMS encryption context is a map of plain text, non\-secret key:value pairs\. This map represents additional authenticated data, known as encryption context pairs, which provide an added layer of security for your data\. Amazon Transcribe requires a symmetric encryption key to encrypt transcription output into a customer\-specified Amazon S3 bucket\. To learn more, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)\.
 
-When creating your encryption context pairs, **do not** include sensitive information\. Encryption context is not secret—it is visible in plain text within your CloudTrail logs \(so you can use it to identify and categorize your cryptographic operations\)\.
+When creating your encryption context pairs, **do not** include sensitive information\. Encryption context is not secret—it's visible in plain text within your CloudTrail logs \(so you can use it to identify and categorize your cryptographic operations\)\.
 
 Your encryption context pair can include special characters, such as underscores \(`_`\), dashes \(`-`\), slashes \(`/`, `\`\) and colons \(`:`\)\.
 

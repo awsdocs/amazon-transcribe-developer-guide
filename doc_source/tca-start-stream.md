@@ -26,8 +26,8 @@ Only a demo is available in the AWS Management Console\. To start a custom real\
 1. In the navigation pane, under Amazon Transcribe Call Analytics, choose **Analyze a real\-time call**\.  
 ![\[Amazon Transcribe console screenshot: the 'analyze a streaming call' demo page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream.png)
 
-1. For **Step 1: Specify input audio**, choose a demo test file from the drop\-down menu\.  
-![\[Amazon Transcribe console screenshot: a drop-down selection for the demo's input audio.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings1.png)
+1. For **Step 1: Specify input audio**, choose a demo test file from the dropdown menu\.  
+![\[Amazon Transcribe console screenshot: a dropdown selection for the demo's input audio.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings1.png)
 
 1. For **Step 2: Review call categories**, you have the option to review the real\-time Call Analytics categories you previously created\. All real\-time Call Analytics categories are applied to your transcription\.
 
@@ -99,7 +99,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ## WebSocket stream<a name="analytics-start-websocket"></a>
 
-This example creates a pre\-signed URL that uses Call Analytics in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartCallAnalyticsStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartCallAnalyticsStreamTranscription.html)\.
+This example creates a presigned URL that uses Call Analytics in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartCallAnalyticsStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartCallAnalyticsStreamTranscription.html)\.
 
 This example includes [post\-call analytics](tca-post-call.md)\. If you don't want post\-call analytics, remove the `PostCallAnalyticsSettings` section from the request\.
 

@@ -38,10 +38,10 @@ To get started, see [Starting a post\-call analytics transcription](tca-start-ba
 
 Before using Call Analytics, note that:
 + Call Analytics only supports two\-channel audio, where an agent is present on one channel and a customer is present on a second channel\.
-+ [Job queueing](job-queueing.md) is always enabled for post\-call analytics jobs, so you're limited to 100 concurrent Call Analytics jobs\. If you need to request a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
++ [Job queueing](job-queueing.md) is always enabled for post\-call analytics jobs, so you're limited to 100 concurrent Call Analytics jobs\. If you want to request a quota increase, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 + Input files for post\-call analytics jobs cannot be greater than 500 MB and must be less than 4 hours\.
 + If using categories, you must create all desired categories before starting a Call Analytics transcription\. Any new categories cannot be applied to existing transcriptions\. To learn how to create a new category, see [Creating categories for post\-call transcriptions](tca-categories-batch.md) and [Creating categories for real\-time transcriptions](tca-categories-stream.md)\.
-+ Some Call Analytics quotas differ from Amazon Transcribe and Amazon Transcribe Medical; refer to [Guidelines and quotas](limits-guidelines.md) for specifics\.
++ Some Call Analytics quotas differ from Amazon Transcribe and Amazon Transcribe Medical; refer to the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region) for details\.
 
 **Dive deeper with the AWS Machine Learning Blog**  
 To learn more about Call Analytics options, see:  

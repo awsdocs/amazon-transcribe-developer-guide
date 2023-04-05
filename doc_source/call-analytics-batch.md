@@ -17,7 +17,7 @@ This section details the insights available for post\-call analytics transcripti
 
 The call characteristics feature measures the quality of agent\-customer interactions using these criteria:
 + **Interruption**: Measures if and when one participant cuts off the other participant mid\-sentence\. Frequent interruptions may be associated with rudeness or anger, and could correlate to negative sentiment for one or both participants\.
-+ **Loudness**: Measures the volume at which each participant is speaking\. Use this metric to see if either the caller or the agent is speaking loudly or yelling, which is often indicative of being upset\. This metric is represented as a normalized value \(speech level per second of speech in a given segment\) on a scale from 0 to 100, where a higher value indicates a louder voice\.
++ **Loudness**: Measures the volume at which each participant is speaking\. Use this metric to see if the caller or the agent is speaking loudly or yelling, which is often indicative of being upset\. This metric is represented as a normalized value \(speech level per second of speech in a given segment\) on a scale from 0 to 100, where a higher value indicates a louder voice\.
 + **Non\-talk time**: Measures periods of time that do not contain speech\. Use this metric to see if there are long periods of silence, such as an agent keeping a customer on hold for an excessive amount of time\.
 + **Talk speed**: Measures the speed at which both participants are speaking\. Comprehension can be affected if one participant speaks too quickly\. This metric is measured in words per minute\.
 + **Talk time**: Measures the amount of time \(in milliseconds\) each participant spoke during the call\. Use this metric to help identify if one participant is dominating the call or if the dialogue is balanced\.
@@ -36,7 +36,7 @@ Using call summarization, you can:
 Call summarization works across all industries and business sectors, and is context\-based\.
 
 **Note**  
-Call summarization is supported with these English language dialects: Australian \(en\-AU\), British \(en\-GB\), Indian \(en\-IN\), Irish \(en\-IE\), Scottish \(en\-AB\), US \(en\-US\), and Welsh \(en\-WL\)\.
+Call summarization is supported with these English language dialects: Australian \(`en-AU`\), British \(`en-GB`\), Indian \(`en-IN`\), Irish \(`en-IE`\), New Zealand \(`en-NZ`\), Scottish \(`en-AB`\), South African \(`en-ZA`\), US \(`en-US`\), and Welsh \(`en-WL`\)\.
 
 Call summarization works out\-of\-the\-box and thus doesn't support customization, such as model training or custom categories\.
 
@@ -48,8 +48,8 @@ Use call categorization to flag keywords, phrases, sentiment, or actions within 
 
 The criteria you can add to a category include:
 + **Non\-talk time**: Periods of time when neither the customer nor the agent is talking\.
-+ **Interruptions**: When either the customer or the agent is interrupting the other person\.
-+ **Customer or agent sentiment**: How either the customer or the agent is feeling during a specified time period\. If at least 50 percent of the conversation turns \(the back\-and\-forth between two speakers\) in a specified time period match the specified sentiment, Amazon Transcribe considers the sentiment a match\.
++ **Interruptions**: When the customer or the agent is interrupting the other person\.
++ **Customer or agent sentiment**: How the customer or the agent is feeling during a specified time period\. If at least 50 percent of the conversation turns \(the back\-and\-forth between two speakers\) in a specified time period match the specified sentiment, Amazon Transcribe considers the sentiment a match\.
 + **Keywords or phrases**: Matches part of the transcription based on an exact phrase\. For example, if you set a filter for the phrase "I want to speak to the manager", Amazon Transcribe filters for that *exact* phrase\.
 
 You can also flag the inverse of the previous criteria \(talk time, lack of interruptions, a sentiment not being present, and the lack of a specific phrase\)\.

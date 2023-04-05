@@ -55,7 +55,7 @@ With language identification, you have the option to include a list of languages
 If you choose to include language codes, you must include at least two\. There's no limit on the number of language codes you can include, but we recommend using between two and five for optimal efficiency and accuracy\.
 
 **Note**  
-If you include language codes with your request and none of the language codes you provide match the language, or languages, identified in your audio, Amazon Transcribe selects the closest language match from your specified language codes\. It then produces a transcript in that language\. For example, if your media is in US English \(`en-US`\) and you provide Amazon Transcribe with the language codes `zh-CN`, `fr-FR`, and `de-DE`, Amazon Transcribe is likely to match your media to German \(`de-DE`\) and produce a German\-language transcription\. Mismatching language codes and spoken languages can result in an inaccurate transcript, so we advise caution when including language codes\.
+If you include language codes with your request and none of the language codes you provide match the language, or languages, identified in your audio, Amazon Transcribe selects the closest language match from your specified language codes\. It then produces a transcript in that language\. For example, if your media is in US English \(`en-US`\) and you provide Amazon Transcribe with the language codes `zh-CN`, `fr-FR`, and `de-DE`, Amazon Transcribe is likely to match your media to German \(`de-DE`\) and produce a German\-language transcription\. Mismatching language codes and spoken languages can result in an inaccurate transcript, so we recommend caution when including language codes\.
 
 ## Combining language identification with other Amazon Transcribe features<a name="lang-id-batch-features"></a>
 
@@ -72,7 +72,7 @@ If you want to add one or more custom language models, custom vocabularies, or c
 
 It's recommended that you include `LanguageOptions` when using [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) to ensure that the correct language dialect is identified\. For example, if you specify an `en-US` custom vocabulary, but Amazon Transcribe determines that the language spoken in your media is `en-AU`, your custom vocabulary *is not* applied to your transcription\. If you include `LanguageOptions` and specify `en-US` as the only English language dialect, your custom vocabulary *is* applied to your transcription\.
 
-For examples of [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) in a request, refer to Option 2 in the **AWS CLI** and **AWS SDKs** drop\-down panels in the [Using language identification with batch transcriptions](#lang-id-batch-examples) section\.
+For examples of [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_LanguageIdSettings.html) in a request, refer to Option 2 in the **AWS CLI** and **AWS SDKs** dropdown panels in the [Using language identification with batch transcriptions](#lang-id-batch-examples) section\.
 
 ## Using language identification with batch transcriptions<a name="lang-id-batch-examples"></a>
 
@@ -86,7 +86,7 @@ You can use automatic language identification in a batch transcription job using
 
 1. In the **Job settings** panel, find the **Language settings** section and select **Automatic language identification** or **Automatic multiple languages identification**\.
 
-   You have the option to select multiple language options \(from the *Select languages* drop\-down box\) if you know which languages are present in your audio file\. Providing language options can improve accuracy, but is not required\.  
+   You have the option to select multiple language options \(from the *Select languages* dropdown box\) if you know which languages are present in your audio file\. Providing language options can improve accuracy, but is not required\.  
 ![\[Amazon Transcribe console screenshot: the 'job settings' pane on the 'specify job details' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-batch1.png)
 
 1. Fill in any other fields you want to include on the **Specify job details** page, then select **Next**\. This takes you to the **Configure job \- *optional*** page\.  

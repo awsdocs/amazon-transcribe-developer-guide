@@ -6,7 +6,7 @@ When you enable speaker diarization, Amazon Transcribe Medical labels each speak
 
 If an utterance from one speaker overlaps with an utterance from another speaker, Amazon Transcribe Medical orders them in the transcription by their start times\. Utterances that overlap in the input audio don't overlap in the transcription output\.
 
-You can enable speaker diariziation when you transcribe an audio file using batch transcription job, or in a real\-time stream\.
+You can enable speaker diarization when you transcribe an audio file using batch transcription job, or in a real\-time stream\.
 
 **Topics**
 + [Enabling speaker partitioning in batch transcriptions](conversation-diarization-batch-med.md)

@@ -42,7 +42,7 @@ Additional operations and parameters are listed in the [API Reference](https://d
 
 ## Streaming transcriptions<a name="getting-started-http-streaming"></a>
 
-Streaming transcriptions using HTTP/2 and WebSockets are more involved than using SDKs, so we advise reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before setting up your first stream\.
+Streaming transcriptions using HTTP/2 and WebSockets are more involved than using SDKs\. We recommend reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before setting up your first stream\.
 
 For more information on these methods, refer to [Setting up an HTTP/2 stream](streaming-http2.md) or [Setting up a WebSocket stream](streaming-websocket.md)\.
 

@@ -1,6 +1,6 @@
 # Streaming transcriptions<a name="getting-started-console-stream"></a>
 
-1. From the [AWS Management Console](https://console.aws.amazon.com/transcribe), select **Real\-time transcription** in the left navigation pane\. This takes you to the main streaming page where you can select options prior to starting your stream\.  
+1. From the [AWS Management Console](https://console.aws.amazon.com/transcribe), select **Real\-time transcription** in the left navigation pane\. This takes you to the main streaming page where you can select options before starting your stream\.  
 ![\[Amazon Transcribe console screenshot: the 'real-time transcription' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-stream-1.png)![\[Amazon Transcribe console screenshot: the 'real-time transcription' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/)
 
 1. Below the **Transcription output** box, you have the option to select various language and audio settings\.  

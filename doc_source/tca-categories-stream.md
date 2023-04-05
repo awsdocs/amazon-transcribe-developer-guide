@@ -21,10 +21,10 @@ To create a new category for real\-time Call Analytics, you can use the **AWS Ma
 
 1. In the navigation pane, under Amazon Transcribe, choose **Amazon Transcribe Call Analytics**\.
 
-1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Click the **Create category** button\.  
+1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Select the **Create category** button\.  
 ![\[Amazon Transcribe console screenshot: the Call Analytics 'categories' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories.png)
 
-1. You're now on the **Create category page**\. Enter a name for your category, then choose 'Real time call analytics' in the **Category type** drop\-down menu\.  
+1. You're now on the **Create category page**\. Enter a name for your category, then choose 'Real time call analytics' in the **Category type** dropdown menu\.  
 ![\[Amazon Transcribe console screenshot: the 'category settings' panel.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-type.png)
 
 1. You can choose a template to create your category or you can make one from scratch\.
@@ -35,7 +35,7 @@ To create a new category for real\-time Call Analytics, you can use the **AWS Ma
 1. If creating a custom category: select **Create from scratch**\.  
 ![\[Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom.png)
 
-1. Add rules to your category using the drop\-down menu\. You can add up to 20 rules per category\. With real\-time Call Analytics transcriptions, you can only include rules that involve transcript content matches\. Any matches are flagged in real time\.  
+1. Add rules to your category using the dropdown menu\. You can add up to 20 rules per category\. With real\-time Call Analytics transcriptions, you can only include rules that involve transcript content matches\. Any matches are flagged in real time\.  
 ![\[Amazon Transcribe console screenshot: the 'rules' pane with list of rule types.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules-stream.png)
 
 1. Here's an example of a category with one rule: a customer who says "speak to a manager" at any point in the call\.  

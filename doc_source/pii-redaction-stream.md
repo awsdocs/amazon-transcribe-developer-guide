@@ -38,14 +38,14 @@ You can start a streaming transcription using the AWS Management Console, WebSoc
 1. Toggle on **PII Identification & redaction**\.  
 ![\[Amazon Transcribe console screenshot: the expanded 'content removal settings' panel.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream2.png)
 
-1. Select either **Identification only** or **Identification & redaction**, then select the PII entity types you want to identify or redact in your transcript\.  
+1. Select **Identification only** or **Identification & redaction**, then select the PII entity types you want to identify or redact in your transcript\.  
 ![\[Amazon Transcribe console screenshot: list of PII types that can be selected.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream3.png)
 
 1. You're now ready to transcribe your stream\. Select **Start streaming** and begin speaking\. To end your dictation, select **Stop streaming**\.
 
 ## WebSocket stream<a name="redaction-websocket"></a>
 
-This example creates a pre\-signed URL that uses either PII Identification or PII redaction in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a presigned URL that uses PII redaction \(or PII identification\) in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

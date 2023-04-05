@@ -1,6 +1,6 @@
 # Setting up a streaming transcription<a name="streaming-setting-up"></a>
 
-This section expands on the main [streaming](streaming.md) section and is intended to provide information for users who want to set up their stream with HTTP/2 or WebSockets directly, rather than with an AWS SDK\. The information in this section can also be used to build your own SDK\.
+This section expands on the main [streaming](streaming.md) section\. It's intended to provide information for users who want to set up their stream with HTTP/2 or WebSockets directly, rather than with an AWS SDK\. The information in this section can also be used to build your own SDK\.
 
 Note that we strongly recommend using SDKs rather than using HTTP/2 and WebSockets directly\. SDKs are the simplest and most reliable method for transcribing data streams\. To start streaming using an AWS SDK, see [Transcribing with the AWS SDKs](getting-started-sdk.md)\. 
 
@@ -34,12 +34,12 @@ Each message contains the following components:
 + **Prelude**: Consists of two, 4\-byte fields, for a fixed total of 8 bytes\.
   + *First 4 bytes*: The big\-endian integer byte\-length of the entire message, inclusive of this 4\-byte length field\.
   + *Second 4 bytes*: The big\-endian integer byte\-length of the 'headers' portion of the message, excluding the 'headers' length field itself\.
-+ **Prelude CRC**: The 4\-byte CRC checksum for the prelude portion of the message, excluding the CRC itself\. The prelude has a separate CRC from the message CRC to ensure that Amazon Transcribe can detect corrupted byte\-length information immediately without causing errors, such as buffer overruns\.
++ **Prelude CRC**: The 4\-byte CRC checksum for the prelude portion of the message, excluding the CRC itself\. The prelude has a separate CRC from the message CRC\. That ensures that Amazon Transcribe can detect corrupted byte\-length information immediately without causing errors, such as buffer overruns\.
 + **Headers**: Metadata annotating the message; for example, message type and content type\. Messages have multiple headers, which are key:value pairs, where the key is a UTF\-8 string\. Headers can appear in any order in the 'headers' portion of the message, and each header can appear only once\.
 + **Payload**: The audio content to be transcribed\.
 + **Message CRC**: The 4\-byte CRC checksum from the start of the message to the start of the checksum\. That is, everything in the message except the CRC itself\.
 
-The header frame is the authorization frame for the streaming transcription\. Amazon Transcribe uses the value of the authorization header as the seed for generating a chain of authorization headers for the data frames in the request\.
+The header frame is the authorization frame for the streaming transcription\. Amazon Transcribe uses the authorization header's value as the seed for generating a chain of authorization headers for the data frames in the request\.
 
 Each header contains the following components; there are multiple headers per frame\.
 + **Header name byte\-length**: The byte\-length of the header name\.

@@ -20,7 +20,7 @@ To use a custom vocabulary filter with a batch transcription, see the following 
 1. On the **Configure job** page, in the **Content removal** panel, toggle on **Vocabulary filtering**\.  
 ![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-configure-job-vocab-filter.png)
 
-1. Select your custom vocabulary filter from the drop\-down menu and specify the filtration method\.  
+1. Select your custom vocabulary filter from the dropdown menu and specify the filtration method\.  
 ![\[Amazon Transcribe console screenshot: vocabulary filter selection options.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-vocab-filter-method.png)
 
 1. Select **Create job** to run your transcription job\. 
@@ -113,7 +113,7 @@ To use a custom vocabulary filter with a streaming transcription, see the follow
 1. In the navigation pane, choose **Real\-time transcription**\. Scroll down to **Content removal settings** and expand this field if it is minimized\.  
 ![\[Amazon Transcribe console screenshot: the 'real-time transcription' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
 
-1. Toggle on **Vocabulary filtering**\. Select a custom vocabulary filter from the drop\-down menu and specify the filtration method\.  
+1. Toggle on **Vocabulary filtering**\. Select a custom vocabulary filter from the dropdown menu and specify the filtration method\.  
 ![\[Amazon Transcribe console screenshot: the expanded 'content removal settings' pane.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-stream.png)
 
    Include any other settings you want to apply to your stream\.
@@ -144,7 +144,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ### WebSocket stream<a name="vocab-filter-using-websocket"></a>
 
-This example creates a pre\-signed URL that applies your custom vocabulary filter to a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a presigned URL that applies your custom vocabulary filter to a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

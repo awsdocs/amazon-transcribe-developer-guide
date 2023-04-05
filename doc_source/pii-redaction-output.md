@@ -4,7 +4,7 @@ The following examples show redacted output from batch and streaming jobs, and P
 
 Transcription jobs using content redaction generate two types of `confidence` values\. The Automatic Speech Recognition \(ASR\) confidence indicates the items that have the `type` of `pronunciation` or `punctuation` is a specific utterance\. In the following transcript output, the word `Good` has a `confidence` of `1.0`\. This confidence value indicates that Amazon Transcribe is 100 percent confident that the word uttered in this transcript is 'Good'\. The `confidence` value for a `[PII]` tag is the confidence that the speech it flagged for redaction is truly PII\. In the following transcript output, the `confidence` of `0.9999` indicates that Amazon Transcribe is 99\.99 percent confident that the entity it redacted in the transcript is PII\.
 
-## Example redacted batch output<a name="pii-redaction-output-batch"></a>
+## Example redacted output \(batch\)<a name="pii-redaction-output-batch"></a>
 
 ```
 {
@@ -158,7 +158,7 @@ Here's the unredacted transcript for comparison:
                         ],
                         "EndTime": 1.02,
                         "IsPartial": false,
-                        "ResultId": "2db76dc8-d728-11e8-9f8b-f2801f1b9fd1",
+                        "ResultId": "12345a67-8bc9-0de1-2f34-a5b678c90d12",
                         "StartTime": 0.0199375
                     }
                 ]
@@ -222,7 +222,7 @@ PII identification is an additional feature that you can use with your streaming
                         ],
                         "EndTime": 1.02,
                         "IsPartial": false,
-                        "ResultId": "2db76dc8-d728-11e8-9f8b-f2801f1b9fd1",
+                        "ResultId": "12345a67-8bc9-0de1-2f34-a5b678c90d12",
                         "StartTime": 0.0199375
                     }
                 ]

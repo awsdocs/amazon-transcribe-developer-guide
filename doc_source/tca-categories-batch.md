@@ -26,7 +26,7 @@ To create a new category for post\-call analytics, you can use the **AWS Managem
 1. Choose **Call analytics categories**, which takes you to the **Call analytics categories** page\. Select **Create category**\.  
 ![\[Amazon Transcribe console screenshot: the Call Analytics 'categories' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories.png)
 
-1. You're now on the **Create category page**\. Enter a name for your category, then choose 'Batch call analytics' in the **Category type** drop\-down menu\.  
+1. You're now on the **Create category page**\. Enter a name for your category, then choose 'Batch call analytics' in the **Category type** dropdown menu\.  
 ![\[Amazon Transcribe console screenshot: the 'category settings' panel.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-type.png)
 
 1. You can choose a template to create your category or you can make one from scratch\.
@@ -37,10 +37,10 @@ To create a new category for post\-call analytics, you can use the **AWS Managem
 1. If creating a custom category: select **Create from scratch**\.  
 ![\[Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom.png)
 
-1. Add rules to your category using the drop\-down menu\. You can add up to 20 rules per category\.  
+1. Add rules to your category using the dropdown menu\. You can add up to 20 rules per category\.  
 ![\[Amazon Transcribe console screenshot: the 'rules' pane with list of rule types.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules1.png)
 
-1. Here's an example of a category with two rules: an agent who interrupts a customer for more than 15 seconds during the call and a negative sentiment felt by either the customer or the agent in the last two minutes of the call\.  
+1. Here's an example of a category with two rules: an agent who interrupts a customer for more than 15 seconds during the call and a negative sentiment felt by the customer or the agent in the last two minutes of the call\.  
 ![\[Amazon Transcribe console screenshot: the 'rules' pane with two example rules.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-categories-custom-rules2.png)
 
 1. When you're finished adding rules to your category, choose **Create category**\.

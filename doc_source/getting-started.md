@@ -17,20 +17,20 @@ Once you complete these prerequisites, you're ready to transcribe\. Select your 
 **Tip**  
 If you're new to Amazon Transcribe or would like to explore our features, we recommend using the [AWS Management Console](https://console.aws.amazon.com/transcribe)\. This is also the easiest option if you'd like to start a stream using your computer microphone\.
 
-Because streaming using HTTP/2 and WebSockets is more complicated than the other transcription methods, we advise reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before getting started with these methods\. **Note that we strongly recommend using an SDK for streaming transcriptions\.**
+Because streaming using HTTP/2 and WebSockets is more complicated than the other transcription methods, we recommend reviewing the [Setting up a streaming transcription](streaming-setting-up.md) section before getting started with these methods\. **Note that we strongly recommend using an SDK for streaming transcriptions\.**
 
 ## Signing up for an AWS account<a name="getting-started-sign-up"></a>
 
-You can sign up for either a [free tier](http://aws.amazon.com/free/) account or a [paid account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)\. Both options give you access to all AWS services\. The free tier has a trial period during which you can explore AWS services and estimate your usage\. Once your trial period expires, you can migrate to a paid account\. Fees are accrued on a pay\-as\-you\-use basis; see [Amazon Transcribe Pricing](http://aws.amazon.com/transcribe/pricing/) for details\.
+You can sign up for a [free tier](http://aws.amazon.com/free/) account or a [paid account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)\. Both options give you access to all AWS services\. The free tier has a trial period during which you can explore AWS services and estimate your usage\. Once your trial period expires, you can migrate to a paid account\. Fees are accrued on a pay\-as\-you\-use basis; see [Amazon Transcribe Pricing](http://aws.amazon.com/transcribe/pricing/) for details\.
 
 **Tip**  
 When setting up your account, make note of your AWS account ID because you need it to create IAM entities\.
 
 ## Installing the AWS CLI and SDKs<a name="getting-started-api"></a>
 
-To use the Amazon Transcribe API, you must first install the AWS CLI\. The current AWS CLI is version 2\. You can find installation instructions for [Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html), [Mac](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html), [Windows](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html), and [Docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html) in the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)*\. 
+To use the Amazon Transcribe API, you must first install the AWS CLI\. The current AWS CLI is version 2\. You can find installation instructions for [Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html), [Mac](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html), [Windows](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html), and [Docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html) in the [https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)\. 
 
-Once you have the AWS CLI installed, you need to [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) it for your security credentials and AWS Region\.
+Once you have the AWS CLI installed, you must [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) it for your security credentials and AWS Region\.
 
 If you want to use Amazon Transcribe with an SDK, select your preferred language for installation instructions:
 + [\.NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/quick-start.html)
@@ -53,9 +53,9 @@ We strongly recommend that you do not use the root user for your everyday tasks\
 
 As a best practice, require users—including those that require administrator access—to use federation with an identity provider to access AWS services by using temporary credentials\.
 
-A federated identity is any user that accesses AWS services by using credentials provided through an identity source\. When federated identities access AWS accounts, they assume roles, and the roles provide temporary credentials\.
+A federated identity is any user who accesses AWS services by using credentials provided through an identity source\. When federated identities access AWS accounts, they assume roles, and the roles provide temporary credentials\.
 
-For centralized access management, we recommend that you use [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\. You can create users and groups in IAM Identity Center, or you can connect and synchronize to a set of users and groups in your own identity source for use across all your AWS accounts and applications\. For more information, see [Identity and Access Management for Amazon Transcribe](security-iam.md)\.
+For centralized access management, we recommend that you use [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\. You can create users and groups in IAM Identity Center\. Or you can connect and synchronize to a set of users and groups in your own identity source for use across all your AWS accounts and applications\. For more information, see [Identity and Access Management for Amazon Transcribe](security-iam.md)\.
 
 To learn more about IAM best practices, refer to [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)\.
 

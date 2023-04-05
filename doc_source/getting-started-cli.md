@@ -1,6 +1,6 @@
 # Transcribing with the AWS CLI<a name="getting-started-cli"></a>
 
-When using the AWS CLI to start a transcription, you can either run all commands at the CLI level or you can run the command you want to use followed by the AWS Region and the location of a JSON file that contains a request body\. Examples throughout this guide show both methods; however, this section focuses on the former method\.
+When using the AWS CLI to start a transcription, you can run all commands at the CLI level\. Or you can run the command you want to use, followed by the AWS Region and the location of a JSON file that contains a request body\. Examples throughout this guide show both methods; however, this section focuses on the former method\.
 
 The AWS CLI does not support streaming transcriptions\.
 
@@ -20,7 +20,7 @@ To start a new transcription, use the `start-transcription-job` command\.
    aws transcribe start-transcription-job \
    ```
 
-   A '`>`' appears on the next line and you can now continue adding required parameters, as described in the next step\.
+   A '`>`' appears on the next line, and you can now continue adding required parameters, as described in the next step\.
 
    You can also omit the '`\`' and append all parameters, separating each with a space\.
 
@@ -61,7 +61,7 @@ To start a new transcription, use the `start-transcription-job` command\.
    }
    ```
 
-To see if your transcription job is successful, as indicated by [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus) changing from `IN_PROGRESS` to `COMPLETED`, use the `get-transcription-job` or `list-transcription-job` command, as shown in the following section\.
+Your transcription job is successful if [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus) changes from `IN_PROGRESS` to `COMPLETED`\. To see the updated [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJob.html#transcribe-Type-TranscriptionJob-TranscriptionJobStatus), use the `get-transcription-job` or `list-transcription-job` command, as shown in the following section\.
 
 ## Getting the status of a transcription job<a name="getting-started-cli-get-job"></a>
 
@@ -149,4 +149,4 @@ aws transcribe delete-transcription-job \
  --transcription-job-name my-first-transcription-job
 ```
 
-To confirm your delete request is successful, you can run the `list-transcription-jobs` command; your job should no longer appear in the list\.
+To confirm your delete request is successful, you can run the `list-transcription-jobs` command\. Your job should no longer appear in the list\.

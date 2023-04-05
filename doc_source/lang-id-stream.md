@@ -7,7 +7,7 @@ To use streaming language identification, you must provide at least two language
 You also have the option to select a preferred language from the set of language codes you provide\. Adding a preferred language can speed up the language identification process, which is helpful for short audio clips\.
 
 **Important**  
-If none of the language codes you provide match the language, or languages, identified in your audio, Amazon Transcribe selects the closest language match from your specified language codes\. It then produces a transcript in that language\. For example, if your media is in US English \(`en-US`\) and you provide Amazon Transcribe with the language codes `zh-CN`, `fr-FR`, and `de-DE`, Amazon Transcribe is likely to match your media to German \(`de-DE`\) and produce a German\-language transcription\. Mismatching language codes and spoken languages can result in an inaccurate transcript, so we advise caution when including language codes\.
+If none of the language codes you provide match the language, or languages, identified in your audio, Amazon Transcribe selects the closest language match from your specified language codes\. It then produces a transcript in that language\. For example, if your media is in US English \(`en-US`\) and you provide Amazon Transcribe with the language codes `zh-CN`, `fr-FR`, and `de-DE`, Amazon Transcribe is likely to match your media to German \(`de-DE`\) and produce a German\-language transcription\. Mismatching language codes and spoken languages can result in an inaccurate transcript, so we recommend caution when including language codes\.
 
 If your media contains two channels, Amazon Transcribe can identify the dominant language spoken in each channel\. In this case, set the [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ChannelIdentification](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_Settings.html#transcribe-Type-Settings-ChannelIdentification) parameter to `true` and each channel is transcribed separately\. Note that the default for this parameter is `false`\. If you don't change it, only the first channel is transcribed and only one language is identified\.
 
@@ -31,7 +31,7 @@ You can use automatic language identification in a streaming transcription using
 ![\[Amazon Transcribe console screenshot: the expanded 'language settings' tab.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream2.png)
 
 1. Provide a minimum of two language codes for your transcription\. Note that you can provide only one dialect per language\. For example, you cannot select both `en-US` and `en-AU` as language options for the same transcription\.  
-![\[Amazon Transcribe console screenshot: the language code selection drop-down menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream3.png)
+![\[Amazon Transcribe console screenshot: the language code selection dropdown menu.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream3.png)
 
 1. \(Optional\) From the subset of languages you selected in the previous step, you can choose a preferred language for your transcript\.  
 ![\[Amazon Transcribe console screenshot: the 'language settings' panel with preferred language options.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream4.png)
@@ -64,7 +64,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ### WebSocket stream<a name="lang-id-websocket"></a>
 
-This example creates a pre\-signed URL that uses language identification in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a presigned URL that uses language identification in a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

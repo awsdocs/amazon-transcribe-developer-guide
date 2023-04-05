@@ -20,7 +20,7 @@ To use a custom vocabulary with a batch transcription, see the following for exa
 1. At the bottom of the **Configure job** page, in the **Customization** panel, toggle on **Custom vocabulary**\.  
 ![\[Amazon Transcribe console screenshot: the 'configure job' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-configure-job-vocab.png)
 
-1. Select your custom vocabulary from the drop\-down menu\.
+1. Select your custom vocabulary from the dropdown menu\.
 
    Select **Create job** to run your transcription job\. 
 
@@ -110,10 +110,10 @@ To use a custom vocabulary with a streaming transcription, see the following for
 1. In the navigation pane, choose **Real\-time transcription**\. Scroll down to **Customizations** and expand this field if it is minimized\.  
 ![\[Amazon Transcribe console screenshot: the 'real-time transcription' page.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
 
-1. Toggle on **Custom vocabulary** and select a custom vocabulary from the drop\-down menu\.  
+1. Toggle on **Custom vocabulary** and select a custom vocabulary from the dropdown menu\.  
 ![\[Amazon Transcribe console screenshot: the expanded 'customizations' pane.\]](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-stream2.png)
 
-   Include any other settings you want to apply to your stream\.
+   Include any other settings that you want to apply to your stream\.
 
 1. You're now ready to transcribe your stream\. Select **Start streaming** and begin speaking\. To end your dictation, select **Stop streaming**\.
 
@@ -140,7 +140,7 @@ Parameter definitions can be found in the [API Reference](https://docs.aws.amazo
 
 ### WebSocket stream<a name="vocab-using-websocket"></a>
 
-This example creates a pre\-signed URL that applies your custom vocabulary to a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
+This example creates a presigned URL that applies your custom vocabulary to a WebSocket stream\. Line breaks have been added for readability\. For more information on using WebSocket streams with Amazon Transcribe, see [Setting up a WebSocket stream](streaming-websocket.md)\. For more detail on parameters, see [https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/stream-transcription-websocket?

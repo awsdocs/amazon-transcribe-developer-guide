@@ -47,13 +47,13 @@ To transcribe an HTTP/2 stream of a medical dictation, use the [https://docs.aws
 + `Specialty` – The specialty of the medical professional\.
 + `Type` – `DICTATION`
 
-For more information on setting up an HTTP/2 stream to transcribe a medical dictation, see [](streaming-http2.md)\.
+For more information on setting up an HTTP/2 stream to transcribe a medical dictation, see [Setting up an HTTP/2 stream](streaming-http2.md)\.
 
 ## Using a WebSocket streaming request to transcribe a medical dictation<a name="transcribe-medical-dictation-websocket"></a>
 
-To transcribe a medical dictation in a real\-time stream using a WebSocket request, you create a pre\-signed URI\. This URI contains the information needed to set up the audio stream between your application and Amazon Transcribe Medical\. For more information on creating WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.
+To transcribe a medical dictation in a real\-time stream using a WebSocket request, you create a presigned URI\. This URI contains the information needed to set up the audio stream between your application and Amazon Transcribe Medical\. For more information on creating WebSocket requests, see [Setting up a WebSocket stream](streaming-websocket.md)\.
 
-Use the following template to create your pre\-signed URI\.
+Use the following template to create your presigned URI\.
 
 ```
 GET wss://transcribestreaming.us-west-2.amazonaws.com:8443/medical-stream-transcription-websocket
